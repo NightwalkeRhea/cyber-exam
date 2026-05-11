@@ -1,0 +1,871 @@
+{
+  "title": "Hardware Quiz",
+  "totalQuestions": 27,
+  "extractedAt": "2026-05-11T16:03:10.834Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "In the context of side-channel analysis via scan-chain manipulation, what is the primary purpose of switching the circuit from Normal mode to Test mode at a precise time $T$?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To capture a snapshot of the internal registers containing sensitive data like cryptographic keys.",
+          "isCorrect": true,
+          "rationale": "Switching modes allows the attacker to freeze the internal state and then shift it out for analysis."
+        },
+        {
+          "label": "B",
+          "text": "To bypass the built-in error detection mechanisms of the cryptographic module.",
+          "isCorrect": false,
+          "rationale": "While the scan chain bypasses some logic, the primary goal at time $T$ is data extraction, not error suppression."
+        },
+        {
+          "label": "C",
+          "text": "To increase the clock frequency for faster extraction of the firmware.",
+          "isCorrect": false,
+          "rationale": "Test mode usually operates at lower or controlled speeds; increasing frequency is not the mechanism for side-channel extraction."
+        },
+        {
+          "label": "D",
+          "text": "To reset the cryptographic internal state to a known initial value.",
+          "isCorrect": false,
+          "rationale": "Resetting the state would destroy the sensitive data the attacker is attempting to observe."
+        }
+      ],
+      "hint": "Consider the relationship between the operational timing of a cipher and the observability of its internal flip-flops.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 2,
+      "question": "Which specific component of a Logic Built-In Self-Test (BIST) system is responsible for compressing the output stream of the Circuit Under Test (CUT) into a signature?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Test Access Port (TAP) Controller",
+          "isCorrect": false,
+          "rationale": "The TAP controller manages JTAG state transitions and does not perform output analysis itself."
+        },
+        {
+          "label": "B",
+          "text": "Test Pattern Generator (TPG)",
+          "isCorrect": false,
+          "rationale": "The TPG is responsible for providing stimuli to the circuit, not analyzing the results."
+        },
+        {
+          "label": "C",
+          "text": "Output Response Analyzer (ORA)",
+          "isCorrect": true,
+          "rationale": "The ORA collects the responses from the CUT and compares them to a golden signature or compresses them for a pass/fail result."
+        },
+        {
+          "label": "D",
+          "text": "Boundary Scan Register",
+          "isCorrect": false,
+          "rationale": "This register is used for board-level interconnect testing rather than internal logic compression and analysis."
+        }
+      ],
+      "hint": "Focus on the module that evaluates whether the circuit's behavior matches the expected results.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 3,
+      "question": "On a Controller Area Network (CAN) bus, how is a logical $0$ represented electrically, and what is the term for this state?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A voltage difference $V_{diff} \\approx 2V$, known as Recessive.",
+          "isCorrect": false,
+          "rationale": "The term 'Recessive' refers to the state where the bus is not driven, which represents a logical 1."
+        },
+        {
+          "label": "B",
+          "text": "A voltage difference $V_{diff} \\approx 5V$, known as High-Z.",
+          "isCorrect": false,
+          "rationale": "CAN uses specific differential voltages rather than high-impedance states to represent standard logic bits."
+        },
+        {
+          "label": "C",
+          "text": "A voltage difference $V_{diff} \\approx 2V$, known as Dominant.",
+          "isCorrect": true,
+          "rationale": "In CAN signaling, the dominant state (logical 0) is achieved by a voltage differential that can overwrite the recessive state."
+        },
+        {
+          "label": "D",
+          "text": "A voltage difference $V_{diff} \\approx 0V$, known as Recessive.",
+          "isCorrect": false,
+          "rationale": "A zero voltage difference actually represents a logical 1 in the CAN physical layer."
+        }
+      ],
+      "hint": "Recall how differential signaling handles arbitration when multiple nodes transmit simultaneously.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 4,
+      "question": "According to the CAN protocol's fault confinement rules, what state does a node enter when its Transmit Error Counter (TEC) or Receive Error Counter (REC) reaches a value $\\ge 128$?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Error Passive",
+          "isCorrect": true,
+          "rationale": "At this threshold, the node can still communicate but must wait longer and can only signal errors with passive error flags."
+        },
+        {
+          "label": "B",
+          "text": "Error Reset",
+          "isCorrect": false,
+          "rationale": "There is no 'Error Reset' state in the standard CAN fault confinement model; nodes must undergo a recovery procedure from Bus-Off."
+        },
+        {
+          "label": "C",
+          "text": "Bus-Off",
+          "isCorrect": false,
+          "rationale": "The Bus-Off state requires the TEC to exceed 255, indicating a much more severe fault level."
+        },
+        {
+          "label": "D",
+          "text": "Error Active",
+          "isCorrect": false,
+          "rationale": "Error Active is the normal operational state when both counters are below 128."
+        }
+      ],
+      "hint": "This state limits the node's ability to interrupt the bus with error flags to prevent a faulty node from killing the network.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 5,
+      "question": "What was the primary vulnerability exploited in the Xbox 360 to bypass security and execute unauthorized code via JTAG?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The ability to halt the processor and dump firmware through the JTAG debug and memory access capabilities.",
+          "isCorrect": true,
+          "rationale": "Attackers used JTAG to gain low-level control, allowing them to map memory and extract the system firmware."
+        },
+        {
+          "label": "B",
+          "text": "The use of scan-chain encryption with a weak, hardcoded key.",
+          "isCorrect": false,
+          "rationale": "The exploit was based on the lack of protection on the JTAG interface itself, not a failure in scan encryption."
+        },
+        {
+          "label": "C",
+          "text": "Physical tampering with the differential signaling of the CAN bus.",
+          "isCorrect": false,
+          "rationale": "The Xbox 360 exploit mentioned in the source material focuses on JTAG and firmware extraction, not CAN bus attacks."
+        },
+        {
+          "label": "D",
+          "text": "A fault injection attack that induced errors in the ORA signature of the BIST controller.",
+          "isCorrect": false,
+          "rationale": "While BIST is a DFT technique, the Xbox exploit specifically targeted the external access provided by JTAG."
+        }
+      ],
+      "hint": "Think about how JTAG provides direct access to the internal state of a processor for debugging purposes.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 6,
+      "question": "Which CAN variant provides a payload capacity of up to 2048 bytes and is designed for future zonal architectures?",
+      "options": [
+        {
+          "label": "A",
+          "text": "CAN 2.0B",
+          "isCorrect": false,
+          "rationale": "CAN 2.0B is limited to a maximum payload of only 8 bytes."
+        },
+        {
+          "label": "B",
+          "text": "CAN 2.0A",
+          "isCorrect": false,
+          "rationale": "This is the legacy standard with an 11-bit identifier and an 8-byte payload limit."
+        },
+        {
+          "label": "C",
+          "text": "CAN XL",
+          "isCorrect": true,
+          "rationale": "CAN XL is the latest evolution engineered for high-data-rate signals and large payload requirements in modern vehicle architectures."
+        },
+        {
+          "label": "D",
+          "text": "CAN FD",
+          "isCorrect": false,
+          "rationale": "CAN FD improved payload capacity but only up to 64 bytes."
+        }
+      ],
+      "hint": "Look for the variant that represents the most recent jump in bandwidth and data size capabilities.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 7,
+      "question": "In a 'Blue Teaming' context, what is a primary drawback of replacing Scan Chains with Built-In Self-Test (BIST) solutions to improve security?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It increases the cost of Automated Test Equipment (ATE).",
+          "isCorrect": false,
+          "rationale": "BIST typically reduces ATE costs because the testing logic is built into the chip itself."
+        },
+        {
+          "label": "B",
+          "text": "It may result in area overhead and lower fault coverage or more difficult diagnosis.",
+          "isCorrect": true,
+          "rationale": "The complexity of on-chip test generation and response analysis adds silicon area and can make specific faults harder to locate."
+        },
+        {
+          "label": "C",
+          "text": "It requires the use of external pins that are more vulnerable to voltage manipulation attacks.",
+          "isCorrect": false,
+          "rationale": "BIST reduces dependence on external pins, which generally improves security against simple physical probing."
+        },
+        {
+          "label": "D",
+          "text": "It completely eliminates the possibility of at-speed testing.",
+          "isCorrect": false,
+          "rationale": "BIST actually facilitates at-speed testing, which is one of its recognized advantages."
+        }
+      ],
+      "hint": "Consider the trade-offs involved in moving test logic from an external tester to the silicon itself.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 8,
+      "question": "Why does the CAN bus protocol's 'Broadcast' model represent a significant security risk if a single ECU is compromised?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It prevents the use of differential signaling, making the bus susceptible to EMI.",
+          "isCorrect": false,
+          "rationale": "The broadcast nature is a logical protocol feature and does not negate the differential electrical signaling."
+        },
+        {
+          "label": "B",
+          "text": "Every node on the bus can see all traffic, granting the attacker full visibility into the network's communication.",
+          "isCorrect": true,
+          "rationale": "Because all frames are broadcast to all nodes, a compromised node can sniff any message sent across that bus segment."
+        },
+        {
+          "label": "C",
+          "text": "It forces the network into an immediate 'Bus-Off' state when any unauthorized ID is detected.",
+          "isCorrect": false,
+          "rationale": "CAN lacks native ID-based access control, so it does not automatically disconnect for unauthorized identifiers."
+        },
+        {
+          "label": "D",
+          "text": "It allows the compromised node to change the $V_{diff}$ of all other nodes remotely.",
+          "isCorrect": false,
+          "rationale": "The physical layer properties are local to each transceiver; a node can only drive the bus, not change other nodes' electrical characteristics."
+        }
+      ],
+      "hint": "Think about the lack of segmentation in traditional bus architectures.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 9,
+      "question": "What is the function of the 'Instruction Register' within the JTAG IEEE 1149.1 standard?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To hold the data that will be shifted out of the IC pins during a boundary scan.",
+          "isCorrect": false,
+          "rationale": "That function is performed by the Boundary Scan Register, which is a data register, not the instruction register."
+        },
+        {
+          "label": "B",
+          "text": "To determine which operation (e.g., BST, programming, or debugging) the TAP controller will perform on the data registers.",
+          "isCorrect": true,
+          "rationale": "The instruction register selects the mode of operation, which then dictates which data register is connected between TDI and TDO."
+        },
+        {
+          "label": "C",
+          "text": "To provide the secret key for scan-chain encryption.",
+          "isCorrect": false,
+          "rationale": "Security keys are typically stored in specialized secure memory or electronic fuses, not the standard JTAG instruction register."
+        },
+        {
+          "label": "D",
+          "text": "To store the compressed pass/fail signature from the ORA.",
+          "isCorrect": false,
+          "rationale": "This is a function of BIST hardware rather than the standard JTAG instruction register."
+        }
+      ],
+      "hint": "This register acts as the command center for deciding what the JTAG interface is currently doing.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 10,
+      "question": "Scan-chain based fault injection attacks are particularly dangerous because they allow an attacker to:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Induce specific errors in cryptographic computations by shifting arbitrary values into internal registers.",
+          "isCorrect": true,
+          "rationale": "By controlling the bits in the scan chain, an attacker can set internal states that bypass security checks or leak key info through errors."
+        },
+        {
+          "label": "B",
+          "text": "Bypass the need for a clock signal (TCK) during the shift operation.",
+          "isCorrect": false,
+          "rationale": "Shift operations fundamentally require a clock to move data through the registers."
+        },
+        {
+          "label": "C",
+          "text": "Overwrite the electronic fuses that disable the JTAG interface.",
+          "isCorrect": false,
+          "rationale": "Fuses are typically non-volatile and cannot be 'overwritten' simply by shifting data into volatile scan flip-flops."
+        },
+        {
+          "label": "D",
+          "text": "Permanently damage the silicon by increasing the power consumption during shift.",
+          "isCorrect": false,
+          "rationale": "While excessive shifting can cause heat, the goal of fault injection is logical manipulation, not physical destruction."
+        }
+      ],
+      "hint": "Focus on how the ability to set internal flip-flop values can disrupt the logic of a secure module.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 11,
+      "question": "Which of the following is a 'Blue Teaming' countermeasure that involves physically altering the PCB to prevent unauthorized JTAG access?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Scattering JTAG pins across the board instead of using a standard connector.",
+          "isCorrect": true,
+          "rationale": "Physical obfuscation makes it difficult for an attacker to identify and connect to the necessary debug signals."
+        },
+        {
+          "label": "B",
+          "text": "Increasing the number of scan chains to make reverse-engineering more complex.",
+          "isCorrect": false,
+          "rationale": "This is a design-for-test strategy that may complicate logic analysis but doesn't address physical connector access."
+        },
+        {
+          "label": "C",
+          "text": "Implementing Scan Chain Encryption with a secret key.",
+          "isCorrect": false,
+          "rationale": "This is an architectural change within the IC design, not a physical modification of the PCB."
+        },
+        {
+          "label": "D",
+          "text": "Using a Secure Test Access Mechanism with challenge-response.",
+          "isCorrect": false,
+          "rationale": "This is a logical/electronic security measure rather than a physical alteration of the PCB layout."
+        }
+      ],
+      "hint": "Think about the physical layout of the circuit board components.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 12,
+      "question": "How does the CAN protocol handle a situation where two nodes begin transmitting at the same time and their identifiers differ at a specific bit position?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The node transmitting a logical 1 (Recessive) wins and continues, while the other stops.",
+          "isCorrect": false,
+          "rationale": "The dominant bit (0) always overwrites the recessive bit (1), so the node with the recessive bit loses."
+        },
+        {
+          "label": "B",
+          "text": "Both nodes detect a collision and immediately enter the 'Error Passive' state.",
+          "isCorrect": false,
+          "rationale": "CAN uses non-destructive arbitration; the higher priority node continues without entering an error state."
+        },
+        {
+          "label": "C",
+          "text": "The bus master chooses the node with the higher bitrate to continue transmitting.",
+          "isCorrect": false,
+          "rationale": "CAN is a multi-master system without a centralized bus master to manage arbitration."
+        },
+        {
+          "label": "D",
+          "text": "The node transmitting a logical 0 (Dominant) wins arbitration and the other node becomes a receiver.",
+          "isCorrect": true,
+          "rationale": "This bit-wise arbitration ensures that the message with the lowest numerical ID (highest priority) is sent without delay."
+        }
+      ],
+      "hint": "Consider the electrical dominance of logical zeros over logical ones on the shared bus.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 13,
+      "question": "What is the purpose of the 'Electronic Fuses' in a Secure Test Access Mechanism for JTAG?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To act as a primary source of power for the TAP controller during low-power modes.",
+          "isCorrect": false,
+          "rationale": "Fuses are not power sources; they are passive elements used for storing state."
+        },
+        {
+          "label": "B",
+          "text": "To store a secret key or status used to validate a challenge-response during the access request.",
+          "isCorrect": true,
+          "rationale": "Fuses provide non-volatile storage that the system can use to verify if the JTAG debugger has the rights to access the IC."
+        },
+        {
+          "label": "C",
+          "text": "To permanently disable the TCK signal if a tampering attempt is detected.",
+          "isCorrect": false,
+          "rationale": "Fuses are typically used for configuration or key storage, not as active 'tripwires' for the clock signal."
+        },
+        {
+          "label": "D",
+          "text": "To encrypt the TDI and TDO data streams in real-time.",
+          "isCorrect": false,
+          "rationale": "Encryption is performed by logic gates (codecs), while fuses only provide the static key material for that logic."
+        }
+      ],
+      "hint": "Think about how the system persistently 'remembers' if an interface should be locked or what the expected response is.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 14,
+      "question": "What happens to a CAN node when its Transmit Error Counter (TEC) exceeds the critical threshold of $255$?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It becomes 'Error Passive' and can no longer transmit dominant error flags.",
+          "isCorrect": false,
+          "rationale": "This happens at the lower threshold of 128, not at 255."
+        },
+        {
+          "label": "B",
+          "text": "It enters the 'Bus-Off' state and is physically/logically disconnected from communication.",
+          "isCorrect": true,
+          "rationale": "The Bus-Off state is a safety mechanism to prevent a malfunctioning node from permanently disrupting the bus."
+        },
+        {
+          "label": "C",
+          "text": "It switches to CAN FD mode to increase data integrity.",
+          "isCorrect": false,
+          "rationale": "A node cannot change protocol variants as a response to errors; variants are determined by hardware and configuration."
+        },
+        {
+          "label": "D",
+          "text": "It immediately resets both the TEC and REC to zero and attempts to retransmit.",
+          "isCorrect": false,
+          "rationale": "Automatic reset does not happen; the node must follow a specific recovery sequence after being in Bus-Off."
+        }
+      ],
+      "hint": "This is the most severe state in the fault confinement mechanism, essentially silencing the node.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 15,
+      "question": "In the evolution of Design for Testability (DFT), what was the primary reason Scan Design became 'inefficient' for deep submicron VLSI?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Excessive test application time and massive test data volumes as chip complexity increased.",
+          "isCorrect": true,
+          "rationale": "As flip-flop counts reached millions, shifting bits sequentially through scan chains became a bottleneck."
+        },
+        {
+          "label": "B",
+          "text": "The power consumption of differential signaling during scan mode became too high.",
+          "isCorrect": false,
+          "rationale": "Scan design typically uses standard single-ended logic levels for internal shift, not differential signaling."
+        },
+        {
+          "label": "C",
+          "text": "Scan cells were found to be more susceptible to side-channel attacks than BIST.",
+          "isCorrect": false,
+          "rationale": "While true, the 'inefficiency' referred to in DFT evolution is about test time and data volume, not security."
+        },
+        {
+          "label": "D",
+          "text": "The inability to use JTAG with smaller transistors.",
+          "isCorrect": false,
+          "rationale": "JTAG is a protocol standard that scales with transistor size; it is not the reason for inefficiency."
+        }
+      ],
+      "hint": "Consider the practical constraints of shifting millions of bits one by one in a very complex circuit.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 16,
+      "question": "Which security property is directly compromised by the fact that standard CAN frames do not include a sender identifier or cryptographic signature?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Availability",
+          "isCorrect": false,
+          "rationale": "While related to DoS, the lack of an ID primarily affects the ability to verify the sender's identity."
+        },
+        {
+          "label": "B",
+          "text": "Fault Tolerance",
+          "isCorrect": false,
+          "rationale": "Fault tolerance is a safety mechanism present in CAN; it is not a security property negated by missing signatures."
+        },
+        {
+          "label": "C",
+          "text": "Authenticity",
+          "isCorrect": true,
+          "rationale": "Without a way to prove who sent a message, any node can spoof another node's ID, leading to a lack of authenticity."
+        },
+        {
+          "label": "D",
+          "text": "Confidentiality",
+          "isCorrect": false,
+          "rationale": "Confidentiality is about data visibility; the lack of identification relates specifically to the source of the data."
+        }
+      ],
+      "hint": "Think about the term used to describe the guarantee that a message comes from its claimed source.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 17,
+      "question": "What is a 'Random-Access Scan Design' and what is its primary advantage over traditional serial scan chains?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It allows cells to be uniquely addressed like RAM, reducing power consumption by avoiding unnecessary shifts.",
+          "isCorrect": true,
+          "rationale": "By addressing only the needed flip-flops, the design avoids toggling every cell in a chain, which saves power."
+        },
+        {
+          "label": "B",
+          "text": "It uses random test patterns to improve fault coverage in safety-critical apps.",
+          "isCorrect": false,
+          "rationale": "This describes BIST/TPG functionality, not the access mechanism of the scan registers."
+        },
+        {
+          "label": "C",
+          "text": "It automatically encrypts the scan data with a random key every clock cycle.",
+          "isCorrect": false,
+          "rationale": "Random-Access Scan refers to the addressing mode, not a security encryption feature."
+        },
+        {
+          "label": "D",
+          "text": "It enables the JTAG TAP controller to bypass the Instruction Register entirely.",
+          "isCorrect": false,
+          "rationale": "The TAP controller still needs instructions to manage the random access hardware."
+        }
+      ],
+      "hint": "Compare how data is accessed in a shift register versus a memory array.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 18,
+      "question": "In a Red Teaming vulnerability exploitation, why is it necessary to 'reverse' the test compressors and decompressors if they are present?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Because they encrypt the scan data with a secret key.",
+          "isCorrect": false,
+          "rationale": "Compressors are for data volume reduction, not encryption; reversing them is about mapping bits back to registers."
+        },
+        {
+          "label": "B",
+          "text": "To increase the bitrate of the JTAG interface to bypass the watchdog timer.",
+          "isCorrect": false,
+          "rationale": "Compression affects the data itself, not the interface bitrate or watchdog logic."
+        },
+        {
+          "label": "C",
+          "text": "To translate the observed output bits back into the actual values of the target flip-flops.",
+          "isCorrect": true,
+          "rationale": "Compressors scramble the relationship between internal flip-flops and external pins, so the attacker must understand that mapping to steal data."
+        },
+        {
+          "label": "D",
+          "text": "To prevent the BIST controller from issuing a 'Fail' signal during the attack.",
+          "isCorrect": false,
+          "rationale": "Reversing compressors is for data extraction; BIST status is a separate observation point."
+        }
+      ],
+      "hint": "Think about how a compressed signal must be handled to see the original, individual components.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 19,
+      "question": "What does the 'Boundary Scan' technique specifically allow a manufacturer to verify on a populated Printed Circuit Board (PCB)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The presence of scan-chain encryption logic within the IC core.",
+          "isCorrect": false,
+          "rationale": "Boundary scan is an external testing standard and does not provide visibility into internal security countermeasures."
+        },
+        {
+          "label": "B",
+          "text": "The integrity of the cryptographic keys stored in the electronic fuses.",
+          "isCorrect": false,
+          "rationale": "Boundary scan is for physical connectivity testing, not for verifying the logical content of secure memory."
+        },
+        {
+          "label": "C",
+          "text": "That the solder joints between the chip pins and the board are functional.",
+          "isCorrect": true,
+          "rationale": "By controlling and observing pins through the scan cells, one can check if electrical paths between chips are intact."
+        },
+        {
+          "label": "D",
+          "text": "The internal clock speed of the deep submicron processor core.",
+          "isCorrect": false,
+          "rationale": "Boundary scan cells are at the periphery (I/O pads) and do not measure internal core performance or timing."
+        }
+      ],
+      "hint": "Focus on the physical connections on the board rather than the internal logic of the chips.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 20,
+      "question": "What is the primary trade-off when implementing stronger security measures (like authentication) on safety-critical ECUs in a vehicle network?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It requires the use of single-ended signaling, which is less robust against noise.",
+          "isCorrect": false,
+          "rationale": "Security is protocol-level and does not force a change in the physical differential signaling."
+        },
+        {
+          "label": "B",
+          "text": "It makes physical tampering with the twisted pair wires impossible.",
+          "isCorrect": false,
+          "rationale": "Protocol security cannot prevent physical access to the wires."
+        },
+        {
+          "label": "C",
+          "text": "Stronger security increases the bitrate beyond the limits of CAN XL.",
+          "isCorrect": false,
+          "rationale": "While it adds data, the primary constraint is usually the time taken to process the security, not the bus capacity itself."
+        },
+        {
+          "label": "D",
+          "text": "Computational overhead may cause the ECU to miss critical real-time deadlines.",
+          "isCorrect": true,
+          "rationale": "Safety-critical tasks (braking, steering) must happen within milliseconds; security processing adds latency that could be dangerous."
+        }
+      ],
+      "hint": "Consider the 'real-time' requirements of systems that control the physical movement of a car.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 21,
+      "question": "Which CAN field is abused in an 'Arbitration Attack' to win control of the bus and block other messages?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The Identifier (ID) field",
+          "isCorrect": true,
+          "rationale": "By transmitting a low numerical ID (full of dominant bits), an attacker can ensure they always win arbitration against higher IDs."
+        },
+        {
+          "label": "B",
+          "text": "The CRC (Cyclic Redundancy Check) field",
+          "isCorrect": false,
+          "rationale": "CRC is used for error detection at the end of the frame, not for initial bus arbitration."
+        },
+        {
+          "label": "C",
+          "text": "The Payload/Data field",
+          "isCorrect": false,
+          "rationale": "Arbitration occurs at the start of the frame, before the data payload is even transmitted."
+        },
+        {
+          "label": "D",
+          "text": "The REC (Receive Error Counter)",
+          "isCorrect": false,
+          "rationale": "The REC is an internal counter, not a field within a CAN frame."
+        }
+      ],
+      "hint": "Look for the part of the message that determines its priority.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 22,
+      "question": "If Scan Chain Encryption is implemented, what is the 'Constraint' mentioned for modifying the test vector and response offline?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The scan chain must be converted into a Random-Access Scan.",
+          "isCorrect": false,
+          "rationale": "Encryption can be applied to standard serial chains without requiring a random-access architecture."
+        },
+        {
+          "label": "B",
+          "text": "The $V_{diff}$ of the TAP controller must be kept at a constant 2V.",
+          "isCorrect": false,
+          "rationale": "Voltage levels of JTAG are generally standard logic levels and don't relate to the encryption constraint."
+        },
+        {
+          "label": "C",
+          "text": "The attacker must first disable the BIST ORA.",
+          "isCorrect": false,
+          "rationale": "The constraint is about the authorized tester's ability to prepare data, not an attacker's requirement."
+        },
+        {
+          "label": "D",
+          "text": "The secret key must be known to encrypt the test stimulus and decrypt the response.",
+          "isCorrect": true,
+          "rationale": "Without the key, the tester cannot generate valid inputs for the encrypted chain or interpret the results."
+        }
+      ],
+      "hint": "Consider what is required to work with data that has been intentionally obscured by a cryptographic process.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 23,
+      "question": "In the context of CAN security, what does a 'Replay' attack involve?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Physically reconnecting a 'Bus-Off' node to the network.",
+          "isCorrect": false,
+          "rationale": "This is a physical recovery action, not a replay attack."
+        },
+        {
+          "label": "B",
+          "text": "Capturing valid bus traffic and re-transmitting it later to trigger unauthorized actions.",
+          "isCorrect": true,
+          "rationale": "Because CAN lacks native freshness (timestamps/counters), old valid commands (like 'unlock doors') can be reused by an attacker."
+        },
+        {
+          "label": "C",
+          "text": "Using JTAG to rewrite the ID table of a gateway ECU.",
+          "isCorrect": false,
+          "rationale": "This is a firmware modification or exploit, not a message replay on the network bus."
+        },
+        {
+          "label": "D",
+          "text": "Forcing a node to increment its TEC until it disconnects.",
+          "isCorrect": false,
+          "rationale": "This describes a Denial of Service (DoS) attack via error forcing, not a replay attack."
+        }
+      ],
+      "hint": "Think about an attacker using legitimate-looking but outdated information.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 24,
+      "question": "What role does the 'Gateway' play in modern zonal vehicle architectures regarding cybersecurity?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is critical for network segmentation and secure routing of data between different buses.",
+          "isCorrect": true,
+          "rationale": "Gateways isolate different network segments (e.g., infotainment vs. powertrain) to prevent an attack in one area from spreading."
+        },
+        {
+          "label": "B",
+          "text": "It acts as the primary Test Pattern Generator for BIST logic.",
+          "isCorrect": false,
+          "rationale": "BIST is local to each IC; the gateway is a network-level component."
+        },
+        {
+          "label": "C",
+          "text": "It performs differential signaling for the entire vehicle to reduce noise.",
+          "isCorrect": false,
+          "rationale": "Differential signaling is a property of the individual bus wires and transceivers, not a centralized gateway function."
+        },
+        {
+          "label": "D",
+          "text": "It overwrites dominant bits with recessive ones to prevent DoS attacks.",
+          "isCorrect": false,
+          "rationale": "Physically overwriting bits in real-time is not a standard gateway function and is electronically complex."
+        }
+      ],
+      "hint": "Think of a gateway as a traffic controller between different isolated zones of the network.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 25,
+      "question": "Which signal in the JTAG Test Access Port (TAP) is responsible for controlling the state transitions of the TAP controller's finite state machine?",
+      "options": [
+        {
+          "label": "A",
+          "text": "TRST (Test Reset)",
+          "isCorrect": false,
+          "rationale": "TRST is an optional signal used to asynchronously reset the controller to a known state, not for normal transitions."
+        },
+        {
+          "label": "B",
+          "text": "TDI (Test Data Input)",
+          "isCorrect": false,
+          "rationale": "TDI is for shifting in data or instructions, not for controlling the state machine's transitions."
+        },
+        {
+          "label": "C",
+          "text": "TMS (Test Mode Select)",
+          "isCorrect": true,
+          "rationale": "TMS is sampled on the rising edge of TCK to determine the next state in the controller's sequence."
+        },
+        {
+          "label": "D",
+          "text": "TDO (Test Data Output)",
+          "isCorrect": false,
+          "rationale": "TDO is the output path for data being shifted out of the chip."
+        }
+      ],
+      "hint": "Look for the signal that 'selects' the current operational 'mode' or state.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 26,
+      "question": "What is the security implication of CAN bus 'Multi-master access' combined with a lack of bus-level access control?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It ensures that only the manufacturer can send diagnostic frames.",
+          "isCorrect": false,
+          "rationale": "Multi-master access actually means *any* node can attempt to send any frame, making it hard to restrict diagnostics."
+        },
+        {
+          "label": "B",
+          "text": "It means any node that can drive the bus can potentially send any message ID it chooses.",
+          "isCorrect": true,
+          "rationale": "Without a central authority or authentication, there is no verification of which node is 'allowed' to send a specific identifier."
+        },
+        {
+          "label": "C",
+          "text": "It forces nodes to wait for a master clock before winning arbitration.",
+          "isCorrect": false,
+          "rationale": "CAN is asynchronous and uses the bits themselves for arbitration rather than a centralized master clock."
+        },
+        {
+          "label": "D",
+          "text": "It automatically encrypts the bus traffic to prevent multi-node sniffing.",
+          "isCorrect": false,
+          "rationale": "Multi-master access refers to transmission rights, not data confidentiality or encryption."
+        }
+      ],
+      "hint": "Think about the freedom a 'multi-master' system gives to any single participant on the network.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 27,
+      "question": "How does 'Scan Compression' (a 'Codec') serve as a minor security hurdle for a Red Teaming attacker?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It reduces the JTAG clock speed to a crawl, making extraction take years.",
+          "isCorrect": false,
+          "rationale": "Compression is designed to speed up testing; it does not intentionally slow down the interface."
+        },
+        {
+          "label": "B",
+          "text": "It requires the attacker to have physical access to the IC core with an electron microscope.",
+          "isCorrect": false,
+          "rationale": "While physical attacks exist, the compression itself is a logical hurdle that can be bypassed through analysis of the hardware design."
+        },
+        {
+          "label": "C",
+          "text": "It makes the relationship between internal flip-flops and external scan-out bits complex and non-obvious.",
+          "isCorrect": true,
+          "rationale": "An attacker cannot simply read the output bits as a linear sequence of register values; they must first understand the compression mapping."
+        },
+        {
+          "label": "D",
+          "text": "It uses a hardware-based AES-256 algorithm to protect the scan bits.",
+          "isCorrect": false,
+          "rationale": "Standard scan compression uses simple logic (like XOR trees) for volume reduction, not heavy cryptographic algorithms."
+        }
+      ],
+      "hint": "Consider the effect of scrambling or 'mashing together' many signals into fewer output pins.",
+      "correctAnswer": "C"
+    }
+  ]
+}

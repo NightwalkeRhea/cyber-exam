@@ -1,0 +1,903 @@
+{
+  "title": "Hardware Quiz",
+  "totalQuestions": 28,
+  "extractedAt": "2026-05-11T15:55:14.141Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "According to the ISO/IEC definition, what is the primary characteristic of a 'trusted' component within a system?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is a hardware element that is physically isolated from the main system bus to prevent side-channel attacks.",
+          "isCorrect": false,
+          "rationale": "Isolation is a design strategy, whereas the standard definition of trust describes the expected behavior and integrity of the component."
+        },
+        {
+          "label": "B",
+          "text": "Its behavior is predictable under almost any operating condition and it resists subversion by software or physical interference.",
+          "isCorrect": true,
+          "rationale": "The core of trust as defined by ISO/IEC lies in the combination of behavioral predictability across conditions and high resistance to external or internal malicious influence."
+        },
+        {
+          "label": "C",
+          "text": "It is a component that encrypts all data transmissions between the CPU and peripheral devices.",
+          "isCorrect": false,
+          "rationale": "Encryption is a security function, but trust refers specifically to the reliability and subversion-resistance of the component's internal logic."
+        },
+        {
+          "label": "D",
+          "text": "It is an open-source hardware component that can be audited by third-party security experts.",
+          "isCorrect": false,
+          "rationale": "While auditability is a means to achieve trust, the definition itself focuses on the functional predictability and resilience of the component."
+        }
+      ],
+      "hint": "Consider the predictability of behavior and resistance to various forms of interference.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 2,
+      "question": "Why is a 'Root of Trust' (RoT) considered a unique foundational element in a security architecture?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Its misbehavior cannot be detected, therefore it must always behave in the expected manner.",
+          "isCorrect": true,
+          "rationale": "By definition, an RoT is the starting point of trust; if it fails or is compromised, there is no higher authority within the system to identify the failure."
+        },
+        {
+          "label": "B",
+          "text": "It is the only component in a system capable of performing asymmetric cryptographic operations.",
+          "isCorrect": false,
+          "rationale": "Many components, including software libraries, can perform asymmetric operations, but they are not necessarily Roots of Trust."
+        },
+        {
+          "label": "C",
+          "text": "It utilizes a secondary processor to monitor the primary CPU for instruction-level anomalies.",
+          "isCorrect": false,
+          "rationale": "This describes a monitor or an IDS rather than the fundamental definition of a component that must be inherently trusted."
+        },
+        {
+          "label": "D",
+          "text": "It is a software-based anchor that verifies the integrity of the hardware during the boot sequence.",
+          "isCorrect": false,
+          "rationale": "A Root of Trust is typically hardware-based because software is more susceptible to undetected modifications."
+        }
+      ],
+      "hint": "Think about the implications of a component that serves as the ultimate basis for all subsequent security checks.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 3,
+      "question": "How does a Trust Anchor differ from a standard trusted entity in a Public Key Infrastructure (PKI)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is a temporary key generated during the TLS handshake to secure the current session.",
+          "isCorrect": false,
+          "rationale": "Session keys are ephemeral and derived from trust, whereas anchors are persistent and foundational."
+        },
+        {
+          "label": "B",
+          "text": "It is trusted because it is directly built into hardware or securely provisioned out-of-band rather than being vouched for by a certificate.",
+          "isCorrect": true,
+          "rationale": "A Trust Anchor is the 'end of the line' for verification; it does not rely on a signature from another entity because it is pre-installed or hard-coded."
+        },
+        {
+          "label": "C",
+          "text": "It requires a valid certificate from a Root Certificate Authority to be recognized by the system.",
+          "isCorrect": false,
+          "rationale": "If it required a certificate, it would be a leaf or intermediate node in a chain, not the anchor itself."
+        },
+        {
+          "label": "D",
+          "text": "It functions as a backup key used only when the primary hardware security module fails.",
+          "isCorrect": false,
+          "rationale": "While it could be used for recovery, its primary definition is the source of trust that is not dependent on other entities."
+        }
+      ],
+      "hint": "Focus on how the trust for the key is established—is it through a third party or inherent to the system?",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 4,
+      "question": "Which TPM 2.0 component is specifically responsible for maintaining an accurate summary of integrity digests and managing keying material?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Core Root of Trust for Measurement (CRTM)",
+          "isCorrect": false,
+          "rationale": "The CRTM is the initial set of instructions (often in the BIOS/UEFI) that starts the measurement process."
+        },
+        {
+          "label": "B",
+          "text": "Root of Trust for Reporting (RTR)",
+          "isCorrect": false,
+          "rationale": "The RTR is focused on the reliable reporting and signing of information that is actually held by the RTS."
+        },
+        {
+          "label": "C",
+          "text": "Root of Trust for Storage (RTS)",
+          "isCorrect": true,
+          "rationale": "The RTS acts as the secure repository for both the integrity measurements (digests) and the cryptographic keys used by the TPM."
+        },
+        {
+          "label": "D",
+          "text": "Root of Trust for Measurement (RTM)",
+          "isCorrect": false,
+          "rationale": "The RTM is the engine that calculates the measurements (like hashes) before they are sent to the RTS."
+        }
+      ],
+      "hint": "Distinguish between the engine that creates measurements and the engine that holds them and manages keys.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 5,
+      "question": "In a standard TPM implementation, what is the role of the Core Root of Trust for Measurement (CRTM)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is a physically unclonable function used to generate a unique device ID.",
+          "isCorrect": false,
+          "rationale": "While a PUF can be a Root of Trust, the CRTM specifically refers to the initial execution logic of the boot process."
+        },
+        {
+          "label": "B",
+          "text": "It serves as the interface between the TPM chip and the Operating System's kernel.",
+          "isCorrect": false,
+          "rationale": "Interaction with the OS usually occurs via drivers and TPM Command Response Buffers, not the CRTM."
+        },
+        {
+          "label": "C",
+          "text": "It is a volatile memory region used to store session keys during runtime execution.",
+          "isCorrect": false,
+          "rationale": "The CRTM is code-based and foundational to boot, not a temporary storage area for session data."
+        },
+        {
+          "label": "D",
+          "text": "It is the first set of instructions executed upon system reset that establishes the beginning of the chain of trust.",
+          "isCorrect": true,
+          "rationale": "The CRTM is the immutable boot code that measures the next stage of firmware, initiating the secure boot sequence."
+        }
+      ],
+      "hint": "Look for the component that is active at the very moment the power is turned on.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 6,
+      "question": "Which international standard, released in 2019, recommends the use of a TPM for securing high-risk industrial devices?",
+      "options": [
+        {
+          "label": "A",
+          "text": "IEEE 802.1X",
+          "isCorrect": false,
+          "rationale": "This standard is focused on port-based network access control, not the internal hardware security of industrial devices."
+        },
+        {
+          "label": "B",
+          "text": "IEC 62443-4-2",
+          "isCorrect": true,
+          "rationale": "This standard focuses on technical security requirements for IACS (Industrial Automation and Control Systems) components, including the use of hardware-rooted security."
+        },
+        {
+          "label": "C",
+          "text": "NIST SP 800-53",
+          "isCorrect": false,
+          "rationale": "While it covers security controls, it is a US federal guideline rather than the specific international industrial standard mentioned."
+        },
+        {
+          "label": "D",
+          "text": "ISO/IEC 27001",
+          "isCorrect": false,
+          "rationale": "This is a broad management standard for information security, not specific to hardware requirements for industrial devices."
+        }
+      ],
+      "hint": "This standard is part of a family dealing with Industrial Communication Networks and IT Security.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 7,
+      "question": "What is the critical requirement for the interaction between the Root of Trust for Reporting (RTR) and the Root of Trust for Storage (RTS)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The RTS must encrypt all data before sending it to the RTR using a one-time pad.",
+          "isCorrect": false,
+          "rationale": "While security is needed, the source material specifies resistance to software/physical attacks and digest accuracy rather than specific encryption algorithms like one-time pads."
+        },
+        {
+          "label": "B",
+          "text": "The RTR must verify the manufacturer's certificate of the RTS before every transaction.",
+          "isCorrect": false,
+          "rationale": "In a TPM, these are typically sub-components of the same trusted module, so constant certificate verification between them is not the primary architectural requirement."
+        },
+        {
+          "label": "C",
+          "text": "It must be resistant to software attacks and supply an accurate digest of all sequences of presented integrity metrics.",
+          "isCorrect": true,
+          "rationale": "The bond between reporting and storage must be airtight to ensure that the reported state exactly matches the stored, measured state without tampering."
+        },
+        {
+          "label": "D",
+          "text": "The interaction must be mediated by the main CPU to ensure the kernel can audit the reporting process.",
+          "isCorrect": false,
+          "rationale": "Mediating through a potentially compromised CPU would break the chain of trust; the interaction should be internal to the trusted hardware."
+        }
+      ],
+      "hint": "Consider the integrity of the data being passed and the environment it must survive.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 8,
+      "question": "Within a TPM, what distinguishes a 'Shielded Location' from a 'Protected Location' located outside the TPM?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Shielded Locations are managed by the OS kernel, while Protected Locations are managed by the hardware.",
+          "isCorrect": false,
+          "rationale": "Hardware-based security aims to keep sensitive locations away from kernel control to prevent compromise if the OS is subverted."
+        },
+        {
+          "label": "B",
+          "text": "Shielded Locations are used for public keys, while Protected Locations are reserved for private and symmetric keys.",
+          "isCorrect": false,
+          "rationale": "Sensitive data (private keys) should ideally stay in Shielded Locations; Protected Locations are for data that must reside externally but still requires security."
+        },
+        {
+          "label": "C",
+          "text": "Shielded Locations do not disclose contents unless intended and are accessible only by allowed entities, whereas Protected Locations outside the TPM rely on encryption and tamper resistance.",
+          "isCorrect": true,
+          "rationale": "Shielded locations are internal to the TPM's security boundary; data outside that boundary must be protected via encryption using keys that never leave the TPM."
+        },
+        {
+          "label": "D",
+          "text": "Shielded Locations are volatile memory regions, whereas Protected Locations are always non-volatile flash memory.",
+          "isCorrect": false,
+          "rationale": "The distinction is based on the security boundary and access control, not the physical volatility of the memory."
+        }
+      ],
+      "hint": "Think about where the security boundary of the TPM chip itself ends.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 9,
+      "question": "How is a 'Trusted Execution Environment' (TEE) fundamentally different from a TPM in terms of its integration and scope?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A TEE only handles asymmetric cryptography, whereas a TPM handles both symmetric and asymmetric engines.",
+          "isCorrect": false,
+          "rationale": "TEE environments are general-purpose and can run various cryptographic algorithms in software within the enclave."
+        },
+        {
+          "label": "B",
+          "text": "A TEE is integrated into the main processor to provide a secure area for code execution, whereas a TPM is typically a separate module for key storage and cryptographic operations.",
+          "isCorrect": true,
+          "rationale": "The TEE focuses on runtime security for applications (secure enclaves), while the TPM is a fixed-functionality peripheral for trust anchoring and metrics."
+        },
+        {
+          "label": "C",
+          "text": "TEEs are primarily used for secure boot, while TPMs are used for mobile payments and DRM.",
+          "isCorrect": false,
+          "rationale": "The source material indicates these roles are actually often reversed: TPMs handle secure boot/integrity, and TEEs handle payments/DRM."
+        },
+        {
+          "label": "D",
+          "text": "A TPM provides isolation for entire operating systems, while a TEE only isolates specific hardware registers.",
+          "isCorrect": false,
+          "rationale": "TPMs do not provide execution isolation for OSs; TEEs provide isolation for code and data within the main processor's memory."
+        }
+      ],
+      "hint": "Consider which one acts as a 'secure area' for running code versus a 'dedicated module' for keys.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 10,
+      "question": "What architectural mechanism is typically used by a TEE to ensure the confidentiality and integrity of code loaded inside it?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Implementing a software-only hypervisor that traps all memory access requests.",
+          "isCorrect": false,
+          "rationale": "The definition of a TEE explicitly mentions 'hardware-based' mechanisms rather than software-only solutions."
+        },
+        {
+          "label": "B",
+          "text": "Air-gapping the secure processor from the system bus during execution.",
+          "isCorrect": false,
+          "rationale": "A TEE is part of the main processor; air-gapping would prevent it from functioning within the system architecture."
+        },
+        {
+          "label": "C",
+          "text": "Hardware-based memory encryption and isolated regions called enclaves.",
+          "isCorrect": true,
+          "rationale": "TEEs rely on hardware-enforced isolation and encryption to prevent the main OS or other applications from accessing sensitive code/data."
+        },
+        {
+          "label": "D",
+          "text": "Using a secondary physical CPU core that shares no cache with the primary core.",
+          "isCorrect": false,
+          "rationale": "While some designs use dedicated cores, the standard TEE concept (like ARM TrustZone or Intel SGX) involves logical and hardware isolation within a shared environment."
+        }
+      ],
+      "hint": "Think about the specific terms used for the isolated memory regions.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 11,
+      "question": "What is the relationship between a TEE and a Trust Anchor?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The TEE serves as the primary trust anchor for the TPM's internal firmware updates.",
+          "isCorrect": false,
+          "rationale": "The TPM is usually more foundational; it anchors the system, including the TEE, rather than the other way around."
+        },
+        {
+          "label": "B",
+          "text": "TEEs use software-based trust anchors to avoid the performance overhead of hardware keys.",
+          "isCorrect": false,
+          "rationale": "Hardware-based trust anchors are preferred for high security to prevent the anchor itself from being subverted by software."
+        },
+        {
+          "label": "C",
+          "text": "TEEs and Trust Anchors are synonymous terms in the Global Platform standard.",
+          "isCorrect": false,
+          "rationale": "Global Platform defines TEE as an execution environment, which is a distinct concept from a trust anchor (a root key/identity)."
+        },
+        {
+          "label": "D",
+          "text": "TEEs are not typically trust anchors themselves, but they rely on trust anchors (like TPMs) to establish their own trustworthiness.",
+          "isCorrect": true,
+          "rationale": "A TEE's secure OS and applications must be verified during boot, usually by a hardware-based trust anchor, to ensure the TEE hasn't been compromised."
+        }
+      ],
+      "hint": "Consider whether an environment that executes code can exist without a predefined source of trust.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 12,
+      "question": "In the context of a Memory Protection Unit (MPU), how are access rights for memory pages typically managed?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Access rights are decided by a privileged kernel, and the MPU automatically processes addresses without further kernel intervention.",
+          "isCorrect": true,
+          "rationale": "The hardware (MPU) enforces the rules in real-time at the architectural level, while the privileged software (kernel) sets those rules."
+        },
+        {
+          "label": "B",
+          "text": "The MPU uses a neural network to dynamically learn which processes should have access to specific data.",
+          "isCorrect": false,
+          "rationale": "MPUs use deterministic logic (tables/registers) configured by the kernel, not dynamic learning."
+        },
+        {
+          "label": "C",
+          "text": "Each application must request a cryptographic token from the MPU before every read or write operation.",
+          "isCorrect": false,
+          "rationale": "This would be far too slow for memory access; MPUs check permissions based on the current processor state and address bus."
+        },
+        {
+          "label": "D",
+          "text": "Access rights are hard-coded into the hardware at the time of manufacture and cannot be changed.",
+          "isCorrect": false,
+          "rationale": "Access rights must be configurable by the OS kernel to support different tasks and processes during runtime."
+        }
+      ],
+      "hint": "Focus on the roles of the 'privileged kernel' and the 'automatic hardware processing'.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 13,
+      "question": "What occurs immediately when an MPU detects an access violation (e.g., a process trying to write to a read-only page)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The system enters a low-power state to preserve the contents of the registers for debugging.",
+          "isCorrect": false,
+          "rationale": "While a trap or exception might occur for debugging, the primary security action is the termination of the non-compliant process."
+        },
+        {
+          "label": "B",
+          "text": "The MPU encrypts the page and prompts the user for a password.",
+          "isCorrect": false,
+          "rationale": "MPUs are low-level architectural components; they do not interact with users or perform complex on-the-fly encryption in response to violations."
+        },
+        {
+          "label": "C",
+          "text": "The task is immediately aborted.",
+          "isCorrect": true,
+          "rationale": "To maintain system integrity, hardware-level security components like the MPU must stop the offending operation instantly."
+        },
+        {
+          "label": "D",
+          "text": "The MPU logs the event and allows the operation to proceed once to prevent system crashes.",
+          "isCorrect": false,
+          "rationale": "Allowing the operation would defeat the purpose of the security check; violations must be blocked."
+        }
+      ],
+      "hint": "Think about the standard hardware response to a segmentation fault or protection fault.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 14,
+      "question": "Which of the following is considered an 'integrity measurement' in the context of a trusted platform?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The number of times the system has successfully booted since the last hardware update.",
+          "isCorrect": false,
+          "rationale": "While a useful metric, it does not describe the 'trust state' or the integrity of the components themselves."
+        },
+        {
+          "label": "B",
+          "text": "The amount of power consumed by the TPM during a cryptographic operation.",
+          "isCorrect": false,
+          "rationale": "This is a physical side-channel characteristic, not a logical integrity measurement used for attestation."
+        },
+        {
+          "label": "C",
+          "text": "A list of all user accounts currently authorized to access the system.",
+          "isCorrect": false,
+          "rationale": "This is an access control list (ACL), which is a software policy rather than a hardware-rooted integrity measurement."
+        },
+        {
+          "label": "D",
+          "text": "A value representing a possible change in the trust state, such as a hash of code or a data value.",
+          "isCorrect": true,
+          "rationale": "Measurements are snapshots (usually cryptographic hashes) of system components that are recorded to detect if any part of the system has been altered."
+        }
+      ],
+      "hint": "Think about the data used to verify that software has not been tampered with.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 15,
+      "question": "During the Secure Boot process, how is the integrity of the second bootloader ($B$) typically verified?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The first bootloader ($A$), residing in secure memory, verifies its integrity and authenticity.",
+          "isCorrect": true,
+          "rationale": "In a chain of trust, each stage must be verified by the preceding, already-trusted stage before execution."
+        },
+        {
+          "label": "B",
+          "text": "The TPM uses a remote server to download and compare the hash of the second bootloader.",
+          "isCorrect": false,
+          "rationale": "Secure boot is usually designed to be local to ensure the system can boot even without network connectivity."
+        },
+        {
+          "label": "C",
+          "text": "The second bootloader verifies itself using a self-checksum stored in its own header.",
+          "isCorrect": false,
+          "rationale": "Self-verification is not secure; if the bootloader is malicious, it can simply update its own checksum."
+        },
+        {
+          "label": "D",
+          "text": "The Operating System kernel verifies the second bootloader after the boot process is complete.",
+          "isCorrect": false,
+          "rationale": "This is too late; a compromised bootloader could have already subverted the kernel before it had a chance to perform the check."
+        }
+      ],
+      "hint": "Think about the 'Chain of Trust' where one link checks the next.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 16,
+      "question": "What is the function of a 'Hierarchy of Attestation' in trusted platforms?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is a protocol used to determine which BIOS version is most 'trustworthy' based on user reviews.",
+          "isCorrect": false,
+          "rationale": "Trust in these systems is based on formal cryptographic assertions and hardware roots, not subjective user feedback."
+        },
+        {
+          "label": "B",
+          "text": "It is a ranking system that prioritizes which user applications get access to the TEE first.",
+          "isCorrect": false,
+          "rationale": "Attestation is about verifying the identity and integrity of a system, not managing application scheduling."
+        },
+        {
+          "label": "C",
+          "text": "It refers to the physical stack of silicon layers within a 3D-integrated TPM chip.",
+          "isCorrect": false,
+          "rationale": "Attestation is a logical and cryptographic concept rather than a physical manufacturing layout."
+        },
+        {
+          "label": "D",
+          "text": "External entities attest to different characteristics of the TPM, such as its compliance with standards and the existence of a trusted path.",
+          "isCorrect": true,
+          "rationale": "Trust in a device is built in layers; for example, the chip manufacturer attests the hardware, and the software provider attests the secure OS."
+        }
+      ],
+      "hint": "Focus on the role of 'External entities' and 'certificates' or 'keys'.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 17,
+      "question": "Which of the following can be used to obtain a unique secure identifier for a device without burning a static key into the silicon?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Standard SHA-256 Hashing of the serial number.",
+          "isCorrect": false,
+          "rationale": "This requires a static serial number to be already stored or burned into the device, which the question seeks to avoid."
+        },
+        {
+          "label": "B",
+          "text": "Using the MAC address of the network interface card.",
+          "isCorrect": false,
+          "rationale": "MAC addresses can be spoofed or changed and do not provide a hardware-rooted cryptographic identifier."
+        },
+        {
+          "label": "C",
+          "text": "Physically Unclonable Functions (PUFs)",
+          "isCorrect": true,
+          "rationale": "PUFs exploit tiny, inherent physical variations in each chip's hardware to generate a unique 'fingerprint' that is difficult to duplicate or predict."
+        },
+        {
+          "label": "D",
+          "text": "Pseudo-Random Number Generators (PRNGs)",
+          "isCorrect": false,
+          "rationale": "PRNGs are deterministic software algorithms that generate sequences of numbers, which are not inherently unique to a specific piece of hardware."
+        }
+      ],
+      "hint": "Look for a term that describes hardware behavior that is impossible to clone.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 18,
+      "question": "What is a major advantage of using a 'Discrete TPM chip' over an 'Integrated TPM' within the CPU?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Discrete chips are always faster because they don't share the main CPU's clock.",
+          "isCorrect": false,
+          "rationale": "Discrete chips often have slower communication interfaces (like SPI or LPC) compared to integrated components on the CPU bus."
+        },
+        {
+          "label": "B",
+          "text": "It is physically separate, which can make it more resistant to attacks that specifically target the main CPU's logic.",
+          "isCorrect": true,
+          "rationale": "Physical isolation provides a distinct security boundary, though integrated TPMs are often more cost-effective and faster."
+        },
+        {
+          "label": "C",
+          "text": "Integrated TPMs cannot perform asymmetric cryptography due to heat constraints.",
+          "isCorrect": false,
+          "rationale": "Integrated TPMs are fully capable of the same cryptographic operations as discrete modules."
+        },
+        {
+          "label": "D",
+          "text": "Discrete chips are required by law for all industrial devices manufactured after 2020.",
+          "isCorrect": false,
+          "rationale": "While recommended by standards (like IEC 62443), there is no universal law requiring a specific physical implementation over another."
+        }
+      ],
+      "hint": "Consider the benefit of physical isolation between components.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 19,
+      "question": "In TPM terminology, what is 'Remote Attestation'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The ability of a system administrator to remotely reset the TPM's owner password.",
+          "isCorrect": false,
+          "rationale": "While management functions exist, attestation specifically refers to the act of proving the system's state to another party."
+        },
+        {
+          "label": "B",
+          "text": "A process allowing external parties to verify the trustworthiness of a system using platform integrity measurements.",
+          "isCorrect": true,
+          "rationale": "By sending signed integrity metrics to a remote server, a device can prove it is running in a known-good, untampered state."
+        },
+        {
+          "label": "C",
+          "text": "A peer-to-peer protocol where two TPMs verify each other's manufacturing date.",
+          "isCorrect": false,
+          "rationale": "Attestation focuses on integrity and trust state, not manufacturing metadata like production dates."
+        },
+        {
+          "label": "D",
+          "text": "A method for the TPM to download new cryptographic keys from a cloud-based Trust Anchor.",
+          "isCorrect": false,
+          "rationale": "This describes key provisioning or distribution, not the verification of the device's current security state."
+        }
+      ],
+      "hint": "Think about how an external server knows if a computer is safe to connect to the network.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 20,
+      "question": "What happens if a process attempts to access a memory region that the MPU has marked as 'no access' for its current privilege level?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The MPU automatically upgrades the process's privilege level to allow the access.",
+          "isCorrect": false,
+          "rationale": "This would be a massive security flaw (privilege escalation) and contradicts the goal of memory protection."
+        },
+        {
+          "label": "B",
+          "text": "The MPU silently redirects the request to a 'honey-pot' memory region.",
+          "isCorrect": false,
+          "rationale": "While a clever defense, standard MPUs are simpler and designed to block and report violations rather than virtualizing honey-pots."
+        },
+        {
+          "label": "C",
+          "text": "The hardware triggers an immediate abortion of the task to prevent unauthorized data exposure.",
+          "isCorrect": true,
+          "rationale": "MPUs enforce strict boundary checks at the hardware level; violations are typically non-recoverable at the task level to ensure security."
+        },
+        {
+          "label": "D",
+          "text": "The request is delayed for 10 milliseconds to discourage brute-force attacks.",
+          "isCorrect": false,
+          "rationale": "MPUs operate at processor speeds; adding artificial delays would significantly impact system performance and is not a standard MPU feature."
+        }
+      ],
+      "hint": "Think about the fastest way to stop a potential security breach in progress.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 21,
+      "question": "Which TPM sub-component serves as the 'computing engine' capable of reliably reporting information held by the storage engine?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Non-Volatile Memory (NVM) Controller",
+          "isCorrect": false,
+          "rationale": "The NVM controller handles the physical reading/writing to memory but lacks the logical 'Reporting' functionality."
+        },
+        {
+          "label": "B",
+          "text": "Root of Trust for Reporting (RTR)",
+          "isCorrect": true,
+          "rationale": "The RTR's primary role is to extract measurements from the RTS and sign them so they can be trusted by an external challenger."
+        },
+        {
+          "label": "C",
+          "text": "Root of Trust for Storage (RTS)",
+          "isCorrect": false,
+          "rationale": "The RTS holds the data but requires the RTR to provide the secure environment and interface for reporting it."
+        },
+        {
+          "label": "D",
+          "text": "Root of Trust for Measurement (RTM)",
+          "isCorrect": false,
+          "rationale": "The RTM creates the measurements but does not handle the signing and reporting phase."
+        }
+      ],
+      "hint": "Distinguish between the engine that 'creates', the engine that 'holds', and the engine that 'speaks'.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 22,
+      "question": "What is the primary objective of using 'Tamper Resistance' in hardware security devices?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To prevent the user from accidentally deleting the BIOS settings.",
+          "isCorrect": false,
+          "rationale": "Tamper resistance is aimed at malicious actors, not accidental user errors."
+        },
+        {
+          "label": "B",
+          "text": "To avoid disclosing sensitive information during common physical attacks.",
+          "isCorrect": true,
+          "rationale": "Tamper resistance (like mesh layers or light sensors) prevents attackers from physically probing the chip to extract secret keys."
+        },
+        {
+          "label": "C",
+          "text": "To verify that the software being installed is from a genuine source.",
+          "isCorrect": false,
+          "rationale": "Verifying software source is the role of digital signatures and secure boot, not physical tamper resistance."
+        },
+        {
+          "label": "D",
+          "text": "To ensure the device remains waterproof and dust-resistant in industrial environments.",
+          "isCorrect": false,
+          "rationale": "This is environmental ruggedness, which is different from security-oriented tamper resistance."
+        }
+      ],
+      "hint": "Consider attacks that involve physically opening or probing the hardware.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 23,
+      "question": "Which of the following is NOT a basic feature typically provided by a TPM?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Direct execution of high-performance user graphical applications.",
+          "isCorrect": true,
+          "rationale": "TPMs are slow, low-power microcontrollers designed for cryptographic tasks, not for running general-purpose or high-performance software."
+        },
+        {
+          "label": "B",
+          "text": "Protected and Shielded Locations.",
+          "isCorrect": false,
+          "rationale": "The TPM uses these internal and external locations to safely store sensitive data and keys."
+        },
+        {
+          "label": "C",
+          "text": "Integrity Measurements and Reporting.",
+          "isCorrect": false,
+          "rationale": "This is a core function of the TPM, used for attestation and secure boot."
+        },
+        {
+          "label": "D",
+          "text": "Secure Boot & Firmware Integrity.",
+          "isCorrect": false,
+          "rationale": "TPMs act as the trust anchor to facilitate the secure boot process for the platform."
+        }
+      ],
+      "hint": "Think about the processing power and specialized nature of a TPM versus a main CPU.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 24,
+      "question": "Why is it necessary to have a 'certificate of authenticity' for the key shipped inside a TPM?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To encrypt the user's hard drive using the manufacturer's public key.",
+          "isCorrect": false,
+          "rationale": "Hard drive encryption typically uses keys generated locally by the TPM or user, not the manufacturer's public key."
+        },
+        {
+          "label": "B",
+          "text": "To enable the TPM to connect to any Wi-Fi network without a password.",
+          "isCorrect": false,
+          "rationale": "A TPM certificate is for platform identity, not for bypassing network access controls like Wi-Fi passwords."
+        },
+        {
+          "label": "C",
+          "text": "To allow the user to return the hardware for a refund if the security is breached.",
+          "isCorrect": false,
+          "rationale": "This is a commercial or legal function, not a cryptographic security function within the system architecture."
+        },
+        {
+          "label": "D",
+          "text": "To associate the TPM with a trusted manufacturer and allow it to attest its own genuineness.",
+          "isCorrect": true,
+          "rationale": "Without this certificate, an attacker could emulate a TPM; the certificate proves the hardware is a legitimate product from a known vendor."
+        }
+      ],
+      "hint": "Consider how you would distinguish a real security chip from a fake software emulation.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 25,
+      "question": "In a TEE, what purpose do 'isolated regions of memory called enclaves' serve?",
+      "options": [
+        {
+          "label": "A",
+          "text": "They protect the runtime confidentiality and integrity of specific application code and data from the rest of the system.",
+          "isCorrect": true,
+          "rationale": "Enclaves ensure that even if the main OS is compromised, the data inside the enclave remains unreadable and untamperable to the attacker."
+        },
+        {
+          "label": "B",
+          "text": "They provide a sandbox where the user can test untrusted software without risk.",
+          "isCorrect": false,
+          "rationale": "TEEs are for protecting *trusted* code from an untrusted environment, which is the opposite of a malware sandbox."
+        },
+        {
+          "label": "C",
+          "text": "They are physical regions of the hard drive that cannot be formatted or deleted.",
+          "isCorrect": false,
+          "rationale": "Enclaves are memory-resident (RAM-based) execution environments, not persistent storage regions on a disk."
+        },
+        {
+          "label": "D",
+          "text": "They act as a high-speed cache for the TPM to speed up RSA calculations.",
+          "isCorrect": false,
+          "rationale": "Enclaves are for general secure execution in the CPU, not specifically for caching TPM operations."
+        }
+      ],
+      "hint": "Think about protecting 'runtime' data from a potentially malicious 'Main OS'.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 26,
+      "question": "What happens to sensitive data in a TPM if it cannot be stored in an internal Shielded Location?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is stored in the BIOS ROM as plain text to ensure it survives a power loss.",
+          "isCorrect": false,
+          "rationale": "Storing sensitive data as plain text in ROM would be a critical security failure."
+        },
+        {
+          "label": "B",
+          "text": "It is encrypted before being stored in a Protected Location outside the TPM.",
+          "isCorrect": true,
+          "rationale": "When internal memory is full or unsuitable, the TPM extends its security boundary by encrypting data with keys that never leave the chip."
+        },
+        {
+          "label": "C",
+          "text": "It is deleted to prevent unauthorized access, requiring a system reboot.",
+          "isCorrect": false,
+          "rationale": "Deleting data would make the system non-functional; encryption is the standard method for safely offloading data."
+        },
+        {
+          "label": "D",
+          "text": "It is sent to the manufacturer's cloud for safe keeping.",
+          "isCorrect": false,
+          "rationale": "TPMs are designed to work autonomously; cloud storage of sensitive device keys would introduce massive privacy and security risks."
+        }
+      ],
+      "hint": "Look for the mechanism that uses 'seeds and keys that never leave the TPM'.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 27,
+      "question": "How does an MPU contribute to CPU security at the architectural level?",
+      "options": [
+        {
+          "label": "A",
+          "text": "By automatically scanning the L1 cache for known virus signatures.",
+          "isCorrect": false,
+          "rationale": "Signature scanning is a software function (antivirus); MPUs are low-level hardware filters for memory addresses."
+        },
+        {
+          "label": "B",
+          "text": "By encrypting the entire system bus with AES-256 in real-time.",
+          "isCorrect": false,
+          "rationale": "While bus encryption exists in some specialized systems, it is not the function of a standard MPU."
+        },
+        {
+          "label": "C",
+          "text": "By enforcing predefined read, write, and execute permissions for specific tasks on memory pages.",
+          "isCorrect": true,
+          "rationale": "The MPU provides hardware-level task isolation, preventing one process from corrupting another or executing data as code."
+        },
+        {
+          "label": "D",
+          "text": "By disabling the CPU's floating-point unit when untrusted code is detected.",
+          "isCorrect": false,
+          "rationale": "MPUs manage memory access, not the functional units of the CPU execution pipeline."
+        }
+      ],
+      "hint": "Think about 'Read', 'Write', and 'Execute' (R/W/X) permissions.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 28,
+      "question": "Which component is typically allowed to modify the 2nd bootloader ($B$) in a trusted system?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The MPU, when it detects a lack of memory space for the kernel.",
+          "isCorrect": false,
+          "rationale": "The MPU is an enforcement mechanism; it does not have the logic or authority to update or modify software components."
+        },
+        {
+          "label": "B",
+          "text": "The end-user, by manually editing the hex values in the BIOS setup menu.",
+          "isCorrect": false,
+          "rationale": "Bootloader integrity is protected cryptographically; manual editing by a user would break the signature and prevent the system from booting."
+        },
+        {
+          "label": "C",
+          "text": "Any user application with administrator privileges.",
+          "isCorrect": false,
+          "rationale": "Allowing user applications to modify bootloaders would create a major security vulnerability for rootkits."
+        },
+        {
+          "label": "D",
+          "text": "Firmware update processes, provided they are authenticated by the first bootloader or TPM.",
+          "isCorrect": true,
+          "rationale": "The 2nd bootloader is usually updatable to allow for fixes, whereas the 1st bootloader (A) is often immutable (ROM-based)."
+        }
+      ],
+      "hint": "Consider which link in the chain is usually fixed (immutable) and which can be updated.",
+      "correctAnswer": "D"
+    }
+  ]
+}

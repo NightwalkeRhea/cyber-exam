@@ -1,0 +1,813 @@
+{
+  "title": "Cryptography Quiz",
+  "totalQuestions": 26,
+  "extractedAt": "2026-05-11T16:04:11.455Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "In the context of the fundamental properties of information, which concept specifically addresses the ability of a verifier to prove the identity of a claimant?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Non-repudiation",
+          "isCorrect": false,
+          "rationale": "Non-repudiation provides legally valid proof of authenticity, which is a specific subset of identity proofing often involving digital signatures."
+        },
+        {
+          "label": "B",
+          "text": "Authentication",
+          "isCorrect": true,
+          "rationale": "Authentication is defined specifically as the process where a verifier validates the identity of an actor known as the claimant."
+        },
+        {
+          "label": "C",
+          "text": "Authorization",
+          "isCorrect": false,
+          "rationale": "While related, authorization focuses on the rights or entitlements an actor has once their identity is established."
+        },
+        {
+          "label": "D",
+          "text": "Integrity",
+          "isCorrect": false,
+          "rationale": "Integrity ensures data has not been modified, rather than verifying the identity of the communicating parties."
+        }
+      ],
+      "hint": "Consider the specific roles of the 'verifier' and the 'claimant' mentioned in the source.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 2,
+      "question": "If a network consists of $N = 12$ actors, how many unique symmetric keys are required to ensure every actor has a private channel with every other actor?",
+      "options": [
+        {
+          "label": "A",
+          "text": "$66$",
+          "isCorrect": true,
+          "rationale": "Applying the formula $\\frac{N * (N-1)}{2}$ for $N=12$ yields $\\frac{12 * 11}{2} = 66$."
+        },
+        {
+          "label": "B",
+          "text": "$132$",
+          "isCorrect": false,
+          "rationale": "This results from $N * (N - 1)$ without dividing by $2$, which counts each bidirectional channel twice."
+        },
+        {
+          "label": "C",
+          "text": "$144$",
+          "isCorrect": false,
+          "rationale": "This value represents $N^{2}$, which is not the standard calculation for unique pairwise links."
+        },
+        {
+          "label": "D",
+          "text": "$12$",
+          "isCorrect": false,
+          "rationale": "This assumes one key per actor, which is insufficient for unique pairwise communication in a symmetric scheme."
+        }
+      ],
+      "hint": "Recall the mathematical formula for the quantity of keys in a symmetric network.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 3,
+      "question": "A block cipher operates on a fixed length of bits. For a block size of $n$ bits, how many distinct plaintext blocks must exist to ensure the encryption is reversible?",
+      "options": [
+        {
+          "label": "A",
+          "text": "$n^{2}$",
+          "isCorrect": false,
+          "rationale": "This represents the square of the block size rather than the total number of possible binary combinations."
+        },
+        {
+          "label": "B",
+          "text": "$2n$",
+          "isCorrect": false,
+          "rationale": "This represents a linear scaling of the bit count, which does not account for the combinatorial possibilities of a bit-string."
+        },
+        {
+          "label": "C",
+          "text": "$2^{n}$",
+          "isCorrect": true,
+          "rationale": "For encryption to be reversible, each of the $2^{n}$ possible unique plaintext blocks must map to a unique ciphertext block."
+        },
+        {
+          "label": "D",
+          "text": "$n!$",
+          "isCorrect": false,
+          "rationale": "Factorials are used for permutations, but the total space of blocks is determined by the binary base raised to the length."
+        }
+      ],
+      "hint": "Think about the total number of possible unique combinations for a string of binary digits.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 4,
+      "question": "The Data Encryption Standard (DES) utilizes a $64$-bit key; however, what is the actual number of bits that contribute to the security of the algorithm?",
+      "options": [],
+      "correctAnswer": null
+    },
+    {
+      "number": 5,
+      "question": "When using Triple DES (3DES) with three distinct keys, cryptanalysis suggests the effective security strength is not $168$ bits ($56 \\times 3$). What is the generally accepted actual key length strength?",
+      "options": [
+        {
+          "label": "A",
+          "text": "$128$ bits",
+          "isCorrect": false,
+          "rationale": "This is a common key size for standard AES but does not reflect the specific vulnerabilities found in 3DES cryptanalysis."
+        },
+        {
+          "label": "B",
+          "text": "$168$ bits",
+          "isCorrect": false,
+          "rationale": "This is the theoretical maximum, but it ignores the impact of specific cryptanalytic techniques that weaken the effective strength."
+        },
+        {
+          "label": "C",
+          "text": "$112$ bits",
+          "isCorrect": true,
+          "rationale": "Due to meet-in-the-middle attacks and other cryptanalysis, the effective strength of 3DES with three keys is reduced to $112$ bits."
+        },
+        {
+          "label": "D",
+          "text": "$56$ bits",
+          "isCorrect": false,
+          "rationale": "This would imply that the three rounds of encryption add no security over a single round of DES, which is incorrect."
+        }
+      ],
+      "hint": "Cryptanalysis often reveals that the effective strength is lower than the sum of the keys used.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 6,
+      "question": "Which of the following Advanced Encryption Standard (AES) modes of operation effectively transforms the block cipher into a stream cipher?",
+      "options": [
+        {
+          "label": "A",
+          "text": "CBC (Cipher Block Chaining)",
+          "isCorrect": false,
+          "rationale": "CBC is a traditional block processing mode that requires padding and whole-block operations."
+        },
+        {
+          "label": "B",
+          "text": "CTR (Counter)",
+          "isCorrect": true,
+          "rationale": "Modes like CTR, OFB, and CFB allow the block cipher to generate a keystream that is XORed with plaintext, behaving like a stream cipher."
+        },
+        {
+          "label": "C",
+          "text": "ECB (Electronic Codebook)",
+          "isCorrect": false,
+          "rationale": "ECB processes blocks independently and maintains the block-based nature of the cipher."
+        },
+        {
+          "label": "D",
+          "text": "FIPS-197",
+          "isCorrect": false,
+          "rationale": "FIPS-197 is the name of the standard publication, not a specific operational mode of the algorithm."
+        }
+      ],
+      "hint": "Look for modes that process data bit-by-bit or byte-by-byte without waiting for a full block.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 7,
+      "question": "According to the formal definition of a symmetric-key encryption scheme, which condition must hold true for all plaintext $P \\in \\mathcal{P}$ and keys $k$ generated by $Gen$?",
+      "options": [
+        {
+          "label": "A",
+          "text": "$Enc_{k}(P) \\ne P$",
+          "isCorrect": false,
+          "rationale": "While security requires this, it is not the functional definition of the symmetric scheme's reversibility."
+        },
+        {
+          "label": "B",
+          "text": "$Dec_{k}(Enc_{k}(P)) = P$",
+          "isCorrect": true,
+          "rationale": "The correctness property of a cryptographic scheme ensures that decrypting a ciphertext with the original key returns the original plaintext."
+        },
+        {
+          "label": "C",
+          "text": "$k \\in K$",
+          "isCorrect": false,
+          "rationale": "This merely states the key is in the set of all possible keys, which is a prerequisite rather than a functional property."
+        },
+        {
+          "label": "D",
+          "text": "$Enc_{k}(Dec_{k}(C)) = C$",
+          "isCorrect": false,
+          "rationale": "While this may be true, the primary defining requirement of a scheme is that decryption correctly reverses encryption."
+        }
+      ],
+      "hint": "Identify the property that ensures the original message can be perfectly recovered.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 8,
+      "question": "What is the primary requirement for a 'bit stream generator' in a stream cipher to guarantee its robustness against adversarial attacks?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It must use a $256$-bit key for every single bit of the plaintext.",
+          "isCorrect": false,
+          "rationale": "Key size is important, but the robustness of the stream itself relies on the algorithmic properties of the generator's output."
+        },
+        {
+          "label": "B",
+          "text": "It must be computationally impractical to predict future portions of the bit stream from previous ones.",
+          "isCorrect": true,
+          "rationale": "Unpredictability is essential; if an attacker can predict the keystream, they can easily decrypt the message."
+        },
+        {
+          "label": "C",
+          "text": "The generator must be kept secret and never shared between peers.",
+          "isCorrect": false,
+          "rationale": "As per Kerckhoffs's principle, the algorithm (generator) does not need to be secret; only the key must be."
+        },
+        {
+          "label": "D",
+          "text": "It must produce a repeating pattern of digits every $64$ bits.",
+          "isCorrect": false,
+          "rationale": "Repeating patterns (low periodicity) are a weakness that would allow an attacker to break the cipher."
+        }
+      ],
+      "hint": "Think about the security implications if the next part of the keystream could be guessed.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 9,
+      "question": "In the evolution of symmetric cryptography, which algorithm was chosen by NIST in October $2000$ to replace the aging Data Encryption Standard?",
+      "options": [
+        {
+          "label": "A",
+          "text": "3DES",
+          "isCorrect": false,
+          "rationale": "3DES was an interim solution used while the replacement for DES was being selected."
+        },
+        {
+          "label": "B",
+          "text": "IDEA",
+          "isCorrect": false,
+          "rationale": "IDEA is an independent symmetric cipher and was not the specific choice for the AES standard."
+        },
+        {
+          "label": "C",
+          "text": "Rijndael",
+          "isCorrect": true,
+          "rationale": "The Rijndael algorithm was the winner of the NIST competition and became the basis for AES."
+        },
+        {
+          "label": "D",
+          "text": "Blowfish",
+          "isCorrect": false,
+          "rationale": "Blowfish was a competitor but was not selected as the official AES standard."
+        }
+      ],
+      "hint": "Recall the original name of the algorithm that became AES.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 10,
+      "question": "In the comparison between stream ciphers and block ciphers, how does a stream cipher typically process the relationship between plaintext and ciphertext digits?",
+      "options": [
+        {
+          "label": "A",
+          "text": "By processing data in fixed chunks of $64$ bits to ensure parity.",
+          "isCorrect": false,
+          "rationale": "Fixed chunk processing is the definition of a block cipher, whereas stream ciphers are continuous."
+        },
+        {
+          "label": "B",
+          "text": "By XOR-ing plaintext digits with a pseudorandom cipher digit stream.",
+          "isCorrect": true,
+          "rationale": "Stream ciphers combine the plaintext with a keystream, usually via the XOR operation, bit by bit or byte by byte."
+        },
+        {
+          "label": "C",
+          "text": "By performing transpositions between blocks of $16$ bytes.",
+          "isCorrect": false,
+          "rationale": "Transpositions of large blocks are characteristic of block ciphers, not stream ciphers."
+        },
+        {
+          "label": "D",
+          "text": "By using a different secret key for every single bit processed.",
+          "isCorrect": false,
+          "rationale": "Peers share a single generating key which is used to produce the continuous keystream."
+        }
+      ],
+      "hint": "Focus on the mechanism of the 'keystream' mentioned in the source.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 11,
+      "question": "The source material mentions a safe analogy for cryptography. In this analogy, what represents the 'internal mechanism of the safe'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The Ciphertext",
+          "isCorrect": false,
+          "rationale": "The ciphertext represents the document once it has been secured inside the safe."
+        },
+        {
+          "label": "B",
+          "text": "The Plaintext",
+          "isCorrect": false,
+          "rationale": "The plaintext is the document being protected by the safe."
+        },
+        {
+          "label": "C",
+          "text": "The Key",
+          "isCorrect": false,
+          "rationale": "The key is the input used to open or close the safe, not the machinery itself."
+        },
+        {
+          "label": "D",
+          "text": "The Algorithm",
+          "isCorrect": true,
+          "rationale": "The cryptographic algorithm is the set of rules or logical steps, analogous to the mechanical inner workings of a safe."
+        }
+      ],
+      "hint": "Differentiate between the tool used to operate the device and the device's internal design.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 12,
+      "question": "Which specific weakness was identified by the Electronic Frontier Foundation (EFF) in July $1998$ regarding the Data Encryption Standard (DES)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The reduction of key size from $128$ bits by the NSA.",
+          "isCorrect": false,
+          "rationale": "While the NSA did reduce the size, the EFF's demonstration focused on the practical vulnerability of the resulting $56$-bit key."
+        },
+        {
+          "label": "B",
+          "text": "The susceptibility to brute force attacks due to short key length.",
+          "isCorrect": true,
+          "rationale": "The EFF proved that $56$-bit keys could be broken by brute force with then-available computing power."
+        },
+        {
+          "label": "C",
+          "text": "A fatal flaw in the initial permutation step.",
+          "isCorrect": false,
+          "rationale": "No fatal mathematical weakness has been reported for the DES algorithm's logic itself."
+        },
+        {
+          "label": "D",
+          "text": "The lack of parity bits in the $64$-bit key.",
+          "isCorrect": false,
+          "rationale": "DES actually includes $8$ parity bits; this was not the weakness the EFF exploited."
+        }
+      ],
+      "hint": "Think about the primary argument for using 'longer keys' in modern cryptography.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 13,
+      "question": "Triple DES is often applied in 'EDE mode'. What does this sequence specifically represent?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Encrypt, Decrypt, Encrypt",
+          "isCorrect": true,
+          "rationale": "EDE stands for the sequence where a message is encrypted with Key 1, decrypted with Key 2, and encrypted with Key 3."
+        },
+        {
+          "label": "B",
+          "text": "Electronic, Digital, Encryption",
+          "isCorrect": false,
+          "rationale": "These are general terms and do not describe the procedural modes of 3DES iterations."
+        },
+        {
+          "label": "C",
+          "text": "Encrypt, Duplicate, Evaluate",
+          "isCorrect": false,
+          "rationale": "This is not a recognized sequence for the multiple iterations of DES in the 3DES standard."
+        },
+        {
+          "label": "D",
+          "text": "Enhanced DES Encryption",
+          "isCorrect": false,
+          "rationale": "While 3DES is an enhancement, 'EDE' specifically describes the operational steps involved."
+        }
+      ],
+      "hint": "The acronym describes the three operations performed in sequence.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 14,
+      "question": "According to the source, why might manual key management become 'unfeasible' in a large organization?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Because symmetric keys expire automatically every $56$ minutes.",
+          "isCorrect": false,
+          "rationale": "Key expiration is a security practice, but the time limit is not a fixed attribute of symmetric encryption."
+        },
+        {
+          "label": "B",
+          "text": "Because the algorithm itself must be changed every time a new actor joins.",
+          "isCorrect": false,
+          "rationale": "Algorithms are usually standard; it is the keys that must be generated and managed."
+        },
+        {
+          "label": "C",
+          "text": "Because every actor must share their private key with a central State actor.",
+          "isCorrect": false,
+          "rationale": "In symmetric encryption, keys are typically shared between the communicating peers, not necessarily a central authority."
+        },
+        {
+          "label": "D",
+          "text": "Because the number of required keys grows quadratically with the number of actors.",
+          "isCorrect": true,
+          "rationale": "As $N$ increases, the $\\frac{N * (N-1)}{2}$ formula leads to a massive quantity of keys that are difficult to track manually."
+        }
+      ],
+      "hint": "Consider the mathematical relationship between the number of participants and the number of keys.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 15,
+      "question": "In the formalism of symmetric-key encryption, what does the set '$K$' represent?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The set of all possible keys of a given length.",
+          "isCorrect": true,
+          "rationale": "In the definition of the $Gen$ algorithm, $k \\in K$ refers to the exhaustive set of keys available for that specific length."
+        },
+        {
+          "label": "B",
+          "text": "The set of algorithms used for key agreement.",
+          "isCorrect": false,
+          "rationale": "Key agreement algorithms are processes, whereas $K$ is a set of values."
+        },
+        {
+          "label": "C",
+          "text": "The specific key used for a single encryption session.",
+          "isCorrect": false,
+          "rationale": "A single key is denoted by the lowercase '$k$', whereas the uppercase '$K$' denotes the set."
+        },
+        {
+          "label": "D",
+          "text": "The set of all possible ciphertexts generated by the algorithm.",
+          "isCorrect": false,
+          "rationale": "The ciphertext space is distinct from the key space."
+        }
+      ],
+      "hint": "Distinguish between a single value and the total collection of possible values.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 16,
+      "question": "Which of the following is identified as the 'biggest problem' of symmetric encryption in the source material?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The complexity of the NIST competition process.",
+          "isCorrect": false,
+          "rationale": "While rigorous, the competition process is a solution for standardization, not an inherent problem of the cryptographic method."
+        },
+        {
+          "label": "B",
+          "text": "The high computational cost of the XOR operation.",
+          "isCorrect": false,
+          "rationale": "XOR is computationally very efficient; it is not a bottleneck or major problem."
+        },
+        {
+          "label": "C",
+          "text": "Key sharing and ensuring the key remains secret.",
+          "isCorrect": true,
+          "rationale": "Symmetric encryption relies entirely on the secrecy of the shared key; if it is compromised, the encryption is useless."
+        },
+        {
+          "label": "D",
+          "text": "The inability to perform transpositions on bitstreams.",
+          "isCorrect": false,
+          "rationale": "Symmetric ciphers often use transpositions as a core operation; this is not the primary issue."
+        }
+      ],
+      "hint": "Think about the challenge that arises when two people who have never met need a shared secret.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 17,
+      "question": "What is the defining difference between replacement and transposition operations in cryptographic schemes?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Replacement is used for block ciphers, while transposition is only for stream ciphers.",
+          "isCorrect": false,
+          "rationale": "Both operations can be and are used in both types of ciphers."
+        },
+        {
+          "label": "B",
+          "text": "Transposition is more secure because it requires a larger key.",
+          "isCorrect": false,
+          "rationale": "Security depends on how the operations are combined, not the inherent nature of one over the other."
+        },
+        {
+          "label": "C",
+          "text": "Replacement changes the value of an element, while transposition swaps its position.",
+          "isCorrect": true,
+          "rationale": "Replacement (substitution) alters the identity of an element, whereas transposition rearranges the existing elements' order."
+        },
+        {
+          "label": "D",
+          "text": "Replacement is a mathematical function, whereas transposition is a physical operation.",
+          "isCorrect": false,
+          "rationale": "In digital cryptography, both are mathematical/algorithmic operations performed on data."
+        }
+      ],
+      "hint": "Consider the difference between 'changing' an item and 'moving' an item.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 18,
+      "question": "In the 3DES algorithm, if all three keys ($K_{1}, K_{2}, K_{3}$) are identical, what is the functional result?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The algorithm fails and produces an error.",
+          "isCorrect": false,
+          "rationale": "The algorithm will still function; it simply loses the security benefits of multiple rounds."
+        },
+        {
+          "label": "B",
+          "text": "The result is equal to a single DES encryption.",
+          "isCorrect": true,
+          "rationale": "In EDE mode with identical keys, the middle decryption reverses the first encryption, leaving only the final encryption."
+        },
+        {
+          "label": "C",
+          "text": "The encryption becomes three times more secure than DES.",
+          "isCorrect": false,
+          "rationale": "Identical keys cause the encryption and decryption steps to cancel out parts of the process."
+        },
+        {
+          "label": "D",
+          "text": "The block size is automatically increased to $128$ bits.",
+          "isCorrect": false,
+          "rationale": "3DES retains the $64$-bit block size of the original DES algorithm regardless of key choice."
+        }
+      ],
+      "hint": "Recall the EDE sequence (Encrypt, Decrypt, Encrypt) and apply identical keys.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 19,
+      "question": "The Advanced Encryption Standard (AES) supports multiple key sizes. Which of the following is NOT a standard key size for AES as mentioned in the source?",
+      "options": [
+        {
+          "label": "A",
+          "text": "$256$ bits",
+          "isCorrect": false,
+          "rationale": "This is the maximum and most recommended key size for AES security."
+        },
+        {
+          "label": "B",
+          "text": "$128$ bits",
+          "isCorrect": false,
+          "rationale": "This is one of the three standard key sizes specified in FIPS-197 for AES."
+        },
+        {
+          "label": "C",
+          "text": "$64$ bits",
+          "isCorrect": true,
+          "rationale": "AES standardizes key sizes of $128$, $192$, and $256$ bits; $64$ bits was the size used by DES."
+        },
+        {
+          "label": "D",
+          "text": "$192$ bits",
+          "isCorrect": false,
+          "rationale": "This is the intermediate standard key size for AES."
+        }
+      ],
+      "hint": "Compare the key sizes of AES to those of its predecessor, DES.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 20,
+      "question": "What happens during the 'Decryption' phase of a stream cipher as illustrated in the provided diagrams?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A different, asymmetric key is used to unlock the stream generator.",
+          "isCorrect": false,
+          "rationale": "Stream ciphers are symmetric; the same generating key is used by both peers."
+        },
+        {
+          "label": "B",
+          "text": "The ciphertext is reversed bit-by-bit before being processed by a block algorithm.",
+          "isCorrect": false,
+          "rationale": "Stream ciphers do not require reversing or block processing during decryption."
+        },
+        {
+          "label": "C",
+          "text": "The ciphertext is XORed with a local copy of the same keystream used for encryption.",
+          "isCorrect": true,
+          "rationale": "Because XOR is its own inverse, applying the same keystream to the ciphertext recovers the plaintext."
+        },
+        {
+          "label": "D",
+          "text": "The keystream is subtracted from the ciphertext using modular arithmetic.",
+          "isCorrect": false,
+          "rationale": "While modular arithmetic is possible, modern stream ciphers almost exclusively use the XOR operation."
+        }
+      ],
+      "hint": "Look at the 'Keystream Generator' and the symbol $\\oplus$ in the decryption diagram.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 21,
+      "question": "The source material defines an 'Actor' very broadly. Which of the following would NOT fit the source's specific definition of an actor?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A single person.",
+          "isCorrect": false,
+          "rationale": "Individuals are the most common type of actor in cryptographic scenarios."
+        },
+        {
+          "label": "B",
+          "text": "The internal mathematical logic of a transposition.",
+          "isCorrect": true,
+          "rationale": "An actor is a participant in a scenario (person, group, object), not a logical operation within an algorithm."
+        },
+        {
+          "label": "C",
+          "text": "An organization or a State.",
+          "isCorrect": false,
+          "rationale": "The source includes groups of people and legal entities as actors."
+        },
+        {
+          "label": "D",
+          "text": "A generic object in a software scenario.",
+          "isCorrect": false,
+          "rationale": "The source explicitly includes 'generic objects having a role' in the definition."
+        }
+      ],
+      "hint": "An actor is a 'who' or a 'what' that plays a role, rather than the 'how' of a mathematical process.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 22,
+      "question": "In the Data Encryption Standard (DES) process, what is the final operation performed before the $64$-bit ciphertext is produced?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Initial permutation",
+          "isCorrect": false,
+          "rationale": "The initial permutation is the first step performed on the $64$-bit plaintext."
+        },
+        {
+          "label": "B",
+          "text": "Left circular shift",
+          "isCorrect": false,
+          "rationale": "Shifts are performed as part of the key schedule for each round, not the final step on the data."
+        },
+        {
+          "label": "C",
+          "text": "Inverse initial permutation",
+          "isCorrect": true,
+          "rationale": "The DES diagram shows that after the $16$ rounds and a swap, an 'Inverse initial permutation' is the last step."
+        },
+        {
+          "label": "D",
+          "text": "$32$-bit swap",
+          "isCorrect": false,
+          "rationale": "The swap occurs just before the final inverse permutation."
+        }
+      ],
+      "hint": "Refer to the very bottom of the detailed DES flowchart.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 23,
+      "question": "Why does the source state that symmetric cryptography is useless if the key is not secret?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Because the key is needed to calculate the number of actors in the system.",
+          "isCorrect": false,
+          "rationale": "The key's purpose is data transformation, not network mapping or accounting."
+        },
+        {
+          "label": "B",
+          "text": "Because an unauthorized actor can use the key to perform the same decryption transformation as the intended recipient.",
+          "isCorrect": true,
+          "rationale": "In symmetric systems, the key provides the only barrier to decryption; if known, the data is accessible."
+        },
+        {
+          "label": "C",
+          "text": "Because the algorithm itself is always kept secret to provide 'security by obscurity'.",
+          "isCorrect": false,
+          "rationale": "The source states the algorithm does not need to be secret; security relies on the key."
+        },
+        {
+          "label": "D",
+          "text": "Because the safe's internal mechanism will jam if an incorrect key is used.",
+          "isCorrect": false,
+          "rationale": "While a mechanical safe might jam, cryptographic algorithms will simply produce incorrect (meaningless) output."
+        }
+      ],
+      "hint": "Think about the shared nature of the key between the sender and receiver.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 24,
+      "question": "International Data Encryption Algorithm (IDEA) is listed as a cipher that replaced DES. What are its block and key sizes, respectively?",
+      "options": [
+        {
+          "label": "A",
+          "text": "$128$-bit block, $256$-bit key",
+          "isCorrect": false,
+          "rationale": "These are the maximum specifications for AES, not IDEA."
+        },
+        {
+          "label": "B",
+          "text": "$64$-bit block, $56$-bit key",
+          "isCorrect": false,
+          "rationale": "These are the specifications for DES, not IDEA."
+        },
+        {
+          "label": "C",
+          "text": "$64$-bit block, $128$-bit key",
+          "isCorrect": true,
+          "rationale": "IDEA uses a $128$-bit key to process data in $64$-bit blocks."
+        },
+        {
+          "label": "D",
+          "text": "$128$-bit block, $64$-bit key",
+          "isCorrect": false,
+          "rationale": "This reverses the typical design of IDEA and uses a key size considered weak."
+        }
+      ],
+      "hint": "IDEA followed DES but preceded the standardization of $128$-bit blocks.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 25,
+      "question": "What constitutes 'Adversarial behavior' according to the introductory section of the source material?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The use of 'Out-of-band' communication channels to share keys.",
+          "isCorrect": false,
+          "rationale": "OOB is a security measure for key sharing, not adversarial behavior."
+        },
+        {
+          "label": "B",
+          "text": "Anything that might harm fundamental properties of information like confidentiality or integrity.",
+          "isCorrect": true,
+          "rationale": "The source explicitly defines adversarial behavior in terms of its impact on the security properties of data."
+        },
+        {
+          "label": "C",
+          "text": "Any behavior that results in a computer crash or hardware failure.",
+          "isCorrect": false,
+          "rationale": "While harmful, the source focuses on behavior that harms information properties, not just general IT issues."
+        },
+        {
+          "label": "D",
+          "text": "The act of encrypting a document without the State's authorization.",
+          "isCorrect": false,
+          "rationale": "Encryption is a defensive strategy, not an adversarial act in this context."
+        }
+      ],
+      "hint": "Focus on the goal of 'securing information' and what it is being secured against.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 26,
+      "question": "In the safe analogy for asymmetric cryptography, how are the keys used differently compared to symmetric cryptography?",
+      "options": [
+        {
+          "label": "A",
+          "text": "One key is used for putting a document in (encryption), and another different key is used for taking it out (decryption).",
+          "isCorrect": true,
+          "rationale": "Asymmetric systems use a pair of keys where the encryption key cannot be used for decryption."
+        },
+        {
+          "label": "B",
+          "text": "The same key must be split in half and shared between the two peers.",
+          "isCorrect": false,
+          "rationale": "This describes a 'secret sharing' concept, not the fundamental mechanism of asymmetric encryption."
+        },
+        {
+          "label": "C",
+          "text": "The key is kept inside the safe so only the safe knows the code.",
+          "isCorrect": false,
+          "rationale": "Keys must be accessible to the actors to perform encryption and decryption operations."
+        },
+        {
+          "label": "D",
+          "text": "Both keys are required simultaneously to open the safe.",
+          "isCorrect": false,
+          "rationale": "Asymmetric encryption usually involves one key for the sender and a separate one for the receiver at different times."
+        }
+      ],
+      "hint": "Focus on the number of keys involved in a single complete cycle of storage and retrieval.",
+      "correctAnswer": "A"
+    }
+  ]
+}

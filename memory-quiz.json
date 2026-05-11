@@ -1,0 +1,847 @@
+{
+  "title": "Memory Quiz",
+  "totalQuestions": 27,
+  "extractedAt": "2026-05-11T16:04:30.589Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "In the context of memory security, which type of attack is strictly classified as passive, and what is its primary objective?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Splicing; to read data by combining legitimate command portions.",
+          "isCorrect": false,
+          "rationale": "Recombining legitimate commands to achieve a new result is an active manipulation of the memory interface."
+        },
+        {
+          "label": "B",
+          "text": "Disturbance; to observe the effects of Rowhammer on neighboring cells.",
+          "isCorrect": false,
+          "rationale": "This involves repeated access to specific memory rows to induce bit flips, which is a physical manipulation of memory state."
+        },
+        {
+          "label": "C",
+          "text": "Spoofing; to read data by injecting malicious memory commands.",
+          "isCorrect": false,
+          "rationale": "Command injection involves active participation in the bus protocol, which classifies it as an active attack."
+        },
+        {
+          "label": "D",
+          "text": "Snooping; to observe data contents or access patterns without modification.",
+          "isCorrect": true,
+          "rationale": "Passive attacks do not alter the state of the system, focusing instead on data extraction or monitoring communication on the bus."
+        }
+      ],
+      "hint": "Consider the distinction between merely observing traffic and actively interacting with the memory controller.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 2,
+      "question": "How does the use of Advanced Encryption Standard (AES) in Counter (CTR) mode enhance the efficiency of memory read operations compared to other modes?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It eliminates the need for a secret key by using spatial addresses.",
+          "isCorrect": false,
+          "rationale": "A secret key is still fundamental to the security of the block cipher used to generate the encryption pad."
+        },
+        {
+          "label": "B",
+          "text": "It allows the encryption pads to be pre-computed independently of the data.",
+          "isCorrect": true,
+          "rationale": "The encryption engine generates a pad based on the counter and address; since these are known or predictable, the pad can be ready before the data arrives from memory."
+        },
+        {
+          "label": "C",
+          "text": "It uses a global key to simplify the decryption logic for all cache lines.",
+          "isCorrect": false,
+          "rationale": "While a global key might be used, relying solely on it without counters leads to dictionary-based attacks and lacks temporal uniqueness."
+        },
+        {
+          "label": "D",
+          "text": "It reduces latency by performing decryption in serial before the CPU receives the ciphertext.",
+          "isCorrect": false,
+          "rationale": "CTR mode is favored because it allows parallelization or pre-computation, rather than a slow serial process."
+        }
+      ],
+      "hint": "Think about the relationship between the generation of the One-Time Pad (OTP) and the actual data being processed.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 3,
+      "question": "Which specific parameter in counter-mode encryption provides 'spatial uniqueness' to ensure that identical plaintexts in different locations result in different ciphertexts?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Secret Key",
+          "isCorrect": false,
+          "rationale": "This parameter provides the necessary randomness but is typically consistent across various memory locations."
+        },
+        {
+          "label": "B",
+          "text": "Counter per cache line",
+          "isCorrect": false,
+          "rationale": "This parameter is primarily responsible for ensuring that different writes to the same location result in different ciphertexts."
+        },
+        {
+          "label": "C",
+          "text": "Cache line address",
+          "isCorrect": true,
+          "rationale": "Incorporating the memory location into the encryption input ensures that identical data values produce unique ciphertexts across the memory map."
+        },
+        {
+          "label": "D",
+          "text": "AES Block size",
+          "isCorrect": false,
+          "rationale": "The block size is a fixed characteristic of the algorithm and does not vary based on the data's location."
+        }
+      ],
+      "hint": "Identify which variable distinguishes one physical position in memory from another.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 4,
+      "question": "An attacker captures a valid data block and its corresponding HMAC signature, then replaces a more recent write at the same address with this older version. What is this attack called, and why is a standard HMAC ineffective against it?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Spoofing; because HMACs are prone to dictionary-based attacks.",
+          "isCorrect": false,
+          "rationale": "Spoofing usually refers to the injection of entirely new, fabricated commands rather than the reuse of legitimate ones."
+        },
+        {
+          "label": "B",
+          "text": "Splicing; because HMACs do not verify the spatial location of the data.",
+          "isCorrect": false,
+          "rationale": "Splicing involves swapping data between different addresses, whereas this scenario describes a temporal replacement."
+        },
+        {
+          "label": "C",
+          "text": "Replay; because a standard HMAC lacks a mechanism to verify the freshness or version of the data.",
+          "isCorrect": true,
+          "rationale": "A standard HMAC verifies that the data has not been tampered with since the signature was created, but it cannot detect if the entire valid pair is 'old'."
+        },
+        {
+          "label": "D",
+          "text": "Disturbance; because the HMAC cannot prevent bit flips caused by circuit aging.",
+          "isCorrect": false,
+          "rationale": "Disturbance attacks focus on physical hardware failures rather than the logical integrity of the data stream."
+        }
+      ],
+      "hint": "Focus on the timeline of the attack where legitimate but 'outdated' data is used.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 5,
+      "question": "What is the primary architectural advantage of a Merkle Tree (MT) over a simple HMAC for ensuring data integrity in an untrusted memory environment?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It allows for faster data access by eliminating the need to verify hashes on read operations.",
+          "isCorrect": false,
+          "rationale": "Merkle Trees actually increase read latency because nodes along the path to the root must often be checked."
+        },
+        {
+          "label": "B",
+          "text": "It reduces the storage overhead by only storing one hash for the entire memory.",
+          "isCorrect": false,
+          "rationale": "While the root is single, the tree structure requires storing many intermediate hashes throughout memory."
+        },
+        {
+          "label": "C",
+          "text": "It encrypts the data automatically as part of the hashing process.",
+          "isCorrect": false,
+          "rationale": "Hashing for integrity and encryption for confidentiality are separate cryptographic operations."
+        },
+        {
+          "label": "D",
+          "text": "The root of the tree is stored on the secure processor, providing an immutable reference point.",
+          "isCorrect": true,
+          "rationale": "By anchoring the recursive hash structure in a secure, on-chip location, any modification to the underlying data or intermediate hashes will cause a mismatch at the root."
+        }
+      ],
+      "hint": "Consider the 'trusted' versus 'untrusted' boundary in the system architecture.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 6,
+      "question": "In a Bonsai Merkle Tree (BMT), what is the relationship between the encryption counters and the integrity verification process?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The BMT eliminates counters to reduce the tree depth, relying solely on secret keys.",
+          "isCorrect": false,
+          "rationale": "BMTs specifically rely on counters to maintain temporal uniqueness and optimize the integrity check."
+        },
+        {
+          "label": "B",
+          "text": "The Merkle Tree protects the counters, and the counters are used to authenticate the encrypted data.",
+          "isCorrect": true,
+          "rationale": "BMTs optimize integrity by verifying the freshness of the counters; if the counter is trusted, the data decrypted with it is considered fresh."
+        },
+        {
+          "label": "C",
+          "text": "The counters are used to hash the data, while the Merkle Tree is used to encrypt the address.",
+          "isCorrect": false,
+          "rationale": "Encryption and hashing remain distinct; the Merkle Tree structure is applied to the metadata rather than directly to the plaintext data."
+        },
+        {
+          "label": "D",
+          "text": "Each data block is hashed with its counter to create the secure root directly.",
+          "isCorrect": false,
+          "rationale": "A single data block cannot form the root; the root is the result of recursive hashing of many nodes."
+        }
+      ],
+      "hint": "Think about how protecting the metadata (the counter) indirectly protects the data.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 7,
+      "question": "According to the source material, why is memory encryption alone insufficient to protect the privacy of a program's operations?",
+      "options": [
+        {
+          "label": "A",
+          "text": "AES in CTR mode is vulnerable to brute-force attacks on the ciphertext.",
+          "isCorrect": false,
+          "rationale": "AES is generally considered computationally secure against brute force; the vulnerability lies in metadata leaks."
+        },
+        {
+          "label": "B",
+          "text": "The memory access patterns, such as address sequences and frequencies, remain visible.",
+          "isCorrect": true,
+          "rationale": "Even if data is encrypted, the specific addresses being accessed can reveal what the program is doing, such as the branch taken in a binary search."
+        },
+        {
+          "label": "C",
+          "text": "Encryption does not prevent an attacker from modifying the data at rest.",
+          "isCorrect": false,
+          "rationale": "While true, this refers to integrity rather than the specific privacy of the program's logical flow."
+        },
+        {
+          "label": "D",
+          "text": "Encryption keys are often stored in plain text on the memory bus.",
+          "isCorrect": false,
+          "rationale": "Security models assume keys are kept within the secure processor and never exposed to the bus."
+        }
+      ],
+      "hint": "Distinguish between the content of the data and the 'behavior' of the memory controller.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 8,
+      "question": "What is the defining security property of Oblivious RAM (ORAM) regarding access sequences?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It renders any two access patterns of the same length computationally indistinguishable.",
+          "isCorrect": true,
+          "rationale": "The goal of ORAM is to obfuscate the access pattern so an observer cannot tell which logical address is being targeted by looking at physical traffic."
+        },
+        {
+          "label": "B",
+          "text": "It reduces the number of physical memory accesses to minimize information leakage.",
+          "isCorrect": false,
+          "rationale": "ORAM actually increases the number of physical accesses to create noise and obfuscate the real request."
+        },
+        {
+          "label": "C",
+          "text": "It ensures that only read operations are performed on sensitive data.",
+          "isCorrect": false,
+          "rationale": "ORAM handles both reads and writes to provide a comprehensive security primitive."
+        },
+        {
+          "label": "D",
+          "text": "It encrypts the memory bus itself to hide the address bits.",
+          "isCorrect": false,
+          "rationale": "Standard DRAM buses transmit addresses in plain text; ORAM works by changing which physical addresses are accessed rather than encrypting the wires."
+        }
+      ],
+      "hint": "Think about the observer's ability to differentiate between two different logical request streams.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 9,
+      "question": "When implementing a Bonsai Merkle Tree, the HMAC for the data is often calculated as \\( DH = HMAC_K(Encrypted Data + Address + CTR) \\). Why is the address included in this calculation?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To prevent splicing attacks by binding the data to its specific memory location.",
+          "isCorrect": true,
+          "rationale": "Including the address ensures that if a valid data/HMAC block is moved to a different address, the verification will fail because the current address won't match the one in the HMAC."
+        },
+        {
+          "label": "B",
+          "text": "To obfuscate the access pattern from attackers snooping on the bus.",
+          "isCorrect": false,
+          "rationale": "HMACs provide integrity and authentication, not obliviousness; ORAM would be needed for access pattern obfuscation."
+        },
+        {
+          "label": "C",
+          "text": "To ensure that the encryption key changes every time the data is read.",
+          "isCorrect": false,
+          "rationale": "The address provides spatial uniqueness, but the keys themselves are not derived from the address in this manner."
+        },
+        {
+          "label": "D",
+          "text": "To allow the CPU to locate the data faster within the Merkle Tree nodes.",
+          "isCorrect": false,
+          "rationale": "The address is used for routing, but its inclusion in the HMAC is specifically for cryptographic binding and integrity."
+        }
+      ],
+      "hint": "Recall the definition of a 'Splicing' attack and what information would be needed to detect it.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 10,
+      "question": "In the ORAM threat model, which of the following components is typically considered 'trusted'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The main memory bus",
+          "isCorrect": false,
+          "rationale": "The bus is the primary point where attackers perform snooping and injection attacks."
+        },
+        {
+          "label": "B",
+          "text": "The processor's internal state",
+          "isCorrect": true,
+          "rationale": "Secure systems assume the processor chip itself is a trusted boundary that an attacker cannot easily probe."
+        },
+        {
+          "label": "C",
+          "text": "The external DRAM modules",
+          "isCorrect": false,
+          "rationale": "External memory is physically accessible and thus prone to snooping or tampering."
+        },
+        {
+          "label": "D",
+          "text": "The storage interconnect cables",
+          "isCorrect": false,
+          "rationale": "Cables are external to the secure boundary and can be intercepted by an attacker."
+        }
+      ],
+      "hint": "Identify the boundary where the attacker is assumed to have no visibility or control.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 11,
+      "question": "Which algorithmic property of ORAM ensures that the data returned to the user is always the most recently written value for a requested address?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Correctness",
+          "isCorrect": true,
+          "rationale": "Correctness is the property ensuring the system functions as a valid memory, returning consistent and accurate data."
+        },
+        {
+          "label": "B",
+          "text": "Symmetry",
+          "isCorrect": false,
+          "rationale": "Symmetry is not a standard algorithmic property discussed for ORAM in the context of request sequences."
+        },
+        {
+          "label": "C",
+          "text": "Intensity",
+          "isCorrect": false,
+          "rationale": "Intensity refers to the frequency of accesses, which is something ORAM seeks to hide rather than a functional property."
+        },
+        {
+          "label": "D",
+          "text": "Obliviousness",
+          "isCorrect": false,
+          "rationale": "Obliviousness refers to the indistinguishability of access patterns, not the accuracy of the data values."
+        }
+      ],
+      "hint": "Think of the fundamental requirement for any memory system to work properly regardless of security.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 12,
+      "question": "In the provided example of a binary search access pattern, what specific information is leaked to a snooping attacker despite data encryption?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The rank of the number being searched.",
+          "isCorrect": true,
+          "rationale": "By watching which addresses (midpoints) are accessed, an attacker can determine the path taken through the search tree, revealing the value's relative position."
+        },
+        {
+          "label": "B",
+          "text": "The secret key used for AES.",
+          "isCorrect": false,
+          "rationale": "The key is kept within the processor and is not leaked through simple address observation."
+        },
+        {
+          "label": "C",
+          "text": "The plaintext value of the counter.",
+          "isCorrect": false,
+          "rationale": "Counters are often encrypted or protected; even if known, they don't leak the logical program flow as directly as the address sequence."
+        },
+        {
+          "label": "D",
+          "text": "The physical aging status of the DRAM circuits.",
+          "isCorrect": false,
+          "rationale": "While disturbance attacks affect aging, a standard binary search does not leak this physical hardware metric."
+        }
+      ],
+      "hint": "Consider what an observer learns by seeing the 'path' the processor takes through a sorted list.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 13,
+      "question": "The 'Disturbance' attack on memory is uniquely characterized by which of the following mechanisms?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Swapping contents between two physical memory banks.",
+          "isCorrect": false,
+          "rationale": "This describes a splicing attack, which is a logical manipulation of memory commands."
+        },
+        {
+          "label": "B",
+          "text": "Exploiting electromagnetic interference to flip bits in adjacent DRAM rows (Rowhammer).",
+          "isCorrect": true,
+          "rationale": "Disturbance attacks focus on causing physical errors or bit flips through repeated, targeted access patterns."
+        },
+        {
+          "label": "C",
+          "text": "Replaying old command sequences to reset the memory controller state.",
+          "isCorrect": false,
+          "rationale": "This is a replay attack, which leverages previous valid traffic to achieve a malicious state."
+        },
+        {
+          "label": "D",
+          "text": "Capturing bus traffic to reconstruct a dictionary of encrypted blocks.",
+          "isCorrect": false,
+          "rationale": "This is a passive snooping attack focused on confidentiality, not a disturbance attack."
+        }
+      ],
+      "hint": "Think about an attack that targets the 'health' or 'stability' of the physical memory cells.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 14,
+      "question": "Why is Symmetric Multiprocessing (SMP) specifically mentioned as a configuration where snooping attacks are 'easier'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Because the processors share a common memory bus, allowing one node to monitor another's traffic.",
+          "isCorrect": true,
+          "rationale": "A shared bus provides a central point where all memory requests from different cores are visible, increasing the attack surface for snooping."
+        },
+        {
+          "label": "B",
+          "text": "Because SMP systems do not support AES encryption at the hardware level.",
+          "isCorrect": false,
+          "rationale": "Encryption support is independent of the multiprocessing architecture; SMP can support AES."
+        },
+        {
+          "label": "C",
+          "text": "Because SMP requires shorter counters, leading to more frequent temporal collisions.",
+          "isCorrect": false,
+          "rationale": "Counter length is a design choice related to security depth, not an inherent requirement of SMP."
+        },
+        {
+          "label": "D",
+          "text": "Because SMP systems are immune to ORAM controllers.",
+          "isCorrect": false,
+          "rationale": "ORAM can be implemented in SMP systems, though it may be more complex."
+        }
+      ],
+      "hint": "Consider the physical layout of how multiple processors talk to a single main memory module.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 15,
+      "question": "True or False: In a Merkle Tree implementation, if an attacker successfully modifies a single bit of data at the 'leaf' level, they must also modify every hash node along the path to the root to remain undetected.",
+      "options": [
+        {
+          "label": "A",
+          "text": "False",
+          "isCorrect": false,
+          "rationale": "Modification of any node without updating the parent nodes would lead to a mismatch when the processor verifies the path against the secure root."
+        },
+        {
+          "label": "B",
+          "text": "True",
+          "isCorrect": true,
+          "rationale": "Because the hashes are recursive, a change at the bottom ripples upward, requiring all parent hashes to be updated to match the secure root."
+        }
+      ],
+      "hint": "Remember the structure of recursive hashing and the single point of trust.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 16,
+      "question": "What happens in the 'Memory Write' process of a secure processor using counter-mode encryption when the data leaves the processor chip?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The processor waits for the memory to return a valid counter before sending the data.",
+          "isCorrect": false,
+          "rationale": "The processor typically manages the counter itself to ensure security and reduce latency."
+        },
+        {
+          "label": "B",
+          "text": "An encryption engine (like AES) generates a pad, which is then XORed with the plaintext data.",
+          "isCorrect": true,
+          "rationale": "The result is ciphertext, which can be safely stored in the untrusted external memory."
+        },
+        {
+          "label": "C",
+          "text": "The data is converted to a hash before being sent to the DRAM module.",
+          "isCorrect": false,
+          "rationale": "Hashing is for integrity verification, not for data storage; the data must remain reversible (decipherable) for the CPU."
+        },
+        {
+          "label": "D",
+          "text": "The plaintext is directly XORed with the secret key.",
+          "isCorrect": false,
+          "rationale": "A simple XOR with a key is not cryptographically secure; a block cipher must generate a unique pad first."
+        }
+      ],
+      "hint": "Think about the steps involved in transforming plaintext into ciphertext before it reaches the DRAM.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 17,
+      "question": "Which of the following properties is MOST critical for the 'Secret Key' used in memory encryption engines?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It must be publicly available to all DRAM modules.",
+          "isCorrect": false,
+          "rationale": "Security relies on the key remaining secret and accessible only to the trusted processor."
+        },
+        {
+          "label": "B",
+          "text": "It must be highly random (entropy).",
+          "isCorrect": true,
+          "rationale": "Randomness prevents attackers from predicting the encryption pads used to protect data."
+        },
+        {
+          "label": "C",
+          "text": "It must be reset to zero after every memory read.",
+          "isCorrect": false,
+          "rationale": "Resetting the key would render all previously stored encrypted data unreadable."
+        },
+        {
+          "label": "D",
+          "text": "It must be identical to the cache line address.",
+          "isCorrect": false,
+          "rationale": "The key and the address are separate inputs to ensure that knowing the address doesn't compromise the key."
+        }
+      ],
+      "hint": "Consider the fundamental requirement for any cryptographic key to be secure.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 18,
+      "question": "What is the primary trade-off when using Oblivious RAM to protect memory access patterns?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Reduced storage capacity because of redundant data copies.",
+          "isCorrect": false,
+          "rationale": "While storage overhead exists, the primary performance bottleneck is the increased bus traffic."
+        },
+        {
+          "label": "B",
+          "text": "The requirement for a perfectly reliable (error-free) DRAM bus.",
+          "isCorrect": false,
+          "rationale": "Standard error correction can still be used; ORAM doesn't mandate a perfect bus."
+        },
+        {
+          "label": "C",
+          "text": "Lower security for higher bandwidth.",
+          "isCorrect": false,
+          "rationale": "ORAM is designed to increase security, not lower it."
+        },
+        {
+          "label": "D",
+          "text": "Increased memory latency and bandwidth consumption due to multiple physical accesses.",
+          "isCorrect": true,
+          "rationale": "ORAM requires several physical reads and writes for every single logical request, which significantly impacts performance."
+        }
+      ],
+      "hint": "Think about the 'Multiple Physical Reads and Writes' shown in the ORAM diagram.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 19,
+      "question": "How does the 'Temporal Uniqueness' property of counter-mode encryption defend against replay attacks?",
+      "options": [
+        {
+          "label": "A",
+          "text": "By changing the counter on every write, ensuring the same plaintext results in a different ciphertext over time.",
+          "isCorrect": true,
+          "rationale": "If an attacker replays an old ciphertext/counter pair, the processor will detect it as stale because the expected internal counter will have incremented."
+        },
+        {
+          "label": "B",
+          "text": "By using a different secret key for every clock cycle.",
+          "isCorrect": false,
+          "rationale": "Managing a new key every cycle would be architecturally impractical and unnecessary if counters are used."
+        },
+        {
+          "label": "C",
+          "text": "By encrypting the timestamp of the memory bus transaction.",
+          "isCorrect": false,
+          "rationale": "While timestamps can be used, the counter-per-line is the mechanism described for temporal uniqueness in this memory context."
+        },
+        {
+          "label": "D",
+          "text": "By ensuring that every memory read is verified by a second processor.",
+          "isCorrect": false,
+          "rationale": "Verification is an integrity check, but temporal uniqueness is an encryption property achieved via counters."
+        }
+      ],
+      "hint": "Focus on what happens when the same piece of data is written to the same address multiple times.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 20,
+      "question": "In the context of the Bonsai Merkle Tree example provided in the slides, what does 'Access 1' through 'Access 5' demonstrate?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The failure of the ORAM controller during heavy traffic.",
+          "isCorrect": false,
+          "rationale": "The example is focused on BMT integrity, not the performance failures of ORAM."
+        },
+        {
+          "label": "B",
+          "text": "The sequential aging of the DRAM cells due to disturbance.",
+          "isCorrect": false,
+          "rationale": "The slides use these steps to illustrate the traversal and update process of an integrity tree, not a physical attack."
+        },
+        {
+          "label": "C",
+          "text": "How a dictionary-based attack gradually learns the global key.",
+          "isCorrect": false,
+          "rationale": "The example demonstrates a security mechanism (BMT) rather than an attack progression."
+        },
+        {
+          "label": "D",
+          "text": "The process of updating nodes and reading counters during memory access.",
+          "isCorrect": true,
+          "rationale": "The example shows how different nodes in the Merkle Tree are traversed or updated as different data blocks are accessed."
+        }
+      ],
+      "hint": "Look at the labels 'Counter read/updated' and 'Nodes traversed for authentication' in the diagram.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 21,
+      "question": "Which attack involves combining portions of legitimate memory commands into new, malicious memory commands?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Spoofing",
+          "isCorrect": false,
+          "rationale": "Spoofing usually involves creating entirely new fraudulent commands."
+        },
+        {
+          "label": "B",
+          "text": "Splicing",
+          "isCorrect": true,
+          "rationale": "Splicing specifically refers to taking valid command fragments and 'stitching' them together to access or modify data."
+        },
+        {
+          "label": "C",
+          "text": "Snooping",
+          "isCorrect": false,
+          "rationale": "Snooping is passive and does not involve command manipulation."
+        },
+        {
+          "label": "D",
+          "text": "Replay",
+          "isCorrect": false,
+          "rationale": "Replay involves resending a complete, unmodified previous command."
+        }
+      ],
+      "hint": "Think of the term used in biology or film for 'joining' segments together.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 22,
+      "question": "What is the primary role of the 'Secure Root' in a Merkle Tree integrity scheme?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To generate random counters for ORAM operations.",
+          "isCorrect": false,
+          "rationale": "The root's function is strictly related to integrity verification, not randomness generation for ORAM."
+        },
+        {
+          "label": "B",
+          "text": "To store the AES secret keys for all memory blocks.",
+          "isCorrect": false,
+          "rationale": "The root is a hash value for integrity, not a storage location for encryption keys."
+        },
+        {
+          "label": "C",
+          "text": "To act as a physical shield for the DRAM modules.",
+          "isCorrect": false,
+          "rationale": "The root is a logical/cryptographic entity, not a physical barrier."
+        },
+        {
+          "label": "D",
+          "text": "To serve as the final, trusted hash that validates the entire tree structure.",
+          "isCorrect": true,
+          "rationale": "The root is the anchor of the tree; if it is stored securely, any change in the external memory nodes will cause a mismatch."
+        }
+      ],
+      "hint": "Consider the top-most node in a hierarchical hashing scheme.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 23,
+      "question": "True or False: Snooping attacks are only concerned with the actual data values and cannot extract any information from the sequence of addresses being accessed.",
+      "options": [
+        {
+          "label": "A",
+          "text": "False",
+          "isCorrect": true,
+          "rationale": "Access patterns can leak significant information, such as which branch of a conditional statement was executed."
+        },
+        {
+          "label": "B",
+          "text": "True",
+          "isCorrect": false,
+          "rationale": "Address sequences, known as access patterns, are a major source of information leakage that can reveal program logic."
+        }
+      ],
+      "hint": "Consider the section in the material discussing 'Side-channel' leaks.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 24,
+      "question": "Which of the following is a symptom of a 'Cold boot attack' mentioned in the attack vectors?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Injecting new memory commands into the controller.",
+          "isCorrect": false,
+          "rationale": "This is spoofing, which is an active protocol-level attack."
+        },
+        {
+          "label": "B",
+          "text": "Extraction of data from DRAM after a system is powered down but while the bits remain temporarily readable.",
+          "isCorrect": true,
+          "rationale": "Cold boot attacks exploit the physical property that DRAM bits don't disappear instantly when power is cut, especially if the modules are cooled."
+        },
+        {
+          "label": "C",
+          "text": "Bit flips in DRAM due to repeated access.",
+          "isCorrect": false,
+          "rationale": "This describes Rowhammer, which is a disturbance attack, not a cold boot attack."
+        },
+        {
+          "label": "D",
+          "text": "A Denial of Service (DoS) attack on the memory bus.",
+          "isCorrect": false,
+          "rationale": "DoS is an active disturbance attack, whereas cold boot is a physical data extraction method."
+        }
+      ],
+      "hint": "Think about the physical persistence of data when power is removed.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 25,
+      "question": "Why does the source material suggest that encryption 'cannot hide' memory access patterns?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Because the secret key is derived from the memory access pattern.",
+          "isCorrect": false,
+          "rationale": "The key is independent of the pattern; the lack of address encryption is a hardware limitation."
+        },
+        {
+          "label": "B",
+          "text": "Because AES is a one-way function and cannot hide locations.",
+          "isCorrect": false,
+          "rationale": "AES is used to hide data content; it is technically capable of hiding locations if used in a different architecture, but not in standard DRAM."
+        },
+        {
+          "label": "C",
+          "text": "Because the address is transmitted in plaintext in commodity DRAM.",
+          "isCorrect": true,
+          "rationale": "Current hardware standards require the memory controller to send the specific address on the bus in the clear so the DRAM knows which row/column to activate."
+        },
+        {
+          "label": "D",
+          "text": "Because the ORAM controller is bypassed during high-intensity searches.",
+          "isCorrect": false,
+          "rationale": "If ORAM is present, it is not bypassed; the point is that standard encryption alone does not provide this protection."
+        }
+      ],
+      "hint": "Focus on the physical reality of the wires and signals on a standard computer motherboard.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 26,
+      "question": "What is the 'Issue' identified with using just a one-way function (like AES) and a Global Key for memory encryption?",
+      "options": [
+        {
+          "label": "A",
+          "text": "They require more storage than the actual data.",
+          "isCorrect": false,
+          "rationale": "AES-CTR typically has minimal storage overhead compared to other modes, especially if counters are managed efficiently."
+        },
+        {
+          "label": "B",
+          "text": "They are prone to dictionary-based attacks.",
+          "isCorrect": true,
+          "rationale": "If the same plaintext always produces the same ciphertext because the key and location/time context don't change, an attacker can build a lookup table."
+        },
+        {
+          "label": "C",
+          "text": "They cause physical bit flips in the DRAM cells.",
+          "isCorrect": false,
+          "rationale": "Bit flips are caused by disturbance attacks, not the choice of encryption algorithm."
+        },
+        {
+          "label": "D",
+          "text": "They are too slow for real-time memory access.",
+          "isCorrect": false,
+          "rationale": "The performance issue is separate from the security weakness identified (dictionary-based attacks)."
+        }
+      ],
+      "hint": "Consider what happens if the same value (e.g., zero) is stored in many different memory locations.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 27,
+      "question": "Which ORAM construction feature ensures that an attacker cannot distinguish between a read and a write operation?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Obfuscating the physical sequence so that every logical access triggers a standardized set of bus actions.",
+          "isCorrect": true,
+          "rationale": "By making every request 'look' the same physically (e.g., a mix of reads/writes), the observer cannot tell the underlying intent."
+        },
+        {
+          "label": "B",
+          "text": "Storing the data in a binary search tree structure.",
+          "isCorrect": false,
+          "rationale": "As the slides show, a standard binary search actually leaks patterns; ORAM must modify this behavior."
+        },
+        {
+          "label": "C",
+          "text": "Using a HMAC on the address bits.",
+          "isCorrect": false,
+          "rationale": "HMACs prevent tampering but do not provide the computational indistinguishability required to hide operation types."
+        },
+        {
+          "label": "D",
+          "text": "The use of AES-CTR mode.",
+          "isCorrect": false,
+          "rationale": "AES-CTR protects the data content but doesn't necessarily hide the type of bus command being sent."
+        }
+      ],
+      "hint": "Look for a property that deals with the 'Obliviousness' of the operation type.",
+      "correctAnswer": "A"
+    }
+  ]
+}

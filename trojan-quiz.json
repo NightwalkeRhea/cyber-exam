@@ -1,0 +1,943 @@
+{
+  "title": "Trojan Quiz",
+  "totalQuestions": 30,
+  "extractedAt": "2026-05-11T16:03:51.114Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "In the context of the Intel Ivy Bridge illustrative example, how was the cryptographic capability of the processor specifically compromised?",
+      "options": [
+        {
+          "label": "A",
+          "text": "By altering the doping polarity of a limited number of transistors.",
+          "isCorrect": true,
+          "rationale": "This method modifies the physical properties of the silicon without changing the layout, making it nearly invisible to standard inspections."
+        },
+        {
+          "label": "B",
+          "text": "By modifying the Microcode to bypass the random number generator.",
+          "isCorrect": false,
+          "rationale": "Microcode updates are software-level changes, whereas this specific Trojan was a hardware-level physical modification."
+        },
+        {
+          "label": "C",
+          "text": "By inserting an additional Ring Oscillator into the clock tree.",
+          "isCorrect": false,
+          "rationale": "While Ring Oscillators can be used in Trojans, the specific Ivy Bridge compromise focused on transistor-level physical properties."
+        },
+        {
+          "label": "D",
+          "text": "By adding a sub-micron logic gate to the $3^{rd}$ party netlist.",
+          "isCorrect": false,
+          "rationale": "Adding logic gates typically increases hardware overhead, whereas the doping attack maintained the existing layout."
+        }
+      ],
+      "hint": "Consider a modification that occurs at the atomic level of the semiconductor material rather than the logical structure.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 2,
+      "question": "What was the quantitative impact on the entropy of the random number generator in the Ivy Bridge hardware Trojan case study?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It was reduced from $256$ bits to $128$ bits.",
+          "isCorrect": false,
+          "rationale": "The source material specifies a reduction starting from $128$ bits and ending at a much lower threshold."
+        },
+        {
+          "label": "B",
+          "text": "It was reduced from $128$ bits to $64$ bits.",
+          "isCorrect": false,
+          "rationale": "The reduction was more drastic than a simple halving of the bit length, dropping to only a quarter of the original entropy."
+        },
+        {
+          "label": "C",
+          "text": "It was reduced from $64$ bits to $16$ bits.",
+          "isCorrect": false,
+          "rationale": "Modern processors typically start with higher entropy standards, such as $128$ bits, for secure random number generation."
+        },
+        {
+          "label": "D",
+          "text": "It was reduced from $128$ bits to $32$ bits.",
+          "isCorrect": true,
+          "rationale": "The goal of the attack was to significantly weaken the cryptographic strength by making the output more predictable."
+        }
+      ],
+      "hint": "The reduction resulted in a security level that is significantly easier to brute-force by a factor of $2^{96}$.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 3,
+      "question": "Which component of a Hardware Trojan is primarily responsible for monitoring specific internal signals to initiate the malicious action?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The Router",
+          "isCorrect": false,
+          "rationale": "While a Trojan could be hidden within a router, the router itself is a functional block rather than the activation mechanism."
+        },
+        {
+          "label": "B",
+          "text": "The Trigger",
+          "isCorrect": true,
+          "rationale": "The trigger acts as the activation mechanism that waits for a rare condition or sequence to occur."
+        },
+        {
+          "label": "C",
+          "text": "The Node Interface",
+          "isCorrect": false,
+          "rationale": "A node interface is a legitimate part of an interconnect architecture and not the activation component of a Trojan."
+        },
+        {
+          "label": "D",
+          "text": "The Payload",
+          "isCorrect": false,
+          "rationale": "The payload is the actual malicious logic that executes once the Trojan has already been activated."
+        }
+      ],
+      "hint": "This part functions like a sensor or a condition-checker within the malicious circuitry.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 4,
+      "question": "Why is a Hardware Trojan with a 'low possibility of occurrence' trigger particularly dangerous for IC designers?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It causes the chip to fail immediately upon being powered on.",
+          "isCorrect": false,
+          "rationale": "An immediate failure would make the Trojan easy to detect during the initial manufacturing test."
+        },
+        {
+          "label": "B",
+          "text": "It is extremely difficult to activate during standard functional testing.",
+          "isCorrect": true,
+          "rationale": "If the trigger condition is rare, standard test vectors are unlikely to hit the exact state required to reveal the Trojan's presence."
+        },
+        {
+          "label": "C",
+          "text": "It significantly increases the power consumption of the chip.",
+          "isCorrect": false,
+          "rationale": "Ideally, a Trojan has very low hardware overhead to avoid detection via power analysis."
+        },
+        {
+          "label": "D",
+          "text": "It requires physical access to the chip to be activated by the attacker.",
+          "isCorrect": false,
+          "rationale": "Triggers are typically designed to be activated by internal data sequences or specific timing conditions within the chip's logic."
+        }
+      ],
+      "hint": "Think about how rare events interact with the coverage of typical verification and validation processes.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 5,
+      "question": "At which stage of the design and manufacturing process can a Hardware Trojan be inserted, according to the source material?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Any stage including specification, RTL, manufacturing, or supply chain.",
+          "isCorrect": true,
+          "rationale": "The decentralized nature of modern IC design provides multiple points of entry for malicious actors at different levels of abstraction."
+        },
+        {
+          "label": "B",
+          "text": "Only during the Physical Design (Place & Route) stage.",
+          "isCorrect": false,
+          "rationale": "While P&R is a vulnerable stage, Trojans can also be inserted much earlier in the RTL or much later in the foundry."
+        },
+        {
+          "label": "C",
+          "text": "Only during the packaging and post-silicon testing phase.",
+          "isCorrect": false,
+          "rationale": "Malicious logic is typically embedded deeper in the circuit design before packaging begins."
+        },
+        {
+          "label": "D",
+          "text": "Exclusively during the fabrication stage in an untrusted foundry.",
+          "isCorrect": false,
+          "rationale": "Insertion can also happen 'Pre-Silicon' through untrusted 3rd party IP or CAD tools."
+        }
+      ],
+      "hint": "Modern chip design is a global process involving many entities, from initial documentation to the final boxed product.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 6,
+      "question": "In the design flow provided, what distinguishes 'Firm' RTL from 'Soft' RTL in the context of security auditing?",
+      "options": [
+        {
+          "label": "A",
+          "text": "'Soft' RTL is already physically laid out, making it harder to spot changes.",
+          "isCorrect": false,
+          "rationale": "Soft RTL is actually high-level source code, which is the easiest form to read and modify."
+        },
+        {
+          "label": "B",
+          "text": "'Firm' RTL usually consists of synthesized netlists which are more difficult to audit and modify.",
+          "isCorrect": true,
+          "rationale": "Synthesized netlists lack the high-level structural clarity of source-level RTL, making malicious additions easier to hide."
+        },
+        {
+          "label": "C",
+          "text": "There is no difference; they are both equally transparent to CAD tools.",
+          "isCorrect": false,
+          "rationale": "The level of abstraction significantly changes how easily a human or a tool can detect unauthorized functionality."
+        },
+        {
+          "label": "D",
+          "text": "'Firm' RTL refers to the final physical GDSII files sent to the foundry.",
+          "isCorrect": false,
+          "rationale": "Physical designs (Hard IP) are at a lower level than 'Firm' RTL, which is still a logic-level netlist."
+        }
+      ],
+      "hint": "Consider the difference between human-readable code and a complex map of interconnected logic gates.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 7,
+      "question": "Which of the following is considered a 'Pre-Silicon' threat in the Hardware Trojan taxonomy?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Untrusted CAD tools or automation scripts.",
+          "isCorrect": true,
+          "rationale": "CAD tools have the ability to automatically insert logic during synthesis or layout without the designer's knowledge."
+        },
+        {
+          "label": "B",
+          "text": "Backdoor circuits inserted by the foundry.",
+          "isCorrect": false,
+          "rationale": "Foundry-level insertions occur during the 'Silicon' stage of the process."
+        },
+        {
+          "label": "C",
+          "text": "Malicious packaging elements.",
+          "isCorrect": false,
+          "rationale": "Packaging occurs after the silicon wafer has been produced, categorizing it as Post-Silicon."
+        },
+        {
+          "label": "D",
+          "text": "The use of counterfeit chips in the final system.",
+          "isCorrect": false,
+          "rationale": "Counterfeiting typically happens during the supply chain or post-production phases."
+        }
+      ],
+      "hint": "Look for vulnerabilities that exist in the software and intellectual property used to create the design before it is physically manufactured.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 8,
+      "question": "According to the diagrams, a Hardware Trojan payload might be designed to achieve which of the following malicious behaviors?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Automatically patch security vulnerabilities in the OS.",
+          "isCorrect": false,
+          "rationale": "A Trojan is by definition malicious; providing security patches is a beneficial function."
+        },
+        {
+          "label": "B",
+          "text": "Improve the heat dissipation of the IC to extend its lifespan.",
+          "isCorrect": false,
+          "rationale": "Malicious payloads often aim to shorten lifespan or cause destruction rather than improve hardware reliability."
+        },
+        {
+          "label": "C",
+          "text": "Increase the entropy of random number generators for better security.",
+          "isCorrect": false,
+          "rationale": "Trojans aim to decrease security, such as by reducing entropy to make encryption keys easier to guess."
+        },
+        {
+          "label": "D",
+          "text": "Degrade performance or violate specifications.",
+          "isCorrect": true,
+          "rationale": "Payloads can be designed to subtly slow down a system or cause it to operate outside of its safe parameters."
+        }
+      ],
+      "hint": "Malicious behavior usually involves the subversion of the device's intended purpose or the compromise of its integrity.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 9,
+      "question": "What makes detecting a Hardware Trojan in a large-scale SoC (System on Chip) project particularly challenging?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The Trojan logic is always larger than the legitimate logic.",
+          "isCorrect": false,
+          "rationale": "Trojans are usually characterized by a 'very small hardware overhead' to remain stealthy."
+        },
+        {
+          "label": "B",
+          "text": "Modern CAD tools automatically detect and remove all non-specified logic.",
+          "isCorrect": false,
+          "rationale": "CAD tools themselves can be untrusted and might be the source of the Trojan insertion."
+        },
+        {
+          "label": "C",
+          "text": "The complexity and 'undocumented functionality' can easily hide in millions of gates.",
+          "isCorrect": true,
+          "rationale": "In a massive design, extra logic that is not supposed to be there can be disguised as auxiliary or 'don't-care' logic."
+        },
+        {
+          "label": "D",
+          "text": "Standard testing is designed to explore $100\\%$ of all possible gate combinations.",
+          "isCorrect": false,
+          "rationale": "Exhaustive testing of all gate combinations is mathematically impossible for complex modern circuits."
+        }
+      ],
+      "hint": "Consider the 'needle in a haystack' problem when the haystack consists of millions of lines of code and logical connections.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 10,
+      "question": "Which of the following describes a 'Silicon' stage Hardware Trojan attack?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A malicious script in the synthesis tool changing logic gates.",
+          "isCorrect": false,
+          "rationale": "This is a CAD tool threat, which falls under the design (Pre-Silicon) phase."
+        },
+        {
+          "label": "B",
+          "text": "Disguising a malicious chip as a legitimate one during distribution.",
+          "isCorrect": false,
+          "rationale": "This is a Post-Silicon or supply chain threat focused on packaging and labeling."
+        },
+        {
+          "label": "C",
+          "text": "A malicious circuit insertion performed by an untrusted foundry.",
+          "isCorrect": true,
+          "rationale": "The foundry has the final GDSII files and can modify masks to add or change the physical circuitry on the wafer."
+        },
+        {
+          "label": "D",
+          "text": "An insider threat adding a malicious function to the source RTL.",
+          "isCorrect": false,
+          "rationale": "Source-level changes are part of the 'Pre-Silicon' or design stage."
+        }
+      ],
+      "hint": "Focus on the physical production of the silicon die itself.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 11,
+      "question": "In the illustrative diagram of a Trojan-infected system, where is the 'Hardware Trojan' block specifically placed?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Directly between the Core and the Shared Bus to block all traffic.",
+          "isCorrect": false,
+          "rationale": "Total blocking would be immediately detectable; Trojans usually favor stealthy information leakage or subtle malfunctions."
+        },
+        {
+          "label": "B",
+          "text": "Isolated in a BRAM block with no external connectivity.",
+          "isCorrect": false,
+          "rationale": "An isolated Trojan cannot fulfill its purpose of leaking information or affecting system behavior."
+        },
+        {
+          "label": "C",
+          "text": "Inside the L1 Instruction Cache solely for performance monitoring.",
+          "isCorrect": false,
+          "rationale": "While possible, the diagram specifically shows the Trojan interacting with the system's memory hierarchy components."
+        },
+        {
+          "label": "D",
+          "text": "Connected to the Directory Controller and Main Memory.",
+          "isCorrect": true,
+          "rationale": "Placing a Trojan near memory or controllers allows it to intercept or manipulate critical data flow."
+        }
+      ],
+      "hint": "Examine the slide showing the 'Router', 'Core', and 'Directory Controller' layout.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 12,
+      "question": "What is the primary risk associated with using $3^{rd}$ Party Hard IPs in a design?",
+      "options": [
+        {
+          "label": "A",
+          "text": "They are always slower than in-house designs.",
+          "isCorrect": false,
+          "rationale": "Hard IPs are often highly optimized for performance; the risk is security-related, not necessarily performance-related."
+        },
+        {
+          "label": "B",
+          "text": "They cannot be integrated into a standard SoC design flow.",
+          "isCorrect": false,
+          "rationale": "Hard IPs are standard components of modern SoC design but require higher trust since they are 'black boxes'."
+        },
+        {
+          "label": "C",
+          "text": "They are written in RTL, which makes them too easy for competitors to steal.",
+          "isCorrect": false,
+          "rationale": "Hard IP is precisely the opposite of RTL; it is a physical design, which actually helps protect IP but hinders security verification."
+        },
+        {
+          "label": "D",
+          "text": "They typically require reverse engineering to verify as they are provided as layout files.",
+          "isCorrect": true,
+          "rationale": "Because Hard IP is provided at the physical level (like GDSII), designers cannot easily see the underlying logic gates to check for Trojans."
+        }
+      ],
+      "hint": "Think about the level of visibility a designer has when they receive a 'black box' physical layout instead of source code.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 13,
+      "question": "Which of the following is a potential effect of a Hardware Trojan payload according to the 'Malicious behavior' section?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Optimizing the power grid for nuclear power plants.",
+          "isCorrect": false,
+          "rationale": "Critical infrastructure is a *target* for destruction by Trojans, not an area for Trojan-led optimization."
+        },
+        {
+          "label": "B",
+          "text": "Creation of a backdoor for future attacks.",
+          "isCorrect": true,
+          "rationale": "A backdoor allows an attacker to bypass standard security protocols and gain unauthorized access at a later time."
+        },
+        {
+          "label": "C",
+          "text": "Automatic encryption of all user data.",
+          "isCorrect": false,
+          "rationale": "Encryption is usually a security feature; a Trojan might try to *leak* keys or *weaken* encryption."
+        },
+        {
+          "label": "D",
+          "text": "Reduction of hardware overhead in the CPU.",
+          "isCorrect": false,
+          "rationale": "A Trojan *is* extra hardware overhead, even if it is designed to be very small."
+        }
+      ],
+      "hint": "This effect enables long-term, repeated access to a system through a hidden entry point.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 14,
+      "question": "How did the doping polarity Trojan in the Ivy Bridge example bypass physical inspections?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The modification did not change any metal layers or the geometry of the transistors.",
+          "isCorrect": true,
+          "rationale": "Since the visual structure remains identical, standard optical or electron microscopy cannot see the change in chemical dopants."
+        },
+        {
+          "label": "B",
+          "text": "It was too small to be seen even by the most powerful electron microscopes.",
+          "isCorrect": false,
+          "rationale": "Dopant changes are indeed at the atomic/molecular level, but the 'visual' geometry that microscopes check was simply not altered."
+        },
+        {
+          "label": "C",
+          "text": "The Trojan logic was only present during the manufacturing phase and evaporated after.",
+          "isCorrect": false,
+          "rationale": "Hardware Trojans are permanent physical alterations; they do not disappear after manufacturing."
+        },
+        {
+          "label": "D",
+          "text": "It was hidden under a layer of deceptive 'dummy' circuitry.",
+          "isCorrect": false,
+          "rationale": "While dummy logic is a technique, this specific example relied on the invisibility of dopant changes to physical imaging."
+        }
+      ],
+      "hint": "Consider what a physical inspection looks for: changes in the shape, size, or presence of components.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 15,
+      "question": "A Hardware Trojan that functions by leaking secret information through a side channel is classified as having which type of payload?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Leak information",
+          "isCorrect": true,
+          "rationale": "Information leakage is a primary category of payload malicious behavior, often targeting cryptographic keys or sensitive data."
+        },
+        {
+          "label": "B",
+          "text": "Physical destruction",
+          "isCorrect": false,
+          "rationale": "Physical destruction is an overt effect, whereas leakage is a covert effect."
+        },
+        {
+          "label": "C",
+          "text": "Destroy the circuit",
+          "isCorrect": false,
+          "rationale": "A side-channel leak is intended to keep the circuit operational so it can continue to transmit data stealthily."
+        },
+        {
+          "label": "D",
+          "text": "Denial of Service",
+          "isCorrect": false,
+          "rationale": "Denial of Service is characterized by making the circuit non-functional, which is the opposite of a stealthy information leak."
+        }
+      ],
+      "hint": "This behavior focuses on data exfiltration rather than service interruption or physical damage.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 16,
+      "question": "What role does an 'untrusted CAD tool' play in the insertion of a Hardware Trojan?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It provides the hardware 'trigger' in the form of a physical switch on the chip.",
+          "isCorrect": false,
+          "rationale": "Triggers are logic-based or timing-based conditions within the design code/netlist, not physical mechanical switches."
+        },
+        {
+          "label": "B",
+          "text": "It physically etches the Trojan into the silicon wafer.",
+          "isCorrect": false,
+          "rationale": "CAD tools are software; physical etching is done by machinery in the foundry."
+        },
+        {
+          "label": "C",
+          "text": "It verifies that the $3^{rd}$ party IP is free from all malicious code.",
+          "isCorrect": false,
+          "rationale": "An *untrusted* tool is a threat precisely because it might *hide* Trojans or *insert* them, rather than verify their absence."
+        },
+        {
+          "label": "D",
+          "text": "It can maliciously alter the gate-level netlist during the synthesis or placement process.",
+          "isCorrect": true,
+          "rationale": "CAD tools have the power to change how logic is implemented, potentially inserting extra gates that the human designer never specified."
+        }
+      ],
+      "hint": "Think about the automated steps that transform high-level code into complex gate interconnections.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 17,
+      "question": "Which of the following infrastructure targets for Hardware Trojans is specifically listed under 'Critical Infrastructures'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Consumer Smart Home appliances.",
+          "isCorrect": false,
+          "rationale": "These are generally not considered 'Critical Infrastructure' in the same context as power plants and military systems."
+        },
+        {
+          "label": "B",
+          "text": "Personal Entertainment Devices.",
+          "isCorrect": false,
+          "rationale": "The material focuses on high-impact systems like military, banking, and transportation."
+        },
+        {
+          "label": "C",
+          "text": "Power Grids and Nuclear Power Plants.",
+          "isCorrect": true,
+          "rationale": "These systems are vital for national security and safety, making them high-value targets for hardware-level sabotage."
+        },
+        {
+          "label": "D",
+          "text": "Social Media Servers.",
+          "isCorrect": false,
+          "rationale": "While important, social media is not listed in the provided material as a primary 'Critical Infrastructure' target."
+        }
+      ],
+      "hint": "Look for systems that provide essential services or energy to a nation.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 18,
+      "question": "What is a 'Post-Silicon' method of disguising a malicious chip according to the HT taxonomy?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Modifying the transistor doping polarity in the foundry.",
+          "isCorrect": false,
+          "rationale": "Foundry modifications happen *during* the silicon creation phase, not 'Post-Silicon'."
+        },
+        {
+          "label": "B",
+          "text": "Changing the RTL code after it has been synthesized.",
+          "isCorrect": false,
+          "rationale": "Synthesis happens 'Pre-Silicon'; once it's on silicon, the logic gates are fixed."
+        },
+        {
+          "label": "C",
+          "text": "Using CAD tools to hide undocumented functionality.",
+          "isCorrect": false,
+          "rationale": "CAD tools are part of the design phase (Pre-Silicon)."
+        },
+        {
+          "label": "D",
+          "text": "Malicious packaging elements that make the chip look legitimate.",
+          "isCorrect": true,
+          "rationale": "By using official-looking packages and markings, an attacker can substitute a compromised chip for a genuine one."
+        }
+      ],
+      "hint": "This phase deals with the chip after the silicon die has been manufactured.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 19,
+      "question": "True or False: Hardware Trojans are always detectable through standard Built-In Self-Test (BIST) routines.",
+      "options": [
+        {
+          "label": "A",
+          "text": "True",
+          "isCorrect": false,
+          "rationale": "Trojans with rare triggers or physical-level changes are deliberately crafted to pass standard self-tests."
+        },
+        {
+          "label": "B",
+          "text": "False",
+          "isCorrect": true,
+          "rationale": "As demonstrated by the Ivy Bridge example, sophisticated Trojans are specifically designed to remain hidden from BIST and physical inspections."
+        }
+      ],
+      "hint": "Standard tests are designed to find manufacturing defects, not cleverly hidden malicious additions.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 20,
+      "question": "In the Hardware Trojan life cycle, the 'Trigger' is specifically designed to:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Transmit stolen information to the attacker via wireless signals.",
+          "isCorrect": false,
+          "rationale": "The transmission of stolen information is the job of the payload, not the trigger."
+        },
+        {
+          "label": "B",
+          "text": "Encrypt the communication between the Core and Main Memory.",
+          "isCorrect": false,
+          "rationale": "Encryption is a security feature, whereas a Trojan's trigger is part of an attack mechanism."
+        },
+        {
+          "label": "C",
+          "text": "Activate the Trojan only under specific, often rare, conditions.",
+          "isCorrect": true,
+          "rationale": "Rare activation ensures the Trojan remains dormant and undetectable during short-duration testing phases."
+        },
+        {
+          "label": "D",
+          "text": "Permanently disable the chip the moment it is first plugged in.",
+          "isCorrect": false,
+          "rationale": "Immediate failure makes a Trojan easy to find; a trigger's goal is usually stealthy activation."
+        }
+      ],
+      "hint": "Think of this as the 'fuse' or the 'logic condition' that must be met before the 'bomb' (payload) goes off.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 21,
+      "question": "Why does the 'complexity of ICs' make them hard to detect Hardware Trojans?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Complex ICs require more power, which hides the power signature of the Trojan.",
+          "isCorrect": false,
+          "rationale": "While power signatures are a concern, the primary reason listed in the text relates to the difficulty of spotting hidden functionality in a massive design."
+        },
+        {
+          "label": "B",
+          "text": "Complex ICs can only be manufactured by trusted foundries.",
+          "isCorrect": false,
+          "rationale": "Actually, the need for advanced foundries often forces designers to use 'untrusted' foreign entities."
+        },
+        {
+          "label": "C",
+          "text": "Complexity prevents any additional circuitry from being added without causing a short circuit.",
+          "isCorrect": false,
+          "rationale": "Trojans are carefully integrated so they do *not* cause obvious failures like short circuits until they are triggered."
+        },
+        {
+          "label": "D",
+          "text": "The high number of gates and interconnections makes manual or automated code review for hidden logic nearly impossible.",
+          "isCorrect": true,
+          "rationale": "With billions of transistors, identifying a few dozen malicious ones is statistically overwhelming for verification tools."
+        }
+      ],
+      "hint": "The sheer volume of components in a modern processor acts as natural camouflage for small alterations.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 22,
+      "question": "Which of the following stages in the SoC design flow involves 'Place & Route' tools that could potentially be used for malicious insertions?",
+      "options": [
+        {
+          "label": "A",
+          "text": "RTL Synthesis",
+          "isCorrect": false,
+          "rationale": "Synthesis produces a netlist, which is then passed *to* the P&R tools in the Physical Design stage."
+        },
+        {
+          "label": "B",
+          "text": "Specification Stage",
+          "isCorrect": false,
+          "rationale": "This stage involves high-level documentation and requirements before any tools or netlists are created."
+        },
+        {
+          "label": "C",
+          "text": "Physical Design",
+          "isCorrect": true,
+          "rationale": "Place & Route (P&R) tools transform a netlist into a physical layout, making it a critical point for physical Trojan insertion."
+        },
+        {
+          "label": "D",
+          "text": "Finished Chip Packaging",
+          "isCorrect": false,
+          "rationale": "Packaging happens after the physical design and fabrication are already complete."
+        }
+      ],
+      "hint": "This stage is responsible for the final spatial arrangement of gates and the routing of the wires between them.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 23,
+      "question": "What is an example of an 'insider threat' in Hardware Trojan insertion?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A hacker intercepting the final GDSII file during transit to the foundry.",
+          "isCorrect": false,
+          "rationale": "This would be an external man-in-the-middle attack rather than a threat from someone working within the design team."
+        },
+        {
+          "label": "B",
+          "text": "A malicious engineer writing hidden code directly into the source-level RTL.",
+          "isCorrect": true,
+          "rationale": "Insiders have direct access to the source code and can embed undocumented functions that bypass standard reviews."
+        },
+        {
+          "label": "C",
+          "text": "The foundry using cheap materials to reduce the lifespan of the chip.",
+          "isCorrect": false,
+          "rationale": "This is a manufacturing quality issue or a foundry-level attack, not an 'insider' threat within the design house."
+        },
+        {
+          "label": "D",
+          "text": "A consumer accidentally triggering a bug in the random number generator.",
+          "isCorrect": false,
+          "rationale": "Consumers are end-users; 'insider' refers to someone involved in the design or production chain."
+        }
+      ],
+      "hint": "Consider a person who has legitimate access to the internal development files of the chip.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 24,
+      "question": "Which system target for Hardware Trojans would likely be most affected by a payload designed for 'destruction of the circuit itself'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Telecommunication Satellites.",
+          "isCorrect": false,
+          "rationale": "While destruction is a threat, the material prioritizes Military and Critical Infrastructure as main targets for destructive effects."
+        },
+        {
+          "label": "B",
+          "text": "Banking Systems.",
+          "isCorrect": false,
+          "rationale": "Banking Trojans usually prefer to *steal* or *leak* information rather than destroy the hardware, which would end the opportunity to steal."
+        },
+        {
+          "label": "C",
+          "text": "Personal Smartphones.",
+          "isCorrect": false,
+          "rationale": "The source material emphasizes high-value targets like transportation, banking, and military infrastructure over consumer electronics."
+        },
+        {
+          "label": "D",
+          "text": "Military systems or Critical Infrastructures.",
+          "isCorrect": true,
+          "rationale": "Destruction of these systems could lead to loss of life or massive national disruption, fulfilling a high-impact sabotage goal."
+        }
+      ],
+      "hint": "This type of attack is focused on physical sabotage rather than financial gain or information gathering.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 25,
+      "question": "The term 'undocumented functionality' is often used to describe:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Extra features or paths in the logic that were not part of the original design specification.",
+          "isCorrect": true,
+          "rationale": "Trojans thrive by adding these 'hidden' features that can be triggered by those who know they exist."
+        },
+        {
+          "label": "B",
+          "text": "Official features that the marketing team forgot to include in the datasheet.",
+          "isCorrect": false,
+          "rationale": "In the context of hardware security, this term implies a malicious or unauthorized addition, not a marketing oversight."
+        },
+        {
+          "label": "C",
+          "text": "Bugs that were found during testing but left in the design to save time.",
+          "isCorrect": false,
+          "rationale": "Bugs are unintentional; Trojans are *maliciously* inserted additions with intent."
+        },
+        {
+          "label": "D",
+          "text": "The use of legacy components that are no longer supported by the manufacturer.",
+          "isCorrect": false,
+          "rationale": "Legacy components are documented, even if the documentation is old; 'undocumented' implies a lack of transparency in the *current* design."
+        }
+      ],
+      "hint": "This refers to something a chip can do that its designers (or users) are not aware of and did not authorize.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 26,
+      "question": "In the provided 'Illustrative Example' code snippet, what is the significance of the `hardware_trojan(...)` instantiation?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It demonstrates how a Trojan could be directly inserted as a module within the RTL code.",
+          "isCorrect": true,
+          "rationale": "The code shows a Trojan block being passed sensitive signals like `address`, `wr_data`, and `rd_data` to perform its malicious task."
+        },
+        {
+          "label": "B",
+          "text": "It is a standard security module used to detect other Trojans in the system.",
+          "isCorrect": false,
+          "rationale": "The name and context suggest it *is* the malicious insertion, not a defense mechanism."
+        },
+        {
+          "label": "C",
+          "text": "It shows a built-in self-test routine that checks the RAM for errors.",
+          "isCorrect": false,
+          "rationale": "RAM tests are usually named explicitly as BIST or parity checks; this instantiation is used to represent malicious logic."
+        },
+        {
+          "label": "D",
+          "text": "It represents a physical doping change that happened at the foundry.",
+          "isCorrect": false,
+          "rationale": "This example is in RTL (code), whereas doping changes happen in the physical silicon layers."
+        }
+      ],
+      "hint": "Look at the Verilog-style code block showing signals like `read`, `write`, and `address` being passed to a specific sub-module.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 27,
+      "question": "What is the primary danger of using untrusted automation scripts in the Pre-Silicon phase?",
+      "options": [
+        {
+          "label": "A",
+          "text": "They always produce code that is incompatible with standard compilers.",
+          "isCorrect": false,
+          "rationale": "A successful Trojan script must produce valid, working code that passes all standard tests to remain undetected."
+        },
+        {
+          "label": "B",
+          "text": "They can automatically insert malicious logic into millions of lines of code without human oversight.",
+          "isCorrect": true,
+          "rationale": "Automated scripts are highly efficient and can be programmed to hide their modifications, making them a powerful tool for large-scale Trojan insertion."
+        },
+        {
+          "label": "C",
+          "text": "They might slow down the synthesis process by a few hours.",
+          "isCorrect": false,
+          "rationale": "A performance delay is a minor inconvenience compared to the catastrophic risk of a hidden hardware backdoor."
+        },
+        {
+          "label": "D",
+          "text": "They require expensive licenses that increase the total project cost.",
+          "isCorrect": false,
+          "rationale": "The cost of a license is a business concern, not a cybersecurity threat related to Hardware Trojans."
+        }
+      ],
+      "hint": "Think about the scale of modern designs and how much code a single automated process can modify.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 28,
+      "question": "True or False: A Hardware Trojan can be engineered by changing only a 'few transistors' out of billions on a chip.",
+      "options": [
+        {
+          "label": "A",
+          "text": "False",
+          "isCorrect": false,
+          "rationale": "Trojans do not need to be large; their effectiveness comes from the *criticality* of the logic they subvert, not their size."
+        },
+        {
+          "label": "B",
+          "text": "True",
+          "isCorrect": true,
+          "rationale": "The Ivy Bridge example shows that even a tiny, physical modification to a few critical transistors can compromise the entire security of the processor."
+        }
+      ],
+      "hint": "Recall the 'Illustrative Example' involving doping polarity.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 29,
+      "question": "According to the taxonomy, a 'Ring Oscillator Trojan' would most likely be categorized as:",
+      "options": [
+        {
+          "label": "A",
+          "text": "A Post-Silicon malicious packaging element.",
+          "isCorrect": false,
+          "rationale": "Ring oscillators are active silicon circuits, whereas packaging elements are the outer shell and connections."
+        },
+        {
+          "label": "B",
+          "text": "A Pre-Silicon untrusted 3rd party IP.",
+          "isCorrect": false,
+          "rationale": "While it could be part of an IP, the text specifically groups it with foundry-level insertions."
+        },
+        {
+          "label": "C",
+          "text": "A Silicon-stage malicious circuit insertion.",
+          "isCorrect": true,
+          "rationale": "The source material specifically lists the 'Ring Oscillator Trojan' under the 'Silicon' (foundry) category."
+        },
+        {
+          "label": "D",
+          "text": "A documentation error in the specification stage.",
+          "isCorrect": false,
+          "rationale": "A Trojan is a malicious insertion, not a passive error in documentation."
+        }
+      ],
+      "hint": "Check the bullet points under the 'Silicon' section of the Hardware Trojan categorization.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 30,
+      "question": "Which of the following describes the relationship between the 'Trigger' and the 'Payload' in a Hardware Trojan?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The trigger activates the HT, and the payload delivers the malicious effect.",
+          "isCorrect": true,
+          "rationale": "This two-part structure allows the Trojan to remain dormant (safe) until a specific moment where it becomes active (harmful)."
+        },
+        {
+          "label": "B",
+          "text": "They are two different types of Trojans that never appear in the same design.",
+          "isCorrect": false,
+          "rationale": "Most Trojans are composed of both parts working together as a single unit."
+        },
+        {
+          "label": "C",
+          "text": "The trigger is used to delete the payload once the attack is finished.",
+          "isCorrect": false,
+          "rationale": "Hardware is physical and cannot be 'deleted' by a trigger; once added, the circuitry remains on the chip."
+        },
+        {
+          "label": "D",
+          "text": "The payload monitors the system, and the trigger leaks the data.",
+          "isCorrect": false,
+          "rationale": "The roles are reversed; the monitor (trigger) must act before the malicious event (payload) can occur."
+        }
+      ],
+      "hint": "Think of the trigger as the 'if' condition and the payload as the 'then' action in a malicious logic statement.",
+      "correctAnswer": "A"
+    }
+  ]
+}

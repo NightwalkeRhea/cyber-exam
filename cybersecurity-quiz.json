@@ -1,0 +1,839 @@
+{
+  "title": "Cybersecurity Quiz",
+  "totalQuestions": 26,
+  "extractedAt": "2026-05-11T16:02:35.788Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "In the context of MITRE standards, which statement best distinguishes a CWE from a CVE?",
+      "options": [
+        {
+          "label": "A",
+          "text": "CWEs are only issued for open-source software, while CVEs are reserved for proprietary systems.",
+          "isCorrect": false,
+          "rationale": "Both standards apply across all software types regardless of the licensing model."
+        },
+        {
+          "label": "B",
+          "text": "A CVE describes the impact on system integrity, whereas a CWE describes the impact on system availability.",
+          "isCorrect": false,
+          "rationale": "Both terms relate to the full CIA triad; the distinction is based on the abstraction level (theory vs. instance) rather than the impact type."
+        },
+        {
+          "label": "C",
+          "text": "A CVE provides the architectural theory of a flaw, while a CWE is used to track the patch status of a specific software.",
+          "isCorrect": false,
+          "rationale": "This reverses the roles, as CVE is the identifier for specific vulnerabilities and CWE is the theoretical framework."
+        },
+        {
+          "label": "D",
+          "text": "A CWE refers to a theoretical vulnerability type, whereas a CVE refers to a specific instance of a flaw in a product.",
+          "isCorrect": true,
+          "rationale": "CWE acts as a categorization of the weakness itself, while CVE identifies actual, documented occurrences within specific software systems."
+        }
+      ],
+      "hint": "Consider which term represents a general category and which represents a unique, numbered entry for a specific software bug.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 2,
+      "question": "Which memory segment is specifically responsible for storing global variables that have been initialized by the program with a non-zero value?",
+      "options": [
+        {
+          "label": "A",
+          "text": ".text",
+          "isCorrect": false,
+          "rationale": "The .text segment contains executable binary instructions and is typically read-only."
+        },
+        {
+          "label": "B",
+          "text": ".data",
+          "isCorrect": true,
+          "rationale": "This segment contains global and static variables that are explicitly initialized by the programmer."
+        },
+        {
+          "label": "C",
+          "text": ".bss",
+          "isCorrect": false,
+          "rationale": "The .bss segment is reserved for uninitialized data or variables initialized to zero."
+        },
+        {
+          "label": "D",
+          "text": "Stack",
+          "isCorrect": false,
+          "rationale": "The stack stores automatic variables and function call frames rather than global static variables."
+        }
+      ],
+      "hint": "Identify the segment that separates initialized global data from uninitialized 'Block Started by Symbol' data.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 3,
+      "question": "In 32-bit x86 architecture, what is the specific role of the ESP (Extended Stack Pointer) register?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It stores the return address used by the function to return to its caller.",
+          "isCorrect": false,
+          "rationale": "While the return address is stored on the stack, the register itself merely points to the stack location rather than holding the address value permanently."
+        },
+        {
+          "label": "B",
+          "text": "It tracks the address of the next instruction to be executed in the .text segment.",
+          "isCorrect": false,
+          "rationale": "Tracking the next instruction is the primary function of the EIP (Instruction Pointer)."
+        },
+        {
+          "label": "C",
+          "text": "It identifies the bottom (highest address) of the current stack frame.",
+          "isCorrect": false,
+          "rationale": "This describes the EBP (Base Pointer), which stays fixed for the duration of a function call."
+        },
+        {
+          "label": "D",
+          "text": "It points to the current top of the stack, which is the lowest memory address in the stack.",
+          "isCorrect": true,
+          "rationale": "The stack grows toward lower addresses, and the ESP register always tracks the most recent item pushed onto the stack."
+        }
+      ],
+      "hint": "Recall how the stack grows in memory and which register moves dynamically with every push and pop operation.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 4,
+      "question": "Using the GCC compiler, what is the security implication of applying the flag `-z execstack`?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It marks the stack as executable, effectively disabling the NX (No-eXecute) bit protection.",
+          "isCorrect": true,
+          "rationale": "This flag allows code stored in stack memory to be executed, which is a primary requirement for many legacy buffer overflow exploits."
+        },
+        {
+          "label": "B",
+          "text": "It prevents the Instruction Pointer from entering the .data segment.",
+          "isCorrect": false,
+          "rationale": "This flag specifically targets the stack's permissions rather than the data segment's execution rights."
+        },
+        {
+          "label": "C",
+          "text": "It enables stack protection guards, also known as canaries, to prevent overflows.",
+          "isCorrect": false,
+          "rationale": "Stack canaries are enabled via the `-fstack-protector` flag, not by modifying stack execution permissions."
+        },
+        {
+          "label": "D",
+          "text": "It enforces Position Independent Executable (PIE) logic on the stack.",
+          "isCorrect": false,
+          "rationale": "PIE is a separate security mechanism enabled by `-fpie` and is unrelated to making the stack executable."
+        }
+      ],
+      "hint": "Think about the relationship between memory permissions and the ability to run injected shellcode.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 5,
+      "question": "CWE-119 is formally defined as 'Improper Restriction of Operations within the Bounds of a Memory Buffer.' Which of the following is a direct consequence when an attacker exploits a write-based CWE-119 vulnerability?",
+      "options": [
+        {
+          "label": "A",
+          "text": "All global variables in the .bss segment are automatically set to NULL.",
+          "isCorrect": false,
+          "rationale": "While a crash might occur, there is no mechanism that resets the .bss segment as a specific consequence of a buffer overflow."
+        },
+        {
+          "label": "B",
+          "text": "The Instruction Pointer (EIP) can be overwritten to redirect the execution flow.",
+          "isCorrect": true,
+          "rationale": "By writing beyond buffer boundaries, an attacker can overwrite the saved return address on the stack, allowing them to hijack the program's control flow."
+        },
+        {
+          "label": "C",
+          "text": "The compiler automatically injects a canary to stop the execution.",
+          "isCorrect": false,
+          "rationale": "Compilers inject canaries at compile-time; they do not reactively inject them during an active exploitation event."
+        },
+        {
+          "label": "D",
+          "text": "The program is forced to use dynamic memory allocation instead of stack allocation.",
+          "isCorrect": false,
+          "rationale": "Exploiting a buffer overflow does not change the allocation mechanism of the program, it merely corrupts the existing memory."
+        }
+      ],
+      "hint": "Focus on what happens to the control flow when data spills over into the saved return address.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 6,
+      "question": "What specifically caused the data leakage in the Heartbleed bug (RFC 6520 Heartbeat Extension)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "An integer overflow occurred when calculating the size of the encrypted heartbeat response.",
+          "isCorrect": false,
+          "rationale": "While related to integer handling, the root cause was a lack of bounds checking on a read operation rather than an arithmetic wrapping error."
+        },
+        {
+          "label": "B",
+          "text": "A use-after-free error where the server accessed a heartbeat buffer that had already been deallocated.",
+          "isCorrect": false,
+          "rationale": "The memory was currently allocated and active; the issue was the extent of the memory being read."
+        },
+        {
+          "label": "C",
+          "text": "A stack overflow that allowed the client to overwrite the server's master key.",
+          "isCorrect": false,
+          "rationale": "Heartbleed was an over-read vulnerability, not an overflow (write) vulnerability."
+        },
+        {
+          "label": "D",
+          "text": "The server failed to validate if the payload length field matched the actual size of the payload provided.",
+          "isCorrect": true,
+          "rationale": "The server trusted the length integer provided by the client and read that amount of data from its memory, including sensitive information contiguous to the buffer."
+        }
+      ],
+      "hint": "Analyze the relationship between the client's requested length and the server's response buffer.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 7,
+      "question": "Which of the following describes a 'Use After Free' (CWE-416) scenario?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A program attempts to free the same pointer twice, leading to heap corruption.",
+          "isCorrect": false,
+          "rationale": "This describes a 'Double Free' vulnerability, which is distinct from accessing memory through a dangling pointer."
+        },
+        {
+          "label": "B",
+          "text": "The stack grows so large that it overlaps with the heap, causing a memory collision.",
+          "isCorrect": false,
+          "rationale": "This is a stack-heap collision, which is a different type of memory management failure."
+        },
+        {
+          "label": "C",
+          "text": "A pointer is initialized to a memory address that is already being used by another process.",
+          "isCorrect": false,
+          "rationale": "Virtual memory prevents processes from directly accessing each other's addresses; CWE-416 is an internal logic error."
+        },
+        {
+          "label": "D",
+          "text": "A program accesses memory through a dangling pointer that was not set to NULL after the associated memory was released.",
+          "isCorrect": true,
+          "rationale": "When memory is freed but the pointer remains, it points to potentially reallocated or invalid data, leading to undefined behavior or exploitation."
+        }
+      ],
+      "hint": "Consider the state of a pointer after the `free()` function has been called.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 8,
+      "question": "An integer overflow (CWE-190) occurs when an arithmetic operation results in a value that exceeds the maximum capacity of the variable. How can this specifically lead to a buffer overflow?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The compiler detects the overflow and automatically doubles the size of the destination buffer.",
+          "isCorrect": false,
+          "rationale": "Compilers do not provide runtime fixes for integer overflows; they typically result in silent errors or crashes."
+        },
+        {
+          "label": "B",
+          "text": "The overflowed value wraps around to a small number, causing `malloc()` to allocate an undersized buffer while a subsequent loop uses the original large value.",
+          "isCorrect": true,
+          "rationale": "If the allocation size is calculated as a small wrapped value but the data copy loop uses the larger intended value, the program will write past the end of the small buffer."
+        },
+        {
+          "label": "C",
+          "text": "The overflow increases the stack frame size, allowing the return address to be protected by a canary.",
+          "isCorrect": false,
+          "rationale": "Overflows generally undermine security rather than enhancing protection mechanisms like canaries."
+        },
+        {
+          "label": "D",
+          "text": "The integer overflow causes the Instruction Pointer to jump directly to the `.data` segment.",
+          "isCorrect": false,
+          "rationale": "Arithmetic errors do not directly modify the Instruction Pointer; they affect data values which might later influence logic."
+        }
+      ],
+      "hint": "Focus on the discrepancy between the memory size requested for allocation and the amount of data subsequently written to it.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 9,
+      "question": "Why is the use of an externally-controlled format string (CWE-134) considered a severe security risk in C/C++?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It prevents the `printf()` function from accessing the stack, causing a Denial of Service.",
+          "isCorrect": false,
+          "rationale": "The vulnerability actually allows the function to access the stack improperly, rather than preventing access."
+        },
+        {
+          "label": "B",
+          "text": "It causes the `.text` segment to become writable by any user.",
+          "isCorrect": false,
+          "rationale": "Format strings can corrupt data and stack memory, but they do not change the OS-level permissions of the executable instructions segment."
+        },
+        {
+          "label": "C",
+          "text": "It forces the program to execute all input as if it were a shell command.",
+          "isCorrect": false,
+          "rationale": "This describes OS Command Injection (CWE-78), not format string vulnerabilities."
+        },
+        {
+          "label": "D",
+          "text": "It allows an attacker to use the `%n` operator to write the number of printed characters to an arbitrary memory address.",
+          "isCorrect": true,
+          "rationale": "The `%n` format specifier is unique because it performs a write operation, which can be leveraged to corrupt the stack or overwrite function pointers."
+        }
+      ],
+      "hint": "Identify the specific format specifier that performs a 'write' instead of a 'read' operation.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 10,
+      "question": "How does an attacker typically execute an OS Command Injection (CWE-78) on a system that concatenates user input into a shell command?",
+      "options": [
+        {
+          "label": "A",
+          "text": "By using command separators like `;` or `&` followed by a malicious command in the input string.",
+          "isCorrect": true,
+          "rationale": "Shells interpret these characters as the end of one command and the start of another, allowing the attacker to append and execute unauthorized instructions."
+        },
+        {
+          "label": "B",
+          "text": "By exploiting the `%x` operator to leak the system's root password.",
+          "isCorrect": false,
+          "rationale": "This confuses format string vulnerabilities with command injection; leaking data is different from executing shell commands."
+        },
+        {
+          "label": "C",
+          "text": "By overwriting the EBP register to point to the `/bin/sh` string.",
+          "isCorrect": false,
+          "rationale": "This describes a stack-based binary exploitation technique, whereas command injection happens at the application/OS interface."
+        },
+        {
+          "label": "D",
+          "text": "By providing a very long string that causes a buffer overflow in the shell's environment.",
+          "isCorrect": false,
+          "rationale": "While overflows can occur, command injection is primarily achieved through shell metacharacters that alter the command's logic."
+        }
+      ],
+      "hint": "Consider the special characters used in terminal shells to chain multiple commands together.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 11,
+      "question": "The $W \\oplus X$ (Write XOR Execute) policy ensures that memory pages cannot be both writable and executable. Why does this policy fail to prevent 'Return-into-libc' attacks?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Return-into-libc uses existing, legitimate code already marked as executable in memory.",
+          "isCorrect": true,
+          "rationale": "Since the malicious 'payload' consists of calls to existing library functions (like `system()`) which are already executable, no new code needs to be written to an executable page."
+        },
+        {
+          "label": "B",
+          "text": "The policy only applies to the heap and does not protect the stack.",
+          "isCorrect": false,
+          "rationale": "Modern $W \\oplus X$ implementations protect all relevant data segments, including the stack."
+        },
+        {
+          "label": "C",
+          "text": "The C standard library (libc) is always loaded into the `.bss` segment, which is always writable.",
+          "isCorrect": false,
+          "rationale": "Shared libraries are loaded into specific memory regions, and their code segments remain read-only/executable, not writable."
+        },
+        {
+          "label": "D",
+          "text": "An attacker can use an integer overflow to flip the permissions of the stack from writable to executable.",
+          "isCorrect": false,
+          "rationale": "Integer overflows affect data values, not the kernel-level memory management unit permissions."
+        }
+      ],
+      "hint": "Think about whether the attacker is injecting new code or repurposing code that is already present in the system.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 12,
+      "question": "Which security principle is violated when a program runs as 'root' and is subsequently compromised by an OS Command Injection?",
+      "options": [
+        {
+          "label": "A",
+          "text": "First In Last Out (FILO)",
+          "isCorrect": false,
+          "rationale": "FILO is a data structure property of the stack, not a security principle."
+        },
+        {
+          "label": "B",
+          "text": "Defense in Depth",
+          "isCorrect": false,
+          "rationale": "This refers to multiple layers of security; while related, the specific issue of excessive user rights is a Least Privilege failure."
+        },
+        {
+          "label": "C",
+          "text": "Data Integrity Principle",
+          "isCorrect": false,
+          "rationale": "While integrity is lost, the principle that would have mitigated the impact by limiting access rights is Least Privilege."
+        },
+        {
+          "label": "D",
+          "text": "Principle of Least Privilege",
+          "isCorrect": true,
+          "rationale": "Compromising a process with root privileges gives the attacker total control; the damage would be limited if the process only had the specific permissions it required."
+        }
+      ],
+      "hint": "Focus on the practice of limiting the access rights of a user or process to the minimum necessary.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 13,
+      "question": "In a 32-bit stack frame, why are function arguments typically pushed onto the stack in 'reverse order'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To allow the compiler to optimize the `.bss` segment size.",
+          "isCorrect": false,
+          "rationale": "The `.bss` segment is for global static data and is unrelated to the order of function arguments on the call stack."
+        },
+        {
+          "label": "B",
+          "text": "To prevent the Instruction Pointer (EIP) from accidentally reading the arguments as code.",
+          "isCorrect": false,
+          "rationale": "The EIP only executes code from the `.text` segment; the order of arguments on the stack is a convention for data access, not execution prevention."
+        },
+        {
+          "label": "C",
+          "text": "Because the stack grows toward higher memory addresses in 32-bit systems.",
+          "isCorrect": false,
+          "rationale": "In x86 32-bit systems, the stack grows toward lower memory addresses, not higher ones."
+        },
+        {
+          "label": "D",
+          "text": "To ensure the first argument is at the lowest memory address (closest to the top of the stack) when the function starts.",
+          "isCorrect": true,
+          "rationale": "By pushing from last to first, the first argument ends up at the lowest address relative to the base pointer, following the standard calling conventions."
+        }
+      ],
+      "hint": "Think about the LIFO (Last-In, First-Out) nature of the stack and how the function would want to see its first parameter.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 14,
+      "question": "Which of the following is a recommended mitigation to prevent Buffer Overflows (CWE-119) in C/C++?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Manually resetting every pointer to NULL before calling `free()`.",
+          "isCorrect": false,
+          "rationale": "This prevents 'Use After Free' (CWE-416) but does nothing to stop out-of-bounds writes into an active buffer."
+        },
+        {
+          "label": "B",
+          "text": "Implementing strict input validation and bounds checking before every write operation.",
+          "isCorrect": true,
+          "rationale": "Ensuring the source data length is less than or equal to the destination buffer size is the most fundamental way to prevent overflows."
+        },
+        {
+          "label": "C",
+          "text": "Disabling the `.data` segment's read-only permissions during runtime.",
+          "isCorrect": false,
+          "rationale": "Making segments more writable generally decreases security and facilitates exploitation."
+        },
+        {
+          "label": "D",
+          "text": "Using the `%n` operator to track the number of bytes written to a buffer.",
+          "isCorrect": false,
+          "rationale": "The `%n` operator is itself a major security risk and does not provide bounds protection."
+        }
+      ],
+      "hint": "Consider the core definition of the vulnerability: writing data where it doesn't belong due to size restrictions.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 15,
+      "question": "What is the primary danger of a 'Format String Leakage' when an attacker provides `%x` as input to an unsafe `printf(str)` call?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The program will crash because it cannot find the `%x` instruction in the `.text` segment.",
+          "isCorrect": false,
+          "rationale": "The program will not crash due to missing instructions; it will proceed to treat stack data as arguments for the format specifier."
+        },
+        {
+          "label": "B",
+          "text": "The compiler will detect the format mismatch and prevent the binary from executing.",
+          "isCorrect": false,
+          "rationale": "Compilers may issue warnings, but unless specifically configured otherwise, they will still produce an executable vulnerable binary."
+        },
+        {
+          "label": "C",
+          "text": "The `%x` operator causes an integer overflow that wraps the stack pointer to zero.",
+          "isCorrect": false,
+          "rationale": "The `%x` specifier is used for outputting hexadecimal data and does not modify the stack pointer or cause arithmetic overflows."
+        },
+        {
+          "label": "D",
+          "text": "The `printf()` function will interpret the next values on the stack as arguments and print them, potentially revealing secrets like return addresses or keys.",
+          "isCorrect": true,
+          "rationale": "Without corresponding arguments provided in the code, `printf` simply 'walks' up the stack, printing whatever bits it finds as hexadecimal values."
+        }
+      ],
+      "hint": "Reflect on how `printf` behaves when the format string expects more arguments than are actually provided in the function call.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 16,
+      "question": "Which memory segment is most likely to contain the system's environment variables, such as `PATH` or `HOSTNAME`?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Env/Arg",
+          "isCorrect": true,
+          "rationale": "This specific high-address region of virtual memory is dedicated to storing command-line arguments and system-level environment variables."
+        },
+        {
+          "label": "B",
+          "text": ".text",
+          "isCorrect": false,
+          "rationale": "This segment is for binary instructions, not for variable strings like the system path."
+        },
+        {
+          "label": "C",
+          "text": "Heap",
+          "isCorrect": false,
+          "rationale": "The heap is for dynamic allocations made by the program during runtime via `malloc()`."
+        },
+        {
+          "label": "D",
+          "text": ".bss",
+          "isCorrect": false,
+          "rationale": "The .bss segment is for uninitialized global variables defined within the program itself."
+        }
+      ],
+      "hint": "Look for the segment whose name explicitly refers to the 'environment' or 'arguments' passed to the program.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 17,
+      "question": "How does the 'Return-into-libc' attack bypass the non-executable stack protection (NX bit)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It replaces the C library with a malicious version that does not support NX protection.",
+          "isCorrect": false,
+          "rationale": "The attack uses the *existing* legitimate C library already loaded in the process memory."
+        },
+        {
+          "label": "B",
+          "text": "It overwrites the return address with the entry point of an existing library function like `system()`, which resides in an executable memory segment.",
+          "isCorrect": true,
+          "rationale": "Because `system()` is part of the legitimate program environment and is already marked as executable, jumping to it does not trigger NX protections."
+        },
+        {
+          "label": "C",
+          "text": "It flips the NX bit to zero using a specially crafted integer overflow.",
+          "isCorrect": false,
+          "rationale": "The NX bit is managed by the OS and hardware; it cannot be 'flipped' by simple data overflows within a user process."
+        },
+        {
+          "label": "D",
+          "text": "It uses the stack to store malicious code and then uses a 'gadget' to jump to it.",
+          "isCorrect": false,
+          "rationale": "This describes a Return-Oriented Programming (ROP) style; standard Return-into-libc avoids the stack execution problem entirely by jumping to pre-existing code in the C library."
+        }
+      ],
+      "hint": "Recall that the NX bit prevents data from being executed as code, but it does not prevent jumping to valid code segments.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 18,
+      "question": "What is the result of the `Pop` operation in stack memory management?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It clears the entire .bss segment to ensure memory safety.",
+          "isCorrect": false,
+          "rationale": "Pop is a localized operation on the stack and has no effect on the .bss segment."
+        },
+        {
+          "label": "B",
+          "text": "It increments the Instruction Pointer to the next segment.",
+          "isCorrect": false,
+          "rationale": "Stack operations modify the ESP (Stack Pointer), not the EIP (Instruction Pointer)."
+        },
+        {
+          "label": "C",
+          "text": "It adds an item to the top of the stack and decreases the stack pointer address.",
+          "isCorrect": false,
+          "rationale": "This describes a `Push` operation in a stack that grows toward lower addresses."
+        },
+        {
+          "label": "D",
+          "text": "It removes the most recently added item from the stack and increases the stack pointer address.",
+          "isCorrect": true,
+          "rationale": "Pop retrieves the 'Last-In' item, and since the stack grows down (toward 0), removing an item moves the pointer back toward higher addresses."
+        }
+      ],
+      "hint": "Think about the acronym LIFO and how the pointer moves when an item is taken 'off' the stack.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 19,
+      "question": "In the OpenSSH 3.3 integer overflow example, why did the code `response = xmalloc(nresp*sizeof(char*))` fail for very large values of `nresp`?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The `sizeof(char*)` was too small to be detected by the CPU's arithmetic unit.",
+          "isCorrect": false,
+          "rationale": "CPUs handle pointer sizes (usually 4 or 8 bytes) natively; the issue was the total product, not the size of an individual pointer."
+        },
+        {
+          "label": "B",
+          "text": "The multiplication resulted in a wrap-around value that was smaller than the actual memory needed, leading to a heap overflow during the subsequent copy loop.",
+          "isCorrect": true,
+          "rationale": "If `nresp` is large enough, the result of the multiplication overflows the capacity of the `size_t` type, leading to an undersized allocation."
+        },
+        {
+          "label": "C",
+          "text": "The integer overflow caused the program to switch to 16-bit mode automatically.",
+          "isCorrect": false,
+          "rationale": "Hardware does not switch architecture modes based on software calculation overflows."
+        },
+        {
+          "label": "D",
+          "text": "The `xmalloc` function is restricted to only allocating memory in the `.text` segment.",
+          "isCorrect": false,
+          "rationale": "Malloc-style functions always allocate memory from the heap."
+        }
+      ],
+      "hint": "Consider what happens to the total size value when the product of two numbers exceeds the maximum value a register can hold.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 20,
+      "question": "Which of these is a valid strategy to mitigate OS Command Injection (CWE-78)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Increasing the size of the buffer to 4096 bytes to prevent string truncation.",
+          "isCorrect": false,
+          "rationale": "Truncation is not the issue in command injection; the issue is the content of the string being interpreted by the shell."
+        },
+        {
+          "label": "B",
+          "text": "Applying a 'whitelisting' approach using regular expressions to permit only known-safe characters in user input.",
+          "isCorrect": true,
+          "rationale": "By explicitly allowing only safe patterns (like alphanumeric characters), dangerous shell metacharacters like `;` are automatically blocked."
+        },
+        {
+          "label": "C",
+          "text": "Enabling the NX bit on all heap memory pages.",
+          "isCorrect": false,
+          "rationale": "This protects against code execution from the heap but does not stop a shell from executing strings as commands."
+        },
+        {
+          "label": "D",
+          "text": "Using `strcpy()` instead of `strncpy()` to ensure the NULL terminator is always present.",
+          "isCorrect": false,
+          "rationale": "This is a memory safety consideration that does not address how a command-line interpreter handles its arguments."
+        }
+      ],
+      "hint": "Focus on the technique that filters input to ensure it matches a 'safe' list of characters.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 21,
+      "question": "The EBP (Base Pointer) is often referred to as the 'Frame Pointer.' What is its primary function within a stack frame?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To point to the top of the stack and move with every PUSH/POP.",
+          "isCorrect": false,
+          "rationale": "This is the role of the ESP (Stack Pointer)."
+        },
+        {
+          "label": "B",
+          "text": "To provide a stable reference point for accessing local variables and arguments within a specific function call.",
+          "isCorrect": true,
+          "rationale": "Because EBP remains fixed while a function executes, local variables and arguments can be reliably accessed at fixed offsets (e.g., `EBP-4`, `EBP+8`)."
+        },
+        {
+          "label": "C",
+          "text": "To indicate the beginning of the `.text` segment.",
+          "isCorrect": false,
+          "rationale": "EBP is local to the stack and has no relation to the global boundaries of the code segment."
+        },
+        {
+          "label": "D",
+          "text": "To store the address of the next instruction in the `.data` segment.",
+          "isCorrect": false,
+          "rationale": "The EBP is used for stack navigation, not for tracking instructions (EIP) or data segment offsets."
+        }
+      ],
+      "hint": "Consider how a function finds its local data if the top of the stack is constantly moving.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 22,
+      "question": "What is 'Undefined Behavior' in the context of a Buffer Overread (CWE-125)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The compiler automatically redirects the overread to the `.bss` segment.",
+          "isCorrect": false,
+          "rationale": "Compilers do not provide 'safe redirection' for illegal memory accesses."
+        },
+        {
+          "label": "B",
+          "text": "The program is guaranteed to crash exactly 5 seconds after the overread occurs.",
+          "isCorrect": false,
+          "rationale": "Undefined behavior means the result is unpredictable; it may crash immediately, much later, or not at all."
+        },
+        {
+          "label": "C",
+          "text": "The program enters a recursive loop that cannot be terminated by the OS.",
+          "isCorrect": false,
+          "rationale": "While loops can occur, they are not a defining characteristic of overread vulnerabilities."
+        },
+        {
+          "label": "D",
+          "text": "The programming language standard does not specify what happens when memory outside a buffer is accessed, leading to unpredictable results.",
+          "isCorrect": true,
+          "rationale": "Because the access is illegal, the system might return junk data, crash the program, or allow an exploit, depending on the environment."
+        }
+      ],
+      "hint": "Think about what a standard (like C) says about actions that violate the basic rules of the language.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 23,
+      "question": "Why is the `.text` segment of a program usually marked as read-only?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Because the segment only contains zero-initialized variables.",
+          "isCorrect": false,
+          "rationale": "Zero-initialized variables are in the `.bss` segment; the `.text` segment contains code."
+        },
+        {
+          "label": "B",
+          "text": "To prevent the program from accidentally or maliciously modifying its own executable instructions.",
+          "isCorrect": true,
+          "rationale": "Protecting the code segment ensures that attackers cannot overwrite existing logic with their own instructions (self-modifying code protection)."
+        },
+        {
+          "label": "C",
+          "text": "To save energy by reducing the number of write cycles to the RAM.",
+          "isCorrect": false,
+          "rationale": "The read-only status is a security and stability feature, not a hardware power-saving strategy."
+        },
+        {
+          "label": "D",
+          "text": "To allow the heap to grow into the code area.",
+          "isCorrect": false,
+          "rationale": "Memory segments are generally separated to prevent collisions; allowing the heap to overwrite code would be a critical failure."
+        }
+      ],
+      "hint": "Consider the safety of allowing a running process to rewrite its own logic.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 24,
+      "question": "Which of the following describes the 'Trace' operation in stack debugging?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is the process of manually setting the EIP to the start of the `.data` segment.",
+          "isCorrect": false,
+          "rationale": "This describes a manual jump or redirection, not a trace-based debugging walk."
+        },
+        {
+          "label": "B",
+          "text": "It is a walk of the stack used to see the result of executing or calling specific memory.",
+          "isCorrect": true,
+          "rationale": "A trace allows developers to see the sequence of function calls and stack state that led to a specific point in execution."
+        },
+        {
+          "label": "C",
+          "text": "It is a hardware feature that prevents the stack from growing past 64KB.",
+          "isCorrect": false,
+          "rationale": "Stack tracing is a software debugging process; stack limits are typically managed by the OS."
+        },
+        {
+          "label": "D",
+          "text": "It is a command that clears all local variables to prevent data leakage.",
+          "isCorrect": false,
+          "rationale": "Tracing is an analytical/observation tool, not a data-clearing utility."
+        }
+      ],
+      "hint": "Think about the diagnostic process used to follow the 'footprints' of function calls.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 25,
+      "question": "In a Return-into-libc attack, after finding the address of the `system()` function, what is the next logical step for the attacker?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Reset the EBP to zero to disable the stack frame.",
+          "isCorrect": false,
+          "rationale": "Disabling the stack frame would make it impossible to pass arguments to the `system()` function."
+        },
+        {
+          "label": "B",
+          "text": "Enable the NX bit on the stack to hide the attack.",
+          "isCorrect": false,
+          "rationale": "The attacker wants to bypass NX, not enable it; enabling it would not hide the attack."
+        },
+        {
+          "label": "C",
+          "text": "Find the address of the constant string `/bin/sh` to use as a parameter.",
+          "isCorrect": true,
+          "rationale": "To execute a shell, `system()` requires a pointer to a string containing the shell command; without this, the function call is useless to the attacker."
+        },
+        {
+          "label": "D",
+          "text": "Delete the `.text` segment to prevent the program from returning.",
+          "isCorrect": false,
+          "rationale": "Attackers cannot delete segments; they want to hijack them, and deleting the code segment would just crash the system immediately."
+        }
+      ],
+      "hint": "Think about what the `system()` function needs as input to give the attacker a command prompt.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 26,
+      "question": "Why is the term 'Buffer Overflow' sometimes considered misleading by the CWE-119 definition?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Because the buffer usually underflows toward higher addresses.",
+          "isCorrect": false,
+          "rationale": "Overflows generally occur toward higher addresses in buffers; 'underflow' is a different technical concept."
+        },
+        {
+          "label": "B",
+          "text": "Because the vulnerability involves improper boundary restrictions, which can include reading (overread) as well as writing (overflow).",
+          "isCorrect": true,
+          "rationale": "CWE-119 is a broad category covering all improper bound operations; 'overflow' specifically implies writing too much, which excludes 'overreads' like Heartbleed."
+        },
+        {
+          "label": "C",
+          "text": "Because it only happens in Java and Rust, not in C.",
+          "isCorrect": false,
+          "rationale": "The opposite is true: C is highly susceptible, while Java and Rust have built-in protections."
+        },
+        {
+          "label": "D",
+          "text": "Because the stack pointer (ESP) is the only thing that actually 'overflows'.",
+          "isCorrect": false,
+          "rationale": "Data in the buffer overflows into neighboring memory; the ESP register itself does not overflow."
+        }
+      ],
+      "hint": "Think about whether 'overflow' captures both the act of writing too much and the act of reading too much.",
+      "correctAnswer": "B"
+    }
+  ]
+}

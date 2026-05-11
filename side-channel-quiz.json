@@ -1,0 +1,827 @@
+{
+  "title": "Side-Channel Quiz",
+  "totalQuestions": 26,
+  "extractedAt": "2026-05-11T16:02:01.040Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "In the context of the physical design implementation of a system, which factor focuses specifically on unintended information leakage through physical by-products?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Functional correctness",
+          "isCorrect": false,
+          "rationale": "This pertains to whether the design meets its specified logic and behavior, rather than unintended leakage."
+        },
+        {
+          "label": "B",
+          "text": "Implementation modeling",
+          "isCorrect": false,
+          "rationale": "Modeling is a design stage used to simulate behavior, whereas leakage is an artifact of the actual physical execution."
+        },
+        {
+          "label": "C",
+          "text": "Reliability issues",
+          "isCorrect": false,
+          "rationale": "Reliability focuses on the system's ability to perform consistently over time, not necessarily on information security leakage."
+        },
+        {
+          "label": "D",
+          "text": "Side-channels",
+          "isCorrect": true,
+          "rationale": "Side-channels are unintended conduits that allow an observer to gain information about the internal state or operations through physical phenomena like power or timing."
+        }
+      ],
+      "hint": "Consider the difference between what a system is designed to do and the physical 'exhaust' it produces.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 2,
+      "question": "According to the NIST definition, what distinguishes a covert channel from a standard communication channel?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It requires physical access to measure electromagnetic radiation.",
+          "isCorrect": false,
+          "rationale": "This describes a side-channel; covert channels are illegal logical or resource-based flows within a system."
+        },
+        {
+          "label": "B",
+          "text": "It is primarily used for data sharing and collaboration among authorized users.",
+          "isCorrect": false,
+          "rationale": "Authorized data sharing occurs through intended information channels, not covert ones."
+        },
+        {
+          "label": "C",
+          "text": "It is a specified and established channel for encrypted data transfer.",
+          "isCorrect": false,
+          "rationale": "Specified and established channels are referred to as intended channels, regardless of encryption."
+        },
+        {
+          "label": "D",
+          "text": "It exploits a path to transfer information in a manner that violates security policy.",
+          "isCorrect": true,
+          "rationale": "A covert channel is specifically defined as a communication path that is not intended for information transfer and circumvents system security policies."
+        }
+      ],
+      "hint": "Look for the element of intentionality and the breach of established rules.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 3,
+      "question": "Which type of covert channel involves an attacker determining the specific control path a program takes through the analysis of event distributions?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Probability covert channels",
+          "isCorrect": true,
+          "rationale": "Probability covert channels utilize methods to determine event distribution and control paths to infer hidden information."
+        },
+        {
+          "label": "B",
+          "text": "Termination covert channels",
+          "isCorrect": false,
+          "rationale": "These focus specifically on whether or not a computation concludes, rather than the path or distribution of events."
+        },
+        {
+          "label": "C",
+          "text": "Resource utilization covert channels",
+          "isCorrect": false,
+          "rationale": "These focus on levels of resource depletion rather than control path branching probabilities."
+        },
+        {
+          "label": "D",
+          "text": "Timing covert channels",
+          "isCorrect": false,
+          "rationale": "Timing channels measure the duration of tasks but do not necessarily analyze the statistical distribution of system events."
+        }
+      ],
+      "hint": "This channel deals with the likelihood of different execution branches.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 4,
+      "question": "Why might malware authors utilize timing covert channels in modern computing environments?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To detect if they are running within an analysis sandbox.",
+          "isCorrect": true,
+          "rationale": "Malware uses timing to detect the overhead introduced by sandboxes or virtualization, which alerts the malware it is being analyzed."
+        },
+        {
+          "label": "B",
+          "text": "To encrypt their payload without utilizing CPU cycles.",
+          "isCorrect": false,
+          "rationale": "Encryption always requires computation; covert channels are for communication, not for performing the encryption itself."
+        },
+        {
+          "label": "C",
+          "text": "To increase the bandwidth of data exfiltration.",
+          "isCorrect": false,
+          "rationale": "While timing can be used for exfiltration, it is generally a low-bandwidth channel compared to network communication."
+        },
+        {
+          "label": "D",
+          "text": "To bypass firewalls by modifying IP headers.",
+          "isCorrect": false,
+          "rationale": "Modifying headers is a networking technique, whereas timing channels exploit temporal characteristics of computation."
+        }
+      ],
+      "hint": "Think about how malware defends itself against security researchers.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 5,
+      "question": "Which mitigation technique is specifically aimed at decreasing the potential bandwidth of a covert channel without eliminating it entirely?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Noise injection into the channel",
+          "isCorrect": true,
+          "rationale": "Injecting noise into a channel reduces the signal-to-noise ratio, thereby lowering the effective bandwidth for exfiltrating data."
+        },
+        {
+          "label": "B",
+          "text": "Monitoring for patterns of usage",
+          "isCorrect": false,
+          "rationale": "Monitoring is a detection strategy (like IDS) and does not inherently reduce the channel's capacity to transmit."
+        },
+        {
+          "label": "C",
+          "text": "Eliminating the channel through system refinement",
+          "isCorrect": false,
+          "rationale": "This removes the channel entirely rather than just reducing its bandwidth."
+        },
+        {
+          "label": "D",
+          "text": "Implementing non-repudiation guarantees",
+          "isCorrect": false,
+          "rationale": "Non-repudiation is a security feature for intended channels and does not mitigate covert leakage."
+        }
+      ],
+      "hint": "Consider how you would make a conversation harder to hear without stopping the speakers from talking.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 6,
+      "question": "Which of the following is classified as a physical side-channel vector in the provided material?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Data in Motion",
+          "isCorrect": false,
+          "rationale": "Data in Motion refers to intended information communication channels."
+        },
+        {
+          "label": "B",
+          "text": "Acoustic effects",
+          "isCorrect": true,
+          "rationale": "Acoustic effects, along with thermal, optical, and electromagnetic radiation, are unintended leakage vectors from a compute core."
+        },
+        {
+          "label": "C",
+          "text": "Intrusion detection",
+          "isCorrect": false,
+          "rationale": "Intrusion detection is a mitigation or monitoring strategy, not a leakage source."
+        },
+        {
+          "label": "D",
+          "text": "Resource depletion",
+          "isCorrect": false,
+          "rationale": "Resource depletion is typically associated with resource utilization covert channels rather than physical side-channel emanations."
+        }
+      ],
+      "hint": "Focus on the physical by-products of a device's operation.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 7,
+      "question": "The 'Foreshadow' attack specifically undermines which security element by exploiting speculative execution?",
+      "options": [
+        {
+          "label": "A",
+          "text": "UART communication handlers",
+          "isCorrect": false,
+          "rationale": "UART is a communication surface, not the target of the Foreshadow speculative execution attack."
+        },
+        {
+          "label": "B",
+          "text": "AES table lookups",
+          "isCorrect": false,
+          "rationale": "AES tables are a specific surface prone to leakage, but Foreshadow is a broader microarchitectural attack on secure enclaves."
+        },
+        {
+          "label": "C",
+          "text": "Qualcomm Secure Execution Environment (QSEE)",
+          "isCorrect": false,
+          "rationale": "While QSEE is also mentioned as vulnerable to side-channels, Foreshadow specifically refers to the Intel SGX exploit."
+        },
+        {
+          "label": "D",
+          "text": "Intel SGX secure enclave",
+          "isCorrect": true,
+          "rationale": "Foreshadow is a Spectre-like flaw that targets Intel's Software Guard Extensions (SGX) to steal information from secure enclaves."
+        }
+      ],
+      "hint": "This attack targets a feature designed to protect code and data in 'enclaves'.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 8,
+      "question": "What is the primary difference between a brute force attack and a side-channel attack as illustrated by the safe analogy?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Brute force is passive observation, while side-channels are active inducement.",
+          "isCorrect": false,
+          "rationale": "Brute force is active (trying keys); side-channels are traditionally passive observations of by-products."
+        },
+        {
+          "label": "B",
+          "text": "Brute force requires physical access, while side-channel attacks are always remote.",
+          "isCorrect": false,
+          "rationale": "Side-channel attacks often require close proximity or physical access to measure power or EM radiation."
+        },
+        {
+          "label": "C",
+          "text": "Side-channel attacks target the algorithm, while brute force targets the implementation.",
+          "isCorrect": false,
+          "rationale": "It is the opposite; side-channels target the physical implementation, while brute force targets the mathematical strength of the algorithm/key space."
+        },
+        {
+          "label": "D",
+          "text": "Side-channel attacks use indirect clues to bypass security, whereas brute force uses direct, exhaustive attempts.",
+          "isCorrect": true,
+          "rationale": "The analogy shows brute force as blowing up the safe (direct/destructive) and side-channels as using a stethoscope to hear the tumblers (indirect/observational)."
+        }
+      ],
+      "hint": "Think about the 'stethoscope' vs the 'dynamite' in the provided illustration.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 9,
+      "question": "In leakage modeling for Microcontrollers (MCUs), which model approximates the power due to bit toggling between states?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Correlation Power Attack (CPA)",
+          "isCorrect": false,
+          "rationale": "CPA is an attack methodology used to analyze leakage, not a model of the physical bit transitions themselves."
+        },
+        {
+          "label": "B",
+          "text": "Hamming Distance: $HD(x,y) = popcount(x \\oplus y)$",
+          "isCorrect": true,
+          "rationale": "Hamming Distance models the dynamic power consumed when bits flip (toggle) between two sequential states $x$ and $y$."
+        },
+        {
+          "label": "C",
+          "text": "Hamming Weight: $HW(x) = popcount(x)$",
+          "isCorrect": false,
+          "rationale": "Hamming Weight approximates the instantaneous dynamic power of stored bits at a single state, not the transition between states."
+        },
+        {
+          "label": "D",
+          "text": "Speculative Execution Model",
+          "isCorrect": false,
+          "rationale": "This is a microarchitectural feature, not a power leakage model for digital logic."
+        }
+      ],
+      "hint": "Recall the formula that uses the XOR operator to find differences between values.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 10,
+      "question": "Why do MCU traits like simple buses and shared rails increase the correlation with Hamming Weight ($HW$) and Hamming Distance ($HD$) models?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The use of stable clocks prevents the measurement of side-channels.",
+          "isCorrect": false,
+          "rationale": "Stable clocks actually make it easier to align traces and identify leakage, increasing the effectiveness of the attacks."
+        },
+        {
+          "label": "B",
+          "text": "They use secret-indexed lookups to secure memory access.",
+          "isCorrect": false,
+          "rationale": "Secret-indexed lookups are a vulnerability, not a hardware trait that relates to the $HW/HD$ power models."
+        },
+        {
+          "label": "C",
+          "text": "Reduced noise and complexity make the physical signals more directly representative of data transitions.",
+          "isCorrect": true,
+          "rationale": "Simple architectures lack the complex noise-reduction and out-of-order execution features that mask the data-dependent power signatures in larger processors."
+        },
+        {
+          "label": "D",
+          "text": "They implement advanced noise injection by default.",
+          "isCorrect": false,
+          "rationale": "Noise injection is a mitigation strategy, not a trait of simple MCUs that increases correlation."
+        }
+      ],
+      "hint": "Think about how architectural simplicity affects the 'cleanness' of the leakage signal.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 11,
+      "question": "Which of the following cryptographic operations is specifically cited as a surface prone to leakage via scalar multiplication?",
+      "options": [
+        {
+          "label": "A",
+          "text": "UART parity checks",
+          "isCorrect": false,
+          "rationale": "Parity checks are simple communication error-detection steps, not complex cryptographic scalar operations."
+        },
+        {
+          "label": "B",
+          "text": "RSA square/multiply",
+          "isCorrect": false,
+          "rationale": "While similar in principle, RSA uses modular exponentiation (square and multiply), whereas ECC specifically uses scalar multiplication."
+        },
+        {
+          "label": "C",
+          "text": "ECC (Elliptic Curve Cryptography)",
+          "isCorrect": true,
+          "rationale": "The source identifies ECC scalar multiplication as a specific surface prone to leakage."
+        },
+        {
+          "label": "D",
+          "text": "AES table lookups",
+          "isCorrect": false,
+          "rationale": "AES leakage is typically associated with table lookups (S-boxes), not scalar multiplication."
+        }
+      ],
+      "hint": "Look for the crypto routine associated with curves.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 12,
+      "question": "During a practical Correlation Power Attack (CPA), what is the core comparison being performed?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Measuring the Hamming Distance between successive ciphertext blocks.",
+          "isCorrect": false,
+          "rationale": "While $HD$ is a model, CPA specifically focuses on correlating predictions of internal algorithm states with measurements."
+        },
+        {
+          "label": "B",
+          "text": "Comparison of RSA square vs RSA multiply execution times.",
+          "isCorrect": false,
+          "rationale": "This describes a simple timing attack, whereas CPA is a more advanced statistical power analysis."
+        },
+        {
+          "label": "C",
+          "text": "Detection of non-uniform error codes in UART handlers.",
+          "isCorrect": false,
+          "rationale": "Error code analysis is a type of logical or timing side-channel, but it is not the 'core' of a Correlation Power Attack."
+        },
+        {
+          "label": "D",
+          "text": "Correlation of predicted $HW(Sbox(P \\oplus K_{guess}))$ vs measured sample amplitude.",
+          "isCorrect": true,
+          "rationale": "CPA works by correlating a hypothetical power model (based on a guessed key and known plaintext) with the actual measured power traces."
+        }
+      ],
+      "hint": "Think about how you would match a mathematical hypothesis about power consumption to real-world data.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 13,
+      "question": "Which software pattern is considered dangerous because it leaks the index where a mismatch occurs in a secret buffer?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Secret-independent branches",
+          "isCorrect": false,
+          "rationale": "Branches that do NOT depend on secrets are safe from timing and branching side-channels."
+        },
+        {
+          "label": "B",
+          "text": "Retries with exponential backoff",
+          "isCorrect": false,
+          "rationale": "Backoff is a strategy to mitigate brute force and some timing analysis, not a source of leakage."
+        },
+        {
+          "label": "C",
+          "text": "Uniform error codes",
+          "isCorrect": false,
+          "rationale": "Uniformity in error codes and timing is a security best practice to prevent side-channel leakage."
+        },
+        {
+          "label": "D",
+          "text": "Early-terminating compares (e.g., standard `memcmp`)",
+          "isCorrect": true,
+          "rationale": "Functions that return as soon as a difference is found allow an attacker to measure the time taken and determine how many bytes of a secret (like a PIN) were correct."
+        }
+      ],
+      "hint": "Consider functions that stop working the moment they find an error.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 14,
+      "question": "What is the risk of using 'Secret-indexed lookups' in software implementation?",
+      "options": [
+        {
+          "label": "A",
+          "text": "They create cache-based side-channels that can reveal the secret index.",
+          "isCorrect": true,
+          "rationale": "When a secret value is used as an index for a memory lookup, the resulting cache hits or misses can be observed to infer the secret value."
+        },
+        {
+          "label": "B",
+          "text": "They make the code path more stable and reproducible.",
+          "isCorrect": false,
+          "rationale": "While stability helps side-channel attacks, the specific danger of lookups is the data-dependent memory access pattern."
+        },
+        {
+          "label": "C",
+          "text": "They increase the pipeline depth and slow down execution.",
+          "isCorrect": false,
+          "rationale": "Lookup speed is generally fast; the primary risk is information leakage, not performance degradation."
+        },
+        {
+          "label": "D",
+          "text": "They prevent the use of Out-of-Order execution.",
+          "isCorrect": false,
+          "rationale": "Lookups do not prevent Out-of-Order execution; in fact, Out-of-Order execution can exacerbate the leakage."
+        }
+      ],
+      "hint": "Think about how using a secret to decide 'where' to look in memory might be visible to an observer.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 15,
+      "question": "In modern superscalar processors, what allows for the execution of hundreds of instructions following a branch even before its outcome is resolved?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Hamming Weight correlation",
+          "isCorrect": false,
+          "rationale": "This is a power leakage model, not a microarchitectural execution feature."
+        },
+        {
+          "label": "B",
+          "text": "Secret-dependent branches",
+          "isCorrect": false,
+          "rationale": "This is a code vulnerability that exploits the pipeline, not the architectural feature itself."
+        },
+        {
+          "label": "C",
+          "text": "Out-of-Order pipeline and speculative execution",
+          "isCorrect": true,
+          "rationale": "The Out-of-Order pipeline allows the processor to fetch and execute instructions ahead of a branch based on a prediction, resolving them later."
+        },
+        {
+          "label": "D",
+          "text": "Retry counters with backoff",
+          "isCorrect": false,
+          "rationale": "This is a high-level logical control, not a hardware pipeline execution mechanism."
+        }
+      ],
+      "hint": "Consider the architectural feature that 'guesses' which way a branch will go to keep the CPU busy.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 16,
+      "question": "Which characteristic of a covert channel refers to whether the information can be transmitted without loss or distortion?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Noiseless/noisy",
+          "isCorrect": true,
+          "rationale": "The presence of noise determines if the signal is distorted or if data is lost during the transmission through the covert channel."
+        },
+        {
+          "label": "B",
+          "text": "Existence",
+          "isCorrect": false,
+          "rationale": "Existence simply asks if a potential channel is present at all."
+        },
+        {
+          "label": "C",
+          "text": "Probability",
+          "isCorrect": false,
+          "rationale": "Probability is a type of covert channel (based on event distribution), not a general characteristic like noise."
+        },
+        {
+          "label": "D",
+          "text": "Bandwidth",
+          "isCorrect": false,
+          "rationale": "Bandwidth refers to the total amount of information that can be transmitted over time, not its fidelity."
+        }
+      ],
+      "hint": "Think about the clarity and accuracy of the signal.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 17,
+      "question": "According to the workflow for practical side-channel attacks, what is the purpose of the 'Preprocess' step?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To filter and align collected traces.",
+          "isCorrect": true,
+          "rationale": "Preprocessing is essential to remove noise and ensure that the various power or EM traces are synchronized for statistical analysis."
+        },
+        {
+          "label": "B",
+          "text": "To perform the final extraction of encryption keys.",
+          "isCorrect": false,
+          "rationale": "Key extraction is the final result of the workflow, following the statistical analysis."
+        },
+        {
+          "label": "C",
+          "text": "To correlate predicted values with measured amplitudes.",
+          "isCorrect": false,
+          "rationale": "Correlation and statistical analysis are part of the 'Analyze' stage, which follows preprocessing."
+        },
+        {
+          "label": "D",
+          "text": "To identify which code paths are stable and repetitive.",
+          "isCorrect": false,
+          "rationale": "This occurs during the 'Identify leakage' stage, before traces are actually collected."
+        }
+      ],
+      "hint": "This step happens after collecting data but before doing the math.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 18,
+      "question": "Which of the following is true regarding the elimination of covert channels in realistic computing systems?",
+      "options": [
+        {
+          "label": "A",
+          "text": "They can be entirely removed by using standard firewalls.",
+          "isCorrect": false,
+          "rationale": "Firewalls are for intended network traffic; covert channels often bypass these filters by using internal system resources."
+        },
+        {
+          "label": "B",
+          "text": "Encryption of all data at rest prevents their existence.",
+          "isCorrect": false,
+          "rationale": "Encryption does not prevent the underlying resource or timing behaviors that create the channel."
+        },
+        {
+          "label": "C",
+          "text": "Functional correctness verification ensures their absence.",
+          "isCorrect": false,
+          "rationale": "A system can be functionally correct according to its specs while still possessing unintended covert channels."
+        },
+        {
+          "label": "D",
+          "text": "It is usually infeasible to eliminate every potential covert channel.",
+          "isCorrect": true,
+          "rationale": "The complexity of modern hardware and software interactions makes it virtually impossible to close every unintended communication path."
+        }
+      ],
+      "hint": "Consider how easy it is to find and fix every possible unintended interaction in a complex machine.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 19,
+      "question": "The 'Zombieload' attack is specifically categorized as which type of side-channel exploit?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Microarchitectural Data Sampling (MDS)",
+          "isCorrect": true,
+          "rationale": "Zombieload is a prominent example of an MDS attack that impacts Intel CPUs by sampling data from internal buffers."
+        },
+        {
+          "label": "B",
+          "text": "Acoustic side-channel analysis",
+          "isCorrect": false,
+          "rationale": "Zombieload is a microarchitectural/logical side-channel, not an acoustic/physical one."
+        },
+        {
+          "label": "C",
+          "text": "Differential Thermal Analysis",
+          "isCorrect": false,
+          "rationale": "Zombieload does not involve measuring heat signatures; it focuses on internal processor data buffers."
+        },
+        {
+          "label": "D",
+          "text": "Power-based Correlation Attack",
+          "isCorrect": false,
+          "rationale": "While it is a side-channel, Zombieload exploits architectural data sampling rather than power consumption correlation."
+        }
+      ],
+      "hint": "This attack belongs to a class that 'samples' data from the processor's inner workings.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 20,
+      "question": "In the provided material, what is the 'Goal' of mapping boot/auth decisions in a side-channel attack?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To calculate the Hamming Weight of the CPU registers.",
+          "isCorrect": false,
+          "rationale": "Calculating $HW$ is a method used during the attack, not the ultimate goal of mapping an authentication decision."
+        },
+        {
+          "label": "B",
+          "text": "To infer the correctness of a PIN or password.",
+          "isCorrect": true,
+          "rationale": "Side-channels are used to observe if a system is rejecting or accepting a credential based on its internal timing or power behavior."
+        },
+        {
+          "label": "C",
+          "text": "To verify the functional correctness of the bootloader.",
+          "isCorrect": false,
+          "rationale": "Attackers want to bypass security, not verify that the code works correctly according to specifications."
+        },
+        {
+          "label": "D",
+          "text": "To eliminate noise from the power rail.",
+          "isCorrect": false,
+          "rationale": "Eliminating noise is a mitigation or preprocessing step, not an attacker's objective."
+        }
+      ],
+      "hint": "Think about what an attacker wants to know when they try to log into a locked device.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 21,
+      "question": "Which information channel category focuses specifically on 'Data at rest and preservation'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Information Sharing",
+          "isCorrect": false,
+          "rationale": "Sharing pertains to collaboration and concurrent access to data."
+        },
+        {
+          "label": "B",
+          "text": "Information Storage",
+          "isCorrect": true,
+          "rationale": "Information storage is the channel category concerned with data that is kept on media and preserved over time."
+        },
+        {
+          "label": "C",
+          "text": "Information Communication",
+          "isCorrect": false,
+          "rationale": "Communication covers data in motion and transmission."
+        },
+        {
+          "label": "D",
+          "text": "Information Processing",
+          "isCorrect": false,
+          "rationale": "Processing involves the manipulation and transformation of data."
+        }
+      ],
+      "hint": "This is where data 'lives' when it isn't being moved or used.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 22,
+      "question": "What role do 'stable, repetitive code paths' play in side-channel attacks?",
+      "options": [
+        {
+          "label": "A",
+          "text": "They amplify leakage by allowing for trace averaging and reproducibility.",
+          "isCorrect": true,
+          "rationale": "When a code path is stable, the attacker can measure it multiple times to average out noise, making the subtle leakage signals more visible."
+        },
+        {
+          "label": "B",
+          "text": "They increase the noise injection into the channel.",
+          "isCorrect": false,
+          "rationale": "Stable paths typically reduce jitter and behavioral noise, making the channel cleaner for an attacker."
+        },
+        {
+          "label": "C",
+          "text": "They prevent the use of speculative execution.",
+          "isCorrect": false,
+          "rationale": "Stability does not prevent speculative execution; in many cases, it makes speculative execution patterns more predictable."
+        },
+        {
+          "label": "D",
+          "text": "They are a key mitigation strategy for power analysis.",
+          "isCorrect": false,
+          "rationale": "On the contrary, making code paths identical regardless of secrets (constant-time code) is a mitigation; standard 'repetitive' paths often leak if they vary with data."
+        }
+      ],
+      "hint": "Think about how doing the same thing over and over again helps someone watching you.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 23,
+      "question": "A side-channel attack that uses a 'stethoscope' on a safe is analogous to which technique in computing?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Exhaustive key search.",
+          "isCorrect": false,
+          "rationale": "Exhaustive search is the digital equivalent of trying every combination (brute force), not the stethoscope (side-channel)."
+        },
+        {
+          "label": "B",
+          "text": "Verifying the integrity of the safe's contents.",
+          "isCorrect": false,
+          "rationale": "Integrity verification is a security guarantee, not the attack method depicted."
+        },
+        {
+          "label": "C",
+          "text": "Injecting noise into the CPU clock.",
+          "isCorrect": false,
+          "rationale": "Noise injection is a defense, whereas the safe analogy illustrates an attack method."
+        },
+        {
+          "label": "D",
+          "text": "Measuring acoustic effects during computation.",
+          "isCorrect": true,
+          "rationale": "The stethoscope represents the non-invasive observation of physical by-products (like sound or power) to infer internal secret states."
+        }
+      ],
+      "hint": "Consider the difference between listening to a safe and trying to blow it up.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 24,
+      "question": "Which of the following is a security guarantee typically required for intended information channels?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Speculative execution prevention",
+          "isCorrect": false,
+          "rationale": "This is a microarchitectural defense, not a standard information security guarantee."
+        },
+        {
+          "label": "B",
+          "text": "Non-repudiation",
+          "isCorrect": true,
+          "rationale": "The source lists non-repudiation, integrity, availability, and authentication as required guarantees for intended information channels."
+        },
+        {
+          "label": "C",
+          "text": "Electromagnetic isolation",
+          "isCorrect": false,
+          "rationale": "Isolation is a side-channel mitigation, not a standard logical security guarantee like non-repudiation."
+        },
+        {
+          "label": "D",
+          "text": "Hamming Weight reduction",
+          "isCorrect": false,
+          "rationale": "Reducing $HW$ is a technical leakage prevention method, not a high-level security guarantee."
+        }
+      ],
+      "hint": "Look for a term that ensures someone cannot deny they sent a message.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 25,
+      "question": "Which covert channel type asks: 'What methods to determine the distribution of certain system events?'",
+      "options": [
+        {
+          "label": "A",
+          "text": "Termination covert channels",
+          "isCorrect": false,
+          "rationale": "These only care about the end state (halted or not), not the distribution of intermediate events."
+        },
+        {
+          "label": "B",
+          "text": "Probability covert channels",
+          "isCorrect": true,
+          "rationale": "Probability channels rely on the statistical distribution of events to communicate or leak information."
+        },
+        {
+          "label": "C",
+          "text": "Power covert channels",
+          "isCorrect": false,
+          "rationale": "These focus on energy consumption rather than event distribution probabilities."
+        },
+        {
+          "label": "D",
+          "text": "Timing covert channels",
+          "isCorrect": false,
+          "rationale": "These focus on the absolute or relative duration of tasks."
+        }
+      ],
+      "hint": "The keyword is the 'statistical likelihood' of events.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 26,
+      "question": "True or False: Modern out-of-order processors resolve branch outcomes immediately upon fetching the branch instruction, preventing unintended leakage.",
+      "options": [
+        {
+          "label": "A",
+          "text": "False",
+          "isCorrect": true,
+          "rationale": "Modern processors often execute hundreds of instructions speculatively *before* a branch is resolved, which is exactly the source of many unintended leakage vectors."
+        },
+        {
+          "label": "B",
+          "text": "True",
+          "isCorrect": false,
+          "rationale": "Branch resolution often occurs deep in the pipeline, and the delay is what necessitates speculative execution."
+        }
+      ],
+      "hint": "Think about why features like 'Spectre' exist in the first place.",
+      "correctAnswer": "A"
+    }
+  ]
+}

@@ -1,0 +1,839 @@
+{
+  "title": "Hardware Quiz",
+  "totalQuestions": 26,
+  "extractedAt": "2026-05-11T16:00:54.805Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "In the context of electronic systems, which component sequence correctly identifies the hardware's role as the 'root-of-trust'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "User $\\rightarrow$ API $\\rightarrow$ SoC",
+          "isCorrect": false,
+          "rationale": "This describes an interaction model rather than the structural root-of-trust within system hardware."
+        },
+        {
+          "label": "B",
+          "text": "$PCB \\rightarrow$ IC (SoC | $\\mu$P)",
+          "isCorrect": true,
+          "rationale": "Hardware establishes the fundamental security layer beginning at the board level and extending into the integrated circuit architecture."
+        },
+        {
+          "label": "C",
+          "text": "SW $\\rightarrow$ OS $\\rightarrow$ HW",
+          "isCorrect": false,
+          "rationale": "This sequence represents the software execution stack rather than the foundational hardware trust hierarchy."
+        },
+        {
+          "label": "D",
+          "text": "Network $\\rightarrow$ Firewall $\\rightarrow$ PCB",
+          "isCorrect": false,
+          "rationale": "While related to system security, this describes external defensive layers rather than the internal hardware root-of-trust."
+        }
+      ],
+      "hint": "Consider the physical hierarchy from the board level to the chip level mentioned in the fundamentals.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 2,
+      "question": "Which of the following describes a key driver behind the industry's shift toward a 'Horizontal' business model?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Economy of scale achieved by a single fabrication facility serving multiple fabless companies.",
+          "isCorrect": true,
+          "rationale": "The horizontal model allows specialized foundries to support numerous design firms, optimizing manufacturing costs and efficiency."
+        },
+        {
+          "label": "B",
+          "text": "The desire to consolidate all design steps within a single vertical entity.",
+          "isCorrect": false,
+          "rationale": "Consolidation within one entity is the definition of a vertical model, which is the model the industry is shifting away from."
+        },
+        {
+          "label": "C",
+          "text": "A reduction in the number of third-party IP blocks used in System-on-Chip (SoC) designs.",
+          "isCorrect": false,
+          "rationale": "Horizontal models actually increase the reliance on third-party IP blocks due to specialized global design distribution."
+        },
+        {
+          "label": "D",
+          "text": "Elimination of the need for Hardware Description Language (HDL) synthesis.",
+          "isCorrect": false,
+          "rationale": "HDL synthesis remains a critical technical step in both vertical and horizontal design flows."
+        }
+      ],
+      "hint": "Think about the relationship between foundries and 'fabless' companies.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 3,
+      "question": "What is a primary security concern introduced by the global distribution of Third-Party IP (3PIP) design companies?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Decreased performance of the final System-on-Chip (SoC) product.",
+          "isCorrect": false,
+          "rationale": "Global distribution is an organizational and security challenge, but does not inherently necessitate a performance drop."
+        },
+        {
+          "label": "B",
+          "text": "A mandated shift back to vertical integration models.",
+          "isCorrect": false,
+          "rationale": "The trend is currently moving toward more horizontal integration, not less, despite the security risks."
+        },
+        {
+          "label": "C",
+          "text": "The inability to use standard CMOS fabrication techniques.",
+          "isCorrect": false,
+          "rationale": "Global IP distribution does not dictate the specific physical manufacturing technology used at the foundry."
+        },
+        {
+          "label": "D",
+          "text": "Total loss of control over the design process and verification.",
+          "isCorrect": true,
+          "rationale": "Because these companies operate internationally with varying standards, maintaining centralized oversight of the design cycle becomes difficult."
+        }
+      ],
+      "hint": "Consider the level of oversight possible when components are designed by disparate entities worldwide.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 4,
+      "question": "In cybersecurity terminology, how is a 'Threat' distinguished from a 'Vulnerability'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A threat refers to software bugs, while a vulnerability refers only to physical hardware flaws.",
+          "isCorrect": false,
+          "rationale": "Both terms apply across hardware, software, and system-level security domains."
+        },
+        {
+          "label": "B",
+          "text": "A threat is only relevant after an attack, whereas a vulnerability is identified before an attack.",
+          "isCorrect": false,
+          "rationale": "Threat modeling and vulnerability assessment are both proactive security activities performed before attacks occur."
+        },
+        {
+          "label": "C",
+          "text": "A threat is a set of circumstances with potential for harm, while a vulnerability is a specific weakness in the system.",
+          "isCorrect": true,
+          "rationale": "Vulnerabilities are the intrinsic flaws, whereas threats represent the external context or potential events that could exploit those flaws."
+        },
+        {
+          "label": "D",
+          "text": "A threat is the act of exploitation, while a vulnerability is the human agent.",
+          "isCorrect": false,
+          "rationale": "An act of exploitation is an attack, and the human agent is the adversary, not a vulnerability."
+        }
+      ],
+      "hint": "One refers to a potential for harm, and the other refers to an existing flaw that allows that harm to occur.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 5,
+      "question": "Which security pillar ensures that an asset is accessible to authorized parties at the appropriate times?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Integrity",
+          "isCorrect": false,
+          "rationale": "Integrity is concerned with the prevention of unauthorized modifications to an asset."
+        },
+        {
+          "label": "B",
+          "text": "Confidentiality",
+          "isCorrect": false,
+          "rationale": "Confidentiality focuses on restricting access to unauthorized parties, not ensuring access for authorized ones."
+        },
+        {
+          "label": "C",
+          "text": "Availability",
+          "isCorrect": true,
+          "rationale": "Availability ensures that systems and data are functional and reachable when required by legitimate users."
+        },
+        {
+          "label": "D",
+          "text": "Authenticity",
+          "isCorrect": false,
+          "rationale": "Authenticity deals with verifying the identity of a user or system rather than the uptime of the asset."
+        }
+      ],
+      "hint": "Think about the 'A' in the CIA triad of security.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 6,
+      "question": "Why is hardware considered a particularly challenging platform for security compared to software?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Software attacks cannot exploit hardware vulnerabilities.",
+          "isCorrect": false,
+          "rationale": "Hardware acts as the platform for software, so software execution can be compromised by underlying hardware flaws."
+        },
+        {
+          "label": "B",
+          "text": "Hardware is inherently more transparent than software source code.",
+          "isCorrect": false,
+          "rationale": "The source material notes that manufactured ICs are actually obscure and difficult to inspect."
+        },
+        {
+          "label": "C",
+          "text": "Hardware cannot be updated or patched as easily as software due to its physical nature.",
+          "isCorrect": true,
+          "rationale": "The static and physical attributes of hardware make it susceptible to tampering that is difficult to remediate once the IC is manufactured."
+        },
+        {
+          "label": "D",
+          "text": "Hardware security does not involve human interaction.",
+          "isCorrect": false,
+          "rationale": "A computing system is defined as a collection of HW, SW, and humans interacting with them."
+        }
+      ],
+      "hint": "Reflect on the physical characteristics and the 'obscurity' of manufactured chips.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 7,
+      "question": "Which of the following is classified as a 'Hardware Vulnerability' in the provided source material?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Phishing",
+          "isCorrect": false,
+          "rationale": "Phishing is a social engineering attack rather than a physical or architectural hardware vulnerability."
+        },
+        {
+          "label": "B",
+          "text": "Buffer Overflow",
+          "isCorrect": false,
+          "rationale": "A buffer overflow is typically a software memory management error, though it may run on hardware."
+        },
+        {
+          "label": "C",
+          "text": "Trojan Horses",
+          "isCorrect": true,
+          "rationale": "Hardware Trojans are malicious modifications to circuitry and are listed as a core hardware vulnerability."
+        },
+        {
+          "label": "D",
+          "text": "SQL Injection",
+          "isCorrect": false,
+          "rationale": "SQL injection is a software-level vulnerability specifically targeting database queries."
+        }
+      ],
+      "hint": "Look for a term that refers to malicious circuitry inserted into a design.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 8,
+      "question": "According to the typical cycle in securing a system, what is the recommended action after identifying a breach?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Immediately decommission all hardware components regardless of the breach type.",
+          "isCorrect": false,
+          "rationale": "The cycle suggests identifying the breach and working toward a protected system again, not necessarily total destruction."
+        },
+        {
+          "label": "B",
+          "text": "Work out a protected system again by identifying the breach and applying countermeasures.",
+          "isCorrect": true,
+          "rationale": "The security cycle is iterative, using information from breaches to refine defenses and predict future vulnerabilities."
+        },
+        {
+          "label": "C",
+          "text": "Ignore the breach if it was unsophisticated.",
+          "isCorrect": false,
+          "rationale": "Even simple breaches indicate a failure that must be addressed to re-secure the system."
+        },
+        {
+          "label": "D",
+          "text": "Wait for the adversary to reveal their method before taking action.",
+          "isCorrect": false,
+          "rationale": "Active pursuit of breach identification is preferred over waiting for an adversary's disclosure."
+        }
+      ],
+      "hint": "Security is an iterative process of prediction, identification, and correction.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 9,
+      "question": "Which adversary is specifically noted for the threat of 'Recycling' and 'Cloning' components?",
+      "options": [
+        {
+          "label": "A",
+          "text": "System integrators",
+          "isCorrect": false,
+          "rationale": "Integrators are primarily associated with IP piracy rather than physical recycling of old parts."
+        },
+        {
+          "label": "B",
+          "text": "Individual researchers",
+          "isCorrect": false,
+          "rationale": "While researchers may perform reverse engineering, the large-scale recycling of ICs is a hallmark of counterfeiting groups."
+        },
+        {
+          "label": "C",
+          "text": "Fabrication facilities",
+          "isCorrect": false,
+          "rationale": "Foundries are more likely to engage in over-production or IP theft than recycling used parts."
+        },
+        {
+          "label": "D",
+          "text": "Counterfeiting parties",
+          "isCorrect": true,
+          "rationale": "Counterfeiters specialize in deceptive practices such as cleaning old chips to sell as new or creating unauthorized clones."
+        }
+      ],
+      "hint": "Consider which group's business model relies on fraudulent component production.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 10,
+      "question": "What is the primary trade-off when implementing hardware-based encryption in embedded systems?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Encryption eliminates the need for user identification.",
+          "isCorrect": false,
+          "rationale": "Encryption and user identification are complementary security requirements, not mutually exclusive."
+        },
+        {
+          "label": "B",
+          "text": "It makes the system immune to physical tampering.",
+          "isCorrect": false,
+          "rationale": "Encryption protects data confidentiality but does not inherently stop physical modification or reverse engineering."
+        },
+        {
+          "label": "C",
+          "text": "Increased performance with no impact on power.",
+          "isCorrect": false,
+          "rationale": "Security processing almost always adds overhead in terms of power consumption."
+        },
+        {
+          "label": "D",
+          "text": "Security processing adds overhead in terms of performance and power.",
+          "isCorrect": true,
+          "rationale": "Encryption hardware requires additional area and energy, which can overwhelm the tight constraints of embedded devices."
+        }
+      ],
+      "hint": "Think about the limited resources available in an embedded or IoT device.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 11,
+      "question": "In the context of 'Secure Embedded Systems,' what does the 'Battery Gap' refer to?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The distance between the battery and the main processing unit on a PCB.",
+          "isCorrect": false,
+          "rationale": "This describes a physical layout concern rather than a high-level design challenge for secure systems."
+        },
+        {
+          "label": "B",
+          "text": "The deficiency in energy density compared to the increasing power demands of security processing.",
+          "isCorrect": true,
+          "rationale": "Energy storage technology has not kept pace with the computational requirements needed for robust security in portable devices."
+        },
+        {
+          "label": "C",
+          "text": "The physical size difference between batteries and SoC chips.",
+          "isCorrect": false,
+          "rationale": "The battery gap refers to a functional disparity, not a physical dimension measurement."
+        },
+        {
+          "label": "D",
+          "text": "The time it takes to charge a device after a security breach.",
+          "isCorrect": false,
+          "rationale": "This is unrelated to the design challenge of balancing power consumption and security functions."
+        }
+      ],
+      "hint": "Consider the relationship between power availability and the energy costs of security.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 12,
+      "question": "Which of the following is considered a 'Hardware Control' for securing a system?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Changing user passwords every 30 days.",
+          "isCorrect": false,
+          "rationale": "This is a policy-based software control rather than a hardware-specific mechanism."
+        },
+        {
+          "label": "B",
+          "text": "Hiding signatures in the design files.",
+          "isCorrect": true,
+          "rationale": "Embedding signatures in CAD or design files helps verify the authenticity and provenance of hardware IP."
+        },
+        {
+          "label": "C",
+          "text": "Regular software antivirus scans.",
+          "isCorrect": false,
+          "rationale": "Antivirus scans are software-level defensive methods."
+        },
+        {
+          "label": "D",
+          "text": "Training employees on phishing awareness.",
+          "isCorrect": false,
+          "rationale": "This is a human/organizational security procedure, not a hardware control."
+        }
+      ],
+      "hint": "Which option describes a method to protect the integrity of the design files themselves?",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 13,
+      "question": "What does 'Assurance Gap' represent in the design of secure embedded systems?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The lack of insurance coverage for hardware failures.",
+          "isCorrect": false,
+          "rationale": "Assurance in this context refers to security validation, not financial insurance."
+        },
+        {
+          "label": "B",
+          "text": "A delay in manufacturing due to security audits.",
+          "isCorrect": false,
+          "rationale": "While related to the process, the assurance gap specifically refers to the difficulty in proving security claims."
+        },
+        {
+          "label": "C",
+          "text": "The inability of an embedded system to connect to a secure network.",
+          "isCorrect": false,
+          "rationale": "This describes a connectivity or interoperability issue, not necessarily an assurance gap."
+        },
+        {
+          "label": "D",
+          "text": "The difference between theoretical security and the actual security verified in the final product.",
+          "isCorrect": true,
+          "rationale": "Ensuring that a device actually meets its security specifications is a major hurdle in hardware design."
+        }
+      ],
+      "hint": "Think about the difficulty of verifying that a system is as secure as it was designed to be.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 14,
+      "question": "Why has security become a 'new design challenge' to be considered alongside cost, power, and area?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Because security processing has no impact on other design metrics.",
+          "isCorrect": false,
+          "rationale": "The source material explicitly states that security adds overhead and can overwhelm other aspects of the system."
+        },
+        {
+          "label": "B",
+          "text": "Due to the increasing complexity of systems and the prevalence of hardware-level threats.",
+          "isCorrect": true,
+          "rationale": "The shift in business models and the discovery of hardware vulnerabilities necessitate integrating security at the earliest design stages."
+        },
+        {
+          "label": "C",
+          "text": "Because the vertical business model has eliminated most security risks.",
+          "isCorrect": false,
+          "rationale": "The horizontal model is now dominant, and it has introduced more security risks, not fewer."
+        },
+        {
+          "label": "D",
+          "text": "Because hardware is now easier to modify than software.",
+          "isCorrect": false,
+          "rationale": "Hardware is actually harder to modify once manufactured, though its physical nature makes it easy to tamper with if access is gained."
+        }
+      ],
+      "hint": "Reflect on how security requirements interact with traditional design constraints like power and cost.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 15,
+      "question": "Which term describes the act of a human exploiting a specific weakness in a secure system?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Attack",
+          "isCorrect": true,
+          "rationale": "An attack is the active human effort to leverage a vulnerability to cause harm or loss."
+        },
+        {
+          "label": "B",
+          "text": "Backdoor",
+          "isCorrect": false,
+          "rationale": "A backdoor is a type of vulnerability or malicious circuitry, not the act of exploitation."
+        },
+        {
+          "label": "C",
+          "text": "Threat",
+          "isCorrect": false,
+          "rationale": "A threat is a potential circumstance or potential for harm, not the act itself."
+        },
+        {
+          "label": "D",
+          "text": "Counterfeiting",
+          "isCorrect": false,
+          "rationale": "Counterfeiting is a specific type of criminal activity, not the general term for exploiting a weakness."
+        }
+      ],
+      "hint": "Distinguish between the existence of a flaw and the action taken to use that flaw.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 16,
+      "question": "The concept of a 'Secret' in security fundamentals is most closely associated with the 'root' of which field?",
+      "options": [
+        {
+          "label": "A",
+          "text": "PCB Design",
+          "isCorrect": false,
+          "rationale": "PCB design is a physical layout task, though it may implement cryptographic hardware."
+        },
+        {
+          "label": "B",
+          "text": "Cryptography",
+          "isCorrect": true,
+          "rationale": "Cryptographic systems rely on secret keys, passwords, or hidden signatures to function securely."
+        },
+        {
+          "label": "C",
+          "text": "Foundry Management",
+          "isCorrect": false,
+          "rationale": "Foundry management is an operational concern, while 'secrets' are fundamental to cryptographic protocols."
+        },
+        {
+          "label": "D",
+          "text": "System Integration",
+          "isCorrect": false,
+          "rationale": "System integration is the process of combining modules, not the theoretical basis of security protocols."
+        }
+      ],
+      "hint": "Think about what underlies lock and keys, passwords, and hidden signs.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 17,
+      "question": "What is a major security disadvantage of manufactured Integrated Circuits (ICs) being 'obscure'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It prevents the use of encryption on the chip.",
+          "isCorrect": false,
+          "rationale": "Obscurity and encryption are separate concepts; obscurity refers to physical inspection difficulty."
+        },
+        {
+          "label": "B",
+          "text": "It eliminates the need for Third-Party IP blocks.",
+          "isCorrect": false,
+          "rationale": "Obscurity actually increases the risk of using 3PIP because the resulting hardware is harder to audit."
+        },
+        {
+          "label": "C",
+          "text": "It makes it easier for foundries to insert malicious circuitry without detection.",
+          "isCorrect": true,
+          "rationale": "The complexity and lack of transparency in finished chips make it difficult for users to verify that no 'Trojan' has been added."
+        },
+        {
+          "label": "D",
+          "text": "It decreases the physical size of the final product.",
+          "isCorrect": false,
+          "rationale": "Obscurity is a result of high integration density, but it is not a physical 'advantage' in itself."
+        }
+      ],
+      "hint": "Consider how obscurity affects the ability to verify the integrity of the hardware.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 18,
+      "question": "In the horizontal business model, which entity is described as serving many 'fabless' companies to achieve economies of scale?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Reverse Engineering Teams",
+          "isCorrect": false,
+          "rationale": "These teams analyze existing chips rather than contributing to the manufacturing economy of scale."
+        },
+        {
+          "label": "B",
+          "text": "Fabrication Facilities",
+          "isCorrect": true,
+          "rationale": "Foundries (fabrication facilities) leverage high volume across multiple clients to make high-tech manufacturing affordable."
+        },
+        {
+          "label": "C",
+          "text": "IP Vendors",
+          "isCorrect": false,
+          "rationale": "IP vendors sell design blocks, but they do not manufacture the physical chips themselves."
+        },
+        {
+          "label": "D",
+          "text": "System Integrators",
+          "isCorrect": false,
+          "rationale": "Integrators combine the final components into a complete product but are not the primary drivers of manufacturing economy of scale."
+        }
+      ],
+      "hint": "Look for the party responsible for the actual 'fabrication' step.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 19,
+      "question": "Which aspect of security is compromised if an unauthorized party modifies a hardware asset?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Integrity",
+          "isCorrect": true,
+          "rationale": "Integrity is the pillar that ensures assets are only modified by authorized parties."
+        },
+        {
+          "label": "B",
+          "text": "Flexibility",
+          "isCorrect": false,
+          "rationale": "Flexibility is a design challenge, not one of the three core security pillars."
+        },
+        {
+          "label": "C",
+          "text": "Availability",
+          "isCorrect": false,
+          "rationale": "Availability refers to accessibility; while a modification might cause a crash, the modification itself is an integrity violation."
+        },
+        {
+          "label": "D",
+          "text": "Confidentiality",
+          "isCorrect": false,
+          "rationale": "Confidentiality is about data being read by unauthorized parties, not the modification of assets."
+        }
+      ],
+      "hint": "Think about the security principle concerned with the prevention of unauthorized changes.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 20,
+      "question": "What is the primary challenge related to 'Flexibility' in secure embedded systems design?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The inability to use different types of batteries in a single device.",
+          "isCorrect": false,
+          "rationale": "This is a physical battery compatibility issue, not the core flexibility challenge described for secure systems."
+        },
+        {
+          "label": "B",
+          "text": "The requirement that all security software be written in a single programming language.",
+          "isCorrect": false,
+          "rationale": "Flexibility refers to functional and environmental adaptability, not language constraints."
+        },
+        {
+          "label": "C",
+          "text": "The difficulty of adapting security protocols to operate in harsh environments while maintaining interoperability.",
+          "isCorrect": true,
+          "rationale": "Embedded systems must handle multiple security objectives across different layers while remaining compatible with diverse environments."
+        },
+        {
+          "label": "D",
+          "text": "The tendency of hardware locks to become physically brittle over time.",
+          "isCorrect": false,
+          "rationale": "Flexibility in this context is an architectural and operational concept, not a material science property."
+        }
+      ],
+      "hint": "Consider the need for systems to meet multiple security objectives across different environments.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 21,
+      "question": "Which vulnerability involves analyzing a chip's structure to extract proprietary design information?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Backdoor exploitation",
+          "isCorrect": false,
+          "rationale": "Exploitation involves using a hidden entry point, not necessarily analyzing the whole structure to steal the design."
+        },
+        {
+          "label": "B",
+          "text": "Reverse Engineering",
+          "isCorrect": true,
+          "rationale": "Reverse engineering is the process of deconstructing hardware to understand its logic, layout, or IP."
+        },
+        {
+          "label": "C",
+          "text": "IP Piracy",
+          "isCorrect": false,
+          "rationale": "IP piracy is the illegal use or sale of IP, which often follows reverse engineering but is a distinct legal/economic violation."
+        },
+        {
+          "label": "D",
+          "text": "Trojan Horse insertion",
+          "isCorrect": false,
+          "rationale": "Insertion involves adding functionality, whereas extracting information from an existing design is analysis."
+        }
+      ],
+      "hint": "Look for a term that describes 'deconstructing' to understand how something works.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 22,
+      "question": "How does the source material define the term 'Secure'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is defined by the absence of any human interaction with the computing system.",
+          "isCorrect": false,
+          "rationale": "Systems inherently involve human interaction, and security must account for this interaction."
+        },
+        {
+          "label": "B",
+          "text": "It is a dynamic concept that depends on the value of the asset and the specific threats it faces.",
+          "isCorrect": true,
+          "rationale": "The definition of 'secure' is not fixed and must adapt to the protection requirements of the specific asset."
+        },
+        {
+          "label": "C",
+          "text": "It refers only to the use of advanced military-grade encryption.",
+          "isCorrect": false,
+          "rationale": "While encryption is a tool, the definition of security is broader and depends on the specific context of the asset."
+        },
+        {
+          "label": "D",
+          "text": "It is a binary state where a system is either perfectly safe or totally compromised.",
+          "isCorrect": false,
+          "rationale": "Security is described as dynamic and relative to assets and threats, rather than a simple binary state."
+        }
+      ],
+      "hint": "Does security have one single, unchanging definition for all scenarios?",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 23,
+      "question": "Which of the following is an example of an 'Adversary' at the fabrication level?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A software developer who accidentally leaves a bug in the code.",
+          "isCorrect": false,
+          "rationale": "Accidental bugs are vulnerabilities, but an adversary implies intentional malice or illegal gain."
+        },
+        {
+          "label": "B",
+          "text": "A user who forgets their password.",
+          "isCorrect": false,
+          "rationale": "A forgetful user is a functional issue, not a malicious adversary at the fabrication stage."
+        },
+        {
+          "label": "C",
+          "text": "An insurance company auditing the security process.",
+          "isCorrect": false,
+          "rationale": "Auditors are typically part of the assurance process, not malicious adversaries."
+        },
+        {
+          "label": "D",
+          "text": "A foundry that illegally produces and sells extra copies of an IC.",
+          "isCorrect": true,
+          "rationale": "Fabrication facilities can act as adversaries by engaging in 'IC Piracy' or over-production for the black market."
+        }
+      ],
+      "hint": "Identify an entity involved in the manufacturing process that might steal or over-produce chips.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 24,
+      "question": "What is the 'Processing Gap' in the context of embedded security challenges?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The disparity between the increasing computational requirements of security and the available processing power in embedded devices.",
+          "isCorrect": true,
+          "rationale": "Advanced security protocols often demand more CPU cycles than low-power embedded processors can efficiently provide."
+        },
+        {
+          "label": "B",
+          "text": "The gap in logic gates caused by physical manufacturing defects.",
+          "isCorrect": false,
+          "rationale": "This refers to a manufacturing yield issue, not a fundamental design gap for security."
+        },
+        {
+          "label": "C",
+          "text": "The time delay between a hardware design and its software implementation.",
+          "isCorrect": false,
+          "rationale": "This describes a development timeline issue, not the processing gap in operational security."
+        },
+        {
+          "label": "D",
+          "text": "The difference in speed between a $\\mu$P and an SoC.",
+          "isCorrect": false,
+          "rationale": "While different, this is not the 'processing gap' defined as a security challenge in the material."
+        }
+      ],
+      "hint": "Think about the 'performance overhead' mentioned for security mechanisms.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 25,
+      "question": "Which hardware control involves 'scrambling' information to hide its contents?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Reverse Engineering",
+          "isCorrect": false,
+          "rationale": "Reverse engineering is a method used by adversaries to deconstruct a design, not a defensive control."
+        },
+        {
+          "label": "B",
+          "text": "Physical locks",
+          "isCorrect": false,
+          "rationale": "Physical locks prevent access but do not scramble the internal data itself."
+        },
+        {
+          "label": "C",
+          "text": "Intrusion detection",
+          "isCorrect": false,
+          "rationale": "Intrusion detection monitors for unauthorized access but does not hide data through scrambling."
+        },
+        {
+          "label": "D",
+          "text": "Encryption",
+          "isCorrect": true,
+          "rationale": "Encryption is specifically defined as the process of scrambling data to protect its confidentiality."
+        }
+      ],
+      "hint": "Look for the term that is synonymous with data 'hiding' or 'scrambling'.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 26,
+      "question": "Why has the traditional assumption that hardware is 'secure and trusted' become invalid?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Due to the globalization of the supply chain and the use of third-party IPs and foundries.",
+          "isCorrect": true,
+          "rationale": "The lack of centralized control in the modern horizontal business model introduces many points where trust can be compromised."
+        },
+        {
+          "label": "B",
+          "text": "Because hardware is now entirely software-defined.",
+          "isCorrect": false,
+          "rationale": "Hardware remains physical, even if its behavior is influenced by software."
+        },
+        {
+          "label": "C",
+          "text": "Because physical tampering is no longer possible.",
+          "isCorrect": false,
+          "rationale": "The source material states that hardware is actually *easy* to modify because of its physical nature."
+        },
+        {
+          "label": "D",
+          "text": "Because all hardware vulnerabilities have already been solved by modern encryption.",
+          "isCorrect": false,
+          "rationale": "The existence of Trojans, backdoors, and counterfeiting shows that encryption is not a complete solution for hardware security."
+        }
+      ],
+      "hint": "Reflect on how the business model of chip design and manufacturing has changed over time.",
+      "correctAnswer": "A"
+    }
+  ]
+}
