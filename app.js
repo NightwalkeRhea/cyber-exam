@@ -20,9 +20,8 @@ const app = document.querySelector("#app");
 const poolStatus = document.querySelector("#poolStatus");
 
 const state = {
-  sources: [],
-  pool: [],
-  selectedSources: new Set(),
+  banks: [],
+  activeBankId: "generated",
   exam: [],
   answers: new Map(),
   current: 0,
@@ -36,13 +35,20 @@ init();
 
 async function init() {
   try {
-    const loadedSources = Array.isArray(window.QUIZ_DATA)
+    const generatedSources = Array.isArray(window.QUIZ_DATA)
       ? window.QUIZ_DATA.map((entry) => createSource(entry.fileName, entry.data))
       : await Promise.all(QUIZ_FILES.map(loadQuizFile));
-    state.sources = loadedSources;
-    state.pool = loadedSources.flatMap((source) => source.questions);
-    state.selectedSources = new Set(loadedSources.map((source) => source.id));
-    poolStatus.textContent = `${state.pool.length} questions loaded`;
+
+    const realExamSources = Array.isArray(window.REAL_EXAM_DATA)
+      ? window.REAL_EXAM_DATA.map((entry) => createSource(entry.fileName, entry.data))
+      : [];
+
+    state.banks = [
+      createBank("generated", "Generated quiz pool", "Topic JSON exports", generatedSources),
+      createBank("real", "Real exam question simulations", "Extracted closed-ended past/sample questions", realExamSources),
+    ].filter((bank) => bank.sources.length > 0);
+
+    poolStatus.textContent = `${getTotalQuestionCount()} questions loaded`;
     renderSetup();
   } catch (error) {
     poolStatus.textContent = "Load failed";
@@ -75,6 +81,17 @@ function createSource(fileName, data) {
   };
 }
 
+function createBank(id, title, description, sources) {
+  return {
+    id,
+    title,
+    description,
+    sources,
+    pool: sources.flatMap((source) => source.questions),
+    selectedSources: new Set(sources.map((source) => source.id)),
+  };
+}
+
 function normalizeQuestion(question, index, source) {
   if (!question || !question.question || !Array.isArray(question.options)) {
     return null;
@@ -100,7 +117,7 @@ function normalizeQuestion(question, index, source) {
     id: `${source.id}-${question.number || index + 1}-${hashText(question.question)}`,
     number: question.number || index + 1,
     sourceId: source.id,
-    sourceTitle: source.title,
+    sourceTitle: question.source ? String(question.source) : source.title,
     sourceFile: source.fileName,
     text: String(question.question),
     options,
@@ -110,8 +127,9 @@ function normalizeQuestion(question, index, source) {
 }
 
 function renderSetup() {
+  const bank = getActiveBank();
   const selectedCount = getSelectedPool().length;
-  poolStatus.textContent = `${state.pool.length} questions loaded`;
+  poolStatus.textContent = `${getTotalQuestionCount()} questions loaded`;
   stopTimer();
 
   app.innerHTML = `
@@ -125,53 +143,102 @@ function renderSetup() {
           <div class="rule"><strong>${SUFFICIENT_RAW_SCORE}</strong><span>minimum raw score</span></div>
           <div class="rule"><strong>60 min</strong><span>time limit</span></div>
         </div>
-        <h3>Question Pool</h3>
+        <h3>Practice Modes</h3>
+        <div class="bank-sections" id="bankSections"></div>
+        <h3>${escapeHtml(bank.title)} Sources</h3>
         <div class="source-list" id="sourceList"></div>
         <div class="actions">
-          <button class="button" id="startExam" ${selectedCount < EXAM_SIZE ? "disabled" : ""}>Start Random Exam</button>
+          <button class="button" id="startExam" ${selectedCount < EXAM_SIZE ? "disabled" : ""}>Start ${escapeHtml(bank.title)}</button>
           <button class="button secondary" id="selectAll">Select All</button>
           <button class="button secondary" id="clearAll">Clear</button>
         </div>
       </section>
       <aside class="side-panel">
-        <h2>Pool</h2>
+        <h2>${escapeHtml(bank.title)}</h2>
         <div class="stats">
           <div class="stat"><span>Selected questions</span><strong>${selectedCount}</strong></div>
-          <div class="stat"><span>JSON files</span><strong>${state.sources.length}</strong></div>
-          <div class="stat"><span>Merged questions</span><strong>${state.pool.length}</strong></div>
+          <div class="stat"><span>Sources</span><strong>${bank.sources.length}</strong></div>
+          <div class="stat"><span>Questions</span><strong>${bank.pool.length}</strong></div>
           <div class="stat"><span>Exam size</span><strong>${EXAM_SIZE}</strong></div>
         </div>
       </aside>
     </div>
   `;
 
+  renderBankSections();
   renderSourceList();
-  document.querySelector("#startExam").addEventListener("click", startExam);
+  document.querySelector("#startExam").addEventListener("click", () => startExam());
   document.querySelector("#selectAll").addEventListener("click", () => {
-    state.selectedSources = new Set(state.sources.map((source) => source.id));
+    bank.selectedSources = new Set(bank.sources.map((source) => source.id));
     renderSetup();
   });
   document.querySelector("#clearAll").addEventListener("click", () => {
-    state.selectedSources.clear();
+    bank.selectedSources.clear();
     renderSetup();
   });
 }
 
+function renderBankSections() {
+  const container = document.querySelector("#bankSections");
+  container.replaceChildren(
+    ...state.banks.map((bank) => {
+      const selectedCount = getSelectedPoolForBank(bank).length;
+      const section = document.createElement("section");
+      section.className = "bank-card";
+      if (bank.id === state.activeBankId) {
+        section.classList.add("active");
+      }
+
+      const body = document.createElement("div");
+      const title = document.createElement("h4");
+      title.textContent = bank.title;
+      const description = document.createElement("p");
+      description.textContent = bank.description;
+      const meta = document.createElement("span");
+      meta.textContent = `${selectedCount} selected / ${bank.pool.length} total`;
+      body.append(title, description, meta);
+
+      const actions = document.createElement("div");
+      actions.className = "bank-actions";
+      const choose = document.createElement("button");
+      choose.className = "button secondary";
+      choose.type = "button";
+      choose.textContent = bank.id === state.activeBankId ? "Selected" : "Select";
+      choose.addEventListener("click", () => {
+        state.activeBankId = bank.id;
+        renderSetup();
+      });
+
+      const start = document.createElement("button");
+      start.className = "button";
+      start.type = "button";
+      start.textContent = "Start";
+      start.disabled = selectedCount < EXAM_SIZE;
+      start.addEventListener("click", () => startExam(bank.id));
+      actions.append(choose, start);
+
+      section.append(body, actions);
+      return section;
+    }),
+  );
+}
+
 function renderSourceList() {
+  const bank = getActiveBank();
   const list = document.querySelector("#sourceList");
   list.replaceChildren(
-    ...state.sources.map((source) => {
+    ...bank.sources.map((source) => {
       const label = document.createElement("label");
       label.className = "source-row";
 
       const input = document.createElement("input");
       input.type = "checkbox";
-      input.checked = state.selectedSources.has(source.id);
+      input.checked = bank.selectedSources.has(source.id);
       input.addEventListener("change", () => {
         if (input.checked) {
-          state.selectedSources.add(source.id);
+          bank.selectedSources.add(source.id);
         } else {
-          state.selectedSources.delete(source.id);
+          bank.selectedSources.delete(source.id);
         }
         renderSetup();
       });
@@ -188,7 +255,8 @@ function renderSourceList() {
   );
 }
 
-function startExam() {
+function startExam(bankId = state.activeBankId) {
+  state.activeBankId = bankId;
   const selectedPool = getSelectedPool();
   if (selectedPool.length < EXAM_SIZE) {
     return;
@@ -478,7 +546,19 @@ function scoreExam() {
 }
 
 function getSelectedPool() {
-  return state.pool.filter((question) => state.selectedSources.has(question.sourceId));
+  return getSelectedPoolForBank(getActiveBank());
+}
+
+function getSelectedPoolForBank(bank) {
+  return bank.pool.filter((question) => bank.selectedSources.has(question.sourceId));
+}
+
+function getActiveBank() {
+  return state.banks.find((bank) => bank.id === state.activeBankId) || state.banks[0];
+}
+
+function getTotalQuestionCount() {
+  return state.banks.reduce((total, bank) => total + bank.pool.length, 0);
 }
 
 function startTimer() {

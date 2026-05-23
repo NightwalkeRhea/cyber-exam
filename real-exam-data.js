@@ -1,0 +1,452 @@
+﻿window.REAL_EXAM_DATA = [{ fileName: 'real-exam-questions.json', data: {
+  "title": "Real Exam Question Simulations",
+  "totalQuestions": 34,
+  "extractedAt": "2026-05-23T00:00:00.000Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "Which type of Root of Trust is embedded in hardware and difficult to tamper with?",
+      "options": [
+        { "label": "A", "text": "Hardware Root of Trust", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Software Root of Trust", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Network Root of Trust", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Virtual Root of Trust", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Root of Trust can be implemented in different layers; the question asks for the hard-to-tamper implementation.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-06-25 / 2024-07-12"
+    },
+    {
+      "number": 2,
+      "question": "Which threat is TEE particularly designed to protect against?",
+      "options": [
+        { "label": "A", "text": "Malware and unauthorized access", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Physical theft of the device", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Data confidentiality", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Signal interference", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "TEE creates an isolated execution environment for sensitive code and data.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-06-25 / 2024-07-12"
+    },
+    {
+      "number": 3,
+      "question": "Which of the following best describes tampering in the context of cybersecurity?",
+      "options": [
+        { "label": "A", "text": "Unauthorized alteration of a system or data", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Authorized maintenance of a system", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Backing up data to steal it", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Monitoring network traffic for packet sniffing", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Focus on unauthorized modification.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-06-25"
+    },
+    {
+      "number": 4,
+      "question": "In what scenario is a Weak PUF typically used?",
+      "options": [
+        { "label": "A", "text": "Key generation and storage", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Device authentication", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Generating pseudo-random numbers", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Data encryption", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Weak PUFs expose a limited number of challenge-response pairs.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-06-25"
+    },
+    {
+      "number": 5,
+      "question": "Which component verifies the signature of the firmware in Secure Boot?",
+      "options": [
+        { "label": "A", "text": "Bootloader", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "BIOS", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Operating System", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Kernel", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Think about the component that executes before the operating system.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-06-25"
+    },
+    {
+      "number": 6,
+      "question": "In the layout of standard cells:",
+      "options": [
+        { "label": "A", "text": "The height is fixed and the width changes depending on the function of the cell", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "The width is fixed and the height changes depending on the function of the cell", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Both the height and the width are fixed and equal.", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "There is no restriction on height and width", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Standard-cell rows constrain one dimension.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-06-25"
+    },
+    {
+      "number": 7,
+      "question": "A possible low-overhead solution to watermark a circuit is:",
+      "options": [
+        { "label": "A", "text": "Remapping the logic of regions outside the critical-path.", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Removing combinational parts.", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Removing sequential parts", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Duplicate the circuit.", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Low overhead means avoiding changes on timing-critical logic.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-06-25"
+    },
+    {
+      "number": 8,
+      "question": "Which of the following methods can detect hardware Trojans?",
+      "options": [
+        { "label": "A", "text": "Side-channel analysis", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Signature-based detection", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Sandboxing", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Patch management", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Hardware Trojans may alter physical behavior such as power or timing.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-06-25"
+    },
+    {
+      "number": 9,
+      "question": "What can I achieve with Simple Power Analysis?",
+      "options": [
+        { "label": "A", "text": "I can correlate the power consumption of a device with the data it handles, allowing me to retrieve confidential information such as secret keys used during AES encryption.", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "I can correlate a device's power consumption with its operations, allowing me to perform a basic form of dynamic reverse engineering.", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "I can correlate a device's power consumption with its data storage locations, allowing me to retrieve confidential information in specific cases such as some RSA implementations.", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "None of the above is correct.", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "The provided exam export expects the data-dependent leakage answer.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-06-25"
+    },
+    {
+      "number": 10,
+      "question": "Select the appropriate statement about the differences between symmetric and asymmetric cryptography:",
+      "options": [
+        { "label": "A", "text": "When many actors are involved, asymmetric cryptography requires fewer keys than symmetric cryptography.", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Both do not need any intermediate actor to be used; for example, asymmetric cryptography does not necessarily need a certification authority.", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Asymmetric cryptography is less easy to use because it requires a phase known as crucial agreement.", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "By definition, one of these two techniques is superior in terms of security regardless of algorithm, implementation, or key quality.", "isCorrect": false, "rationale": "" },
+        { "label": "E", "text": "For a large plaintext requiring confidentiality, integrity, authenticity, and non-repudiation, the best option is asymmetric confidentiality and symmetric protection for the other properties.", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Compare key management scalability.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-06-25"
+    },
+    {
+      "number": 11,
+      "question": "An FPGA is:",
+      "options": [
+        { "label": "A", "text": "A programmable device", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "An optimized Silicon PUF.", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "A non programmable device", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "A common implementation of a network Root of Trust", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "FPGA stands for Field-Programmable Gate Array.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-07-12"
+    },
+    {
+      "number": 12,
+      "question": "Which method is commonly used in anti-tampering techniques?",
+      "options": [
+        { "label": "A", "text": "Encryption of data", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Using redundant hardware", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Network segmentation", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Physical isolation of systems", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Anti-tamper mechanisms often protect data even if access is attempted.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-07-12"
+    },
+    {
+      "number": 13,
+      "question": "Which of the following is an example of root of trust connectivity in a hardware security module (HSM)?",
+      "options": [
+        { "label": "A", "text": "Secure boot process", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Standard boot process", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Untrusted boot process", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Peripheral boot process", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "A root of trust can anchor the boot chain.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-07-12"
+    },
+    {
+      "number": 14,
+      "question": "What is a primary characteristic of a Strong PUF?",
+      "options": [
+        { "label": "A", "text": "Large number of challenge-response pairs", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Simple design and implementation", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Resistance to physical tampering", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Low power consumption", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Strong PUFs are typically used for authentication because they support many challenges.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-07-12"
+    },
+    {
+      "number": 15,
+      "question": "Register allocation watermarking:",
+      "options": [
+        { "label": "A", "text": "Is a graph colouring problem.", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Is independent of temporary variables duration", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Cannot be used to embed a signature", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Is a dynamic watermarking technique", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Register allocation can be modeled with interference graphs.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-07-12"
+    },
+    {
+      "number": 16,
+      "question": "In which of the following scenarios is the use of Oblivious RAM (ORAM) particularly beneficial?",
+      "options": [
+        { "label": "A", "text": "Enhancing privacy in cloud storage by concealing data access patterns.", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Improving the speed of data retrieval in high-performance computing environments.", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Increasing the efficiency and organization of distributed storage systems.", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Managing memory allocation to optimize virtual machine performance.", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "ORAM protects access-pattern privacy.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-07-12"
+    },
+    {
+      "number": 17,
+      "question": "Which operations are NOT typically handled by a Root of Trust?",
+      "options": [
+        { "label": "A", "text": "Performing system bootstrap", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Generating cryptographic keys", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Providing secure boot", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Verifying digital signatures", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "The question asks for the operation not typically handled by the Root of Trust.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-07-12"
+    },
+    {
+      "number": 18,
+      "question": "The HDL description of a digital circuit:",
+      "options": [
+        { "label": "A", "text": "Relies on two parts: description of the interface and description of the implementation", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Can only be combinational", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Can only be sequential", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Relies only on process/always constructs", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "HDL modules/entities separate external interface from behavior/architecture.",
+      "correctAnswer": "A",
+      "source": "Exam 2024-07-12"
+    },
+    {
+      "number": 19,
+      "question": "In the place and route phase the floorplanning task is:",
+      "options": [
+        { "label": "A", "text": "Specify pin position, power supply rings, rows for standard cells placement", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Place and check standard cells position", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Exploit metal layers for connecting pins, cells and the power supply.", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Define memory partitioning and segments position", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Floorplanning is an early physical-design task.",
+      "correctAnswer": "A",
+      "source": "Exam 2025-06-17"
+    },
+    {
+      "number": 20,
+      "question": "The main basic elements in a modern FPGA cell are:",
+      "options": [
+        { "label": "A", "text": "Look-up-Tables (LUTs) and flip-flops (FFs).", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Linear Feedback Shift Registers (LFSRs) and Physically Unclonable Functions (PUFs)", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Finite State Machines (FSMs) and Restoring Array Dividers (RADs)", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "True Random Number Generators (TRNGs) and Root of Trust (RoT)", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Think of configurable logic blocks.",
+      "correctAnswer": "A",
+      "source": "Exam 2025-06-17"
+    },
+    {
+      "number": 21,
+      "question": "How many Secure Boot verification steps can a system have?",
+      "options": [
+        { "label": "A", "text": "It depends on the secure boot type", "isCorrect": false, "rationale": "" },
+        { "label": "B", "text": "At least 1", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "C", "text": "It depends on the signature algorithm", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "A minimum of 2", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Secure boot requires at least one verification step.",
+      "correctAnswer": "B",
+      "source": "Exam 2025-06-17"
+    },
+    {
+      "number": 22,
+      "question": "A hardware description language:",
+      "options": [
+        { "label": "A", "text": "Includes only dynamic memory allocation statements", "isCorrect": false, "rationale": "" },
+        { "label": "B", "text": "Does not include syntax elements to model sequential circuits", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Does not include syntax elements to model combinational circuits", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Includes syntax elements which can be useful for the testbench", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." }
+      ],
+      "hint": "HDLs can describe hardware and verification logic.",
+      "correctAnswer": "D",
+      "source": "Exam 2025-06-17"
+    },
+    {
+      "number": 23,
+      "question": "Which of the following is an effective countermeasure against Differential Power Analysis (DPA)?",
+      "options": [
+        { "label": "A", "text": "Eliminating all conditional branches in cryptographic algorithms to prevent power variations.", "isCorrect": false, "rationale": "" },
+        { "label": "B", "text": "Using a single fixed clock frequency to ensure consistent power consumption.", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Interleave the computation with random operations.", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "D", "text": "Varying the data dependency to desynchronize power consumption patterns.", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "DPA countermeasures often decorrelate traces from secret-dependent operations.",
+      "correctAnswer": "C",
+      "source": "Exam 2025-06-17"
+    },
+    {
+      "number": 24,
+      "question": "This testbench implements a brute-force timing attack against a vulnerable hardware password comparator:\n\nfor (pos = 0; pos < BIT10; pos = pos + 1) begin\n  for (i = 0; i <= 26; i = i + 1) begin\n    Start = 1; @(posedge Clock); Start = 0;\n    if (pos > 0) begin\n      for (j = 0; j < pos; j = j + 1) begin\n        DataIn = PASSWORD[j]; @(posedge Clock);\n      end\n    end\n    DataIn = (65 + i);\n    @(posedge Clock); @(posedge Clock);\n    if (WrongPassword == 0) begin\n      PASSWORD[pos] = DataIn;\n      i = 26;\n    end\n  end\nend\n\nWhat underlying vulnerability is being exploited in this loop structure?",
+      "options": [
+        { "label": "A", "text": "Information leakage due to early exits or conditional logic", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Inadequate memory protection", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Incomplete synchronization of inputs", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Setup and hold timing violations", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Timing can reveal how many characters matched before failure.",
+      "correctAnswer": "A",
+      "source": "Exam 2025-06-17"
+    },
+    {
+      "number": 25,
+      "question": "What is a primary benefit of using a Trusted Execution Environment (TEE)?",
+      "options": [
+        { "label": "A", "text": "Lower the chances of privilege escalation", "isCorrect": false, "rationale": "" },
+        { "label": "B", "text": "Isolate and encrypt process data", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Enhanced security for sensitive operations and data", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "D", "text": "Isolate processes for data protection", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "The answer is the broader benefit of a TEE.",
+      "correctAnswer": "C",
+      "source": "Exam 2025-06-17"
+    },
+    {
+      "number": 26,
+      "question": "Logic synthesizer inputs are:",
+      "options": [
+        { "label": "A", "text": "HDL files, functional and timing models of the cells, constraints.", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Functional and timing models of the cells, constraints, layout of the cells.", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "HDL files, functional and timing models of the cells, layout of the cells.", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "HDL files, C/C++ functional models, library of functions", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Synthesis consumes RTL plus technology/library models and constraints.",
+      "correctAnswer": "A",
+      "source": "Exam 2025-06-17"
+    },
+    {
+      "number": 27,
+      "question": "What is the potential impact of a hardware Trojan in a critical system?",
+      "options": [
+        { "label": "A", "text": "A hardware Trojan can lead to unauthorized access, data theft, or system malfunction, compromising the security and reliability of the critical system.", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "A hardware Trojan can result in unauthorized access, data loss, or system malfunction, undermining the security and reliability of the critical system.", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "A hardware Trojan can enhance the system's ability to detect and mitigate cyber threats", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "A hardware Trojan can provide additional features and functionalities to the critical system", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "The correct option emphasizes malicious impact on access, data, and operation.",
+      "correctAnswer": "A",
+      "source": "Exam 2025-06-17"
+    },
+    {
+      "number": 28,
+      "question": "Which of the following statements about Merkle Trees in RAM protection is correct?",
+      "options": [
+        { "label": "A", "text": "Non-leaf nodes store the actual data blocks, while leaf nodes store hashes of their parent nodes.", "isCorrect": false, "rationale": "" },
+        { "label": "B", "text": "Each leaf node in a Merkle Tree stores the hash of a data block, ensuring data integrity.", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "C", "text": "Each leaf node in a Merkle Tree stores the actual data block, which is hashed only at the root.", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Non-leaf nodes store hashes of their parent nodes, enabling efficient verification of data integrity.", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Leaves correspond to protected data blocks.",
+      "correctAnswer": "B",
+      "source": "Exam 2025-06-17"
+    },
+    {
+      "number": 29,
+      "question": "A known solution to obtain a low-overhead watermarking of a circuit suggests:",
+      "options": [
+        { "label": "A", "text": "Always use an as-late-as-possible schedule", "isCorrect": false, "rationale": "" },
+        { "label": "B", "text": "Always add constraints on operations schedule", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "C", "text": "Always use an as-soon-as-possible schedule", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Always swap multiplications and additions.", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Watermarking can encode a signature through added scheduling constraints.",
+      "correctAnswer": "B",
+      "source": "Exam 2025-06-17"
+    },
+    {
+      "number": 30,
+      "question": "PCB technology:",
+      "options": [
+        { "label": "A", "text": "Can be single-sided, double-sided or multilayer", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "Can not host serial links", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Can host only Dual In-line Package ICs", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "Can not host dummy ICs.", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "PCB stackups vary in number of conductive sides/layers.",
+      "correctAnswer": "A",
+      "source": "Exam 2025-06-17"
+    },
+    {
+      "number": 31,
+      "question": "If you need to build a 32-bit LFSR using only one instance of 8-bit LFSR module, which implementation approach correctly meets this requirement?",
+      "options": [
+        { "label": "A", "text": "Use combinational logic to replicate the 8-bit LFSR's feedback taps across all 32 bits and reuse the same instance.", "isCorrect": false, "rationale": "" },
+        { "label": "B", "text": "Instantiate four parallel 8-bit LFSRs and XOR their outputs to form a 32-bit word every cycle.", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Instantiate the 8-bit LFSR and, on each clock, feed its 8-bit output into a 32-bit shift register; after four cycles assert a valid signal.", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "D", "text": "Instantiate the 8-bit LFSR four times in series, connecting the output of each to the input of the next, to produce 32 bits per cycle.", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "Only one 8-bit instance means the 32-bit value must be accumulated over multiple cycles.",
+      "correctAnswer": "C",
+      "source": "Exam 2025-06-17"
+    },
+    {
+      "number": 32,
+      "question": "What is the role of a TPM (Trusted Platform Module) in a computing system?",
+      "options": [
+        { "label": "A", "text": "To enhance graphics performance", "isCorrect": false, "rationale": "" },
+        { "label": "B", "text": "To provide hardware-based security functions", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "C", "text": "To improve processing speed", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "To monitor data security", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "TPM is a dedicated security component.",
+      "correctAnswer": "B",
+      "source": "Exam 2025-06-17"
+    },
+    {
+      "number": 33,
+      "question": "What is the primary purpose of a Silicon PUF?",
+      "options": [
+        { "label": "A", "text": "To uniquely identify and authenticate silicon chips", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "B", "text": "To reduce entropy in true random generators", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "To implement secure boot", "isCorrect": false, "rationale": "" },
+        { "label": "D", "text": "To uniquely cipher messages", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "PUFs exploit manufacturing variation to derive a unique identity.",
+      "correctAnswer": "A",
+      "source": "Exam 2025-06-17"
+    },
+    {
+      "number": 34,
+      "question": "What is an effective countermeasure against scan chain vulnerabilities?",
+      "options": [
+        { "label": "A", "text": "Allowing unrestricted scan chain access.", "isCorrect": false, "rationale": "" },
+        { "label": "B", "text": "Disabling manual debugging mechanisms.", "isCorrect": false, "rationale": "" },
+        { "label": "C", "text": "Scan Chain Encryption", "isCorrect": true, "rationale": "This was listed as the correct answer in the provided exam export." },
+        { "label": "D", "text": "Using fuses to disable test access.", "isCorrect": false, "rationale": "" }
+      ],
+      "hint": "The countermeasure protects scan data from direct observation or manipulation.",
+      "correctAnswer": "C",
+      "source": "Exam 2025-06-17"
+    }
+  ]
+}
+ }];
+

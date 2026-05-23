@@ -86,6 +86,11 @@ h3 {
   font-size: 1rem;
 }
 
+h4 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
 .layout {
   display: grid;
   gap: 18px;
@@ -143,7 +148,7 @@ h3 {
 
 .rules {
   display: grid;
-  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 12px;
   margin-bottom: 20px;
 }
@@ -170,6 +175,44 @@ h3 {
 .source-list {
   display: grid;
   gap: 10px;
+}
+
+.bank-sections {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.bank-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.bank-card.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.bank-card p {
+  margin-bottom: 7px;
+  color: var(--muted);
+}
+
+.bank-card span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.bank-actions {
+  display: flex;
+  gap: 8px;
 }
 
 .source-row {
@@ -277,6 +320,7 @@ h3 {
   font-size: 1.25rem;
   font-weight: 750;
   line-height: 1.45;
+  white-space: pre-wrap;
 }
 
 .options {
@@ -457,6 +501,18 @@ h3 {
   .rules,
   .results-banner {
     grid-template-columns: 1fr;
+  }
+
+  .bank-card {
+    grid-template-columns: 1fr;
+  }
+
+  .bank-actions {
+    justify-content: stretch;
+  }
+
+  .bank-actions .button {
+    flex: 1;
   }
 
   .question-panel,
