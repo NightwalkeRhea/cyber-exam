@@ -17,11 +17,12 @@ The site contains two practice modes:
 
 Both modes use:
 
-- 32 random questions per attempt
+- Up to 32 random questions per attempt
+- If a selected topic/source has fewer than 32 questions, all selected questions are used
 - 60 minute time limit
 - `correct - 0.3 * wrong` raw score
-- `raw * 13 / 32` exam points
-- raw scores below 17 marked as not sufficient
+- `raw * 13 / question_count` scaled points
+- raw scores below the scaled `17 / 32` sufficiency ratio marked as not sufficient
 
 ## Educational Use Notice
 

@@ -137,10 +137,10 @@ function renderSetup() {
       <section class="panel">
         <h2>Exam Setup</h2>
         <div class="rules">
-          <div class="rule"><strong>${EXAM_SIZE}</strong><span>questions</span></div>
+          <div class="rule"><strong>Up to ${EXAM_SIZE}</strong><span>questions</span></div>
           <div class="rule"><strong>-${formatNumber(WRONG_PENALTY)}</strong><span>per wrong answer</span></div>
-          <div class="rule"><strong>${MAX_POINTS}</strong><span>points for 32/32</span></div>
-          <div class="rule"><strong>${SUFFICIENT_RAW_SCORE}</strong><span>minimum raw score</span></div>
+          <div class="rule"><strong>${MAX_POINTS}</strong><span>max scaled points</span></div>
+          <div class="rule"><strong>${SUFFICIENT_RAW_SCORE}/32</strong><span>sufficient ratio</span></div>
           <div class="rule"><strong>60 min</strong><span>time limit</span></div>
         </div>
         <h3>Practice Modes</h3>
@@ -148,7 +148,7 @@ function renderSetup() {
         <h3>${escapeHtml(bank.title)} Sources</h3>
         <div class="source-list" id="sourceList"></div>
         <div class="actions">
-          <button class="button" id="startExam" ${selectedCount < EXAM_SIZE ? "disabled" : ""}>Start ${escapeHtml(bank.title)}</button>
+          <button class="button" id="startExam" ${selectedCount === 0 ? "disabled" : ""}>Start ${escapeHtml(bank.title)}</button>
           <button class="button secondary" id="selectAll">Select All</button>
           <button class="button secondary" id="clearAll">Clear</button>
         </div>
@@ -159,7 +159,7 @@ function renderSetup() {
           <div class="stat"><span>Selected questions</span><strong>${selectedCount}</strong></div>
           <div class="stat"><span>Sources</span><strong>${bank.sources.length}</strong></div>
           <div class="stat"><span>Questions</span><strong>${bank.pool.length}</strong></div>
-          <div class="stat"><span>Exam size</span><strong>${EXAM_SIZE}</strong></div>
+          <div class="stat"><span>Attempt size</span><strong>${formatAttemptSize(selectedCount)}</strong></div>
         </div>
       </aside>
     </div>
@@ -183,6 +183,7 @@ function renderBankSections() {
   container.replaceChildren(
     ...state.banks.map((bank) => {
       const selectedCount = getSelectedPoolForBank(bank).length;
+      const attemptSize = getAttemptSize(selectedCount);
       const section = document.createElement("section");
       section.className = "bank-card";
       if (bank.id === state.activeBankId) {
@@ -195,7 +196,7 @@ function renderBankSections() {
       const description = document.createElement("p");
       description.textContent = bank.description;
       const meta = document.createElement("span");
-      meta.textContent = `${selectedCount} selected / ${bank.pool.length} total`;
+      meta.textContent = `${selectedCount} selected / ${bank.pool.length} total, ${attemptSize} in next attempt`;
       body.append(title, description, meta);
 
       const actions = document.createElement("div");
@@ -213,7 +214,7 @@ function renderBankSections() {
       start.className = "button";
       start.type = "button";
       start.textContent = "Start";
-      start.disabled = selectedCount < EXAM_SIZE;
+      start.disabled = selectedCount === 0;
       start.addEventListener("click", () => startExam(bank.id));
       actions.append(choose, start);
 
@@ -258,11 +259,12 @@ function renderSourceList() {
 function startExam(bankId = state.activeBankId) {
   state.activeBankId = bankId;
   const selectedPool = getSelectedPool();
-  if (selectedPool.length < EXAM_SIZE) {
+  const attemptSize = getAttemptSize(selectedPool.length);
+  if (attemptSize === 0) {
     return;
   }
 
-  state.exam = shuffle(selectedPool).slice(0, EXAM_SIZE).map((question) => ({
+  state.exam = shuffle(selectedPool).slice(0, attemptSize).map((question) => ({
     ...question,
     options: shuffle(question.options),
   }));
@@ -277,20 +279,21 @@ function startExam(bankId = state.activeBankId) {
 
 function renderExam() {
   const question = state.exam[state.current];
+  const questionCount = getCurrentQuestionCount();
   const selected = state.answers.get(question.id);
   const elapsedSeconds = getElapsedSeconds();
   const remainingSeconds = getRemainingSeconds();
   const score = scoreExam();
 
   poolStatus.textContent = state.submitted
-    ? `Raw ${formatNumber(score.rawScore)} / ${EXAM_SIZE}`
-    : `Question ${state.current + 1} of ${EXAM_SIZE}`;
+    ? `Raw ${formatNumber(score.rawScore)} / ${questionCount}`
+    : `Question ${state.current + 1} of ${questionCount}`;
 
   app.innerHTML = `
     <div class="exam-grid">
       <section class="question-panel">
         <div class="question-meta">
-          <span class="pill">${state.current + 1} / ${EXAM_SIZE}</span>
+          <span class="pill">${state.current + 1} / ${questionCount}</span>
           <span class="pill">${escapeHtml(question.sourceTitle)}</span>
           <span class="pill">Original #${question.number}</span>
         </div>
@@ -299,14 +302,14 @@ function renderExam() {
         <div class="question-actions">
           <button class="button secondary" id="previousQuestion" ${state.current === 0 ? "disabled" : ""}>Previous</button>
           <button class="button secondary" id="clearAnswer" ${!selected || state.submitted ? "disabled" : ""}>Clear Answer</button>
-          <button class="button" id="nextQuestion">${state.current === EXAM_SIZE - 1 ? "Finish" : "Next"}</button>
+          <button class="button" id="nextQuestion">${state.current === questionCount - 1 ? "Finish" : "Next"}</button>
         </div>
       </section>
       <aside class="side-panel">
         <h2>${state.submitted ? "Review" : "Attempt"}</h2>
         <div class="stats">
           <div class="stat"><span>Answered</span><strong>${state.answers.size}</strong></div>
-          <div class="stat"><span>Unanswered</span><strong>${EXAM_SIZE - state.answers.size}</strong></div>
+          <div class="stat"><span>Unanswered</span><strong>${questionCount - state.answers.size}</strong></div>
           <div class="stat"><span>Time elapsed</span><strong>${formatDuration(elapsedSeconds)}</strong></div>
           <div class="stat"><span>Time remaining</span><strong id="timeRemaining">${formatDuration(remainingSeconds)}</strong></div>
           ${state.submitted ? `<div class="stat"><span>Exam points</span><strong>${formatNumber(score.examPoints)} / ${MAX_POINTS}</strong></div>` : ""}
@@ -422,7 +425,7 @@ function bindExamActions() {
   });
 
   document.querySelector("#nextQuestion").addEventListener("click", () => {
-    if (state.current === EXAM_SIZE - 1) {
+    if (state.current === getCurrentQuestionCount() - 1) {
       if (!state.submitted) {
         submitExam();
       } else {
@@ -454,7 +457,7 @@ function bindExamActions() {
 
 function submitExam(options = {}) {
   const force = Boolean(options.force);
-  const unanswered = EXAM_SIZE - state.answers.size;
+  const unanswered = getCurrentQuestionCount() - state.answers.size;
   const ok = force || unanswered === 0 || window.confirm(`${unanswered} questions are unanswered. Submit anyway?`);
   if (!ok) {
     return;
@@ -468,7 +471,9 @@ function submitExam(options = {}) {
 
 function renderResults() {
   const score = scoreExam();
-  const sufficient = score.rawScore >= SUFFICIENT_RAW_SCORE;
+  const questionCount = getCurrentQuestionCount();
+  const sufficientThreshold = getSufficientRawScore(questionCount);
+  const sufficient = score.rawScore >= sufficientThreshold;
   poolStatus.textContent = `${formatNumber(score.examPoints)} / ${MAX_POINTS} points`;
 
   app.innerHTML = `
@@ -478,9 +483,9 @@ function renderResults() {
         <div class="results-banner">
           <div class="result-tile ${sufficient ? "sufficient" : "insufficient"}">
             <strong>${sufficient ? "Sufficient" : "Not sufficient"}</strong>
-            <span>threshold ${SUFFICIENT_RAW_SCORE} raw</span>
+            <span>threshold ${formatNumber(sufficientThreshold)} raw</span>
           </div>
-          <div class="result-tile"><strong>${formatNumber(score.rawScore)} / ${EXAM_SIZE}</strong><span>penalized raw score</span></div>
+          <div class="result-tile"><strong>${formatNumber(score.rawScore)} / ${questionCount}</strong><span>penalized raw score</span></div>
           <div class="result-tile"><strong>${formatNumber(score.examPoints)} / ${MAX_POINTS}</strong><span>exam points</span></div>
           <div class="result-tile"><strong>${formatDuration(getElapsedSeconds())}</strong><span>duration</span></div>
         </div>
@@ -499,9 +504,9 @@ function renderResults() {
         <h2>Formula</h2>
         <div class="stats">
           <div class="stat"><span>Raw score</span><strong>C - 0.3W</strong></div>
-          <div class="stat"><span>Points</span><strong>raw x 13/32</strong></div>
+          <div class="stat"><span>Points</span><strong>raw x 13/questions</strong></div>
           <div class="stat"><span>Time limit</span><strong>60 min</strong></div>
-          <div class="stat"><span>Minimum sufficient</span><strong>17 raw</strong></div>
+          <div class="stat"><span>Minimum sufficient</span><strong>${formatNumber(sufficientThreshold)} raw</strong></div>
         </div>
       </aside>
     </div>
@@ -530,10 +535,11 @@ function scoreExam() {
     }
   }
 
-  const blank = Math.max(0, state.exam.length - correct - wrong);
+  const questionCount = getCurrentQuestionCount();
+  const blank = Math.max(0, questionCount - correct - wrong);
   const penalty = wrong * WRONG_PENALTY;
   const rawScore = correct - penalty;
-  const examPoints = Math.max(0, rawScore) * (MAX_POINTS / EXAM_SIZE);
+  const examPoints = questionCount > 0 ? Math.max(0, rawScore) * (MAX_POINTS / questionCount) : 0;
 
   return {
     correct,
@@ -551,6 +557,26 @@ function getSelectedPool() {
 
 function getSelectedPoolForBank(bank) {
   return bank.pool.filter((question) => bank.selectedSources.has(question.sourceId));
+}
+
+function getAttemptSize(selectedCount) {
+  return Math.min(EXAM_SIZE, selectedCount);
+}
+
+function getCurrentQuestionCount() {
+  return state.exam.length;
+}
+
+function getSufficientRawScore(questionCount) {
+  return questionCount * (SUFFICIENT_RAW_SCORE / EXAM_SIZE);
+}
+
+function formatAttemptSize(selectedCount) {
+  const attemptSize = getAttemptSize(selectedCount);
+  if (attemptSize === 0) {
+    return "0";
+  }
+  return attemptSize === EXAM_SIZE ? `${EXAM_SIZE}` : `${attemptSize} practice`;
 }
 
 function getActiveBank() {
