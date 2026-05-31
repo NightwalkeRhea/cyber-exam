@@ -5,13 +5,13 @@
   "questions": [
     {
       "number": 1,
-      "question": "Which specific property of Physical Unclonable Functions (PUFs) describes the difficulty of determining a challenge $x$ when only the response $y$ and the physical entity are known?",
+      "question": "Which specific property of Physical Unclonable Functions (PUFs) describes the difficulty of determining a challenge  x  when only the response  y  and the physical entity are known?",
       "options": [
         {
           "label": "A",
           "text": "Reproducibility",
           "isCorrect": false,
-          "rationale": "Reproducibility deals with the consistency of the response $y$ for the same challenge $x$ over time, not the inversion of the mapping."
+          "rationale": "Reproducibility deals with the consistency of the response  y  for the same challenge  x  over time, not the inversion of the mapping."
         },
         {
           "label": "B",
@@ -37,39 +37,39 @@
     },
     {
       "number": 2,
-      "question": "In the context of Ring Oscillator PUFs, if a circuit contains $N = 32$ oscillators, what is the total number of distinct pairs that can be used to generate output bits?",
+      "question": "In the context of Ring Oscillator PUFs, if a circuit contains  N = 32  oscillators, what is the total number of distinct pairs that can be used to generate output bits?",
       "options": [
         {
           "label": "A",
           "text": "496",
           "isCorrect": true,
-          "rationale": "The number of distinct pairs is calculated using the combination formula $\\frac{N(N-1)}{2}$, which for $N=32$ is $\\frac{32 \\times 31}{2} = 496$."
+          "rationale": "The number of distinct pairs is calculated using the combination formula  \\frac{N(N-1)}{2} , which for  N=32  is  \\frac{32 \\times 31}{2} = 496 ."
         },
         {
           "label": "B",
           "text": "120",
           "isCorrect": false,
-          "rationale": "This is the result for $N=16$, representing a smaller oscillator set mentioned as an example in the material."
+          "rationale": "This is the result for  N=16 , representing a smaller oscillator set mentioned as an example in the material."
         },
         {
           "label": "C",
           "text": "992",
           "isCorrect": false,
-          "rationale": "This is $N(N-1)$, which double-counts the pairs by considering the order of comparison, whereas the PUF relies on distinct sets."
+          "rationale": "This is  N(N-1) , which double-counts the pairs by considering the order of comparison, whereas the PUF relies on distinct sets."
         },
         {
           "label": "D",
           "text": "1024",
           "isCorrect": false,
-          "rationale": "This value represents $N^2$, which includes redundant pairings and self-pairings that do not contribute to unique frequency comparisons."
+          "rationale": "This value represents  N^2 , which includes redundant pairings and self-pairings that do not contribute to unique frequency comparisons."
         }
       ],
-      "hint": "The formula used to find distinct pairs among $N$ items is $\\frac{N(N-1)}{2}$.",
+      "hint": "The formula used to find distinct pairs among  N  items is  \\frac{N(N-1)}{2} .",
       "correctAnswer": "A"
     },
     {
       "number": 3,
-      "question": "What does the min-entropy $H_{\\infty}(X)$ of a PUF response specifically quantify?",
+      "question": "What does the min-entropy  H_{\\infty}(X)  of a PUF response specifically quantify?",
       "options": [
         {
           "label": "A",
@@ -81,7 +81,7 @@
           "label": "B",
           "text": "The total number of possible response values",
           "isCorrect": false,
-          "rationale": "While $n$ represents the number of possible values, entropy measures the distribution and uncertainty of those values."
+          "rationale": "While  n  represents the number of possible values, entropy measures the distribution and uncertainty of those values."
         },
         {
           "label": "C",
@@ -145,7 +145,7 @@
           "label": "B",
           "text": "The size of the Challenge-Response Pair (CRP) set",
           "isCorrect": true,
-          "rationale": "Strong PUFs have a massive CRP space (e.g., $> 2^{80}$), making them suitable for authentication where many unique pairs are needed."
+          "rationale": "Strong PUFs have a massive CRP space (e.g.,  > 2^{80} ), making them suitable for authentication where many unique pairs are needed."
         },
         {
           "label": "C",
@@ -197,31 +197,31 @@
     },
     {
       "number": 7,
-      "question": "If a PUF response $y$ is evaluated across $K$ different devices, what is the ideal value of the Inter-die Hamming Distance for the PUF to be considered perfectly unique ($U = 100\\%$)?",
+      "question": "If a PUF response  y  is evaluated across  K  different devices, what is the ideal value of the Inter-die Hamming Distance for the PUF to be considered perfectly unique ( U = 100\\% )?",
       "options": [
         {
           "label": "A",
-          "text": "$25\\%$",
+          "text": " 25\\% ",
           "isCorrect": false,
-          "rationale": "This would suggest that the devices are too similar, sharing $75\\%$ of their identity bits, which is poor for authentication."
+          "rationale": "This would suggest that the devices are too similar, sharing  75\\%  of their identity bits, which is poor for authentication."
         },
         {
           "label": "B",
-          "text": "$0\\%$",
+          "text": " 0\\% ",
           "isCorrect": false,
-          "rationale": "A $0\\%$ Hamming Distance means the responses are identical, which indicates a complete lack of uniqueness."
+          "rationale": "A  0\\%  Hamming Distance means the responses are identical, which indicates a complete lack of uniqueness."
         },
         {
           "label": "C",
-          "text": "$100\\%$",
+          "text": " 100\\% ",
           "isCorrect": false,
-          "rationale": "While $100\\%$ difference sounds 'unique,' it would imply that every bit is flipped, which is a deterministic relationship rather than random variation."
+          "rationale": "While  100\\%  difference sounds 'unique,' it would imply that every bit is flipped, which is a deterministic relationship rather than random variation."
         },
         {
           "label": "D",
-          "text": "$50\\%$",
+          "text": " 50\\% ",
           "isCorrect": true,
-          "rationale": "A Hamming Distance of $50\\%$ between different devices indicates that half of the bits are different on average, which is the maximum expected randomness for independent identifiers."
+          "rationale": "A Hamming Distance of  50\\%  between different devices indicates that half of the bits are different on average, which is the maximum expected randomness for independent identifiers."
         }
       ],
       "hint": "Recall the ideal statistical distribution of bits between two unrelated random binary strings.",
@@ -379,7 +379,7 @@
         },
         {
           "label": "D",
-          "text": "The number of $0$ and $1$ bits are equally distributed",
+          "text": "The number of  0  and  1  bits are equally distributed",
           "isCorrect": true,
           "rationale": "Uniformity ensures that the responses do not have a bias toward a specific value, which would reduce the effective entropy and security."
         }
@@ -431,7 +431,7 @@
         },
         {
           "label": "B",
-          "text": "The probability of a $0$ must be exactly equal to the probability of a $1$",
+          "text": "The probability of a  0  must be exactly equal to the probability of a  1 ",
           "isCorrect": false,
           "rationale": "This describes 'Uniformity,' which supports security but is not the definition of unpredictability itself."
         },
@@ -453,13 +453,13 @@
     },
     {
       "number": 15,
-      "question": "In the Shannon's entropy formula $H(X) = - \\sum_{i=1}^{n} p(x_i) \\log_2 p(x_i)$, what does $p(x_i)$ represent?",
+      "question": "In the Shannon's entropy formula  H(X) = - \\sum_{i=1}^{n} p(x_i) \\log_2 p(x_i) , what does  p(x_i)  represent?",
       "options": [
         {
           "label": "A",
-          "text": "The number of bits in the challenge $x$",
+          "text": "The number of bits in the challenge  x ",
           "isCorrect": false,
-          "rationale": "The challenge size relates to the CRP space size, while $p(x_i)$ is specifically a probability related to the output responses."
+          "rationale": "The challenge size relates to the CRP space size, while  p(x_i)  is specifically a probability related to the output responses."
         },
         {
           "label": "B",
@@ -477,7 +477,7 @@
           "label": "D",
           "text": "The probability of occurrence for each possible response value",
           "isCorrect": true,
-          "rationale": "In information theory, entropy is calculated based on the probability distribution of all possible outcomes in the set $X$."
+          "rationale": "In information theory, entropy is calculated based on the probability distribution of all possible outcomes in the set  X ."
         }
       ],
       "hint": "Identify the statistical term that denotes the likelihood of a specific event happening.",
@@ -549,7 +549,7 @@
     },
     {
       "number": 18,
-      "question": "In the authentication process using PUFs, where is the record of the Response ($R_i$) stored for future comparison?",
+      "question": "In the authentication process using PUFs, where is the record of the Response ( R_i ) stored for future comparison?",
       "options": [
         {
           "label": "A",
@@ -645,7 +645,7 @@
     },
     {
       "number": 21,
-      "question": "In an Arbiter PUF, what role does the input challenge $X$ play in the physical signal path?",
+      "question": "In an Arbiter PUF, what role does the input challenge  X  play in the physical signal path?",
       "options": [
         {
           "label": "A",
@@ -672,7 +672,7 @@
           "rationale": "The D Flip-Flop is the arbiter that captures the outcome; the challenge prepares the path for the signal to reach it."
         }
       ],
-      "hint": "Look at the diagram where $x[0], x[1], \\dots, x[n]$ are inputs to specific logic gates.",
+      "hint": "Look at the diagram where  x[0], x[1], \\dots, x[n]  are inputs to specific logic gates.",
       "correctAnswer": "C"
     },
     {
@@ -741,7 +741,7 @@
     },
     {
       "number": 24,
-      "question": "How is 'Uniqueness' $U$ calculated among $K$ different PUF devices?",
+      "question": "How is 'Uniqueness'  U  calculated among  K  different PUF devices?",
       "options": [
         {
           "label": "A",
@@ -757,13 +757,13 @@
         },
         {
           "label": "C",
-          "text": "Based on the time it takes to evaluate $y = PUF(x)$",
+          "text": "Based on the time it takes to evaluate  y = PUF(x) ",
           "isCorrect": false,
           "rationale": "The evaluation time relates to the 'Computable' property, not the uniqueness of the device identifier."
         },
         {
           "label": "D",
-          "text": "Based on the number of $0$ and $1$ bits in a single device",
+          "text": "Based on the number of  0  and  1  bits in a single device",
           "isCorrect": false,
           "rationale": "This describes 'Uniformity,' a property of the bit distribution within a single PUF's output."
         }
@@ -777,7 +777,7 @@
       "options": [
         {
           "label": "A",
-          "text": "Given the PUF and $x$, it is easy to evaluate $y = PUF(x)$",
+          "text": "Given the PUF and  x , it is easy to evaluate  y = PUF(x) ",
           "isCorrect": true,
           "rationale": "A practical PUF must be fast and easy to use in the system it is embedded in, ensuring efficient authentication or key retrieval."
         },
@@ -789,7 +789,7 @@
         },
         {
           "label": "C",
-          "text": "The challenge $x$ must be longer than the response $y$",
+          "text": "The challenge  x  must be longer than the response  y ",
           "isCorrect": false,
           "rationale": "There is no fixed requirement on the relative lengths of challenges and responses for the computable property."
         },

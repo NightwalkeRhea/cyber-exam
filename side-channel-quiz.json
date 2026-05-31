@@ -271,13 +271,13 @@
         },
         {
           "label": "B",
-          "text": "Hamming Distance: $HD(x,y) = popcount(x \\oplus y)$",
+          "text": "Hamming Distance:  HD(x,y) = popcount(x \\oplus y) ",
           "isCorrect": true,
-          "rationale": "Hamming Distance models the dynamic power consumed when bits flip (toggle) between two sequential states $x$ and $y$."
+          "rationale": "Hamming Distance models the dynamic power consumed when bits flip (toggle) between two sequential states  x  and  y ."
         },
         {
           "label": "C",
-          "text": "Hamming Weight: $HW(x) = popcount(x)$",
+          "text": "Hamming Weight:  HW(x) = popcount(x) ",
           "isCorrect": false,
           "rationale": "Hamming Weight approximates the instantaneous dynamic power of stored bits at a single state, not the transition between states."
         },
@@ -293,7 +293,7 @@
     },
     {
       "number": 10,
-      "question": "Why do MCU traits like simple buses and shared rails increase the correlation with Hamming Weight ($HW$) and Hamming Distance ($HD$) models?",
+      "question": "Why do MCU traits like simple buses and shared rails increase the correlation with Hamming Weight ( HW ) and Hamming Distance ( HD ) models?",
       "options": [
         {
           "label": "A",
@@ -305,7 +305,7 @@
           "label": "B",
           "text": "They use secret-indexed lookups to secure memory access.",
           "isCorrect": false,
-          "rationale": "Secret-indexed lookups are a vulnerability, not a hardware trait that relates to the $HW/HD$ power models."
+          "rationale": "Secret-indexed lookups are a vulnerability, not a hardware trait that relates to the  HW/HD  power models."
         },
         {
           "label": "C",
@@ -363,7 +363,7 @@
           "label": "A",
           "text": "Measuring the Hamming Distance between successive ciphertext blocks.",
           "isCorrect": false,
-          "rationale": "While $HD$ is a model, CPA specifically focuses on correlating predictions of internal algorithm states with measurements."
+          "rationale": "While  HD  is a model, CPA specifically focuses on correlating predictions of internal algorithm states with measurements."
         },
         {
           "label": "B",
@@ -379,7 +379,7 @@
         },
         {
           "label": "D",
-          "text": "Correlation of predicted $HW(Sbox(P \\oplus K_{guess}))$ vs measured sample amplitude.",
+          "text": "Correlation of predicted  HW(Sbox(P \\oplus K_{guess}))  vs measured sample amplitude.",
           "isCorrect": true,
           "rationale": "CPA works by correlating a hypothetical power model (based on a guessed key and known plaintext) with the actual measured power traces."
         }
@@ -619,7 +619,7 @@
           "label": "A",
           "text": "To calculate the Hamming Weight of the CPU registers.",
           "isCorrect": false,
-          "rationale": "Calculating $HW$ is a method used during the attack, not the ultimate goal of mapping an authentication decision."
+          "rationale": "Calculating  HW  is a method used during the attack, not the ultimate goal of mapping an authentication decision."
         },
         {
           "label": "B",
@@ -765,7 +765,7 @@
           "label": "D",
           "text": "Hamming Weight reduction",
           "isCorrect": false,
-          "rationale": "Reducing $HW$ is a technical leakage prevention method, not a high-level security guarantee."
+          "rationale": "Reducing  HW  is a technical leakage prevention method, not a high-level security guarantee."
         }
       ],
       "hint": "Look for a term that ensures someone cannot deny they sent a message.",

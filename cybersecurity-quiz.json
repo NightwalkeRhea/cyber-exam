@@ -325,7 +325,7 @@
     },
     {
       "number": 11,
-      "question": "The $W \\oplus X$ (Write XOR Execute) policy ensures that memory pages cannot be both writable and executable. Why does this policy fail to prevent 'Return-into-libc' attacks?",
+      "question": "The  W \\oplus X  (Write XOR Execute) policy ensures that memory pages cannot be both writable and executable. Why does this policy fail to prevent 'Return-into-libc' attacks?",
       "options": [
         {
           "label": "A",
@@ -337,7 +337,7 @@
           "label": "B",
           "text": "The policy only applies to the heap and does not protect the stack.",
           "isCorrect": false,
-          "rationale": "Modern $W \\oplus X$ implementations protect all relevant data segments, including the stack."
+          "rationale": "Modern  W \\oplus X  implementations protect all relevant data segments, including the stack."
         },
         {
           "label": "C",

@@ -453,11 +453,11 @@
     },
     {
       "number": 15,
-      "question": "During the Secure Boot process, how is the integrity of the second bootloader ($B$) typically verified?",
+      "question": "During the Secure Boot process, how is the integrity of the second bootloader ( B ) typically verified?",
       "options": [
         {
           "label": "A",
-          "text": "The first bootloader ($A$), residing in secure memory, verifies its integrity and authenticity.",
+          "text": "The first bootloader ( A ), residing in secure memory, verifies its integrity and authenticity.",
           "isCorrect": true,
           "rationale": "In a chain of trust, each stage must be verified by the preceding, already-trusted stage before execution."
         },
@@ -869,7 +869,7 @@
     },
     {
       "number": 28,
-      "question": "Which component is typically allowed to modify the 2nd bootloader ($B$) in a trusted system?",
+      "question": "Which component is typically allowed to modify the 2nd bootloader ( B ) in a trusted system?",
       "options": [
         {
           "label": "A",

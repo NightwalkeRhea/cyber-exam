@@ -9,25 +9,25 @@
       "options": [
         {
           "label": "A",
-          "text": "User $\\rightarrow$ API $\\rightarrow$ SoC",
+          "text": "User  \\rightarrow  API  \\rightarrow  SoC",
           "isCorrect": false,
           "rationale": "This describes an interaction model rather than the structural root-of-trust within system hardware."
         },
         {
           "label": "B",
-          "text": "$PCB \\rightarrow$ IC (SoC | $\\mu$P)",
+          "text": " PCB \\rightarrow  IC (SoC |  \\mu P)",
           "isCorrect": true,
           "rationale": "Hardware establishes the fundamental security layer beginning at the board level and extending into the integrated circuit architecture."
         },
         {
           "label": "C",
-          "text": "SW $\\rightarrow$ OS $\\rightarrow$ HW",
+          "text": "SW  \\rightarrow  OS  \\rightarrow  HW",
           "isCorrect": false,
           "rationale": "This sequence represents the software execution stack rather than the foundational hardware trust hierarchy."
         },
         {
           "label": "D",
-          "text": "Network $\\rightarrow$ Firewall $\\rightarrow$ PCB",
+          "text": "Network  \\rightarrow  Firewall  \\rightarrow  PCB",
           "isCorrect": false,
           "rationale": "While related to system security, this describes external defensive layers rather than the internal hardware root-of-trust."
         }
@@ -763,7 +763,7 @@
         },
         {
           "label": "D",
-          "text": "The difference in speed between a $\\mu$P and an SoC.",
+          "text": "The difference in speed between a  \\mu P and an SoC.",
           "isCorrect": false,
           "rationale": "While different, this is not the 'processing gap' defined as a security challenge in the material."
         }

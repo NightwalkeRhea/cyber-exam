@@ -5,7 +5,7 @@
   "questions": [
     {
       "number": 1,
-      "question": "In the context of side-channel analysis via scan-chain manipulation, what is the primary purpose of switching the circuit from Normal mode to Test mode at a precise time $T$?",
+      "question": "In the context of side-channel analysis via scan-chain manipulation, what is the primary purpose of switching the circuit from Normal mode to Test mode at a precise time  T ?",
       "options": [
         {
           "label": "A",
@@ -17,7 +17,7 @@
           "label": "B",
           "text": "To bypass the built-in error detection mechanisms of the cryptographic module.",
           "isCorrect": false,
-          "rationale": "While the scan chain bypasses some logic, the primary goal at time $T$ is data extraction, not error suppression."
+          "rationale": "While the scan chain bypasses some logic, the primary goal at time  T  is data extraction, not error suppression."
         },
         {
           "label": "C",
@@ -69,29 +69,29 @@
     },
     {
       "number": 3,
-      "question": "On a Controller Area Network (CAN) bus, how is a logical $0$ represented electrically, and what is the term for this state?",
+      "question": "On a Controller Area Network (CAN) bus, how is a logical  0  represented electrically, and what is the term for this state?",
       "options": [
         {
           "label": "A",
-          "text": "A voltage difference $V_{diff} \\approx 2V$, known as Recessive.",
+          "text": "A voltage difference  V_{diff} \\approx 2V , known as Recessive.",
           "isCorrect": false,
           "rationale": "The term 'Recessive' refers to the state where the bus is not driven, which represents a logical 1."
         },
         {
           "label": "B",
-          "text": "A voltage difference $V_{diff} \\approx 5V$, known as High-Z.",
+          "text": "A voltage difference  V_{diff} \\approx 5V , known as High-Z.",
           "isCorrect": false,
           "rationale": "CAN uses specific differential voltages rather than high-impedance states to represent standard logic bits."
         },
         {
           "label": "C",
-          "text": "A voltage difference $V_{diff} \\approx 2V$, known as Dominant.",
+          "text": "A voltage difference  V_{diff} \\approx 2V , known as Dominant.",
           "isCorrect": true,
           "rationale": "In CAN signaling, the dominant state (logical 0) is achieved by a voltage differential that can overwrite the recessive state."
         },
         {
           "label": "D",
-          "text": "A voltage difference $V_{diff} \\approx 0V$, known as Recessive.",
+          "text": "A voltage difference  V_{diff} \\approx 0V , known as Recessive.",
           "isCorrect": false,
           "rationale": "A zero voltage difference actually represents a logical 1 in the CAN physical layer."
         }
@@ -101,7 +101,7 @@
     },
     {
       "number": 4,
-      "question": "According to the CAN protocol's fault confinement rules, what state does a node enter when its Transmit Error Counter (TEC) or Receive Error Counter (REC) reaches a value $\\ge 128$?",
+      "question": "According to the CAN protocol's fault confinement rules, what state does a node enter when its Transmit Error Counter (TEC) or Receive Error Counter (REC) reaches a value  \\ge 128 ?",
       "options": [
         {
           "label": "A",
@@ -251,7 +251,7 @@
         },
         {
           "label": "D",
-          "text": "It allows the compromised node to change the $V_{diff}$ of all other nodes remotely.",
+          "text": "It allows the compromised node to change the  V_{diff}  of all other nodes remotely.",
           "isCorrect": false,
           "rationale": "The physical layer properties are local to each transceiver; a node can only drive the bus, not change other nodes' electrical characteristics."
         }
@@ -421,7 +421,7 @@
     },
     {
       "number": 14,
-      "question": "What happens to a CAN node when its Transmit Error Counter (TEC) exceeds the critical threshold of $255$?",
+      "question": "What happens to a CAN node when its Transmit Error Counter (TEC) exceeds the critical threshold of  255 ?",
       "options": [
         {
           "label": "A",
@@ -687,7 +687,7 @@
         },
         {
           "label": "B",
-          "text": "The $V_{diff}$ of the TAP controller must be kept at a constant 2V.",
+          "text": "The  V_{diff}  of the TAP controller must be kept at a constant 2V.",
           "isCorrect": false,
           "rationale": "Voltage levels of JTAG are generally standard logic levels and don't relate to the encryption constraint."
         },

@@ -38,29 +38,29 @@
     },
     {
       "number": 2,
-      "question": "If a network consists of $N = 12$ actors, how many unique symmetric keys are required to ensure every actor has a private channel with every other actor?",
+      "question": "If a network consists of  N = 12  actors, how many unique symmetric keys are required to ensure every actor has a private channel with every other actor?",
       "options": [
         {
           "label": "A",
-          "text": "$66$",
+          "text": " 66 ",
           "isCorrect": true,
-          "rationale": "Applying the formula $\\frac{N * (N-1)}{2}$ for $N=12$ yields $\\frac{12 * 11}{2} = 66$."
+          "rationale": "Applying the formula  \\frac{N * (N-1)}{2}  for  N=12  yields  \\frac{12 * 11}{2} = 66 ."
         },
         {
           "label": "B",
-          "text": "$132$",
+          "text": " 132 ",
           "isCorrect": false,
-          "rationale": "This results from $N * (N - 1)$ without dividing by $2$, which counts each bidirectional channel twice."
+          "rationale": "This results from  N * (N - 1)  without dividing by  2 , which counts each bidirectional channel twice."
         },
         {
           "label": "C",
-          "text": "$144$",
+          "text": " 144 ",
           "isCorrect": false,
-          "rationale": "This value represents $N^{2}$, which is not the standard calculation for unique pairwise links."
+          "rationale": "This value represents  N^{2} , which is not the standard calculation for unique pairwise links."
         },
         {
           "label": "D",
-          "text": "$12$",
+          "text": " 12 ",
           "isCorrect": false,
           "rationale": "This assumes one key per actor, which is insufficient for unique pairwise communication in a symmetric scheme."
         }
@@ -70,29 +70,29 @@
     },
     {
       "number": 3,
-      "question": "A block cipher operates on a fixed length of bits. For a block size of $n$ bits, how many distinct plaintext blocks must exist to ensure the encryption is reversible?",
+      "question": "A block cipher operates on a fixed length of bits. For a block size of  n  bits, how many distinct plaintext blocks must exist to ensure the encryption is reversible?",
       "options": [
         {
           "label": "A",
-          "text": "$n^{2}$",
+          "text": " n^{2} ",
           "isCorrect": false,
           "rationale": "This represents the square of the block size rather than the total number of possible binary combinations."
         },
         {
           "label": "B",
-          "text": "$2n$",
+          "text": " 2n ",
           "isCorrect": false,
           "rationale": "This represents a linear scaling of the bit count, which does not account for the combinatorial possibilities of a bit-string."
         },
         {
           "label": "C",
-          "text": "$2^{n}$",
+          "text": " 2^{n} ",
           "isCorrect": true,
-          "rationale": "For encryption to be reversible, each of the $2^{n}$ possible unique plaintext blocks must map to a unique ciphertext block."
+          "rationale": "For encryption to be reversible, each of the  2^{n}  possible unique plaintext blocks must map to a unique ciphertext block."
         },
         {
           "label": "D",
-          "text": "$n!$",
+          "text": " n! ",
           "isCorrect": false,
           "rationale": "Factorials are used for permutations, but the total space of blocks is determined by the binary base raised to the length."
         }
@@ -102,35 +102,35 @@
     },
     {
       "number": 4,
-      "question": "The Data Encryption Standard (DES) utilizes a $64$-bit key; however, what is the actual number of bits that contribute to the security of the algorithm?",
+      "question": "The Data Encryption Standard (DES) utilizes a  64 -bit key; however, what is the actual number of bits that contribute to the security of the algorithm?",
       "options": [],
       "correctAnswer": null
     },
     {
       "number": 5,
-      "question": "When using Triple DES (3DES) with three distinct keys, cryptanalysis suggests the effective security strength is not $168$ bits ($56 \\times 3$). What is the generally accepted actual key length strength?",
+      "question": "When using Triple DES (3DES) with three distinct keys, cryptanalysis suggests the effective security strength is not  168  bits ( 56 \\times 3 ). What is the generally accepted actual key length strength?",
       "options": [
         {
           "label": "A",
-          "text": "$128$ bits",
+          "text": " 128  bits",
           "isCorrect": false,
           "rationale": "This is a common key size for standard AES but does not reflect the specific vulnerabilities found in 3DES cryptanalysis."
         },
         {
           "label": "B",
-          "text": "$168$ bits",
+          "text": " 168  bits",
           "isCorrect": false,
           "rationale": "This is the theoretical maximum, but it ignores the impact of specific cryptanalytic techniques that weaken the effective strength."
         },
         {
           "label": "C",
-          "text": "$112$ bits",
+          "text": " 112  bits",
           "isCorrect": true,
-          "rationale": "Due to meet-in-the-middle attacks and other cryptanalysis, the effective strength of 3DES with three keys is reduced to $112$ bits."
+          "rationale": "Due to meet-in-the-middle attacks and other cryptanalysis, the effective strength of 3DES with three keys is reduced to  112  bits."
         },
         {
           "label": "D",
-          "text": "$56$ bits",
+          "text": " 56  bits",
           "isCorrect": false,
           "rationale": "This would imply that the three rounds of encryption add no security over a single round of DES, which is incorrect."
         }
@@ -172,29 +172,29 @@
     },
     {
       "number": 7,
-      "question": "According to the formal definition of a symmetric-key encryption scheme, which condition must hold true for all plaintext $P \\in \\mathcal{P}$ and keys $k$ generated by $Gen$?",
+      "question": "According to the formal definition of a symmetric-key encryption scheme, which condition must hold true for all plaintext  P \\in \\mathcal{P}  and keys  k  generated by  Gen ?",
       "options": [
         {
           "label": "A",
-          "text": "$Enc_{k}(P) \\ne P$",
+          "text": " Enc_{k}(P) \\ne P ",
           "isCorrect": false,
           "rationale": "While security requires this, it is not the functional definition of the symmetric scheme's reversibility."
         },
         {
           "label": "B",
-          "text": "$Dec_{k}(Enc_{k}(P)) = P$",
+          "text": " Dec_{k}(Enc_{k}(P)) = P ",
           "isCorrect": true,
           "rationale": "The correctness property of a cryptographic scheme ensures that decrypting a ciphertext with the original key returns the original plaintext."
         },
         {
           "label": "C",
-          "text": "$k \\in K$",
+          "text": " k \\in K ",
           "isCorrect": false,
           "rationale": "This merely states the key is in the set of all possible keys, which is a prerequisite rather than a functional property."
         },
         {
           "label": "D",
-          "text": "$Enc_{k}(Dec_{k}(C)) = C$",
+          "text": " Enc_{k}(Dec_{k}(C)) = C ",
           "isCorrect": false,
           "rationale": "While this may be true, the primary defining requirement of a scheme is that decryption correctly reverses encryption."
         }
@@ -208,7 +208,7 @@
       "options": [
         {
           "label": "A",
-          "text": "It must use a $256$-bit key for every single bit of the plaintext.",
+          "text": "It must use a  256 -bit key for every single bit of the plaintext.",
           "isCorrect": false,
           "rationale": "Key size is important, but the robustness of the stream itself relies on the algorithmic properties of the generator's output."
         },
@@ -226,7 +226,7 @@
         },
         {
           "label": "D",
-          "text": "It must produce a repeating pattern of digits every $64$ bits.",
+          "text": "It must produce a repeating pattern of digits every  64  bits.",
           "isCorrect": false,
           "rationale": "Repeating patterns (low periodicity) are a weakness that would allow an attacker to break the cipher."
         }
@@ -236,7 +236,7 @@
     },
     {
       "number": 9,
-      "question": "In the evolution of symmetric cryptography, which algorithm was chosen by NIST in October $2000$ to replace the aging Data Encryption Standard?",
+      "question": "In the evolution of symmetric cryptography, which algorithm was chosen by NIST in October  2000  to replace the aging Data Encryption Standard?",
       "options": [
         {
           "label": "A",
@@ -272,7 +272,7 @@
       "options": [
         {
           "label": "A",
-          "text": "By processing data in fixed chunks of $64$ bits to ensure parity.",
+          "text": "By processing data in fixed chunks of  64  bits to ensure parity.",
           "isCorrect": false,
           "rationale": "Fixed chunk processing is the definition of a block cipher, whereas stream ciphers are continuous."
         },
@@ -284,7 +284,7 @@
         },
         {
           "label": "C",
-          "text": "By performing transpositions between blocks of $16$ bytes.",
+          "text": "By performing transpositions between blocks of  16  bytes.",
           "isCorrect": false,
           "rationale": "Transpositions of large blocks are characteristic of block ciphers, not stream ciphers."
         },
@@ -332,19 +332,19 @@
     },
     {
       "number": 12,
-      "question": "Which specific weakness was identified by the Electronic Frontier Foundation (EFF) in July $1998$ regarding the Data Encryption Standard (DES)?",
+      "question": "Which specific weakness was identified by the Electronic Frontier Foundation (EFF) in July  1998  regarding the Data Encryption Standard (DES)?",
       "options": [
         {
           "label": "A",
-          "text": "The reduction of key size from $128$ bits by the NSA.",
+          "text": "The reduction of key size from  128  bits by the NSA.",
           "isCorrect": false,
-          "rationale": "While the NSA did reduce the size, the EFF's demonstration focused on the practical vulnerability of the resulting $56$-bit key."
+          "rationale": "While the NSA did reduce the size, the EFF's demonstration focused on the practical vulnerability of the resulting  56 -bit key."
         },
         {
           "label": "B",
           "text": "The susceptibility to brute force attacks due to short key length.",
           "isCorrect": true,
-          "rationale": "The EFF proved that $56$-bit keys could be broken by brute force with then-available computing power."
+          "rationale": "The EFF proved that  56 -bit keys could be broken by brute force with then-available computing power."
         },
         {
           "label": "C",
@@ -354,9 +354,9 @@
         },
         {
           "label": "D",
-          "text": "The lack of parity bits in the $64$-bit key.",
+          "text": "The lack of parity bits in the  64 -bit key.",
           "isCorrect": false,
-          "rationale": "DES actually includes $8$ parity bits; this was not the weakness the EFF exploited."
+          "rationale": "DES actually includes  8  parity bits; this was not the weakness the EFF exploited."
         }
       ],
       "hint": "Think about the primary argument for using 'longer keys' in modern cryptography.",
@@ -400,7 +400,7 @@
       "options": [
         {
           "label": "A",
-          "text": "Because symmetric keys expire automatically every $56$ minutes.",
+          "text": "Because symmetric keys expire automatically every  56  minutes.",
           "isCorrect": false,
           "rationale": "Key expiration is a security practice, but the time limit is not a fixed attribute of symmetric encryption."
         },
@@ -420,7 +420,7 @@
           "label": "D",
           "text": "Because the number of required keys grows quadratically with the number of actors.",
           "isCorrect": true,
-          "rationale": "As $N$ increases, the $\\frac{N * (N-1)}{2}$ formula leads to a massive quantity of keys that are difficult to track manually."
+          "rationale": "As  N  increases, the  \\frac{N * (N-1)}{2}  formula leads to a massive quantity of keys that are difficult to track manually."
         }
       ],
       "hint": "Consider the mathematical relationship between the number of participants and the number of keys.",
@@ -428,25 +428,25 @@
     },
     {
       "number": 15,
-      "question": "In the formalism of symmetric-key encryption, what does the set '$K$' represent?",
+      "question": "In the formalism of symmetric-key encryption, what does the set ' K ' represent?",
       "options": [
         {
           "label": "A",
           "text": "The set of all possible keys of a given length.",
           "isCorrect": true,
-          "rationale": "In the definition of the $Gen$ algorithm, $k \\in K$ refers to the exhaustive set of keys available for that specific length."
+          "rationale": "In the definition of the  Gen  algorithm,  k \\in K  refers to the exhaustive set of keys available for that specific length."
         },
         {
           "label": "B",
           "text": "The set of algorithms used for key agreement.",
           "isCorrect": false,
-          "rationale": "Key agreement algorithms are processes, whereas $K$ is a set of values."
+          "rationale": "Key agreement algorithms are processes, whereas  K  is a set of values."
         },
         {
           "label": "C",
           "text": "The specific key used for a single encryption session.",
           "isCorrect": false,
-          "rationale": "A single key is denoted by the lowercase '$k$', whereas the uppercase '$K$' denotes the set."
+          "rationale": "A single key is denoted by the lowercase ' k ', whereas the uppercase ' K ' denotes the set."
         },
         {
           "label": "D",
@@ -524,7 +524,7 @@
     },
     {
       "number": 18,
-      "question": "In the 3DES algorithm, if all three keys ($K_{1}, K_{2}, K_{3}$) are identical, what is the functional result?",
+      "question": "In the 3DES algorithm, if all three keys ( K_{1}, K_{2}, K_{3} ) are identical, what is the functional result?",
       "options": [
         {
           "label": "A",
@@ -546,9 +546,9 @@
         },
         {
           "label": "D",
-          "text": "The block size is automatically increased to $128$ bits.",
+          "text": "The block size is automatically increased to  128  bits.",
           "isCorrect": false,
-          "rationale": "3DES retains the $64$-bit block size of the original DES algorithm regardless of key choice."
+          "rationale": "3DES retains the  64 -bit block size of the original DES algorithm regardless of key choice."
         }
       ],
       "hint": "Recall the EDE sequence (Encrypt, Decrypt, Encrypt) and apply identical keys.",
@@ -560,25 +560,25 @@
       "options": [
         {
           "label": "A",
-          "text": "$256$ bits",
+          "text": " 256  bits",
           "isCorrect": false,
           "rationale": "This is the maximum and most recommended key size for AES security."
         },
         {
           "label": "B",
-          "text": "$128$ bits",
+          "text": " 128  bits",
           "isCorrect": false,
           "rationale": "This is one of the three standard key sizes specified in FIPS-197 for AES."
         },
         {
           "label": "C",
-          "text": "$64$ bits",
+          "text": " 64  bits",
           "isCorrect": true,
-          "rationale": "AES standardizes key sizes of $128$, $192$, and $256$ bits; $64$ bits was the size used by DES."
+          "rationale": "AES standardizes key sizes of  128 ,  192 , and  256  bits;  64  bits was the size used by DES."
         },
         {
           "label": "D",
-          "text": "$192$ bits",
+          "text": " 192  bits",
           "isCorrect": false,
           "rationale": "This is the intermediate standard key size for AES."
         }
@@ -615,7 +615,7 @@
           "rationale": "While modular arithmetic is possible, modern stream ciphers almost exclusively use the XOR operation."
         }
       ],
-      "hint": "Look at the 'Keystream Generator' and the symbol $\\oplus$ in the decryption diagram.",
+      "hint": "Look at the 'Keystream Generator' and the symbol  \\oplus  in the decryption diagram.",
       "correctAnswer": "C"
     },
     {
@@ -652,13 +652,13 @@
     },
     {
       "number": 22,
-      "question": "In the Data Encryption Standard (DES) process, what is the final operation performed before the $64$-bit ciphertext is produced?",
+      "question": "In the Data Encryption Standard (DES) process, what is the final operation performed before the  64 -bit ciphertext is produced?",
       "options": [
         {
           "label": "A",
           "text": "Initial permutation",
           "isCorrect": false,
-          "rationale": "The initial permutation is the first step performed on the $64$-bit plaintext."
+          "rationale": "The initial permutation is the first step performed on the  64 -bit plaintext."
         },
         {
           "label": "B",
@@ -670,11 +670,11 @@
           "label": "C",
           "text": "Inverse initial permutation",
           "isCorrect": true,
-          "rationale": "The DES diagram shows that after the $16$ rounds and a swap, an 'Inverse initial permutation' is the last step."
+          "rationale": "The DES diagram shows that after the  16  rounds and a swap, an 'Inverse initial permutation' is the last step."
         },
         {
           "label": "D",
-          "text": "$32$-bit swap",
+          "text": " 32 -bit swap",
           "isCorrect": false,
           "rationale": "The swap occurs just before the final inverse permutation."
         }
@@ -720,30 +720,30 @@
       "options": [
         {
           "label": "A",
-          "text": "$128$-bit block, $256$-bit key",
+          "text": " 128 -bit block,  256 -bit key",
           "isCorrect": false,
           "rationale": "These are the maximum specifications for AES, not IDEA."
         },
         {
           "label": "B",
-          "text": "$64$-bit block, $56$-bit key",
+          "text": " 64 -bit block,  56 -bit key",
           "isCorrect": false,
           "rationale": "These are the specifications for DES, not IDEA."
         },
         {
           "label": "C",
-          "text": "$64$-bit block, $128$-bit key",
+          "text": " 64 -bit block,  128 -bit key",
           "isCorrect": true,
-          "rationale": "IDEA uses a $128$-bit key to process data in $64$-bit blocks."
+          "rationale": "IDEA uses a  128 -bit key to process data in  64 -bit blocks."
         },
         {
           "label": "D",
-          "text": "$128$-bit block, $64$-bit key",
+          "text": " 128 -bit block,  64 -bit key",
           "isCorrect": false,
           "rationale": "This reverses the typical design of IDEA and uses a key size considered weak."
         }
       ],
-      "hint": "IDEA followed DES but preceded the standardization of $128$-bit blocks.",
+      "hint": "IDEA followed DES but preceded the standardization of  128 -bit blocks.",
       "correctAnswer": "C"
     },
     {
@@ -1139,7 +1139,7 @@
     },
     {
       "number": 11,
-      "question": "The $W \\oplus X$ (Write XOR Execute) policy ensures that memory pages cannot be both writable and executable. Why does this policy fail to prevent 'Return-into-libc' attacks?",
+      "question": "The  W \\oplus X  (Write XOR Execute) policy ensures that memory pages cannot be both writable and executable. Why does this policy fail to prevent 'Return-into-libc' attacks?",
       "options": [
         {
           "label": "A",
@@ -1151,7 +1151,7 @@
           "label": "B",
           "text": "The policy only applies to the heap and does not protect the stack.",
           "isCorrect": false,
-          "rationale": "Modern $W \\oplus X$ implementations protect all relevant data segments, including the stack."
+          "rationale": "Modern  W \\oplus X  implementations protect all relevant data segments, including the stack."
         },
         {
           "label": "C",
@@ -2106,11 +2106,11 @@
     },
     {
       "number": 15,
-      "question": "During the Secure Boot process, how is the integrity of the second bootloader ($B$) typically verified?",
+      "question": "During the Secure Boot process, how is the integrity of the second bootloader ( B ) typically verified?",
       "options": [
         {
           "label": "A",
-          "text": "The first bootloader ($A$), residing in secure memory, verifies its integrity and authenticity.",
+          "text": "The first bootloader ( A ), residing in secure memory, verifies its integrity and authenticity.",
           "isCorrect": true,
           "rationale": "In a chain of trust, each stage must be verified by the preceding, already-trusted stage before execution."
         },
@@ -2522,7 +2522,7 @@
     },
     {
       "number": 28,
-      "question": "Which component is typically allowed to modify the 2nd bootloader ($B$) in a trusted system?",
+      "question": "Which component is typically allowed to modify the 2nd bootloader ( B ) in a trusted system?",
       "options": [
         {
           "label": "A",
@@ -2565,25 +2565,25 @@
       "options": [
         {
           "label": "A",
-          "text": "User $\\rightarrow$ API $\\rightarrow$ SoC",
+          "text": "User  \\rightarrow  API  \\rightarrow  SoC",
           "isCorrect": false,
           "rationale": "This describes an interaction model rather than the structural root-of-trust within system hardware."
         },
         {
           "label": "B",
-          "text": "$PCB \\rightarrow$ IC (SoC | $\\mu$P)",
+          "text": " PCB \\rightarrow  IC (SoC |  \\mu P)",
           "isCorrect": true,
           "rationale": "Hardware establishes the fundamental security layer beginning at the board level and extending into the integrated circuit architecture."
         },
         {
           "label": "C",
-          "text": "SW $\\rightarrow$ OS $\\rightarrow$ HW",
+          "text": "SW  \\rightarrow  OS  \\rightarrow  HW",
           "isCorrect": false,
           "rationale": "This sequence represents the software execution stack rather than the foundational hardware trust hierarchy."
         },
         {
           "label": "D",
-          "text": "Network $\\rightarrow$ Firewall $\\rightarrow$ PCB",
+          "text": "Network  \\rightarrow  Firewall  \\rightarrow  PCB",
           "isCorrect": false,
           "rationale": "While related to system security, this describes external defensive layers rather than the internal hardware root-of-trust."
         }
@@ -3319,7 +3319,7 @@
         },
         {
           "label": "D",
-          "text": "The difference in speed between a $\\mu$P and an SoC.",
+          "text": "The difference in speed between a  \\mu P and an SoC.",
           "isCorrect": false,
           "rationale": "While different, this is not the 'processing gap' defined as a security challenge in the material."
         }
@@ -4247,13 +4247,13 @@
   "questions": [
     {
       "number": 1,
-      "question": "Which specific property of Physical Unclonable Functions (PUFs) describes the difficulty of determining a challenge $x$ when only the response $y$ and the physical entity are known?",
+      "question": "Which specific property of Physical Unclonable Functions (PUFs) describes the difficulty of determining a challenge  x  when only the response  y  and the physical entity are known?",
       "options": [
         {
           "label": "A",
           "text": "Reproducibility",
           "isCorrect": false,
-          "rationale": "Reproducibility deals with the consistency of the response $y$ for the same challenge $x$ over time, not the inversion of the mapping."
+          "rationale": "Reproducibility deals with the consistency of the response  y  for the same challenge  x  over time, not the inversion of the mapping."
         },
         {
           "label": "B",
@@ -4279,39 +4279,39 @@
     },
     {
       "number": 2,
-      "question": "In the context of Ring Oscillator PUFs, if a circuit contains $N = 32$ oscillators, what is the total number of distinct pairs that can be used to generate output bits?",
+      "question": "In the context of Ring Oscillator PUFs, if a circuit contains  N = 32  oscillators, what is the total number of distinct pairs that can be used to generate output bits?",
       "options": [
         {
           "label": "A",
           "text": "496",
           "isCorrect": true,
-          "rationale": "The number of distinct pairs is calculated using the combination formula $\\frac{N(N-1)}{2}$, which for $N=32$ is $\\frac{32 \\times 31}{2} = 496$."
+          "rationale": "The number of distinct pairs is calculated using the combination formula  \\frac{N(N-1)}{2} , which for  N=32  is  \\frac{32 \\times 31}{2} = 496 ."
         },
         {
           "label": "B",
           "text": "120",
           "isCorrect": false,
-          "rationale": "This is the result for $N=16$, representing a smaller oscillator set mentioned as an example in the material."
+          "rationale": "This is the result for  N=16 , representing a smaller oscillator set mentioned as an example in the material."
         },
         {
           "label": "C",
           "text": "992",
           "isCorrect": false,
-          "rationale": "This is $N(N-1)$, which double-counts the pairs by considering the order of comparison, whereas the PUF relies on distinct sets."
+          "rationale": "This is  N(N-1) , which double-counts the pairs by considering the order of comparison, whereas the PUF relies on distinct sets."
         },
         {
           "label": "D",
           "text": "1024",
           "isCorrect": false,
-          "rationale": "This value represents $N^2$, which includes redundant pairings and self-pairings that do not contribute to unique frequency comparisons."
+          "rationale": "This value represents  N^2 , which includes redundant pairings and self-pairings that do not contribute to unique frequency comparisons."
         }
       ],
-      "hint": "The formula used to find distinct pairs among $N$ items is $\\frac{N(N-1)}{2}$.",
+      "hint": "The formula used to find distinct pairs among  N  items is  \\frac{N(N-1)}{2} .",
       "correctAnswer": "A"
     },
     {
       "number": 3,
-      "question": "What does the min-entropy $H_{\\infty}(X)$ of a PUF response specifically quantify?",
+      "question": "What does the min-entropy  H_{\\infty}(X)  of a PUF response specifically quantify?",
       "options": [
         {
           "label": "A",
@@ -4323,7 +4323,7 @@
           "label": "B",
           "text": "The total number of possible response values",
           "isCorrect": false,
-          "rationale": "While $n$ represents the number of possible values, entropy measures the distribution and uncertainty of those values."
+          "rationale": "While  n  represents the number of possible values, entropy measures the distribution and uncertainty of those values."
         },
         {
           "label": "C",
@@ -4387,7 +4387,7 @@
           "label": "B",
           "text": "The size of the Challenge-Response Pair (CRP) set",
           "isCorrect": true,
-          "rationale": "Strong PUFs have a massive CRP space (e.g., $> 2^{80}$), making them suitable for authentication where many unique pairs are needed."
+          "rationale": "Strong PUFs have a massive CRP space (e.g.,  > 2^{80} ), making them suitable for authentication where many unique pairs are needed."
         },
         {
           "label": "C",
@@ -4439,31 +4439,31 @@
     },
     {
       "number": 7,
-      "question": "If a PUF response $y$ is evaluated across $K$ different devices, what is the ideal value of the Inter-die Hamming Distance for the PUF to be considered perfectly unique ($U = 100\\%$)?",
+      "question": "If a PUF response  y  is evaluated across  K  different devices, what is the ideal value of the Inter-die Hamming Distance for the PUF to be considered perfectly unique ( U = 100\\% )?",
       "options": [
         {
           "label": "A",
-          "text": "$25\\%$",
+          "text": " 25\\% ",
           "isCorrect": false,
-          "rationale": "This would suggest that the devices are too similar, sharing $75\\%$ of their identity bits, which is poor for authentication."
+          "rationale": "This would suggest that the devices are too similar, sharing  75\\%  of their identity bits, which is poor for authentication."
         },
         {
           "label": "B",
-          "text": "$0\\%$",
+          "text": " 0\\% ",
           "isCorrect": false,
-          "rationale": "A $0\\%$ Hamming Distance means the responses are identical, which indicates a complete lack of uniqueness."
+          "rationale": "A  0\\%  Hamming Distance means the responses are identical, which indicates a complete lack of uniqueness."
         },
         {
           "label": "C",
-          "text": "$100\\%$",
+          "text": " 100\\% ",
           "isCorrect": false,
-          "rationale": "While $100\\%$ difference sounds 'unique,' it would imply that every bit is flipped, which is a deterministic relationship rather than random variation."
+          "rationale": "While  100\\%  difference sounds 'unique,' it would imply that every bit is flipped, which is a deterministic relationship rather than random variation."
         },
         {
           "label": "D",
-          "text": "$50\\%$",
+          "text": " 50\\% ",
           "isCorrect": true,
-          "rationale": "A Hamming Distance of $50\\%$ between different devices indicates that half of the bits are different on average, which is the maximum expected randomness for independent identifiers."
+          "rationale": "A Hamming Distance of  50\\%  between different devices indicates that half of the bits are different on average, which is the maximum expected randomness for independent identifiers."
         }
       ],
       "hint": "Recall the ideal statistical distribution of bits between two unrelated random binary strings.",
@@ -4621,7 +4621,7 @@
         },
         {
           "label": "D",
-          "text": "The number of $0$ and $1$ bits are equally distributed",
+          "text": "The number of  0  and  1  bits are equally distributed",
           "isCorrect": true,
           "rationale": "Uniformity ensures that the responses do not have a bias toward a specific value, which would reduce the effective entropy and security."
         }
@@ -4673,7 +4673,7 @@
         },
         {
           "label": "B",
-          "text": "The probability of a $0$ must be exactly equal to the probability of a $1$",
+          "text": "The probability of a  0  must be exactly equal to the probability of a  1 ",
           "isCorrect": false,
           "rationale": "This describes 'Uniformity,' which supports security but is not the definition of unpredictability itself."
         },
@@ -4695,13 +4695,13 @@
     },
     {
       "number": 15,
-      "question": "In the Shannon's entropy formula $H(X) = - \\sum_{i=1}^{n} p(x_i) \\log_2 p(x_i)$, what does $p(x_i)$ represent?",
+      "question": "In the Shannon's entropy formula  H(X) = - \\sum_{i=1}^{n} p(x_i) \\log_2 p(x_i) , what does  p(x_i)  represent?",
       "options": [
         {
           "label": "A",
-          "text": "The number of bits in the challenge $x$",
+          "text": "The number of bits in the challenge  x ",
           "isCorrect": false,
-          "rationale": "The challenge size relates to the CRP space size, while $p(x_i)$ is specifically a probability related to the output responses."
+          "rationale": "The challenge size relates to the CRP space size, while  p(x_i)  is specifically a probability related to the output responses."
         },
         {
           "label": "B",
@@ -4719,7 +4719,7 @@
           "label": "D",
           "text": "The probability of occurrence for each possible response value",
           "isCorrect": true,
-          "rationale": "In information theory, entropy is calculated based on the probability distribution of all possible outcomes in the set $X$."
+          "rationale": "In information theory, entropy is calculated based on the probability distribution of all possible outcomes in the set  X ."
         }
       ],
       "hint": "Identify the statistical term that denotes the likelihood of a specific event happening.",
@@ -4791,7 +4791,7 @@
     },
     {
       "number": 18,
-      "question": "In the authentication process using PUFs, where is the record of the Response ($R_i$) stored for future comparison?",
+      "question": "In the authentication process using PUFs, where is the record of the Response ( R_i ) stored for future comparison?",
       "options": [
         {
           "label": "A",
@@ -4887,7 +4887,7 @@
     },
     {
       "number": 21,
-      "question": "In an Arbiter PUF, what role does the input challenge $X$ play in the physical signal path?",
+      "question": "In an Arbiter PUF, what role does the input challenge  X  play in the physical signal path?",
       "options": [
         {
           "label": "A",
@@ -4914,7 +4914,7 @@
           "rationale": "The D Flip-Flop is the arbiter that captures the outcome; the challenge prepares the path for the signal to reach it."
         }
       ],
-      "hint": "Look at the diagram where $x[0], x[1], \\dots, x[n]$ are inputs to specific logic gates.",
+      "hint": "Look at the diagram where  x[0], x[1], \\dots, x[n]  are inputs to specific logic gates.",
       "correctAnswer": "C"
     },
     {
@@ -4983,7 +4983,7 @@
     },
     {
       "number": 24,
-      "question": "How is 'Uniqueness' $U$ calculated among $K$ different PUF devices?",
+      "question": "How is 'Uniqueness'  U  calculated among  K  different PUF devices?",
       "options": [
         {
           "label": "A",
@@ -4999,13 +4999,13 @@
         },
         {
           "label": "C",
-          "text": "Based on the time it takes to evaluate $y = PUF(x)$",
+          "text": "Based on the time it takes to evaluate  y = PUF(x) ",
           "isCorrect": false,
           "rationale": "The evaluation time relates to the 'Computable' property, not the uniqueness of the device identifier."
         },
         {
           "label": "D",
-          "text": "Based on the number of $0$ and $1$ bits in a single device",
+          "text": "Based on the number of  0  and  1  bits in a single device",
           "isCorrect": false,
           "rationale": "This describes 'Uniformity,' a property of the bit distribution within a single PUF's output."
         }
@@ -5019,7 +5019,7 @@
       "options": [
         {
           "label": "A",
-          "text": "Given the PUF and $x$, it is easy to evaluate $y = PUF(x)$",
+          "text": "Given the PUF and  x , it is easy to evaluate  y = PUF(x) ",
           "isCorrect": true,
           "rationale": "A practical PUF must be fast and easy to use in the system it is embedded in, ensuring efficient authentication or key retrieval."
         },
@@ -5031,7 +5031,7 @@
         },
         {
           "label": "C",
-          "text": "The challenge $x$ must be longer than the response $y$",
+          "text": "The challenge  x  must be longer than the response  y ",
           "isCorrect": false,
           "rationale": "There is no fixed requirement on the relative lengths of challenges and responses for the computable property."
         },
@@ -5320,13 +5320,13 @@
         },
         {
           "label": "B",
-          "text": "Hamming Distance: $HD(x,y) = popcount(x \\oplus y)$",
+          "text": "Hamming Distance:  HD(x,y) = popcount(x \\oplus y) ",
           "isCorrect": true,
-          "rationale": "Hamming Distance models the dynamic power consumed when bits flip (toggle) between two sequential states $x$ and $y$."
+          "rationale": "Hamming Distance models the dynamic power consumed when bits flip (toggle) between two sequential states  x  and  y ."
         },
         {
           "label": "C",
-          "text": "Hamming Weight: $HW(x) = popcount(x)$",
+          "text": "Hamming Weight:  HW(x) = popcount(x) ",
           "isCorrect": false,
           "rationale": "Hamming Weight approximates the instantaneous dynamic power of stored bits at a single state, not the transition between states."
         },
@@ -5342,7 +5342,7 @@
     },
     {
       "number": 10,
-      "question": "Why do MCU traits like simple buses and shared rails increase the correlation with Hamming Weight ($HW$) and Hamming Distance ($HD$) models?",
+      "question": "Why do MCU traits like simple buses and shared rails increase the correlation with Hamming Weight ( HW ) and Hamming Distance ( HD ) models?",
       "options": [
         {
           "label": "A",
@@ -5354,7 +5354,7 @@
           "label": "B",
           "text": "They use secret-indexed lookups to secure memory access.",
           "isCorrect": false,
-          "rationale": "Secret-indexed lookups are a vulnerability, not a hardware trait that relates to the $HW/HD$ power models."
+          "rationale": "Secret-indexed lookups are a vulnerability, not a hardware trait that relates to the  HW/HD  power models."
         },
         {
           "label": "C",
@@ -5412,7 +5412,7 @@
           "label": "A",
           "text": "Measuring the Hamming Distance between successive ciphertext blocks.",
           "isCorrect": false,
-          "rationale": "While $HD$ is a model, CPA specifically focuses on correlating predictions of internal algorithm states with measurements."
+          "rationale": "While  HD  is a model, CPA specifically focuses on correlating predictions of internal algorithm states with measurements."
         },
         {
           "label": "B",
@@ -5428,7 +5428,7 @@
         },
         {
           "label": "D",
-          "text": "Correlation of predicted $HW(Sbox(P \\oplus K_{guess}))$ vs measured sample amplitude.",
+          "text": "Correlation of predicted  HW(Sbox(P \\oplus K_{guess}))  vs measured sample amplitude.",
           "isCorrect": true,
           "rationale": "CPA works by correlating a hypothetical power model (based on a guessed key and known plaintext) with the actual measured power traces."
         }
@@ -5668,7 +5668,7 @@
           "label": "A",
           "text": "To calculate the Hamming Weight of the CPU registers.",
           "isCorrect": false,
-          "rationale": "Calculating $HW$ is a method used during the attack, not the ultimate goal of mapping an authentication decision."
+          "rationale": "Calculating  HW  is a method used during the attack, not the ultimate goal of mapping an authentication decision."
         },
         {
           "label": "B",
@@ -5814,7 +5814,7 @@
           "label": "D",
           "text": "Hamming Weight reduction",
           "isCorrect": false,
-          "rationale": "Reducing $HW$ is a technical leakage prevention method, not a high-level security guarantee."
+          "rationale": "Reducing  HW  is a technical leakage prevention method, not a high-level security guarantee."
         }
       ],
       "hint": "Look for a term that ensures someone cannot deny they sent a message.",
@@ -5881,7 +5881,7 @@
   "questions": [
     {
       "number": 1,
-      "question": "In the context of side-channel analysis via scan-chain manipulation, what is the primary purpose of switching the circuit from Normal mode to Test mode at a precise time $T$?",
+      "question": "In the context of side-channel analysis via scan-chain manipulation, what is the primary purpose of switching the circuit from Normal mode to Test mode at a precise time  T ?",
       "options": [
         {
           "label": "A",
@@ -5893,7 +5893,7 @@
           "label": "B",
           "text": "To bypass the built-in error detection mechanisms of the cryptographic module.",
           "isCorrect": false,
-          "rationale": "While the scan chain bypasses some logic, the primary goal at time $T$ is data extraction, not error suppression."
+          "rationale": "While the scan chain bypasses some logic, the primary goal at time  T  is data extraction, not error suppression."
         },
         {
           "label": "C",
@@ -5945,29 +5945,29 @@
     },
     {
       "number": 3,
-      "question": "On a Controller Area Network (CAN) bus, how is a logical $0$ represented electrically, and what is the term for this state?",
+      "question": "On a Controller Area Network (CAN) bus, how is a logical  0  represented electrically, and what is the term for this state?",
       "options": [
         {
           "label": "A",
-          "text": "A voltage difference $V_{diff} \\approx 2V$, known as Recessive.",
+          "text": "A voltage difference  V_{diff} \\approx 2V , known as Recessive.",
           "isCorrect": false,
           "rationale": "The term 'Recessive' refers to the state where the bus is not driven, which represents a logical 1."
         },
         {
           "label": "B",
-          "text": "A voltage difference $V_{diff} \\approx 5V$, known as High-Z.",
+          "text": "A voltage difference  V_{diff} \\approx 5V , known as High-Z.",
           "isCorrect": false,
           "rationale": "CAN uses specific differential voltages rather than high-impedance states to represent standard logic bits."
         },
         {
           "label": "C",
-          "text": "A voltage difference $V_{diff} \\approx 2V$, known as Dominant.",
+          "text": "A voltage difference  V_{diff} \\approx 2V , known as Dominant.",
           "isCorrect": true,
           "rationale": "In CAN signaling, the dominant state (logical 0) is achieved by a voltage differential that can overwrite the recessive state."
         },
         {
           "label": "D",
-          "text": "A voltage difference $V_{diff} \\approx 0V$, known as Recessive.",
+          "text": "A voltage difference  V_{diff} \\approx 0V , known as Recessive.",
           "isCorrect": false,
           "rationale": "A zero voltage difference actually represents a logical 1 in the CAN physical layer."
         }
@@ -5977,7 +5977,7 @@
     },
     {
       "number": 4,
-      "question": "According to the CAN protocol's fault confinement rules, what state does a node enter when its Transmit Error Counter (TEC) or Receive Error Counter (REC) reaches a value $\\ge 128$?",
+      "question": "According to the CAN protocol's fault confinement rules, what state does a node enter when its Transmit Error Counter (TEC) or Receive Error Counter (REC) reaches a value  \\ge 128 ?",
       "options": [
         {
           "label": "A",
@@ -6127,7 +6127,7 @@
         },
         {
           "label": "D",
-          "text": "It allows the compromised node to change the $V_{diff}$ of all other nodes remotely.",
+          "text": "It allows the compromised node to change the  V_{diff}  of all other nodes remotely.",
           "isCorrect": false,
           "rationale": "The physical layer properties are local to each transceiver; a node can only drive the bus, not change other nodes' electrical characteristics."
         }
@@ -6297,7 +6297,7 @@
     },
     {
       "number": 14,
-      "question": "What happens to a CAN node when its Transmit Error Counter (TEC) exceeds the critical threshold of $255$?",
+      "question": "What happens to a CAN node when its Transmit Error Counter (TEC) exceeds the critical threshold of  255 ?",
       "options": [
         {
           "label": "A",
@@ -6563,7 +6563,7 @@
         },
         {
           "label": "B",
-          "text": "The $V_{diff}$ of the TAP controller must be kept at a constant 2V.",
+          "text": "The  V_{diff}  of the TAP controller must be kept at a constant 2V.",
           "isCorrect": false,
           "rationale": "Voltage levels of JTAG are generally standard logic levels and don't relate to the encryption constraint."
         },
@@ -6774,7 +6774,7 @@
         },
         {
           "label": "D",
-          "text": "By adding a sub-micron logic gate to the $3^{rd}$ party netlist.",
+          "text": "By adding a sub-micron logic gate to the  3^{rd}  party netlist.",
           "isCorrect": false,
           "rationale": "Adding logic gates typically increases hardware overhead, whereas the doping attack maintained the existing layout."
         }
@@ -6788,30 +6788,30 @@
       "options": [
         {
           "label": "A",
-          "text": "It was reduced from $256$ bits to $128$ bits.",
+          "text": "It was reduced from  256  bits to  128  bits.",
           "isCorrect": false,
-          "rationale": "The source material specifies a reduction starting from $128$ bits and ending at a much lower threshold."
+          "rationale": "The source material specifies a reduction starting from  128  bits and ending at a much lower threshold."
         },
         {
           "label": "B",
-          "text": "It was reduced from $128$ bits to $64$ bits.",
+          "text": "It was reduced from  128  bits to  64  bits.",
           "isCorrect": false,
           "rationale": "The reduction was more drastic than a simple halving of the bit length, dropping to only a quarter of the original entropy."
         },
         {
           "label": "C",
-          "text": "It was reduced from $64$ bits to $16$ bits.",
+          "text": "It was reduced from  64  bits to  16  bits.",
           "isCorrect": false,
-          "rationale": "Modern processors typically start with higher entropy standards, such as $128$ bits, for secure random number generation."
+          "rationale": "Modern processors typically start with higher entropy standards, such as  128  bits, for secure random number generation."
         },
         {
           "label": "D",
-          "text": "It was reduced from $128$ bits to $32$ bits.",
+          "text": "It was reduced from  128  bits to  32  bits.",
           "isCorrect": true,
           "rationale": "The goal of the attack was to significantly weaken the cryptographic strength by making the output more predictable."
         }
       ],
-      "hint": "The reduction resulted in a security level that is significantly easier to brute-force by a factor of $2^{96}$.",
+      "hint": "The reduction resulted in a security level that is significantly easier to brute-force by a factor of  2^{96} .",
       "correctAnswer": "D"
     },
     {
@@ -7030,7 +7030,7 @@
         },
         {
           "label": "D",
-          "text": "Standard testing is designed to explore $100\\%$ of all possible gate combinations.",
+          "text": "Standard testing is designed to explore  100\\%  of all possible gate combinations.",
           "isCorrect": false,
           "rationale": "Exhaustive testing of all gate combinations is mathematically impossible for complex modern circuits."
         }
@@ -7104,7 +7104,7 @@
     },
     {
       "number": 12,
-      "question": "What is the primary risk associated with using $3^{rd}$ Party Hard IPs in a design?",
+      "question": "What is the primary risk associated with using  3^{rd}  Party Hard IPs in a design?",
       "options": [
         {
           "label": "A",
@@ -7248,7 +7248,7 @@
         },
         {
           "label": "C",
-          "text": "It verifies that the $3^{rd}$ party IP is free from all malicious code.",
+          "text": "It verifies that the  3^{rd}  party IP is free from all malicious code.",
           "isCorrect": false,
           "rationale": "An *untrusted* tool is a threat precisely because it might *hide* Trojans or *insert* them, rather than verify their absence."
         },

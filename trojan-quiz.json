@@ -27,7 +27,7 @@
         },
         {
           "label": "D",
-          "text": "By adding a sub-micron logic gate to the $3^{rd}$ party netlist.",
+          "text": "By adding a sub-micron logic gate to the  3^{rd}  party netlist.",
           "isCorrect": false,
           "rationale": "Adding logic gates typically increases hardware overhead, whereas the doping attack maintained the existing layout."
         }
@@ -41,30 +41,30 @@
       "options": [
         {
           "label": "A",
-          "text": "It was reduced from $256$ bits to $128$ bits.",
+          "text": "It was reduced from  256  bits to  128  bits.",
           "isCorrect": false,
-          "rationale": "The source material specifies a reduction starting from $128$ bits and ending at a much lower threshold."
+          "rationale": "The source material specifies a reduction starting from  128  bits and ending at a much lower threshold."
         },
         {
           "label": "B",
-          "text": "It was reduced from $128$ bits to $64$ bits.",
+          "text": "It was reduced from  128  bits to  64  bits.",
           "isCorrect": false,
           "rationale": "The reduction was more drastic than a simple halving of the bit length, dropping to only a quarter of the original entropy."
         },
         {
           "label": "C",
-          "text": "It was reduced from $64$ bits to $16$ bits.",
+          "text": "It was reduced from  64  bits to  16  bits.",
           "isCorrect": false,
-          "rationale": "Modern processors typically start with higher entropy standards, such as $128$ bits, for secure random number generation."
+          "rationale": "Modern processors typically start with higher entropy standards, such as  128  bits, for secure random number generation."
         },
         {
           "label": "D",
-          "text": "It was reduced from $128$ bits to $32$ bits.",
+          "text": "It was reduced from  128  bits to  32  bits.",
           "isCorrect": true,
           "rationale": "The goal of the attack was to significantly weaken the cryptographic strength by making the output more predictable."
         }
       ],
-      "hint": "The reduction resulted in a security level that is significantly easier to brute-force by a factor of $2^{96}$.",
+      "hint": "The reduction resulted in a security level that is significantly easier to brute-force by a factor of  2^{96} .",
       "correctAnswer": "D"
     },
     {
@@ -283,7 +283,7 @@
         },
         {
           "label": "D",
-          "text": "Standard testing is designed to explore $100\\%$ of all possible gate combinations.",
+          "text": "Standard testing is designed to explore  100\\%  of all possible gate combinations.",
           "isCorrect": false,
           "rationale": "Exhaustive testing of all gate combinations is mathematically impossible for complex modern circuits."
         }
@@ -357,7 +357,7 @@
     },
     {
       "number": 12,
-      "question": "What is the primary risk associated with using $3^{rd}$ Party Hard IPs in a design?",
+      "question": "What is the primary risk associated with using  3^{rd}  Party Hard IPs in a design?",
       "options": [
         {
           "label": "A",
@@ -501,7 +501,7 @@
         },
         {
           "label": "C",
-          "text": "It verifies that the $3^{rd}$ party IP is free from all malicious code.",
+          "text": "It verifies that the  3^{rd}  party IP is free from all malicious code.",
           "isCorrect": false,
           "rationale": "An *untrusted* tool is a threat precisely because it might *hide* Trojans or *insert* them, rather than verify their absence."
         },

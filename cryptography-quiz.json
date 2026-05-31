@@ -37,29 +37,29 @@
     },
     {
       "number": 2,
-      "question": "If a network consists of $N = 12$ actors, how many unique symmetric keys are required to ensure every actor has a private channel with every other actor?",
+      "question": "If a network consists of N = 12 actors, how many unique symmetric keys are required to ensure every actor has a private channel with every other actor?",
       "options": [
         {
           "label": "A",
-          "text": "$66$",
+          "text": "66",
           "isCorrect": true,
-          "rationale": "Applying the formula $\\frac{N * (N-1)}{2}$ for $N=12$ yields $\\frac{12 * 11}{2} = 66$."
+          "rationale": "Applying the formula  \\frac{N * (N-1)}{2}  for  N=12  yields  \\frac{12 * 11}{2} = 66 ."
         },
         {
           "label": "B",
-          "text": "$132$",
+          "text": " 132 ",
           "isCorrect": false,
-          "rationale": "This results from $N * (N - 1)$ without dividing by $2$, which counts each bidirectional channel twice."
+          "rationale": "This results from  N * (N - 1)  without dividing by  2 , which counts each bidirectional channel twice."
         },
         {
           "label": "C",
-          "text": "$144$",
+          "text": " 144 ",
           "isCorrect": false,
-          "rationale": "This value represents $N^{2}$, which is not the standard calculation for unique pairwise links."
+          "rationale": "This value represents  N^{2} , which is not the standard calculation for unique pairwise links."
         },
         {
           "label": "D",
-          "text": "$12$",
+          "text": " 12 ",
           "isCorrect": false,
           "rationale": "This assumes one key per actor, which is insufficient for unique pairwise communication in a symmetric scheme."
         }
@@ -69,29 +69,29 @@
     },
     {
       "number": 3,
-      "question": "A block cipher operates on a fixed length of bits. For a block size of $n$ bits, how many distinct plaintext blocks must exist to ensure the encryption is reversible?",
+      "question": "A block cipher operates on a fixed length of bits. For a block size of  n  bits, how many distinct plaintext blocks must exist to ensure the encryption is reversible?",
       "options": [
         {
           "label": "A",
-          "text": "$n^{2}$",
+          "text": " n^{2} ",
           "isCorrect": false,
           "rationale": "This represents the square of the block size rather than the total number of possible binary combinations."
         },
         {
           "label": "B",
-          "text": "$2n$",
+          "text": " 2n ",
           "isCorrect": false,
           "rationale": "This represents a linear scaling of the bit count, which does not account for the combinatorial possibilities of a bit-string."
         },
         {
           "label": "C",
-          "text": "$2^{n}$",
+          "text": " 2^{n} ",
           "isCorrect": true,
-          "rationale": "For encryption to be reversible, each of the $2^{n}$ possible unique plaintext blocks must map to a unique ciphertext block."
+          "rationale": "For encryption to be reversible, each of the  2^{n}  possible unique plaintext blocks must map to a unique ciphertext block."
         },
         {
           "label": "D",
-          "text": "$n!$",
+          "text": " n! ",
           "isCorrect": false,
           "rationale": "Factorials are used for permutations, but the total space of blocks is determined by the binary base raised to the length."
         }
@@ -101,35 +101,35 @@
     },
     {
       "number": 4,
-      "question": "The Data Encryption Standard (DES) utilizes a $64$-bit key; however, what is the actual number of bits that contribute to the security of the algorithm?",
+      "question": "The Data Encryption Standard (DES) utilizes a  64 -bit key; however, what is the actual number of bits that contribute to the security of the algorithm?",
       "options": [],
       "correctAnswer": null
     },
     {
       "number": 5,
-      "question": "When using Triple DES (3DES) with three distinct keys, cryptanalysis suggests the effective security strength is not $168$ bits ($56 \\times 3$). What is the generally accepted actual key length strength?",
+      "question": "When using Triple DES (3DES) with three distinct keys, cryptanalysis suggests the effective security strength is not  168  bits ( 56 \\times 3 ). What is the generally accepted actual key length strength?",
       "options": [
         {
           "label": "A",
-          "text": "$128$ bits",
+          "text": " 128  bits",
           "isCorrect": false,
           "rationale": "This is a common key size for standard AES but does not reflect the specific vulnerabilities found in 3DES cryptanalysis."
         },
         {
           "label": "B",
-          "text": "$168$ bits",
+          "text": " 168  bits",
           "isCorrect": false,
           "rationale": "This is the theoretical maximum, but it ignores the impact of specific cryptanalytic techniques that weaken the effective strength."
         },
         {
           "label": "C",
-          "text": "$112$ bits",
+          "text": " 112  bits",
           "isCorrect": true,
-          "rationale": "Due to meet-in-the-middle attacks and other cryptanalysis, the effective strength of 3DES with three keys is reduced to $112$ bits."
+          "rationale": "Due to meet-in-the-middle attacks and other cryptanalysis, the effective strength of 3DES with three keys is reduced to  112  bits."
         },
         {
           "label": "D",
-          "text": "$56$ bits",
+          "text": " 56  bits",
           "isCorrect": false,
           "rationale": "This would imply that the three rounds of encryption add no security over a single round of DES, which is incorrect."
         }
@@ -171,29 +171,29 @@
     },
     {
       "number": 7,
-      "question": "According to the formal definition of a symmetric-key encryption scheme, which condition must hold true for all plaintext $P \\in \\mathcal{P}$ and keys $k$ generated by $Gen$?",
+      "question": "According to the formal definition of a symmetric-key encryption scheme, which condition must hold true for all plaintext  P \\in \\mathcal{P}  and keys  k  generated by  Gen ?",
       "options": [
         {
           "label": "A",
-          "text": "$Enc_{k}(P) \\ne P$",
+          "text": " Enc_{k}(P) \\ne P ",
           "isCorrect": false,
           "rationale": "While security requires this, it is not the functional definition of the symmetric scheme's reversibility."
         },
         {
           "label": "B",
-          "text": "$Dec_{k}(Enc_{k}(P)) = P$",
+          "text": " Dec_{k}(Enc_{k}(P)) = P ",
           "isCorrect": true,
           "rationale": "The correctness property of a cryptographic scheme ensures that decrypting a ciphertext with the original key returns the original plaintext."
         },
         {
           "label": "C",
-          "text": "$k \\in K$",
+          "text": " k \\in K ",
           "isCorrect": false,
           "rationale": "This merely states the key is in the set of all possible keys, which is a prerequisite rather than a functional property."
         },
         {
           "label": "D",
-          "text": "$Enc_{k}(Dec_{k}(C)) = C$",
+          "text": " Enc_{k}(Dec_{k}(C)) = C ",
           "isCorrect": false,
           "rationale": "While this may be true, the primary defining requirement of a scheme is that decryption correctly reverses encryption."
         }
@@ -207,7 +207,7 @@
       "options": [
         {
           "label": "A",
-          "text": "It must use a $256$-bit key for every single bit of the plaintext.",
+          "text": "It must use a  256 -bit key for every single bit of the plaintext.",
           "isCorrect": false,
           "rationale": "Key size is important, but the robustness of the stream itself relies on the algorithmic properties of the generator's output."
         },
@@ -225,7 +225,7 @@
         },
         {
           "label": "D",
-          "text": "It must produce a repeating pattern of digits every $64$ bits.",
+          "text": "It must produce a repeating pattern of digits every  64  bits.",
           "isCorrect": false,
           "rationale": "Repeating patterns (low periodicity) are a weakness that would allow an attacker to break the cipher."
         }
@@ -235,7 +235,7 @@
     },
     {
       "number": 9,
-      "question": "In the evolution of symmetric cryptography, which algorithm was chosen by NIST in October $2000$ to replace the aging Data Encryption Standard?",
+      "question": "In the evolution of symmetric cryptography, which algorithm was chosen by NIST in October  2000  to replace the aging Data Encryption Standard?",
       "options": [
         {
           "label": "A",
@@ -271,7 +271,7 @@
       "options": [
         {
           "label": "A",
-          "text": "By processing data in fixed chunks of $64$ bits to ensure parity.",
+          "text": "By processing data in fixed chunks of  64  bits to ensure parity.",
           "isCorrect": false,
           "rationale": "Fixed chunk processing is the definition of a block cipher, whereas stream ciphers are continuous."
         },
@@ -283,7 +283,7 @@
         },
         {
           "label": "C",
-          "text": "By performing transpositions between blocks of $16$ bytes.",
+          "text": "By performing transpositions between blocks of  16  bytes.",
           "isCorrect": false,
           "rationale": "Transpositions of large blocks are characteristic of block ciphers, not stream ciphers."
         },
@@ -331,19 +331,19 @@
     },
     {
       "number": 12,
-      "question": "Which specific weakness was identified by the Electronic Frontier Foundation (EFF) in July $1998$ regarding the Data Encryption Standard (DES)?",
+      "question": "Which specific weakness was identified by the Electronic Frontier Foundation (EFF) in July  1998  regarding the Data Encryption Standard (DES)?",
       "options": [
         {
           "label": "A",
-          "text": "The reduction of key size from $128$ bits by the NSA.",
+          "text": "The reduction of key size from  128  bits by the NSA.",
           "isCorrect": false,
-          "rationale": "While the NSA did reduce the size, the EFF's demonstration focused on the practical vulnerability of the resulting $56$-bit key."
+          "rationale": "While the NSA did reduce the size, the EFF's demonstration focused on the practical vulnerability of the resulting  56 -bit key."
         },
         {
           "label": "B",
           "text": "The susceptibility to brute force attacks due to short key length.",
           "isCorrect": true,
-          "rationale": "The EFF proved that $56$-bit keys could be broken by brute force with then-available computing power."
+          "rationale": "The EFF proved that  56 -bit keys could be broken by brute force with then-available computing power."
         },
         {
           "label": "C",
@@ -353,9 +353,9 @@
         },
         {
           "label": "D",
-          "text": "The lack of parity bits in the $64$-bit key.",
+          "text": "The lack of parity bits in the  64 -bit key.",
           "isCorrect": false,
-          "rationale": "DES actually includes $8$ parity bits; this was not the weakness the EFF exploited."
+          "rationale": "DES actually includes  8  parity bits; this was not the weakness the EFF exploited."
         }
       ],
       "hint": "Think about the primary argument for using 'longer keys' in modern cryptography.",
@@ -399,7 +399,7 @@
       "options": [
         {
           "label": "A",
-          "text": "Because symmetric keys expire automatically every $56$ minutes.",
+          "text": "Because symmetric keys expire automatically every  56  minutes.",
           "isCorrect": false,
           "rationale": "Key expiration is a security practice, but the time limit is not a fixed attribute of symmetric encryption."
         },
@@ -419,7 +419,7 @@
           "label": "D",
           "text": "Because the number of required keys grows quadratically with the number of actors.",
           "isCorrect": true,
-          "rationale": "As $N$ increases, the $\\frac{N * (N-1)}{2}$ formula leads to a massive quantity of keys that are difficult to track manually."
+          "rationale": "As  N  increases, the  \\frac{N * (N-1)}{2}  formula leads to a massive quantity of keys that are difficult to track manually."
         }
       ],
       "hint": "Consider the mathematical relationship between the number of participants and the number of keys.",
@@ -427,25 +427,25 @@
     },
     {
       "number": 15,
-      "question": "In the formalism of symmetric-key encryption, what does the set '$K$' represent?",
+      "question": "In the formalism of symmetric-key encryption, what does the set ' K ' represent?",
       "options": [
         {
           "label": "A",
           "text": "The set of all possible keys of a given length.",
           "isCorrect": true,
-          "rationale": "In the definition of the $Gen$ algorithm, $k \\in K$ refers to the exhaustive set of keys available for that specific length."
+          "rationale": "In the definition of the  Gen  algorithm,  k \\in K  refers to the exhaustive set of keys available for that specific length."
         },
         {
           "label": "B",
           "text": "The set of algorithms used for key agreement.",
           "isCorrect": false,
-          "rationale": "Key agreement algorithms are processes, whereas $K$ is a set of values."
+          "rationale": "Key agreement algorithms are processes, whereas  K  is a set of values."
         },
         {
           "label": "C",
           "text": "The specific key used for a single encryption session.",
           "isCorrect": false,
-          "rationale": "A single key is denoted by the lowercase '$k$', whereas the uppercase '$K$' denotes the set."
+          "rationale": "A single key is denoted by the lowercase ' k ', whereas the uppercase ' K ' denotes the set."
         },
         {
           "label": "D",
@@ -523,7 +523,7 @@
     },
     {
       "number": 18,
-      "question": "In the 3DES algorithm, if all three keys ($K_{1}, K_{2}, K_{3}$) are identical, what is the functional result?",
+      "question": "In the 3DES algorithm, if all three keys ( K_{1}, K_{2}, K_{3} ) are identical, what is the functional result?",
       "options": [
         {
           "label": "A",
@@ -545,9 +545,9 @@
         },
         {
           "label": "D",
-          "text": "The block size is automatically increased to $128$ bits.",
+          "text": "The block size is automatically increased to  128  bits.",
           "isCorrect": false,
-          "rationale": "3DES retains the $64$-bit block size of the original DES algorithm regardless of key choice."
+          "rationale": "3DES retains the  64 -bit block size of the original DES algorithm regardless of key choice."
         }
       ],
       "hint": "Recall the EDE sequence (Encrypt, Decrypt, Encrypt) and apply identical keys.",
@@ -559,25 +559,25 @@
       "options": [
         {
           "label": "A",
-          "text": "$256$ bits",
+          "text": " 256  bits",
           "isCorrect": false,
           "rationale": "This is the maximum and most recommended key size for AES security."
         },
         {
           "label": "B",
-          "text": "$128$ bits",
+          "text": " 128  bits",
           "isCorrect": false,
           "rationale": "This is one of the three standard key sizes specified in FIPS-197 for AES."
         },
         {
           "label": "C",
-          "text": "$64$ bits",
+          "text": " 64  bits",
           "isCorrect": true,
-          "rationale": "AES standardizes key sizes of $128$, $192$, and $256$ bits; $64$ bits was the size used by DES."
+          "rationale": "AES standardizes key sizes of  128 ,  192 , and  256  bits;  64  bits was the size used by DES."
         },
         {
           "label": "D",
-          "text": "$192$ bits",
+          "text": " 192  bits",
           "isCorrect": false,
           "rationale": "This is the intermediate standard key size for AES."
         }
@@ -614,7 +614,7 @@
           "rationale": "While modular arithmetic is possible, modern stream ciphers almost exclusively use the XOR operation."
         }
       ],
-      "hint": "Look at the 'Keystream Generator' and the symbol $\\oplus$ in the decryption diagram.",
+      "hint": "Look at the 'Keystream Generator' and the symbol  \\oplus  in the decryption diagram.",
       "correctAnswer": "C"
     },
     {
@@ -651,13 +651,13 @@
     },
     {
       "number": 22,
-      "question": "In the Data Encryption Standard (DES) process, what is the final operation performed before the $64$-bit ciphertext is produced?",
+      "question": "In the Data Encryption Standard (DES) process, what is the final operation performed before the  64 -bit ciphertext is produced?",
       "options": [
         {
           "label": "A",
           "text": "Initial permutation",
           "isCorrect": false,
-          "rationale": "The initial permutation is the first step performed on the $64$-bit plaintext."
+          "rationale": "The initial permutation is the first step performed on the  64 -bit plaintext."
         },
         {
           "label": "B",
@@ -669,11 +669,11 @@
           "label": "C",
           "text": "Inverse initial permutation",
           "isCorrect": true,
-          "rationale": "The DES diagram shows that after the $16$ rounds and a swap, an 'Inverse initial permutation' is the last step."
+          "rationale": "The DES diagram shows that after the  16  rounds and a swap, an 'Inverse initial permutation' is the last step."
         },
         {
           "label": "D",
-          "text": "$32$-bit swap",
+          "text": " 32 -bit swap",
           "isCorrect": false,
           "rationale": "The swap occurs just before the final inverse permutation."
         }
@@ -719,30 +719,30 @@
       "options": [
         {
           "label": "A",
-          "text": "$128$-bit block, $256$-bit key",
+          "text": " 128 -bit block,  256 -bit key",
           "isCorrect": false,
           "rationale": "These are the maximum specifications for AES, not IDEA."
         },
         {
           "label": "B",
-          "text": "$64$-bit block, $56$-bit key",
+          "text": " 64 -bit block,  56 -bit key",
           "isCorrect": false,
           "rationale": "These are the specifications for DES, not IDEA."
         },
         {
           "label": "C",
-          "text": "$64$-bit block, $128$-bit key",
+          "text": " 64 -bit block,  128 -bit key",
           "isCorrect": true,
-          "rationale": "IDEA uses a $128$-bit key to process data in $64$-bit blocks."
+          "rationale": "IDEA uses a  128 -bit key to process data in  64 -bit blocks."
         },
         {
           "label": "D",
-          "text": "$128$-bit block, $64$-bit key",
+          "text": " 128 -bit block,  64 -bit key",
           "isCorrect": false,
           "rationale": "This reverses the typical design of IDEA and uses a key size considered weak."
         }
       ],
-      "hint": "IDEA followed DES but preceded the standardization of $128$-bit blocks.",
+      "hint": "IDEA followed DES but preceded the standardization of  128 -bit blocks.",
       "correctAnswer": "C"
     },
     {
