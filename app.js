@@ -1,13 +1,25 @@
 const QUIZ_FILES = [
+  "chapter1-Fundamentals.json",
+  "chapter2-cryptography.json",
   "cryptography-quiz.json",
+  "cryptography-quiz-newest.json",
+  "cryptography-quiz2.json",
   "cybersecurity-quiz.json",
+  "fundamentals-quiz.json",
   "hardware-quiz.json",
   "hardware-quiz2.json",
+  "hardware-quiz-newest.json",
   "memory-quiz.json",
+  "memory-quiz-new.json",
   "puf-quiz.json",
+  "puf-quiz-new.json",
+  "secure-coding-quiz.json",
   "side-channel-quiz.json",
+  "side-channel-quiz-new.json",
   "testing-quiz.json",
+  "testing-quiz-new.json",
   "trojan-quiz.json",
+  "trojan-quiz-new.json",
 ];
 
 const EXAM_SIZE = 32;
@@ -82,12 +94,23 @@ function createSource(fileName, data) {
 }
 
 function createBank(id, title, description, sources) {
+  const pool = [];
+  const seenQuestions = new Set();
+  for (const question of sources.flatMap((source) => source.questions)) {
+    const key = getQuestionKey(question.text);
+    if (seenQuestions.has(key)) {
+      continue;
+    }
+    seenQuestions.add(key);
+    pool.push(question);
+  }
+
   return {
     id,
     title,
     description,
     sources,
-    pool: sources.flatMap((source) => source.questions),
+    pool,
     selectedSources: new Set(sources.map((source) => source.id)),
   };
 }
@@ -101,9 +124,9 @@ function normalizeQuestion(question, index, source) {
     .filter((option) => option && option.label && option.text)
     .map((option) => ({
       label: String(option.label),
-      text: String(option.text),
+      text: cleanQuestionText(option.text),
       isCorrect: Boolean(option.isCorrect),
-      rationale: option.rationale ? String(option.rationale) : "",
+      rationale: option.rationale ? cleanQuestionText(option.rationale) : "",
     }));
 
   const correctOption = options.find((option) => option.isCorrect);
@@ -119,9 +142,9 @@ function normalizeQuestion(question, index, source) {
     sourceId: source.id,
     sourceTitle: question.source ? String(question.source) : source.title,
     sourceFile: source.fileName,
-    text: String(question.question),
+    text: cleanQuestionText(question.question),
     options,
-    hint: question.hint ? String(question.hint) : "",
+    hint: question.hint ? cleanQuestionText(question.hint) : "",
     correctAnswer,
   };
 }
@@ -643,6 +666,18 @@ function shuffle(items) {
 
 function slugify(value) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+
+function cleanQuestionText(value) {
+  return String(value).replaceAll("$", "");
+}
+
+function getQuestionKey(value) {
+  return cleanQuestionText(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .replace(/\s+/g, " ");
 }
 
 function hashText(value) {

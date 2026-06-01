@@ -1,0 +1,167 @@
+{
+  "title": "Hardware Security",
+  "totalQuestions": 5,
+  "extractedAt": "2026-05-30T00:00:00.000Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "Why should hardware be included in a cybersecurity threat model?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Because hardware can no longer be assumed to be inherently secure and trusted.",
+          "isCorrect": true,
+          "rationale": "Modern cybersecurity must consider that the underlying hardware itself may contain vulnerabilities, malicious modifications, or untrusted components."
+        },
+        {
+          "label": "B",
+          "text": "Because software vulnerabilities no longer exist in modern systems.",
+          "isCorrect": false,
+          "rationale": "Software vulnerabilities still exist; the point is that hardware can also be part of the attack surface."
+        },
+        {
+          "label": "C",
+          "text": "Because hardware is always easier to patch than software.",
+          "isCorrect": false,
+          "rationale": "Hardware is usually harder to patch or replace once deployed, which makes hardware-level security issues especially serious."
+        },
+        {
+          "label": "D",
+          "text": "Because hardware attacks only affect performance, not security.",
+          "isCorrect": false,
+          "rationale": "Hardware attacks can affect confidentiality, integrity, availability, trust, and system behavior."
+        }
+      ],
+      "hint": "Think about whether the physical foundation of a system can always be trusted.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 2,
+      "question": "What is the risk of treating hardware as automatically trusted?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Security analysis may ignore attacks or vulnerabilities originating from the hardware layer.",
+          "isCorrect": true,
+          "rationale": "If hardware is blindly trusted, designers may fail to detect or defend against hardware Trojans, malicious IPs, compromised supply chains, or insecure debug features."
+        },
+        {
+          "label": "B",
+          "text": "The system will become immune to software attacks.",
+          "isCorrect": false,
+          "rationale": "Trusting hardware does not make software secure or immune to exploitation."
+        },
+        {
+          "label": "C",
+          "text": "The system will automatically encrypt all data.",
+          "isCorrect": false,
+          "rationale": "Encryption requires explicit security mechanisms; it does not happen just because hardware is trusted."
+        },
+        {
+          "label": "D",
+          "text": "The system will stop using embedded components.",
+          "isCorrect": false,
+          "rationale": "Embedded systems still rely heavily on hardware components; the issue is whether those components are trustworthy."
+        }
+      ],
+      "hint": "A bad assumption can hide an entire class of attacks.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 3,
+      "question": "Which statement best describes the modern view of hardware security?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Hardware must be analyzed as a possible source of vulnerabilities, not just as a trusted foundation.",
+          "isCorrect": true,
+          "rationale": "Modern cybersecurity recognizes that hardware can be compromised, misdesigned, maliciously modified, or exposed through low-level interfaces."
+        },
+        {
+          "label": "B",
+          "text": "Hardware is outside the scope of cybersecurity.",
+          "isCorrect": false,
+          "rationale": "Hardware is part of the computing system and can directly affect security."
+        },
+        {
+          "label": "C",
+          "text": "Hardware security only matters for military systems.",
+          "isCorrect": false,
+          "rationale": "Hardware security matters in consumer, industrial, automotive, medical, and embedded systems as well."
+        },
+        {
+          "label": "D",
+          "text": "Hardware attacks are impossible if the software is updated.",
+          "isCorrect": false,
+          "rationale": "Software updates may not fix vulnerabilities rooted in physical design, fabrication, debug interfaces, or supply-chain compromise."
+        }
+      ],
+      "hint": "The hardware layer is part of the attack surface.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 4,
+      "question": "Which example best matches a hardware-security concern?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A malicious modification inserted into an integrated circuit during design or manufacturing.",
+          "isCorrect": true,
+          "rationale": "A malicious change in hardware, such as a hardware Trojan, is a typical hardware-security threat."
+        },
+        {
+          "label": "B",
+          "text": "A typo in a user interface label.",
+          "isCorrect": false,
+          "rationale": "A UI typo is not normally a hardware-security issue."
+        },
+        {
+          "label": "C",
+          "text": "A weak password chosen by a user.",
+          "isCorrect": false,
+          "rationale": "Weak passwords are an authentication and user-security issue, not specifically a hardware-security concern."
+        },
+        {
+          "label": "D",
+          "text": "A slow internet connection caused by network congestion.",
+          "isCorrect": false,
+          "rationale": "Network congestion affects performance but is not necessarily a hardware-security attack."
+        }
+      ],
+      "hint": "Look for a threat rooted in the physical or design-level components of the system.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 5,
+      "question": "What is the main reason hardware security is important for information systems?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Information systems rely on hardware as their underlying execution platform.",
+          "isCorrect": true,
+          "rationale": "If the hardware foundation is compromised or untrusted, higher-level software security mechanisms may also be undermined."
+        },
+        {
+          "label": "B",
+          "text": "Hardware completely replaces the need for software security.",
+          "isCorrect": false,
+          "rationale": "Hardware security and software security are complementary; one does not eliminate the need for the other."
+        },
+        {
+          "label": "C",
+          "text": "Hardware attacks are always visible to the user.",
+          "isCorrect": false,
+          "rationale": "Hardware attacks can be stealthy and difficult to detect, especially if they are embedded in the design or manufacturing process."
+        },
+        {
+          "label": "D",
+          "text": "Hardware components never change after fabrication.",
+          "isCorrect": false,
+          "rationale": "Even if hardware is physically fixed after fabrication, its behavior, configuration, interfaces, and trust assumptions can still create security risks."
+        }
+      ],
+      "hint": "If the foundation is not trustworthy, the layers above it may also be affected.",
+      "correctAnswer": "A"
+    }
+  ]
+}

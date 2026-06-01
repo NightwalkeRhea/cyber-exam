@@ -1,0 +1,807 @@
+{
+  "title": "Trojan Quiz",
+  "totalQuestions": 25,
+  "extractedAt": "2026-06-01T15:03:54.001Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "In the illustrative example of the Intel Ivy Bridge processor, how was the Hardware Trojan (HT) physically implemented to compromise the cryptographic capability?",
+      "options": [
+        {
+          "label": "A",
+          "text": "By inserting a malicious microcode update during the manufacturing stage.",
+          "isCorrect": false,
+          "rationale": "Microcode is software-based control logic, whereas this specific attack was engineered at the physical transistor level."
+        },
+        {
+          "label": "B",
+          "text": "By adding a ring oscillator circuit to the clock tree.",
+          "isCorrect": false,
+          "rationale": "While ring oscillators are mentioned as examples of silicon-level insertions, the Ivy Bridge example specifically involved transistor-level modifications."
+        },
+        {
+          "label": "C",
+          "text": "By thinning the conducting wires to create a time-delayed failure.",
+          "isCorrect": false,
+          "rationale": "Thinning wires is a method for performance degradation or eventual failure, but the Ivy Bridge exploit targeted cryptographic entropy."
+        },
+        {
+          "label": "D",
+          "text": "By changing the doping polarity of a small number of transistors.",
+          "isCorrect": true,
+          "rationale": "This subtle physical change allowed the attacker to reduce the entropy of the random number generator without altering the circuit layout or adding new components."
+        }
+      ],
+      "hint": "Consider the method that would be undetectable by physical inspection and built-in self-tests.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 2,
+      "question": "What was the specific cryptographic impact of the Hardware Trojan found in the Ivy Bridge processor example?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The entropy of the random number generator was reduced from 128 bits to 32 bits.",
+          "isCorrect": true,
+          "rationale": "Reducing entropy makes the generated numbers significantly more predictable, effectively compromising the strength of the cryptographic functions."
+        },
+        {
+          "label": "B",
+          "text": "The encryption keys were leaked via electromagnetic radiation patterns.",
+          "isCorrect": false,
+          "rationale": "Although EM leakage is a known information leakage payload, this example focused on weakening the randomness of the generation process."
+        },
+        {
+          "label": "C",
+          "text": "The RSA private key was hardcoded into a spare gate netlist.",
+          "isCorrect": false,
+          "rationale": "Hardcoding keys would be a static modification, whereas this Trojan modified the dynamic behavior of a hardware component."
+        },
+        {
+          "label": "D",
+          "text": "The processor was forced into a 'Sink State' during AES execution.",
+          "isCorrect": false,
+          "rationale": "A 'Sink State' is a Denial of Service attack where a Finite State Machine becomes stuck, which is different from reducing cryptographic entropy."
+        }
+      ],
+      "hint": "Focus on the reduction of complexity in the random number generation process.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 3,
+      "question": "At which stage of the Integrated Circuit (IC) design and manufacturing process can a Hardware Trojan be inserted?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Any stage including specification, RTL design, manufacturing, or the supply chain.",
+          "isCorrect": true,
+          "rationale": "The vulnerability exists throughout the entire lifecycle, from the conceptual stage to the physical packaging and delivery."
+        },
+        {
+          "label": "B",
+          "text": "Only during the RTL synthesis and netlist generation phase.",
+          "isCorrect": false,
+          "rationale": "Trojans can be inserted much earlier or later than synthesis, spanning from initial planning to final distribution."
+        },
+        {
+          "label": "C",
+          "text": "Only at the post-silicon stage through malicious packaging elements.",
+          "isCorrect": false,
+          "rationale": "Post-silicon is one possible stage, but it ignores the significant risks present during the earlier design and fabrication phases."
+        },
+        {
+          "label": "D",
+          "text": "Exclusively during physical fabrication at an untrusted foundry.",
+          "isCorrect": false,
+          "rationale": "The source material notes that malicious changes can occur during specification, design, or even within the supply chain."
+        }
+      ],
+      "hint": "Think about the broad range of actors involved from the first blueprint to the final product.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 4,
+      "question": "Why are Computer-Aided Design (CAD) tools considered a potential vector for Hardware Trojan insertion?",
+      "options": [
+        {
+          "label": "A",
+          "text": "They automatically encrypt the RTL to hide the Trojan from the designer.",
+          "isCorrect": false,
+          "rationale": "CAD tools do not typically encrypt RTL for the purpose of hiding Trojans; they are problematic because their internal logic optimizations are complex and difficult to verify."
+        },
+        {
+          "label": "B",
+          "text": "They require the use of XOR gates which are inherently insecure.",
+          "isCorrect": false,
+          "rationale": "XOR gates are a tool for obfuscation used by designers to protect their IP, not the cause of CAD tool vulnerability."
+        },
+        {
+          "label": "C",
+          "text": "CAD tools are only vulnerable if they are used for FPGA-based implementations.",
+          "isCorrect": false,
+          "rationale": "CAD tool vulnerabilities apply to any automated design flow, including ASICs and standard IC designs."
+        },
+        {
+          "label": "D",
+          "text": "The complexity of logic optimizations makes it difficult to verify the placement of every gate.",
+          "isCorrect": true,
+          "rationale": "Because these tools handle massive amounts of data and complex transformations, a malicious script or tool could insert logic that the designer cannot easily audit."
+        }
+      ],
+      "hint": "Consider the difficulty a designer faces when trying to track individual registers through millions of automated optimizations.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 5,
+      "question": "Which of the following describes a 'Payload' in the context of a Hardware Trojan?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The malicious effect delivered by the Trojan, such as information leakage or DoS.",
+          "isCorrect": true,
+          "rationale": "The payload is the part of the Trojan that performs the intended malicious action once activation conditions are met."
+        },
+        {
+          "label": "B",
+          "text": "The process of reverse engineering the physical design to detect standard cells.",
+          "isCorrect": false,
+          "rationale": "Reverse engineering is a detection or analysis method, not a component of the Trojan itself."
+        },
+        {
+          "label": "C",
+          "text": "The extra circuitry used to disguise a malicious chip as a legitimate one.",
+          "isCorrect": false,
+          "rationale": "Disguising a chip is a packaging-level tactic, whereas the payload refers to the functional malicious modification."
+        },
+        {
+          "label": "D",
+          "text": "The specific condition or event that activates the malicious behavior.",
+          "isCorrect": false,
+          "rationale": "This describes the 'Trigger' component of the Trojan rather than the payload."
+        }
+      ],
+      "hint": "Distinguish between the activation mechanism and the resulting action.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 6,
+      "question": "A Hardware Trojan designed to short-circuit V_{cc} and GND would fall under which category of malicious behavior?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Privilege Elevation",
+          "isCorrect": false,
+          "rationale": "Privilege elevation involves bypassing software or logic permissions, not physical destruction of the power delivery."
+        },
+        {
+          "label": "B",
+          "text": "Information Leakage",
+          "isCorrect": false,
+          "rationale": "Short-circuiting the power rails is intended to damage the hardware, not to transmit secret data."
+        },
+        {
+          "label": "C",
+          "text": "Denial of Service (DoS)",
+          "isCorrect": true,
+          "rationale": "By short-circuiting the power and ground, the Trojan causes physical destruction or failure, rendering the system inoperable."
+        },
+        {
+          "label": "D",
+          "text": "Performance Degradation",
+          "isCorrect": false,
+          "rationale": "Performance degradation typically involves slowing down circuits (e.g., via wire thinning), whereas a short-circuit is a catastrophic failure."
+        }
+      ],
+      "hint": "Think about the ultimate outcome of connecting the main power supply directly to the ground.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 7,
+      "question": "What characteristic makes a signal a 'good trigger' for a Hardware Trojan from an attacker's perspective?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A high toggle rate to ensure the Trojan is activated frequently.",
+          "isCorrect": false,
+          "rationale": "A high toggle rate makes the Trojan likely to be detected during standard functional testing."
+        },
+        {
+          "label": "B",
+          "text": "A signal that is directly observable by the built-in self-test (BIST) modules.",
+          "isCorrect": false,
+          "rationale": "If a signal is easily observed by BIST, the addition of Trojan logic tied to that signal would likely be caught during design verification."
+        },
+        {
+          "label": "C",
+          "text": "An 'Always Active' trigger that simplifies the Trojan's payload delivery.",
+          "isCorrect": false,
+          "rationale": "While 'Always Active' is a type of trigger, it is often 'bad' for an attacker because it is the easiest type to detect during testing."
+        },
+        {
+          "label": "D",
+          "text": "An extremely low toggle rate that is unlikely to be triggered during regular testing.",
+          "isCorrect": true,
+          "rationale": "A low toggle rate ensures the Trojan remains dormant and undetected during validation, only activating under very specific, rare conditions."
+        }
+      ],
+      "hint": "Consider how an attacker avoids detection during the manufacturer's quality assurance phase.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 8,
+      "question": "How can electromagnetic radiation be exploited as an 'Information Leakage' payload in a Hardware Trojan?",
+      "options": [
+        {
+          "label": "A",
+          "text": "By using negative clock edges to transmit data during the settling period.",
+          "isCorrect": false,
+          "rationale": "This describes undocumented I/O functionality, which is a different method of leakage than EM radiation."
+        },
+        {
+          "label": "B",
+          "text": "By designing wires to act as mini-antennas that radiate specific frequency patterns.",
+          "isCorrect": true,
+          "rationale": "Attackers can manipulate the layout so that internal data transitions create detectable EM signatures that can be picked up by external sensors."
+        },
+        {
+          "label": "C",
+          "text": "By shielding the IC to prevent legitimate signals from reaching the router.",
+          "isCorrect": false,
+          "rationale": "Shielding would prevent leakage, which is the opposite of the attacker's goal in an information leakage scenario."
+        },
+        {
+          "label": "D",
+          "text": "By using the power side-channel to increase the chip's operating temperature.",
+          "isCorrect": false,
+          "rationale": "Increasing temperature is a performance or DoS tactic, while EM radiation is used for data transmission."
+        }
+      ],
+      "hint": "Think about how physical layout choices can turn internal electrical signals into wireless broadcasts.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 9,
+      "question": "In the context of protecting Intellectual Property (IP) from an untrusted foundry, what is the purpose of XOR-based circuit obfuscation?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To prevent the foundry from being able to manufacture any working chips.",
+          "isCorrect": false,
+          "rationale": "The foundry can still manufacture the chips, but they won't function correctly without the secret key."
+        },
+        {
+          "label": "B",
+          "text": "To allow the built-in self-test (BIST) to detect malicious modifications at the gate level.",
+          "isCorrect": false,
+          "rationale": "Obfuscation is intended to hide the design from the manufacturer, not to facilitate post-manufacturing testing for Trojans."
+        },
+        {
+          "label": "C",
+          "text": "To hide the true purpose of the circuit so it only functions when a secret key is provided.",
+          "isCorrect": true,
+          "rationale": "By inserting XOR gates with secret keys, the designer ensures the logic remains 'locked' and unintelligible to the foundry that fabricates it."
+        },
+        {
+          "label": "D",
+          "text": "To ensure that the whole design is split across multiple different foundries.",
+          "isCorrect": false,
+          "rationale": "Splitting the design across foundries is called 'split manufacturing,' which is a separate technique from logic-gate obfuscation."
+        }
+      ],
+      "hint": "Consider how a designer can provide a complete design to a factory without actually revealing how the logic works.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 10,
+      "question": "What is 'Split Manufacturing' as a countermeasure against Hardware Trojans?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Using spare gates to create a decoy circuit that distracts the foundry's reverse engineering tools.",
+          "isCorrect": false,
+          "rationale": "Spare gates are often a resource for inserting Trojans, not a primary mechanism for split manufacturing."
+        },
+        {
+          "label": "B",
+          "text": "Dividing the RTL code into separate modules handled by different design teams.",
+          "isCorrect": false,
+          "rationale": "This is a standard design practice for complexity management, not split manufacturing, which occurs at the physical fabrication stage."
+        },
+        {
+          "label": "C",
+          "text": "Separating the digital and analog components of a SoC onto different chiplets.",
+          "isCorrect": false,
+          "rationale": "While chiplets involve multiple pieces of silicon, split manufacturing specifically refers to layering the same chip's fabrication steps across different fabs."
+        },
+        {
+          "label": "D",
+          "text": "Manufacturing the IC in multiple layers so no single foundry has the complete design.",
+          "isCorrect": true,
+          "rationale": "By sending different metal layers to different foundries, an attacker at one foundry lacks the context needed to successfully insert a targeted Trojan."
+        }
+      ],
+      "hint": "Think about a strategy where no one entity sees the 'whole picture' of the physical layout.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 11,
+      "question": "Which type of Hardware Trojan trigger relies on environmental factors like temperature or power fluctuations?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Logically Triggered Internal trigger",
+          "isCorrect": false,
+          "rationale": "Logical triggers rely on internal state transitions or counter values within the digital logic."
+        },
+        {
+          "label": "B",
+          "text": "Always On trigger",
+          "isCorrect": false,
+          "rationale": "Always On triggers do not wait for any conditions; they are active from the moment the chip receives power."
+        },
+        {
+          "label": "C",
+          "text": "External Sensor-based trigger",
+          "isCorrect": true,
+          "rationale": "External triggers utilize sensors to detect physical conditions outside of the normal digital logic flow to activate the payload."
+        },
+        {
+          "label": "D",
+          "text": "Internal Software-controlled trigger",
+          "isCorrect": false,
+          "rationale": "Software-controlled triggers are activated by code or specific data sequences, not the physical environment."
+        }
+      ],
+      "hint": "Look for the category that interfaces the digital circuit with the physical world.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 12,
+      "question": "Which of the following describes 'Firm RTL' in the IC design flow, and why is it a security concern?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It refers to the finished chip's packaging, where malicious elements can be added.",
+          "isCorrect": false,
+          "rationale": "Packaging is the final stage (Post-Silicon), not a representation of the RTL code."
+        },
+        {
+          "label": "B",
+          "text": "It consists of synthesized Verilog netlists which are difficult to modify but can still be tampered with.",
+          "isCorrect": true,
+          "rationale": "Firm RTL represents a mid-point where logic is synthesized into gates, making manual verification tedious and malicious insertions harder to spot."
+        },
+        {
+          "label": "C",
+          "text": "It is human-readable source code that allows insiders to easily insert 'Undocumented functionality'.",
+          "isCorrect": false,
+          "rationale": "Human-readable source is 'Soft RTL'; Firm RTL is typically more abstract and harder for humans to parse directly."
+        },
+        {
+          "label": "D",
+          "text": "It is a VLSI black box that is impossible to reverse engineer without split manufacturing.",
+          "isCorrect": false,
+          "rationale": "This describes Hard IP, which is a complete physical design rather than a gate-level netlist."
+        }
+      ],
+      "hint": "Think about the stage where the high-level code has been converted into a list of logic gates.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 13,
+      "question": "A Hardware Trojan that uses 'Undocumented I/O functionality' might leak information by doing which of the following?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Short-circuiting the main memory controller to corrupt the FSM.",
+          "isCorrect": false,
+          "rationale": "Short-circuiting and FSM corruption are DoS or functional attacks, not I/O-based leakage methods."
+        },
+        {
+          "label": "B",
+          "text": "Increasing the frequency of the global clock to overheat the chip.",
+          "isCorrect": false,
+          "rationale": "Tampering with clock frequency for overheating is a DoS or performance degradation tactic."
+        },
+        {
+          "label": "C",
+          "text": "Weakening transistors to ensure a logic '1' is read as a logic '0' after several years.",
+          "isCorrect": false,
+          "rationale": "This is a reliability-based attack for long-term failure, not an I/O communication strategy."
+        },
+        {
+          "label": "D",
+          "text": "Transmitting data during the 'settling' period of signals.",
+          "isCorrect": true,
+          "rationale": "Standard protocols have specific timing windows; an attacker can exploit the periods between these windows to hide data transmissions."
+        }
+      ],
+      "hint": "Consider how data can be hidden within the timing gaps of a standard communication protocol.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 14,
+      "question": "Why is the complexity of modern Integrated Circuits (ICs) a major hurdle for detecting Hardware Trojans?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Because most ICs are manufactured using FPGA-based implementations which cannot be tested.",
+          "isCorrect": false,
+          "rationale": "FPGAs can be tested; the complexity issue applies to all high-density chips containing millions or billions of components."
+        },
+        {
+          "label": "B",
+          "text": "Because modern ICs do not use standard libraries, making every design a 'black box'.",
+          "isCorrect": false,
+          "rationale": "Most designs *do* use standard libraries; the challenge is how those libraries are combined in massive, custom configurations."
+        },
+        {
+          "label": "C",
+          "text": "The sheer number of components makes exhaustive code reviews and physical inspections tedious and expensive.",
+          "isCorrect": true,
+          "rationale": "With billions of transistors, verifying that every single one behaves exactly as specified is practically impossible within reasonable time and cost constraints."
+        },
+        {
+          "label": "D",
+          "text": "The use of negative clock edges in standard designs automatically hides Trojan activity.",
+          "isCorrect": false,
+          "rationale": "Negative edges are a design feature; they don't automatically hide activity unless specifically exploited for that purpose."
+        }
+      ],
+      "hint": "Think about the scale of modern chips and the resources required to check every microscopic detail.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 15,
+      "question": "What is the primary risk associated with using 3rd Party Intellectual Property (IP) blocks in an SoC design?",
+      "options": [
+        {
+          "label": "A",
+          "text": "They may contain undocumented functionality or malicious insertions added by the provider.",
+          "isCorrect": true,
+          "rationale": "Because the designer does not create the internal logic of the 3rd party IP, they cannot be certain it doesn't contain hidden Trojans."
+        },
+        {
+          "label": "B",
+          "text": "They always require more power than in-house designs.",
+          "isCorrect": false,
+          "rationale": "Power efficiency is a design metric, but the primary *security* risk is the lack of trust in the vendor."
+        },
+        {
+          "label": "C",
+          "text": "They are incompatible with standard CAD tools like synthesis and P&R tools.",
+          "isCorrect": false,
+          "rationale": "IP blocks are designed to be compatible; the issue is what is hidden *inside* that compatible interface."
+        },
+        {
+          "label": "D",
+          "text": "They prevent the use of XOR gates for circuit obfuscation.",
+          "isCorrect": false,
+          "rationale": "IP blocks do not interfere with the ability to use obfuscation techniques elsewhere in the design."
+        }
+      ],
+      "hint": "Focus on the 'black box' nature of components purchased from external vendors.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 16,
+      "question": "Which payload behavior involves forcing a Finite State Machine (FSM) into a state from which it cannot return to normal operation?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Privilege Elevation",
+          "isCorrect": false,
+          "rationale": "Elevation involves gaining more access rights, whereas a sink state removes all functionality."
+        },
+        {
+          "label": "B",
+          "text": "Sink State",
+          "isCorrect": true,
+          "rationale": "A 'Sink State' is a malicious FSM design where the system enters a trap state and ceases to function, effectively causing a DoS."
+        },
+        {
+          "label": "C",
+          "text": "Entropy Reduction",
+          "isCorrect": false,
+          "rationale": "Entropy reduction targets randomness, not the state transition logic of an FSM."
+        },
+        {
+          "label": "D",
+          "text": "Information Leakage",
+          "isCorrect": false,
+          "rationale": "Leakage involves getting data out, not trapping the control logic."
+        }
+      ],
+      "hint": "Think of a 'dead end' in a logic diagram.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 17,
+      "question": "What does 'Layout Modification' involve when a foundry inserts a Trojan?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Thinning conducting wires or weakening transistors to induce premature failure.",
+          "isCorrect": true,
+          "rationale": "By subtly altering the physical dimensions or properties of components, the foundry can ensure the chip fails under certain conditions."
+        },
+        {
+          "label": "B",
+          "text": "Rewriting the RTL source code to add a software trigger.",
+          "isCorrect": false,
+          "rationale": "Foundries work with physical masks and GDSII files, not high-level RTL code."
+        },
+        {
+          "label": "C",
+          "text": "Encrypting the netlist with XOR gates to hide it from the designer.",
+          "isCorrect": false,
+          "rationale": "Designers encrypt designs to hide them from the foundry; it does not make sense for a foundry to do this to the designer."
+        },
+        {
+          "label": "D",
+          "text": "Using a trusted wafer from a second fab to verify the pads and contacts.",
+          "isCorrect": false,
+          "rationale": "This is a detection/verification strategy, not a method of layout modification for a Trojan."
+        }
+      ],
+      "hint": "Consider physical changes to the hardware structures that affect reliability or timing.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 18,
+      "question": "In the context of Hardware Trojans, what is the role of an 'Internal Logically Triggered' mechanism?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It activates the payload when a specific internal state or sequence of data is detected.",
+          "isCorrect": true,
+          "rationale": "Internal logical triggers monitor the chip's own operations (like a specific register value) to decide when to activate the Trojan."
+        },
+        {
+          "label": "B",
+          "text": "It activates the payload based on a signal received from an external antenna.",
+          "isCorrect": false,
+          "rationale": "Antennas are external triggers, not internal logic-based ones."
+        },
+        {
+          "label": "C",
+          "text": "It ensures the Trojan is always active from the moment the device is powered on.",
+          "isCorrect": false,
+          "rationale": "This describes an 'Always On' activation mechanism, which does not require a logical condition."
+        },
+        {
+          "label": "D",
+          "text": "It relies on environmental factors like power consumption to trigger the payload.",
+          "isCorrect": false,
+          "rationale": "Environmental factors are part of external or sensor-based triggering, not pure digital logic."
+        }
+      ],
+      "hint": "Think of a 'digital combination lock' hidden within the circuit's gates.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 19,
+      "question": "Which of the following is NOT listed as a main system target for Hardware Trojans in the source material?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Banking Systems",
+          "isCorrect": false,
+          "rationale": "Banking systems are listed as targets, likely due to the sensitive financial data involved."
+        },
+        {
+          "label": "B",
+          "text": "Critical Infrastructures like Power Grids",
+          "isCorrect": false,
+          "rationale": "Power grids and nuclear plants are explicitly listed as major targets due to the potential for large-scale destruction."
+        },
+        {
+          "label": "C",
+          "text": "Consumer home appliances like smart toasters",
+          "isCorrect": true,
+          "rationale": "While technically possible, the source focuses on high-value targets like military, infrastructure, and banking."
+        },
+        {
+          "label": "D",
+          "text": "Military systems",
+          "isCorrect": false,
+          "rationale": "Military systems are specifically mentioned as a primary target for HTs."
+        }
+      ],
+      "hint": "Identify the option that represents a low-priority, non-critical system compared to the others.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 20,
+      "question": "How can a Hardware Trojan be used for 'Privilege Elevation'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "By leaking the OS kernel's encryption keys via side-channels.",
+          "isCorrect": false,
+          "rationale": "Key leakage is an information leakage attack; privilege elevation specifically targets access control."
+        },
+        {
+          "label": "B",
+          "text": "By disabling the system clock to prevent security checks from running.",
+          "isCorrect": false,
+          "rationale": "Disabling the clock is a DoS attack that stops all functionality, not just security checks."
+        },
+        {
+          "label": "C",
+          "text": "By reducing the entropy of the RNG so that all users have the same password.",
+          "isCorrect": false,
+          "rationale": "Entropy reduction makes passwords easier to guess but doesn't inherently change the privilege level of an existing account."
+        },
+        {
+          "label": "D",
+          "text": "By modifying hardware logic to bypass security bits or permission checks in the processor.",
+          "isCorrect": true,
+          "rationale": "If the hardware itself is compromised, it can ignore software-defined permissions, allowing an attacker to gain unauthorized control."
+        }
+      ],
+      "hint": "Think about how hardware-level security enforcement can be undermined from within.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 21,
+      "question": "Why is it difficult to reason about logic optimizations in modern CAD tools?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Because the tools are designed only to work with untrusted 3rd party IPs.",
+          "isCorrect": false,
+          "rationale": "CAD tools work with all types of IP; the complexity is a result of the engineering goals of speed, area, and power optimization."
+        },
+        {
+          "label": "B",
+          "text": "Because they use XOR-based obfuscation to hide the netlist from the user.",
+          "isCorrect": false,
+          "rationale": "XOR obfuscation is an intentional security measure, not the cause of the inherent complexity in CAD tools."
+        },
+        {
+          "label": "C",
+          "text": "Because the tools automatically reorganize and merge logic, making it hard to map a specific gate back to the original HDL.",
+          "isCorrect": true,
+          "rationale": "Optimization changes the structure of the logic significantly, which obscures the relationship between the source code and the final physical implementation."
+        },
+        {
+          "label": "D",
+          "text": "Because CAD tools can only place Trojans if they understand the entire design flow.",
+          "isCorrect": false,
+          "rationale": "The difficulty in reasoning about the tools is an obstacle for the *defender* trying to verify the design, not just for the *attacker* inserting a Trojan."
+        }
+      ],
+      "hint": "Consider the effect of automated 'cleaning up' and 'shrinking' of logic on the ability to audit the design.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 22,
+      "question": "What is the security implication of 'Spare Gates' on an Integrated Circuit?",
+      "options": [
+        {
+          "label": "A",
+          "text": "They increase the entropy of the random number generator, preventing cryptographic attacks.",
+          "isCorrect": false,
+          "rationale": "Spare gates are general-purpose logic and do not inherently increase entropy unless specifically designed into an RNG."
+        },
+        {
+          "label": "B",
+          "text": "They provide the built-in self-test (BIST) with extra resources to detect Trojans.",
+          "isCorrect": false,
+          "rationale": "Spare gates are usually intended for late-stage engineering fixes, not for helping BIST."
+        },
+        {
+          "label": "C",
+          "text": "They can be co-opted by a malicious foundry to implement Trojan logic without changing the footprint of the chip.",
+          "isCorrect": true,
+          "rationale": "Since spare gates are already present but unused, an attacker can wire them together to create a Trojan that is very hard to detect visually."
+        },
+        {
+          "label": "D",
+          "text": "They are required for split manufacturing to function correctly.",
+          "isCorrect": false,
+          "rationale": "Split manufacturing is a fabrication strategy and does not rely on the presence of spare gates."
+        }
+      ],
+      "hint": "Think of unused resources on a chip as potential 'vacant lots' for an attacker to build on.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 23,
+      "question": "Which of the following is a challenge in detecting Hardware Trojans according to the source material?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Trojans are always too large to be detected by physical inspection.",
+          "isCorrect": false,
+          "rationale": "Trojans are often extremely small, which makes them *hard* to detect, but the text doesn't say they are always too large."
+        },
+        {
+          "label": "B",
+          "text": "The inability to use CAD tools for post-silicon verification.",
+          "isCorrect": false,
+          "rationale": "The source material doesn't state that CAD tools can't be used; rather, it emphasizes that detection must be cost-effective and handle many designs."
+        },
+        {
+          "label": "C",
+          "text": "The need for a detection method that is non-destructive to the IC.",
+          "isCorrect": true,
+          "rationale": "Testing every chip by taking it apart would destroy the product, so non-destructive testing (like side-channel analysis) is critical."
+        },
+        {
+          "label": "D",
+          "text": "The requirement that all triggers must be active during testing.",
+          "isCorrect": false,
+          "rationale": "Trojans are specifically designed *not* to be active during testing, which is exactly why they are so hard to detect."
+        }
+      ],
+      "hint": "Consider the trade-off between inspecting a chip's internal structure and keeping that chip functional for sale.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 24,
+      "question": "An attacker uses a 'Time Delay' trigger for their Hardware Trojan. What is the likely purpose of this choice?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To bypass the initial warranty and testing period before causing a failure.",
+          "isCorrect": true,
+          "rationale": "By waiting for a certain amount of time (e.g., thousands of clock cycles), the Trojan ensures the device is already deployed and out of the testing phase before it strikes."
+        },
+        {
+          "label": "B",
+          "text": "To allow the random number generator enough time to reach full entropy.",
+          "isCorrect": false,
+          "rationale": "Trojans aim to *compromise* entropy, not help the chip function correctly."
+        },
+        {
+          "label": "C",
+          "text": "To ensure the Trojan activates as soon as the chip is first powered on in the factory.",
+          "isCorrect": false,
+          "rationale": "A time delay is meant to wait; an 'Always On' trigger would be used for immediate activation."
+        },
+        {
+          "label": "D",
+          "text": "To synchronize the Trojan's activity with the external antenna signal.",
+          "isCorrect": false,
+          "rationale": "While timing is important for synchronization, a 'Time Delay' specifically refers to an internal counter-based wait period."
+        }
+      ],
+      "hint": "Think about why a 'ticking time bomb' is harder to catch during a quick inspection.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 25,
+      "question": "In split manufacturing, which part of the design is typically kept within a 'trusted' facility?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The final metal layers that connect the transistors into a functional circuit.",
+          "isCorrect": true,
+          "rationale": "The base layers (transistors) can be made in a high-volume, potentially untrusted fab, while the final 'routing' that defines the logic is done at a trusted site."
+        },
+        {
+          "label": "B",
+          "text": "The packaging and bonding wires used for the final chip assembly.",
+          "isCorrect": false,
+          "rationale": "Packaging is post-silicon and usually done after the split manufacturing process is complete."
+        },
+        {
+          "label": "C",
+          "text": "The 3rd party IP blocks used for the memory controller.",
+          "isCorrect": false,
+          "rationale": "3rd party IP is external by definition; split manufacturing is about where the *physical* fab work happens."
+        },
+        {
+          "label": "D",
+          "text": "The initial RTL specification and synthesis scripts.",
+          "isCorrect": false,
+          "rationale": "While these are sensitive, split manufacturing refers to the physical fabrication layers."
+        }
+      ],
+      "hint": "Think about the layers of a chip that determine the actual connections between logic gates.",
+      "correctAnswer": "A"
+    }
+  ]
+}

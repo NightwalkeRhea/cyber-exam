@@ -1,0 +1,839 @@
+{
+  "title": "Fundamentals Quiz",
+  "totalQuestions": 26,
+  "extractedAt": "2026-06-01T14:54:57.695Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "In the modern hierarchical definition of system hardware acting as the root-of-trust, which sequence correctly identifies the flow of trust components?",
+      "options": [
+        {
+          "label": "A",
+          "text": "SW \\rightarrow HW \\rightarrow PCB",
+          "isCorrect": false,
+          "rationale": "Hardware is considered the root-of-trust for software, not the other way around, and the PCB is a subset of the hardware environment."
+        },
+        {
+          "label": "B",
+          "text": "IC \\rightarrow SoC \\rightarrow PCB",
+          "isCorrect": false,
+          "rationale": "This reverses the physical hierarchy where the board level typically hosts and provides the initial environment for the integrated components."
+        },
+        {
+          "label": "C",
+          "text": "SoC \\rightarrow BIOS \\rightarrow OS",
+          "isCorrect": false,
+          "rationale": "While this represents a boot sequence, it does not define the fundamental hardware hierarchy of the root-of-trust described in the fundamentals."
+        },
+        {
+          "label": "D",
+          "text": "PCB \\rightarrow IC (SoC | \\mu P)",
+          "isCorrect": true,
+          "rationale": "The source material identifies system hardware as the root-of-trust, moving from the Printed Circuit Board level down to the Integrated Circuit level, specifically System-on-Chip or Microprocessors."
+        }
+      ],
+      "hint": "Consider the relationship between the physical board and the specific chips mounted on it.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 2,
+      "question": "Which shift in the semiconductor industry's business model is identified as the dominant contemporary approach, and what is its primary characteristic?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Hybrid model: Fabrication is strictly internal while design is outsourced to third-party IP providers.",
+          "isCorrect": false,
+          "rationale": "This contradicts the economy of scale principle where fabrication is typically the component outsourced to specialized foundries."
+        },
+        {
+          "label": "B",
+          "text": "Horizontal model: Multiple companies specialize in different stages such as design, synthesis, and fabrication.",
+          "isCorrect": true,
+          "rationale": "The horizontal model is dominant because it allows for specialization and economies of scale where one fabrication facility serves many fabless companies."
+        },
+        {
+          "label": "C",
+          "text": "Vertical model: A single company maintains total control over the design, synthesis, and fabrication processes.",
+          "isCorrect": false,
+          "rationale": "While this model provides more control, the industry has shifted away from it due to the high costs of maintaining private fabrication facilities."
+        },
+        {
+          "label": "D",
+          "text": "Circular model: Fabrication facilities own the IP of the fabless companies they serve.",
+          "isCorrect": false,
+          "rationale": "This would represent a conflict of interest and does not reflect the standard horizontal industry structure where IP ownership remains with the designer."
+        }
+      ],
+      "hint": "Think about the transition from a 'one-company' system to a multi-company 'fabless' ecosystem.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 3,
+      "question": "What is a primary security concern introduced by the global distribution of third-party IP design in System-on-Chip (SoC) development?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The inevitable reduction in the clock frequency of the final SoC.",
+          "isCorrect": false,
+          "rationale": "While performance is a design constraint, it is not the primary security concern associated with the lack of control in third-party IP integration."
+        },
+        {
+          "label": "B",
+          "text": "The lack of direct control over the design process across various international companies.",
+          "isCorrect": true,
+          "rationale": "The source states that because IP providers are located across the world, there is no centralized control on the design process, leading to potential vulnerabilities."
+        },
+        {
+          "label": "C",
+          "text": "The requirement for all companies involved to be located within the same regulatory jurisdiction.",
+          "isCorrect": false,
+          "rationale": "The problem is the lack of such requirements or control, which allows for disparate and potentially untrusted design environments."
+        },
+        {
+          "label": "D",
+          "text": "The inability to use different programming languages for different IP blocks.",
+          "isCorrect": false,
+          "rationale": "Compatibility is a functional engineering issue rather than a fundamental security risk derived from the business model."
+        }
+      ],
+      "hint": "Consider the implications of 'Company X' and 'Company Y' operating in different countries without a central oversight body.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 4,
+      "question": "In cybersecurity terminology, how is a 'vulnerability' distinct from a 'threat'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A vulnerability is the result of an attack, whereas a threat is the cause of an attack.",
+          "isCorrect": false,
+          "rationale": "A vulnerability exists prior to an attack; it is the flaw that the attack exploits."
+        },
+        {
+          "label": "B",
+          "text": "A vulnerability refers to software bugs, while a threat refers only to physical hardware tampering.",
+          "isCorrect": false,
+          "rationale": "Both terms apply to hardware and software; the distinction lies in 'weakness' vs 'potential for harm'."
+        },
+        {
+          "label": "C",
+          "text": "A vulnerability is a weakness in the system, whereas a threat is a set of circumstances that could cause harm.",
+          "isCorrect": true,
+          "rationale": "The source defines vulnerability specifically as the internal weakness, and a threat as the external potential for harm."
+        },
+        {
+          "label": "D",
+          "text": "A vulnerability is an active human exploit, whereas a threat is a passive hardware failure.",
+          "isCorrect": false,
+          "rationale": "The act of exploitation is defined as an 'attack,' not a vulnerability."
+        }
+      ],
+      "hint": "One is an inherent flaw; the other is the external possibility of that flaw being used to cause damage.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 5,
+      "question": "Which aspect of the CIA triad is compromised if an unauthorized party succeeds in altering the data stored within an integrated circuit?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Availability",
+          "isCorrect": false,
+          "rationale": "Availability ensures the system is accessible when needed; modification of data doesn't always imply a denial of service."
+        },
+        {
+          "label": "B",
+          "text": "Accountability",
+          "isCorrect": false,
+          "rationale": "While important, accountability is not one of the three primary pillars of the CIA triad mentioned in the definitions."
+        },
+        {
+          "label": "C",
+          "text": "Integrity",
+          "isCorrect": true,
+          "rationale": "Integrity is defined as ensuring that an asset is only modified by authorized parties."
+        },
+        {
+          "label": "D",
+          "text": "Confidentiality",
+          "isCorrect": false,
+          "rationale": "Confidentiality relates to unauthorized access (viewing) of data, not necessarily its modification."
+        }
+      ],
+      "hint": "Focus on the definition involving authorized modification of assets.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 6,
+      "question": "According to the source, why is hardware security considered especially challenging compared to software security?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Hardware is immune to the 'Secret' root of cryptography that protects software.",
+          "isCorrect": false,
+          "rationale": "Hardware actually relies on 'secrets' (keys, physically hidden signs) as a root for security mechanisms."
+        },
+        {
+          "label": "B",
+          "text": "Hardware has a physical nature that makes it easier to modify or tamper with at various levels.",
+          "isCorrect": true,
+          "rationale": "The physical nature of hardware allows for tampering at many levels, and manufactured ICs are often obscure, making detection difficult."
+        },
+        {
+          "label": "C",
+          "text": "Hardware cannot be protected by encryption, whereas software can.",
+          "isCorrect": false,
+          "rationale": "The material explicitly lists 'Hardware implementations of encryption' as a control for secure systems."
+        },
+        {
+          "label": "D",
+          "text": "Hardware logic is fundamentally more complex to write than software code.",
+          "isCorrect": false,
+          "rationale": "Complexity is subjective and doesn't address the specific security challenges related to the physical and obscure nature of ICs."
+        }
+      ],
+      "hint": "Consider the tangible aspects of a chip versus the abstract nature of code.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 7,
+      "question": "What is the primary motivation for a fabrication facility to act as an adversary in the hardware supply chain?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Installing software viruses during the OS installation phase.",
+          "isCorrect": false,
+          "rationale": "Fabrication facilities operate at the silicon level, long before the OS installation which usually happens at the assembly or system integration stage."
+        },
+        {
+          "label": "B",
+          "text": "Improving the yield of the manufacturing process to decrease costs.",
+          "isCorrect": false,
+          "rationale": "Improving yield is a legitimate business goal, not an adversarial act against security."
+        },
+        {
+          "label": "C",
+          "text": "Conducting reverse engineering to help the designer find bugs.",
+          "isCorrect": false,
+          "rationale": "Adversarial reverse engineering is done for malicious purposes or IP theft, not for helpful debugging."
+        },
+        {
+          "label": "D",
+          "text": "Pirating the Integrated Circuits (ICs) or Intellectual Property (IPs).",
+          "isCorrect": true,
+          "rationale": "The source identifies fabrication facilities as adversaries that may engage in pirating the IPs they are entrusted to manufacture or pirating the physical ICs."
+        }
+      ],
+      "hint": "Think about the assets the facility has access to during the manufacturing stage.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 8,
+      "question": "Which of the following describes the 'Assurance gap' in the context of secure embedded systems design?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The difficulty in guaranteeing security metrics while balancing power, area, and cost.",
+          "isCorrect": true,
+          "rationale": "Assurance in embedded systems is a design challenge because security processing must be weighed against other rigid constraints like battery life and cost."
+        },
+        {
+          "label": "B",
+          "text": "The time delay between a vulnerability being discovered and a patch being released.",
+          "isCorrect": false,
+          "rationale": "This describes a 'window of vulnerability' or patching cycle, which is more common in software than in fixed hardware design."
+        },
+        {
+          "label": "C",
+          "text": "The inability of a system to assure that users are always human.",
+          "isCorrect": false,
+          "rationale": "While related to user identification, the assurance gap specifically refers to the overall challenge of meeting security objectives within embedded constraints."
+        },
+        {
+          "label": "D",
+          "text": "The physical space between the processor and the battery on a PCB.",
+          "isCorrect": false,
+          "rationale": "This is a layout or thermal management issue, not the conceptual 'assurance gap' related to security verification."
+        }
+      ],
+      "hint": "Look for the trade-offs required when security is treated as a design challenge alongside power and cost.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 9,
+      "question": "In the 'Typical Cycle in Securing a System,' what action follows the identification of a breach?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Wait for a second breach to confirm the vulnerability.",
+          "isCorrect": false,
+          "rationale": "Waiting for a second breach is reactive and dangerous; the goal is to resolve the identified issue immediately."
+        },
+        {
+          "label": "B",
+          "text": "Immediately transition from a horizontal to a vertical business model.",
+          "isCorrect": false,
+          "rationale": "Business model changes are long-term structural shifts, not a standard step in the iterative security cycle."
+        },
+        {
+          "label": "C",
+          "text": "Publicly disclose the 'Secret' root to invalidate the attack.",
+          "isCorrect": false,
+          "rationale": "Disclosing the secret would destroy the security of all systems using that root, rather than protecting them."
+        },
+        {
+          "label": "D",
+          "text": "Work out a protected system again.",
+          "isCorrect": true,
+          "rationale": "The cycle completes by identifying the specific breach and iterating the design to create a newly protected system."
+        }
+      ],
+      "hint": "What is the logical next step to return the system to a safe state after a failure is found?",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 10,
+      "question": "Which hardware vulnerability specifically involves the illegal use or theft of design files?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Backdoors",
+          "isCorrect": false,
+          "rationale": "Backdoors are hidden access points, which may be part of an IP but do not define the act of pirating the IP itself."
+        },
+        {
+          "label": "B",
+          "text": "IP Piracy",
+          "isCorrect": true,
+          "rationale": "Intellectual Property (IP) piracy refers to the illegal use or unauthorized reproduction of design components."
+        },
+        {
+          "label": "C",
+          "text": "Reverse Engineering",
+          "isCorrect": false,
+          "rationale": "Reverse engineering is the process of deconstructing a physical chip to understand its design, whereas piracy often involves direct theft of design files."
+        },
+        {
+          "label": "D",
+          "text": "Trojan Horses",
+          "isCorrect": false,
+          "rationale": "Trojan horses involve malicious circuitries added to a design, not necessarily the theft of the original design files."
+        }
+      ],
+      "hint": "This term relates specifically to 'Intellectual Property'.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 11,
+      "question": "What is the primary role of 'Hiding signatures in design files' as a hardware control?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To physically block the pins of an IC to prevent probing.",
+          "isCorrect": false,
+          "rationale": "Physical blocking is a 'tamper-resistant' or 'physical lock' measure, not a digital signature in a file."
+        },
+        {
+          "label": "B",
+          "text": "To increase the processing power of the embedded system.",
+          "isCorrect": false,
+          "rationale": "Signatures are security overhead and generally do not increase processing performance."
+        },
+        {
+          "label": "C",
+          "text": "To encrypt the communication bus between the SoC and external memory.",
+          "isCorrect": false,
+          "rationale": "Bus encryption is a separate data protection mechanism, not a design file signature."
+        },
+        {
+          "label": "D",
+          "text": "To provide a method for verifying the authenticity and ownership of the IP.",
+          "isCorrect": true,
+          "rationale": "Signatures act as watermarks or identifiers that help prove the origin of a design and detect illegal use."
+        }
+      ],
+      "hint": "Consider how an author proves a book belongs to them without changing the story.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 12,
+      "question": "The 'Battery gap' in embedded security challenges refers to which problem?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The energy consumption of security processing can exceed the limited power capacity of embedded devices.",
+          "isCorrect": true,
+          "rationale": "Security mechanisms like encryption are computationally intensive and can drain batteries faster than the device's energy source can sustain."
+        },
+        {
+          "label": "B",
+          "text": "The physical space required to shield a battery from electromagnetic tampering.",
+          "isCorrect": false,
+          "rationale": "This relates to physical tampering or electromagnetic interference, not the power-performance gap."
+        },
+        {
+          "label": "C",
+          "text": "The vulnerability of physical batteries to being stolen by adversaries.",
+          "isCorrect": false,
+          "rationale": "While physical theft is a risk, the 'battery gap' specifically refers to the power-consumption-versus-capacity design constraint."
+        },
+        {
+          "label": "D",
+          "text": "The inability to use encryption when the battery level is below 50\\%.",
+          "isCorrect": false,
+          "rationale": "This is a specific implementation choice, not the fundamental design 'gap' mentioned in the source."
+        }
+      ],
+      "hint": "Think about the energy cost of running complex security algorithms on a small device.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 13,
+      "question": "Which adversary is most likely to engage in 'Recycling' or 'Cloning' of hardware components?",
+      "options": [
+        {
+          "label": "A",
+          "text": "System integrators",
+          "isCorrect": false,
+          "rationale": "System integrators typically use legitimate components to build systems, though they may pirate IPs, they are not the primary source of 'recycled' chips."
+        },
+        {
+          "label": "B",
+          "text": "Counterfeiting parties",
+          "isCorrect": true,
+          "rationale": "Counterfeiters are specifically linked in the material to activities like recycling old chips or cloning existing designs."
+        },
+        {
+          "label": "C",
+          "text": "IP Designers",
+          "isCorrect": false,
+          "rationale": "Designers create the original content; they would not benefit from recycling or cloning their own products illegally."
+        },
+        {
+          "label": "D",
+          "text": "Academic researchers",
+          "isCorrect": false,
+          "rationale": "Researchers may use reverse engineering for study, but they are not categorized as 'adversaries' involved in the 'recycling' market in this context."
+        }
+      ],
+      "hint": "This group focuses on producing fake or substandard 'new' products from old or stolen ones.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 14,
+      "question": "How does the source define the 'Availability' aspect of computer security?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The system hardware is available to be physically tampered with by administrators.",
+          "isCorrect": false,
+          "rationale": "Physical tampering is a vulnerability; availability refers to the operational accessibility of the system."
+        },
+        {
+          "label": "B",
+          "text": "The design files are available for review by all third-party vendors.",
+          "isCorrect": false,
+          "rationale": "This would likely violate confidentiality and IP protection protocols."
+        },
+        {
+          "label": "C",
+          "text": "The asset is accessible to authorized parties at appropriate times.",
+          "isCorrect": true,
+          "rationale": "Availability ensures that authorized users have timely and reliable access to information and resources."
+        },
+        {
+          "label": "D",
+          "text": "The asset is available for purchase on the open market.",
+          "isCorrect": false,
+          "rationale": "Commercial availability is an economic concept, not a cybersecurity principle of the CIA triad."
+        }
+      ],
+      "hint": "Think about a user's ability to use the system when they need it.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 15,
+      "question": "Which hardware control specifically deals with 'scrambling to hide' information?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Tamper-resistant coatings",
+          "isCorrect": false,
+          "rationale": "Coatings provide physical protection against intrusion but do not 'scramble' the underlying data logic."
+        },
+        {
+          "label": "B",
+          "text": "Design locks",
+          "isCorrect": false,
+          "rationale": "Locks prevent access rather than scrambling the information into an unreadable format."
+        },
+        {
+          "label": "C",
+          "text": "Hardware implementations of encryption",
+          "isCorrect": true,
+          "rationale": "Encryption is explicitly defined in the text as having to do with 'scrambling to hide' data or communications."
+        },
+        {
+          "label": "D",
+          "text": "Intrusion detection systems",
+          "isCorrect": false,
+          "rationale": "These systems monitor for unauthorized access but do not necessarily hide the data themselves."
+        }
+      ],
+      "hint": "This is a fundamental concept in cryptography often implemented in hardware.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 16,
+      "question": "What is meant by the 'Processing gap' in the challenges of secure embedded systems?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The difference between the high computational requirements of security tasks and the limited processing power of embedded CPUs.",
+          "isCorrect": true,
+          "rationale": "Security processing can easily overwhelm small embedded processors, creating a gap between needed and available performance."
+        },
+        {
+          "label": "B",
+          "text": "The physical distance between the CPU and the GPU on an SoC.",
+          "isCorrect": false,
+          "rationale": "This is a physical layout issue, not a 'processing gap' in the context of security overhead."
+        },
+        {
+          "label": "C",
+          "text": "The time it takes for a signal to travel from the input to the output pins.",
+          "isCorrect": false,
+          "rationale": "This describes 'latency' or 'propagation delay,' not the performance gap created by security protocols."
+        },
+        {
+          "label": "D",
+          "text": "The gap in understanding between hardware engineers and software developers.",
+          "isCorrect": false,
+          "rationale": "While a real issue, the material defines gaps in terms of technical system constraints (battery, processing, etc.)."
+        }
+      ],
+      "hint": "Consider the 'overhead' mentioned in the context of performance and power.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 17,
+      "question": "In the context of 'Adversaries,' why might an individual insert a 'Trojan horse' into an IC?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To create a hidden malicious circuitry that can be triggered later.",
+          "isCorrect": true,
+          "rationale": "Trojan horses are malicious additions to hardware that remain dormant until triggered to cause harm or leak data."
+        },
+        {
+          "label": "B",
+          "text": "To verify that the IP designer has followed all safety protocols.",
+          "isCorrect": false,
+          "rationale": "Trojans are adversarial and malicious, the opposite of a safety verification tool."
+        },
+        {
+          "label": "C",
+          "text": "To act as a physical lock that prevents the chip from being stolen.",
+          "isCorrect": false,
+          "rationale": "A Trojan is a vulnerability or attack vector, not a defensive 'lock' for the owner."
+        },
+        {
+          "label": "D",
+          "text": "To speed up the manufacturing process at the foundry.",
+          "isCorrect": false,
+          "rationale": "Trojans add complexity and would not logically improve manufacturing speed."
+        }
+      ],
+      "hint": "This is a classic 'hidden' threat that performs unauthorized actions.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 18,
+      "question": "Which term describes a 'set of circumstances' that has the potential to cause loss or harm?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Attack",
+          "isCorrect": false,
+          "rationale": "An attack is the specific 'act' of a human exploiting a vulnerability."
+        },
+        {
+          "label": "B",
+          "text": "Countermeasure",
+          "isCorrect": false,
+          "rationale": "A countermeasure is a 'method of defense' intended to mitigate threats."
+        },
+        {
+          "label": "C",
+          "text": "Vulnerability",
+          "isCorrect": false,
+          "rationale": "Vulnerability is the 'weakness' itself, not the 'circumstances' that might exploit it."
+        },
+        {
+          "label": "D",
+          "text": "Threat",
+          "isCorrect": true,
+          "rationale": "A threat is defined in the source as the set of circumstances with the potential for harm, distinct from the act of exploitation."
+        }
+      ],
+      "hint": "It is the potential for danger, rather than the flaw or the action.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 19,
+      "question": "What is the 'root' underlying most security mechanisms or protocols, according to the source?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The use of open-source hardware designs.",
+          "isCorrect": false,
+          "rationale": "Security often relies on secrets, which can be at odds with 'completely open' designs if the secrets themselves are exposed."
+        },
+        {
+          "label": "B",
+          "text": "The notion of a 'Secret' (e.g., keys, passwords).",
+          "isCorrect": true,
+          "rationale": "The source explicitly states that the notion of a 'secret'—physically hidden or logically protected—underlies security mechanisms."
+        },
+        {
+          "label": "C",
+          "text": "A robust physical cooling system.",
+          "isCorrect": false,
+          "rationale": "Cooling is a functional requirement for reliability, not a security protocol root."
+        },
+        {
+          "label": "D",
+          "text": "The TCP/IP network protocol.",
+          "isCorrect": false,
+          "rationale": "While used in many systems, TCP/IP is a communication protocol, not the fundamental 'root' of security mechanisms."
+        }
+      ],
+      "hint": "Think of what a 'lock' requires to be opened.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 20,
+      "question": "Which of these is a hardware-specific vulnerability listed in the fundamentals?",
+      "options": [
+        {
+          "label": "A",
+          "text": "SQL Injection",
+          "isCorrect": false,
+          "rationale": "SQL injection is a software/database vulnerability and is not mentioned in the hardware fundamentals."
+        },
+        {
+          "label": "B",
+          "text": "Buffer Overflow",
+          "isCorrect": false,
+          "rationale": "Buffer overflows are typically memory management errors in software, though they interact with hardware memory."
+        },
+        {
+          "label": "C",
+          "text": "Reverse Engineering",
+          "isCorrect": true,
+          "rationale": "Reverse engineering is listed as a hardware vulnerability because it allows adversaries to extract design secrets from physical chips."
+        },
+        {
+          "label": "D",
+          "text": "Phishing",
+          "isCorrect": false,
+          "rationale": "Phishing is a social engineering attack, not a physical hardware vulnerability."
+        }
+      ],
+      "hint": "This involves deconstructing a finished product to find out how it was made.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 21,
+      "question": "How does a 'Horizontal' industry model achieve 'Economy of Scale' in fabrication?",
+      "options": [
+        {
+          "label": "A",
+          "text": "By using only one type of PCB for every electronic system produced.",
+          "isCorrect": false,
+          "rationale": "Economy of scale in this context refers to the facility's utility across different designs, not forcing a single design for everyone."
+        },
+        {
+          "label": "B",
+          "text": "Each company builds its own small-scale manufacturing plant.",
+          "isCorrect": false,
+          "rationale": "This describes the vertical model, which is less efficient and does not achieve the same economy of scale."
+        },
+        {
+          "label": "C",
+          "text": "The same fabrication facility serves many different fabless companies.",
+          "isCorrect": true,
+          "rationale": "By centralizing manufacturing for multiple designers, foundries can operate at much higher volumes and lower per-unit costs."
+        },
+        {
+          "label": "D",
+          "text": "By eliminating the need for IP design entirely.",
+          "isCorrect": false,
+          "rationale": "Fabrication requires a design to manufacture; you cannot eliminate the design phase."
+        }
+      ],
+      "hint": "One factory, many customers.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 22,
+      "question": "Which security requirement in the IoT era focuses on the physical protection of the device against unauthorized modifications?",
+      "options": [
+        {
+          "label": "A",
+          "text": "User Identification",
+          "isCorrect": false,
+          "rationale": "This ensures only the right person uses the device but doesn't prevent physical hacking of the hardware."
+        },
+        {
+          "label": "B",
+          "text": "Content Security",
+          "isCorrect": false,
+          "rationale": "Content security focuses on the protection of the data itself, not necessarily the physical structure of the device."
+        },
+        {
+          "label": "C",
+          "text": "Tamper Resistance",
+          "isCorrect": true,
+          "rationale": "Tamper resistance is shown in the IoT security diagram as a key requirement to prevent physical modification of the hardware."
+        },
+        {
+          "label": "D",
+          "text": "Secure Network Access",
+          "isCorrect": false,
+          "rationale": "This relates to the communication channels, not the physical integrity of the local hardware."
+        }
+      ],
+      "hint": "Look for the term that implies resisting physical 'tampering'.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 23,
+      "question": "In computer security, what is the definition of 'Confidentiality'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Related assets are only accessed by authorized parties.",
+          "isCorrect": true,
+          "rationale": "Confidentiality ensures that sensitive information is not disclosed to unauthorized individuals, entities, or processes."
+        },
+        {
+          "label": "B",
+          "text": "The system cannot be turned off by unauthorized users.",
+          "isCorrect": false,
+          "rationale": "This is more related to availability or control, not the confidentiality of the data."
+        },
+        {
+          "label": "C",
+          "text": "Every action in the system is recorded in a log.",
+          "isCorrect": false,
+          "rationale": "Logging is for accountability or auditing, which supports security but isn't the definition of confidentiality."
+        },
+        {
+          "label": "D",
+          "text": "The design of the IC is kept secret from the foundry.",
+          "isCorrect": false,
+          "rationale": "While a type of confidentiality, the general definition focuses on authorized access to assets/data."
+        }
+      ],
+      "hint": "Think of 'authorized viewing' or 'secrecy'.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 24,
+      "question": "Why is 'Hardware boards limiting memory access' considered a control?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It increases the total amount of RAM available to the user.",
+          "isCorrect": false,
+          "rationale": "Limiting access is a restriction for security, not a method for increasing capacity."
+        },
+        {
+          "label": "B",
+          "text": "It allows anyone to modify the BIOS settings for better performance.",
+          "isCorrect": false,
+          "rationale": "Allowing unrestricted modification is a security risk, the opposite of a control."
+        },
+        {
+          "label": "C",
+          "text": "It ensures that the battery life is extended by 20\\%.",
+          "isCorrect": false,
+          "rationale": "While efficient memory use can save power, the primary purpose of this specific 'control' is security access management."
+        },
+        {
+          "label": "D",
+          "text": "It prevents unauthorized software or processes from reading sensitive data regions.",
+          "isCorrect": true,
+          "rationale": "Memory access control is a fundamental hardware-level defense against data leakage and corruption."
+        }
+      ],
+      "hint": "Consider the goal of restricting who or what can 'see' specific memory locations.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 25,
+      "question": "Which design challenge refers to the need for a security system to operate correctly in different environments and across different layers?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Flexibility",
+          "isCorrect": true,
+          "rationale": "Flexibility is defined as the ability to meet multiple security objectives and maintain interoperability across different layers and environments."
+        },
+        {
+          "label": "B",
+          "text": "Battery gap",
+          "isCorrect": false,
+          "rationale": "This specifically addresses power constraints, not environment/layer flexibility."
+        },
+        {
+          "label": "C",
+          "text": "Tamper Resistance",
+          "isCorrect": false,
+          "rationale": "Tamper resistance is a specific security goal, whereas 'flexibility' describes the breadth of the implementation's utility."
+        },
+        {
+          "label": "D",
+          "text": "Cost",
+          "isCorrect": false,
+          "rationale": "Cost is a metric to minimize, not the requirement for multi-layer interoperability."
+        }
+      ],
+      "hint": "This term implies the system can 'adapt' or work in various ways.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 26,
+      "question": "What does the term 'Obscure' refer to in the context of manufactured ICs?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The fact that most chips are designed to be used in dark environments.",
+          "isCorrect": false,
+          "rationale": "This is a literal and incorrect interpretation of the word 'obscure' in a technical security context."
+        },
+        {
+          "label": "B",
+          "text": "The lack of documentation provided by IP vendors.",
+          "isCorrect": false,
+          "rationale": "While documentation may be limited, 'obscure' in this context refers to the physical 'black box' nature of the hardware itself."
+        },
+        {
+          "label": "C",
+          "text": "The use of rare materials that are hard to find in nature.",
+          "isCorrect": false,
+          "rationale": "Obscurity here refers to visibility and understanding of the design, not the scarcity of raw materials."
+        },
+        {
+          "label": "D",
+          "text": "The difficulty in inspecting the internal layers and logic of a finished chip.",
+          "isCorrect": true,
+          "rationale": "Because ICs are microscopic and complex, it is hard for a user or integrator to verify that the physical silicon matches the design."
+        }
+      ],
+      "hint": "Think of a 'black box' where you can see the inputs and outputs but not the inside.",
+      "correctAnswer": "D"
+    }
+  ]
+}

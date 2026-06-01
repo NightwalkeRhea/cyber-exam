@@ -1,0 +1,839 @@
+{
+  "title": "Secure Coding Quiz",
+  "totalQuestions": 26,
+  "extractedAt": "2026-06-01T14:59:00.597Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "In the context of cybersecurity standards maintained by MITRE, how does a CWE differ from a CVE?",
+      "options": [
+        {
+          "label": "A",
+          "text": "CWE describes a theoretical type of software weakness, while CVE identifies a specific instance of a vulnerability in a product.",
+          "isCorrect": true,
+          "rationale": "CWE is an enumeration of weakness types at a conceptual level, whereas CVE refers to specific, documented vulnerabilities in real-world systems."
+        },
+        {
+          "label": "B",
+          "text": "CVE provides the methodology for fixing a bug, while CWE is merely a naming convention for the patches.",
+          "isCorrect": false,
+          "rationale": "Neither strictly provides patches; they are systems for categorizing and identifying weaknesses and vulnerabilities respectively."
+        },
+        {
+          "label": "C",
+          "text": "CVE is used during the development phase, while CWE is only used after a system has been deployed and compromised.",
+          "isCorrect": false,
+          "rationale": "Both standards can be used throughout the lifecycle, but they categorize different levels of abstraction regarding flaws."
+        },
+        {
+          "label": "D",
+          "text": "CWE is specific to hardware flaws, while CVE is reserved exclusively for software-based memory corruption.",
+          "isCorrect": false,
+          "rationale": "Both can apply to various aspects of system security, though the source focuses on their application to software vulnerabilities."
+        }
+      ],
+      "hint": "Consider which term refers to a 'type' of flaw versus a 'particular' occurrence in a specific program.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 2,
+      "question": "Which section of a program's virtual memory is responsible for storing global variables that have not been assigned an initial value by the developer?",
+      "options": [
+        {
+          "label": "A",
+          "text": ".bss",
+          "isCorrect": true,
+          "rationale": "The 'Block Started by Symbol' section contains uninitialized data, often zero-filled by default."
+        },
+        {
+          "label": "B",
+          "text": ".text",
+          "isCorrect": false,
+          "rationale": "This segment contains the actual executable machine instructions and is typically read-only."
+        },
+        {
+          "label": "C",
+          "text": ".data",
+          "isCorrect": false,
+          "rationale": "This segment is specifically for initialized global and static variables."
+        },
+        {
+          "label": "D",
+          "text": "Heap",
+          "isCorrect": false,
+          "rationale": "The heap is used for dynamic memory allocation at runtime via functions like malloc."
+        }
+      ],
+      "hint": "This acronym stands for 'Block Started by Symbol'.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 3,
+      "question": "In 32-bit architecture, which register serves as the Extended Stack Pointer, tracking the top of the local stack at the lowest memory address?",
+      "options": [
+        {
+          "label": "A",
+          "text": "ESI",
+          "isCorrect": false,
+          "rationale": "ESI is generally used as a source index for string operations, not primarily as the stack pointer."
+        },
+        {
+          "label": "B",
+          "text": "EIP",
+          "isCorrect": false,
+          "rationale": "The EIP (Extended Instruction Pointer) tracks the current memory address of the instruction being executed."
+        },
+        {
+          "label": "C",
+          "text": "EBP",
+          "isCorrect": false,
+          "rationale": "The EBP (Extended Base Pointer) typically points to the bottom or base of the current stack frame."
+        },
+        {
+          "label": "D",
+          "text": "ESP",
+          "isCorrect": true,
+          "rationale": "ESP points to the current top of the stack, which grows toward lower memory addresses."
+        }
+      ],
+      "hint": "The name of this register directly references its function of 'pointing' to the 'stack'.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 4,
+      "question": "Why is the term 'Buffer Overflow' technically considered a misnomer according to its formal definition?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Because it can only happen in interpreted languages like Python rather than compiled ones like C.",
+          "isCorrect": false,
+          "rationale": "It is actually most common in compiled languages like C and C++ that allow direct memory addressing."
+        },
+        {
+          "label": "B",
+          "text": "Because it is a hardware-level race condition that has nothing to do with software buffers.",
+          "isCorrect": false,
+          "rationale": "It is fundamentally a software memory management error."
+        },
+        {
+          "label": "C",
+          "text": "Because it refers specifically to the improper restriction of operations within the bounds of a memory buffer.",
+          "isCorrect": true,
+          "rationale": "The formal definition encompasses both reading and writing outside of intended memory boundaries, not just 'overflowing' with data."
+        },
+        {
+          "label": "D",
+          "text": "Because it only occurs when data is removed from a buffer, not added to it.",
+          "isCorrect": false,
+          "rationale": "The flaw involves operations exceeding buffer boundaries, regardless of the direction of data flow."
+        }
+      ],
+      "hint": "Think about whether the flaw is limited only to 'writing' too much data.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 5,
+      "question": "Which security property is primarily compromised by an 'Out-of-bounds Read' (CWE-125), as exemplified by the Heartbleed bug?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Non-repudiation",
+          "isCorrect": false,
+          "rationale": "This property relates to the inability to deny an action and is not the central concern of memory over-reads."
+        },
+        {
+          "label": "B",
+          "text": "Availability",
+          "isCorrect": false,
+          "rationale": "While it can cause crashes, the primary impact of the Heartbleed bug was the leakage of information."
+        },
+        {
+          "label": "C",
+          "text": "Confidentiality",
+          "isCorrect": true,
+          "rationale": "Leaking sensitive data from memory, such as private keys or credentials, directly violates confidentiality."
+        },
+        {
+          "label": "D",
+          "text": "Integrity",
+          "isCorrect": false,
+          "rationale": "Integrity is compromised when data is modified; an out-of-bounds read involves accessing data without permission."
+        }
+      ],
+      "hint": "This property focuses on keeping sensitive information secret from unauthorized parties.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 6,
+      "question": "The Heartbleed bug occurred in OpenSSL because the software failed to check which specific condition?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Whether the heartbeat request was encrypted using a 256-bit key.",
+          "isCorrect": false,
+          "rationale": "The vulnerability was independent of the encryption strength of the session."
+        },
+        {
+          "label": "B",
+          "text": "Whether the server's RAM was fragmented before processing the request.",
+          "isCorrect": false,
+          "rationale": "Fragmentation is a memory management state but was not the cause of the over-read."
+        },
+        {
+          "label": "C",
+          "text": "Whether the requester had the appropriate administrative privileges.",
+          "isCorrect": false,
+          "rationale": "The bug was a functional logic error in the protocol implementation, not an access control list issue."
+        },
+        {
+          "label": "D",
+          "text": "Whether the actual size of the payload matched the length field specified in the heartbeat request.",
+          "isCorrect": true,
+          "rationale": "OpenSSL trusted the 16-bit length field and read that many bytes from memory, even if the actual payload was much smaller."
+        }
+      ],
+      "hint": "Think about the relationship between the 'payload' and the 'integer' sent by the client.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 7,
+      "question": "Which of the following best describes a 'Use After Free' (CWE-416) vulnerability?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A program fails to release memory after it is no longer needed, leading to a memory leak.",
+          "isCorrect": false,
+          "rationale": "Failing to release memory is a memory leak, which is different from accessing it after it has already been freed."
+        },
+        {
+          "label": "B",
+          "text": "A program attempts to access memory via a dangling pointer that has not been reset to NULL after the memory was released.",
+          "isCorrect": true,
+          "rationale": "If a pointer is not cleared after the memory it points to is freed, it becomes 'dangling' and can be used to access data or inject code."
+        },
+        {
+          "label": "C",
+          "text": "A program uses a pointer before it has been initialized with a valid address.",
+          "isCorrect": false,
+          "rationale": "Using an uninitialized pointer is a separate type of memory error, not a 'free' related issue."
+        },
+        {
+          "label": "D",
+          "text": "A program allocates more memory than the system can provide, causing a crash.",
+          "isCorrect": false,
+          "rationale": "This describes an out-of-memory condition, which is a resource exhaustion issue rather than a use-after-free."
+        }
+      ],
+      "hint": "This flaw involves a pointer that remains in memory after its target is gone.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 8,
+      "question": "In the C++ language, what is the recommended modern approach to mitigate Use After Free vulnerabilities when dealing with dynamic memory?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Manual use of free() followed immediately by setting pointers to NULL.",
+          "isCorrect": false,
+          "rationale": "While a valid practice in C, C++ offers more automated features that are less prone to human error."
+        },
+        {
+          "label": "B",
+          "text": "Using global variables for all memory allocations.",
+          "isCorrect": false,
+          "rationale": "Global variables stay in the .data or .bss segment and do not solve dynamic heap management issues."
+        },
+        {
+          "label": "C",
+          "text": "Relying exclusively on Smart Pointers.",
+          "isCorrect": true,
+          "rationale": "Smart pointers manage object lifetimes automatically, ensuring memory is freed correctly and pointers are handled safely."
+        },
+        {
+          "label": "D",
+          "text": "Disabling the compiler's garbage collection features.",
+          "isCorrect": false,
+          "rationale": "Standard C++ does not have a built-in garbage collector; it relies on RAII and smart pointers."
+        }
+      ],
+      "hint": "These objects 'wrap' raw pointers and manage their lifecycle automatically.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 9,
+      "question": "An integer overflow (CWE-190) in an allocation function like malloc() is dangerous primarily because it can lead to what secondary issue?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Allocating a buffer much smaller than expected, which is then subjected to a buffer overflow.",
+          "isCorrect": true,
+          "rationale": "If the size calculation wraps to a small number, malloc allocates a small buffer, but the subsequent loop may still try to write the original, larger amount of data."
+        },
+        {
+          "label": "B",
+          "text": "A mandatory conversion of all signed integers to unsigned integers by the OS.",
+          "isCorrect": false,
+          "rationale": "The OS does not force such conversions; they are handled by language rules and compiler implementation."
+        },
+        {
+          "label": "C",
+          "text": "A logic error that prevents the program from ever starting.",
+          "isCorrect": false,
+          "rationale": "The program usually starts but fails or behaves maliciously during execution when the overflow occurs."
+        },
+        {
+          "label": "D",
+          "text": "Changing the program's source code in the .text segment.",
+          "isCorrect": false,
+          "rationale": "Integer overflows typically affect calculations for data sizes or indices, not the static code instructions."
+        }
+      ],
+      "hint": "Think about what happens to a 'loop' that uses the original large value to fill a 'wrapped' small buffer.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 10,
+      "question": "The Format String vulnerability (CWE-134) is frequently exploited using which family of functions in C?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The malloc() family",
+          "isCorrect": false,
+          "rationale": "These functions are for memory allocation, not for string formatting."
+        },
+        {
+          "label": "B",
+          "text": "The socket() family",
+          "isCorrect": false,
+          "rationale": "These functions manage network connections."
+        },
+        {
+          "label": "C",
+          "text": "The exec() family",
+          "isCorrect": false,
+          "rationale": "These functions are used for OS command execution, leading to command injection, not format string errors."
+        },
+        {
+          "label": "D",
+          "text": "The printf() family",
+          "isCorrect": true,
+          "rationale": "Functions like printf and sprintf use format specifiers that, if controlled by a user, can lead to memory leakage or corruption."
+        }
+      ],
+      "hint": "These functions use special characters like %s, %d, and %x.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 11,
+      "question": "Which specific format specifier can be used by an attacker to write data to a memory location in a Format String attack?",
+      "options": [
+        {
+          "label": "A",
+          "text": "%x",
+          "isCorrect": false,
+          "rationale": "%x is used to read and print data from the stack in hexadecimal format."
+        },
+        {
+          "label": "B",
+          "text": "%p",
+          "isCorrect": false,
+          "rationale": "%p prints the value of a pointer address."
+        },
+        {
+          "label": "C",
+          "text": "%s",
+          "isCorrect": false,
+          "rationale": "%s reads a string from a memory address pointed to by a value on the stack."
+        },
+        {
+          "label": "D",
+          "text": "%n",
+          "isCorrect": true,
+          "rationale": "The %n specifier writes the number of characters printed so far into a variable, allowing an attacker to modify memory."
+        }
+      ],
+      "hint": "This specifier is unique because it 'writes' the count of characters to an address rather than 'reading' data for display.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 12,
+      "question": "What is the core principle behind the OS Command Injection (CWE-78) vulnerability?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The operating system fails to update its security patches for the kernel.",
+          "isCorrect": false,
+          "rationale": "This is a software design flaw in the application, not necessarily a bug in the OS kernel itself."
+        },
+        {
+          "label": "B",
+          "text": "A program executes a system command where part of the command string is provided by an untrusted external source.",
+          "isCorrect": true,
+          "rationale": "If a program uses user input to build a command string for the shell without validation, the user can inject extra commands."
+        },
+        {
+          "label": "C",
+          "text": "A user provides an input that is too long for the allocated string buffer.",
+          "isCorrect": false,
+          "rationale": "While often combined with other flaws, this specifically describes a buffer overflow, not command injection."
+        },
+        {
+          "label": "D",
+          "text": "An attacker gains physical access to the server's terminal.",
+          "isCorrect": false,
+          "rationale": "The attack is performed remotely by influencing inputs processed by the software."
+        }
+      ],
+      "hint": "This is also known as 'Shell Injection'.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 13,
+      "question": "According to the course material, which mitigation strategy for OS Command Injection is considered more secure than blacklisting?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Increasing the size of the input buffer",
+          "isCorrect": false,
+          "rationale": "This addresses buffer overflows but does not stop an attacker from providing a short, valid, but malicious command."
+        },
+        {
+          "label": "B",
+          "text": "Encryption of command strings",
+          "isCorrect": false,
+          "rationale": "Encrypting the string does not prevent it from being executed maliciously once decrypted by the program."
+        },
+        {
+          "label": "C",
+          "text": "Hiding the source code from the public",
+          "isCorrect": false,
+          "rationale": "Security through obscurity is not an effective mitigation against injection attacks."
+        },
+        {
+          "label": "D",
+          "text": "Whitelisting",
+          "isCorrect": true,
+          "rationale": "Whitelisting only allows known-good patterns (e.g., using regular expressions), which is safer than trying to block all known-bad commands."
+        }
+      ],
+      "hint": "This approach involves defining exactly what is 'allowed' rather than what is 'forbidden'.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 14,
+      "question": "The W \\oplus X (Write XOR Execute) policy, introduced around 2003, is a countermeasure designed to prevent what?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Data corruption in the .bss segment.",
+          "isCorrect": false,
+          "rationale": "While it protects memory, its specific goal is to prevent the execution of injected code."
+        },
+        {
+          "label": "B",
+          "text": "Compilers from issuing security warnings.",
+          "isCorrect": false,
+          "rationale": "This is a runtime memory protection policy, not a compiler setting."
+        },
+        {
+          "label": "C",
+          "text": "The execution of malicious code injected into writable memory regions like the stack.",
+          "isCorrect": true,
+          "rationale": "By ensuring a memory page cannot be both writable and executable, attackers cannot run code they have written into the buffer."
+        },
+        {
+          "label": "D",
+          "text": "The use of dangling pointers in the heap.",
+          "isCorrect": false,
+          "rationale": "W \\oplus X does not prevent pointers from pointing to freed memory; it only stops that memory from being executable if it is writable."
+        }
+      ],
+      "hint": "This policy ensures that memory is either 'writable' or 'executable', but never both simultaneously.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 15,
+      "question": "How does Address Space Layout Randomization (ASLR) defend against memory exploits?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It prevents the CPU from executing instructions in the .text segment.",
+          "isCorrect": false,
+          "rationale": "The .text segment must be executable for the program to function; ASLR just moves where it is located."
+        },
+        {
+          "label": "B",
+          "text": "It encrypts the entire RAM of the server using a random seed.",
+          "isCorrect": false,
+          "rationale": "ASLR randomizes locations, it does not perform full-memory encryption."
+        },
+        {
+          "label": "C",
+          "text": "It randomizes the memory addresses of key segments (stack, heap, libraries) at load time.",
+          "isCorrect": true,
+          "rationale": "By changing addresses every time the program runs, it makes it difficult for an attacker to predict where to redirect the control flow."
+        },
+        {
+          "label": "D",
+          "text": "It constantly moves variables around while the program is actively running.",
+          "isCorrect": false,
+          "rationale": "Standard ASLR randomizes locations at load time, not continuously during execution."
+        }
+      ],
+      "hint": "This technique makes memory addresses 'unpredictable' for the attacker.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 16,
+      "question": "What is the primary function of a 'Stack Canary' in protecting against buffer overflows?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It acts as a backup copy of the return address.",
+          "isCorrect": false,
+          "rationale": "That describes a shadow stack, not a canary."
+        },
+        {
+          "label": "B",
+          "text": "It is a random value placed before the return address that is checked for changes before the function returns.",
+          "isCorrect": true,
+          "rationale": "If a buffer overflow overwrites the return address, it will almost certainly overwrite the canary first, alerting the system to the corruption."
+        },
+        {
+          "label": "C",
+          "text": "It automatically clears the stack of all local variables after every function call.",
+          "isCorrect": false,
+          "rationale": "This is part of standard stack frame cleanup, not the specific function of a canary."
+        },
+        {
+          "label": "D",
+          "text": "It is an instruction that prevents the EIP from moving to a lower address.",
+          "isCorrect": false,
+          "rationale": "The EIP must move according to the code; the canary is a data value, not a CPU instruction."
+        }
+      ],
+      "hint": "Think of a 'sentinel' value that detects if a boundary has been crossed.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 17,
+      "question": "Which mitigation technique involves maintaining a secondary stack to store return addresses, which are then compared to the primary stack to detect corruption?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Address Space Layout Randomization",
+          "isCorrect": false,
+          "rationale": "ASLR is about location randomness, not redundant storage of return addresses."
+        },
+        {
+          "label": "B",
+          "text": "Stack Canaries",
+          "isCorrect": false,
+          "rationale": "Canaries use a random value to detect overflow but do not store a separate copy of the return address itself."
+        },
+        {
+          "label": "C",
+          "text": "Integer Validation",
+          "isCorrect": false,
+          "rationale": "This is a method to prevent overflows during arithmetic, not a stack protection mechanism."
+        },
+        {
+          "label": "D",
+          "text": "Shadow Stacks",
+          "isCorrect": true,
+          "rationale": "Shadow stacks provide a secure, separate location to verify that return addresses have not been tampered with."
+        }
+      ],
+      "hint": "This technique 'follows' the main stack but exists in a protected space.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 18,
+      "question": "In Intel's Control-flow Enforcement Technology (CET), what is the purpose of the ENDBR instruction?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To terminate the program immediately if an integer overflow is detected.",
+          "isCorrect": false,
+          "rationale": "Integer overflows are generally not caught by ENDBR."
+        },
+        {
+          "label": "B",
+          "text": "To serve as a valid target for indirect branches, ensuring that jumps only land at intended locations.",
+          "isCorrect": true,
+          "rationale": "The CPU enters a special state after a branch; if the next instruction is not ENDBR, it triggers a fault, preventing redirection to gadgets."
+        },
+        {
+          "label": "C",
+          "text": "To encrypt the return address on the stack using a hardware-based key.",
+          "isCorrect": false,
+          "rationale": "This is a different type of protection (like pointer authentication) not specifically the role of ENDBR."
+        },
+        {
+          "label": "D",
+          "text": "To mark the end of a buffer and trigger a hardware fault if exceeded.",
+          "isCorrect": false,
+          "rationale": "ENDBR stands for 'End Branch' and is used to validate the landing site of a branch, not a buffer size."
+        }
+      ],
+      "hint": "This instruction acts as a 'landing pad' for jumps and calls.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 19,
+      "question": "Why is the W \\oplus X policy insufficient to prevent all types of code execution attacks, such as 'Code Reuse' attacks?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Because it requires every program to be rewritten in a memory-safe language.",
+          "isCorrect": false,
+          "rationale": "It is an environment/OS level protection that works with existing binary code."
+        },
+        {
+          "label": "B",
+          "text": "Because it can only be implemented on 16-bit systems.",
+          "isCorrect": false,
+          "rationale": "It is implemented on modern 32-bit and 64-bit systems."
+        },
+        {
+          "label": "C",
+          "text": "Because it does not prevent an attacker from redirecting execution to legitimate code already present in memory.",
+          "isCorrect": true,
+          "rationale": "Attackers can still use techniques like Return-to-libc or ROP to execute existing executable code in the .text segment or libraries."
+        },
+        {
+          "label": "D",
+          "text": "Because it consumes too much CPU power to be practical.",
+          "isCorrect": false,
+          "rationale": "W \\oplus X is a very efficient hardware/OS level protection."
+        }
+      ],
+      "hint": "Consider what happens if the 'malicious' code is actually just a library function like system().",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 20,
+      "question": "Which of the following describes the 'Least Privilege' principle as applied to mitigating Command Injection?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Only one user should be allowed to access the application at a time.",
+          "isCorrect": false,
+          "rationale": "This is a concurrency control, not a privilege limitation."
+        },
+        {
+          "label": "B",
+          "text": "The user should only be allowed to enter the shortest possible commands.",
+          "isCorrect": false,
+          "rationale": "Length of commands is not the same as the privileges of the account executing them."
+        },
+        {
+          "label": "C",
+          "text": "The application should run with the minimum set of permissions necessary to perform its task.",
+          "isCorrect": true,
+          "rationale": "If an injection occurs, the damage is limited to what the low-privilege account can do, preventing full system compromise."
+        },
+        {
+          "label": "D",
+          "text": "The developer should use the oldest version of the OS possible to ensure stability.",
+          "isCorrect": false,
+          "rationale": "Old OS versions usually have more unpatched vulnerabilities."
+        }
+      ],
+      "hint": "This principle aims to 'limit the damage' an attacker can do if they succeed.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 21,
+      "question": "In a 32-bit stack frame, why are function arguments pushed onto the stack in reverse order?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Because the .text segment reads memory from right to left.",
+          "isCorrect": false,
+          "rationale": "Processor instructions are typically fetched in linear order; the stack order is a convention of the calling sequence."
+        },
+        {
+          "label": "B",
+          "text": "To allow the first argument to be closest to the top of the stack after the return address is pushed.",
+          "isCorrect": true,
+          "rationale": "Pushing in reverse order ensures that when the function accesses them relative to the base pointer, the indices progress naturally."
+        },
+        {
+          "label": "C",
+          "text": "To confuse potential attackers who are trying to read the stack.",
+          "isCorrect": false,
+          "rationale": "While it might seem confusing, it is a standard ABI (Application Binary Interface) convention for functional reasons."
+        },
+        {
+          "label": "D",
+          "text": "To prevent the ESP from reaching memory address 0.",
+          "isCorrect": false,
+          "rationale": "The order of pushes does not change the total memory used or prevent the stack from growing down."
+        }
+      ],
+      "hint": "Think about the resulting 'visual' order of arguments from the perspective of the called function's EBP.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 22,
+      "question": "What happens to an integer during an overflow if it wraps to a very small or negative number?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The CPU automatically switches from 32-bit to 64-bit mode.",
+          "isCorrect": false,
+          "rationale": "The CPU architecture mode is fixed for the running process."
+        },
+        {
+          "label": "B",
+          "text": "The variable is deleted from the .data segment.",
+          "isCorrect": false,
+          "rationale": "Variables are not deleted due to value changes."
+        },
+        {
+          "label": "C",
+          "text": "The value becomes logically incorrect for the program's operations, potentially bypassing security checks.",
+          "isCorrect": true,
+          "rationale": "If a size check expected a large positive number but gets a small negative one due to wrap-around, it might allow a buffer overflow to proceed."
+        },
+        {
+          "label": "D",
+          "text": "The program immediately requests more RAM from the OS.",
+          "isCorrect": false,
+          "rationale": "An overflow is an arithmetic event; it doesn't automatically trigger a resource request."
+        }
+      ],
+      "hint": "Consider the effect on a 'bounds check' like `if (size < MAX_BUFFER_SIZE)`.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 23,
+      "question": "In the provided OpenSSH 3.3 example, an integer overflow occurred during the calculation of which value?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The return address of the packet_get_string function.",
+          "isCorrect": false,
+          "rationale": "The overflow was in a size calculation, not a memory address return value."
+        },
+        {
+          "label": "B",
+          "text": "The index of the stack canary.",
+          "isCorrect": false,
+          "rationale": "Canaries were not the focus of this specific integer overflow example."
+        },
+        {
+          "label": "C",
+          "text": "The argument for xmalloc(), calculated as nresp * sizeof(char*).",
+          "isCorrect": true,
+          "rationale": "If nresp was large enough, the multiplication would wrap, resulting in a tiny allocation for a large number of responses."
+        },
+        {
+          "label": "D",
+          "text": "The number of bits in the SSH encryption key.",
+          "isCorrect": false,
+          "rationale": "The example focuses on memory allocation logic for responses, not key generation."
+        }
+      ],
+      "hint": "The vulnerability was inside the `malloc` call's argument calculation.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 24,
+      "question": "Which of the following is a primary consequence of CWE-20: Improper Input Validation?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It only affects the visual interface of the application.",
+          "isCorrect": false,
+          "rationale": "The consequences are deep-seated in the logic and security of the system, not just the UI."
+        },
+        {
+          "label": "B",
+          "text": "It speeds up the program by skipping unnecessary checks.",
+          "isCorrect": false,
+          "rationale": "While technically faster to skip checks, it is a critical flaw, not a performance feature."
+        },
+        {
+          "label": "C",
+          "text": "It allows attackers to provide unexpected inputs that can trigger system crashes or arbitrary code execution.",
+          "isCorrect": true,
+          "rationale": "Validation is the 'first line of defense'; failing it enables almost every other type of injection or memory attack."
+        },
+        {
+          "label": "D",
+          "text": "It forces the compiler to ignore all warnings.",
+          "isCorrect": false,
+          "rationale": "Validation happens at runtime; compiler warnings are a static build-time feature."
+        }
+      ],
+      "hint": "This is a broad 'parent' weakness that often leads to more specific vulnerabilities.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 25,
+      "question": "Which component of the stack frame is specifically used to restore the EIP to its previous location after a function call completes?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Function Arguments",
+          "isCorrect": false,
+          "rationale": "Arguments provide data input to the function."
+        },
+        {
+          "label": "B",
+          "text": "Saved EBP",
+          "isCorrect": false,
+          "rationale": "The saved EBP is used to restore the base pointer of the caller, not the instruction pointer."
+        },
+        {
+          "label": "C",
+          "text": "Return Address",
+          "isCorrect": true,
+          "rationale": "The return address is the value that was the next EIP in the caller; it is popped back into EIP upon 'return'."
+        },
+        {
+          "label": "D",
+          "text": "Local variables",
+          "isCorrect": false,
+          "rationale": "Local variables store data for the function's internal use."
+        }
+      ],
+      "hint": "This is the value pushed onto the stack immediately after a 'call' instruction.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 26,
+      "question": "ISA modifications, such as those proposed for the SPARC LEON3, implement Control Flow Integrity (CFI) by introducing which structures?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Floating Point Units and Vector Engines",
+          "isCorrect": false,
+          "rationale": "These are for performance in calculation, not security against control flow hijacking."
+        },
+        {
+          "label": "B",
+          "text": "Encrypted Heap and Writable .text segments",
+          "isCorrect": false,
+          "rationale": "Making the .text segment writable would actually decrease security."
+        },
+        {
+          "label": "C",
+          "text": "Label State Register (LSR) and Label State Stack (LSS)",
+          "isCorrect": true,
+          "rationale": "These structures allow the processor to track and verify call sites and return sites at the hardware level."
+        },
+        {
+          "label": "D",
+          "text": "Virtual Memory Managers and Dynamic Linkers",
+          "isCorrect": false,
+          "rationale": "These are standard OS components, not specific ISA modifications for CFI."
+        }
+      ],
+      "hint": "Look for terms involving 'Label State' and hardware registers.",
+      "correctAnswer": "C"
+    }
+  ]
+}

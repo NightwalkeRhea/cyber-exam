@@ -1,0 +1,839 @@
+{
+  "title": "Side Channel Quiz",
+  "totalQuestions": 26,
+  "extractedAt": "2026-06-01T15:02:16.323Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "In the context of intended information channels, which security guarantee specifically ensures that a sender cannot later deny having sent a piece of information?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Authentication",
+          "isCorrect": false,
+          "rationale": "This verifies the identity of a user or system, which is a precursor to non-repudiation but does not inherently provide the proof required to prevent later denial of a specific transaction."
+        },
+        {
+          "label": "B",
+          "text": "Non-repudiation",
+          "isCorrect": true,
+          "rationale": "This guarantee provides proof of the origin and delivery of data, preventing a party from denying their involvement in the communication."
+        },
+        {
+          "label": "C",
+          "text": "Integrity",
+          "isCorrect": false,
+          "rationale": "While critical, this concept focuses on ensuring that data has not been modified during transit rather than identifying the actor's intent to deny the action."
+        },
+        {
+          "label": "D",
+          "text": "Availability",
+          "isCorrect": false,
+          "rationale": "This ensures that information and resources are accessible when needed, but it does not address the legal or cryptographic binding of an identity to an action."
+        }
+      ],
+      "hint": "Consider security requirements that establish legal or verifiable accountability for a transaction.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 2,
+      "question": "Which type of covert channel specifically leverages the distribution of system events or the specific control path a program takes to leak information?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Resource utilization covert channels",
+          "isCorrect": false,
+          "rationale": "These channels rely on the depletion or state of shared hardware resources, such as memory or disk space, to signal information."
+        },
+        {
+          "label": "B",
+          "text": "Probability covert channels",
+          "isCorrect": true,
+          "rationale": "These channels exploit statistical variations and the likelihood of different execution branches to transmit data surreptitiously."
+        },
+        {
+          "label": "C",
+          "text": "Termination covert channels",
+          "isCorrect": false,
+          "rationale": "This specific type is focused solely on whether a process completes its execution or enters an infinite loop, rather than the internal control flow distribution."
+        },
+        {
+          "label": "D",
+          "text": "Timing covert channels",
+          "isCorrect": false,
+          "rationale": "While related to execution paths, this category specifically focuses on the measurement of the total duration of a task rather than the statistical event distribution."
+        }
+      ],
+      "hint": "Look for the channel type that relies on the likelihood of certain events occurring.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 3,
+      "question": "According to the National Institute of Standards and Technology (NIST), a covert channel is defined primarily by its ability to do what?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Eliminate noise in data transmission",
+          "isCorrect": false,
+          "rationale": "Most realistic covert channels are inherently noisy; the lack of noise is a desired quality for the attacker rather than a defining requirement."
+        },
+        {
+          "label": "B",
+          "text": "Violate the system's security policy",
+          "isCorrect": true,
+          "rationale": "The core of the NIST definition is that the communication path is used in a manner that was never intended and bypasses established security rules."
+        },
+        {
+          "label": "C",
+          "text": "Bypass physical hardware isolation",
+          "isCorrect": false,
+          "rationale": "While side channels often do this, covert channels are more broadly defined by the violation of logical security policies within a shared environment."
+        },
+        {
+          "label": "D",
+          "text": "Maximize information bandwidth",
+          "isCorrect": false,
+          "rationale": "Bandwidth is a characteristic used to measure a channel's effectiveness, but it is not the defining legal or technical criteria for its classification."
+        }
+      ],
+      "hint": "The definition focuses on the illegality of the information flow relative to the system's rules.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 4,
+      "question": "What is a common mitigation technique used to reduce the effective bandwidth of a potential covert channel without modifying the underlying system implementation?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Constant-time implementation",
+          "isCorrect": false,
+          "rationale": "This is a structural modification to the implementation itself, which contradicts the premise of avoiding system changes."
+        },
+        {
+          "label": "B",
+          "text": "Noise injection",
+          "isCorrect": true,
+          "rationale": "By introducing random variations into the channel, the signal-to-noise ratio decreases, making it harder for an attacker to reliably extract data."
+        },
+        {
+          "label": "C",
+          "text": "Functional specification modeling",
+          "isCorrect": false,
+          "rationale": "This is a design-phase activity used to ensure correctness rather than a runtime mitigation strategy for existing channels."
+        },
+        {
+          "label": "D",
+          "text": "Resource depletion monitoring",
+          "isCorrect": false,
+          "rationale": "Monitoring is used to detect exploitation rather than proactively reducing the channel's inherent capacity to carry information."
+        }
+      ],
+      "hint": "Think about techniques that obscure the signal by adding artificial interference.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 5,
+      "question": "Which of the following is categorized as a side-channel attack vector that relies on the physical vibration or sound produced by a device during computation?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Electromagnetic radiation",
+          "isCorrect": false,
+          "rationale": "This involves radio frequency leakage from the circuit's electrical signals rather than mechanical or sound waves."
+        },
+        {
+          "label": "B",
+          "text": "Optical characteristics",
+          "isCorrect": false,
+          "rationale": "This vector involves measuring light emissions, such as LED flickering or internal circuit photons, rather than pressure waves in the air."
+        },
+        {
+          "label": "C",
+          "text": "Thermal signature",
+          "isCorrect": false,
+          "rationale": "This relies on heat dissipation patterns which, while a by-product of computation, are distinct from sonic vibrations."
+        },
+        {
+          "label": "D",
+          "text": "Acoustic effects",
+          "isCorrect": true,
+          "rationale": "Acoustic side channels capture sonic emissions from components like capacitors or processors to infer operational states."
+        }
+      ],
+      "hint": "Focus on the physical by-product associated with hearing.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 6,
+      "question": "Why are stable and repetitive code paths particularly dangerous in the context of side-channel attacks?",
+      "options": [
+        {
+          "label": "A",
+          "text": "They make statistical analysis impossible",
+          "isCorrect": false,
+          "rationale": "The opposite is true: consistent and repetitive signals are exactly what statistical analysis tools require to identify correlations."
+        },
+        {
+          "label": "B",
+          "text": "They prevent the use of speculative execution",
+          "isCorrect": false,
+          "rationale": "Speculative execution is a hardware feature that typically occurs regardless of code path stability, and stable paths do not inhibit it."
+        },
+        {
+          "label": "C",
+          "text": "They automatically inject noise into the channel",
+          "isCorrect": false,
+          "rationale": "Stable paths produce consistent signals; noise injection is a defense mechanism intended to counter such consistency."
+        },
+        {
+          "label": "D",
+          "text": "They amplify the leakage of secrets",
+          "isCorrect": true,
+          "rationale": "Repetitive operations allow an observer to collect multiple samples of the same secret-dependent behavior, significantly increasing the signal-to-noise ratio for extraction."
+        }
+      ],
+      "hint": "Consider how an attacker benefits from seeing the same signal multiple times.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 7,
+      "question": "A timing side-channel attack primarily exploits variations in latency caused by which of the following?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Physical de-processing of the part",
+          "isCorrect": false,
+          "rationale": "De-processing is a destructive physical inspection technique, whereas timing attacks are typically non-invasive and passive."
+        },
+        {
+          "label": "B",
+          "text": "Uniform ladders in algorithms",
+          "isCorrect": false,
+          "rationale": "Uniform ladders are a defense mechanism designed to eliminate timing variations rather than a source of leakage."
+        },
+        {
+          "label": "C",
+          "text": "Non-repudiation security features",
+          "isCorrect": false,
+          "rationale": "These are logical security properties and do not inherently introduce the hardware-level timing variations exploited in these attacks."
+        },
+        {
+          "label": "D",
+          "text": "RAM and cache hits",
+          "isCorrect": true,
+          "rationale": "The difference in time between fetching data from a fast cache versus a slow main memory is a major source of measurable timing variability."
+        }
+      ],
+      "hint": "Think about memory architecture levels and their impact on speed.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 8,
+      "question": "The Foreshadow vulnerability targets Intel processors specifically to extract what kind of sensitive information from the Secure Execution Environment?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The entire operating system kernel",
+          "isCorrect": false,
+          "rationale": "While kernel data might be vulnerable to related attacks, Foreshadow's unique threat was its ability to break into the hardware-isolated SGX enclaves."
+        },
+        {
+          "label": "B",
+          "text": "Private attestation key",
+          "isCorrect": true,
+          "rationale": "Foreshadow specifically targeted the Intel SGX enclave to steal the machine's private attestation key, compromising the platform's trust model."
+        },
+        {
+          "label": "C",
+          "text": "BIOS boot sequence parameters",
+          "isCorrect": false,
+          "rationale": "Boot mapping is a general goal of side channels, but Foreshadow is specifically noted for its impact on secure enclaves and attestation keys."
+        },
+        {
+          "label": "D",
+          "text": "Plaintext passwords from the RAM",
+          "isCorrect": false,
+          "rationale": "General RAM data extraction is a common goal, but the specific breakthrough of Foreshadow was the breach of the SGX secure enclave."
+        }
+      ],
+      "hint": "Focus on the specific secret stolen from the SGX secure enclave.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 9,
+      "question": "In a constant-time comparison implementation, such as checking a PIN or password, why is the early return pattern (returning false as soon as a mismatch is found) insecure?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It increases the power consumption variance",
+          "isCorrect": false,
+          "rationale": "While it might affect power, its primary and most easily exploitable weakness is the measurable timing difference."
+        },
+        {
+          "label": "B",
+          "text": "It requires the use of expensive floating-point units",
+          "isCorrect": false,
+          "rationale": "String or PIN comparisons are simple integer/logical operations and have nothing to do with floating-point hardware."
+        },
+        {
+          "label": "C",
+          "text": "It prevents the compiler from optimizing the code",
+          "isCorrect": false,
+          "rationale": "Early returns are actually a form of optimization that compilers favor, which is exactly why they introduce timing leaks."
+        },
+        {
+          "label": "D",
+          "text": "It reveals the position of the first incorrect character",
+          "isCorrect": true,
+          "rationale": "The time taken to return is proportional to how many characters were correct, allowing an attacker to brute-force the secret one character at a time."
+        }
+      ],
+      "hint": "Consider how the execution duration changes based on where a mismatch occurs.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 10,
+      "question": "Which of the following describes Simple Power Analysis (SPA) as opposed to Differential Power Analysis (DPA)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Dependency on the physical de-processing of the chip",
+          "isCorrect": false,
+          "rationale": "Both SPA and DPA are non-invasive techniques that do not require destroying or peeling the chip's packaging."
+        },
+        {
+          "label": "B",
+          "text": "Statistical analysis of thousands of operations",
+          "isCorrect": false,
+          "rationale": "This is the hallmark of DPA, which uses mathematical correlation to extract signals hidden beneath noise that a single trace cannot show."
+        },
+        {
+          "label": "C",
+          "text": "Usage of electromagnetic radiation sensors",
+          "isCorrect": false,
+          "rationale": "While similar in concept, EM analysis is a separate vector; SPA and DPA specifically refer to power consumption measured at the pins."
+        },
+        {
+          "label": "D",
+          "text": "Direct interpretation of a single power trace",
+          "isCorrect": true,
+          "rationale": "SPA involves looking at visual patterns in a power trace to identify specific instructions or algorithms being executed."
+        }
+      ],
+      "hint": "Distinguish between a direct visual method and a statistical mathematical method.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 11,
+      "question": "During an AES encryption process, why is the SubBytes (S-Box) lookup a significant source of power-based side-channel leakage?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It involves the direct XORing of the key with the plaintext",
+          "isCorrect": false,
+          "rationale": "This description refers to the AddRoundKey step, which also leaks information but is functionally distinct from the SubBytes substitution."
+        },
+        {
+          "label": "B",
+          "text": "It requires the processor to enter a low-power sleep state",
+          "isCorrect": false,
+          "rationale": "Encryption rounds are high-speed computations; the processor is fully active and does not sleep during S-Box lookups."
+        },
+        {
+          "label": "C",
+          "text": "It is a non-linear, data-dependent operation",
+          "isCorrect": true,
+          "rationale": "The power consumed during an S-Box table lookup is highly correlated with the input value, which is a mix of the plaintext and the secret key."
+        },
+        {
+          "label": "D",
+          "text": "It is the only step that uses a uniform ladder",
+          "isCorrect": false,
+          "rationale": "AES does not typically use a Montgomery ladder for its standard rounds; uniform ladders are more common in asymmetric cryptography like ECC."
+        }
+      ],
+      "hint": "Focus on the mathematical nature of the substitution step in block ciphers.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 12,
+      "question": "What is the primary goal of using a Montgomery ladder in cryptographic algorithms like Elliptic Curve Cryptography (ECC)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Ensuring a uniform sequence of operations regardless of key bits",
+          "isCorrect": true,
+          "rationale": "By performing the exact same steps for every bit of the scalar, the algorithm eliminates conditional branches that would leak the key through timing or power."
+        },
+        {
+          "label": "B",
+          "text": "Increasing the bandwidth of the communication channel",
+          "isCorrect": false,
+          "rationale": "The Montgomery ladder is a security defense and usually incurs a slight performance penalty; it is not designed to improve speed or bandwidth."
+        },
+        {
+          "label": "C",
+          "text": "Eliminating the need for a physical hardware implementation",
+          "isCorrect": false,
+          "rationale": "Algorithms always require hardware (CPU or ASIC) to run; the ladder is a way to structure the software for that hardware."
+        },
+        {
+          "label": "D",
+          "text": "Encrypting the machine's private attestation key",
+          "isCorrect": false,
+          "rationale": "Attestation keys are typically protected by secure enclaves like SGX; the Montgomery ladder is an algorithmic choice for protecting secret scalars during math ops."
+        }
+      ],
+      "hint": "Think about how to make an algorithm look the same from the outside even if the input bits change.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 13,
+      "question": "In side-channel resistance, what does 'bitsliced' implementation aim to achieve?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Increasing the number of samples needed to extract a secret",
+          "isCorrect": false,
+          "rationale": "While this is a metric of success, the primary *method* of bitslicing is changing the execution logic to be data-independent."
+        },
+        {
+          "label": "B",
+          "text": "Minimizing data-dependent behavior by using logical bitwise operations",
+          "isCorrect": true,
+          "rationale": "Bitslicing turns data-dependent lookups into fixed-time logical sequences (AND, OR, XOR) that execute in the same amount of time for any input."
+        },
+        {
+          "label": "C",
+          "text": "Bypassing firewalls by fragmenting data into individual bits",
+          "isCorrect": false,
+          "rationale": "This describes a network evasion technique, whereas bitslicing is a cryptographic implementation strategy for side-channel defense."
+        },
+        {
+          "label": "D",
+          "text": "Slicing the physical chip into smaller pieces to reduce EM radiation",
+          "isCorrect": false,
+          "rationale": "This is a literal interpretation of the name; bitslicing is a software/logical technique, not a physical manufacturing process."
+        }
+      ],
+      "hint": "Consider how changing a table lookup into a series of Boolean gates might help.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 14,
+      "question": "When implementing bignum (large integer) arithmetic for cryptography, why is it critical to handle carries and borrows uniformly?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To prevent timing leaks caused by data-dependent branching",
+          "isCorrect": true,
+          "rationale": "If a processor only executes a 'carry' block when a bit is 1, an attacker can determine the secret value by measuring the time or power of that branch."
+        },
+        {
+          "label": "B",
+          "text": "To maximize the resource utilization covert channel",
+          "isCorrect": false,
+          "rationale": "A developer wants to 'minimize' or 'eliminate' covert channels; maximizing them would be a goal for an attacker or malware author."
+        },
+        {
+          "label": "C",
+          "text": "To allow the code to run on optical computers",
+          "isCorrect": false,
+          "rationale": "Bignum libraries are designed for standard electronic MCUs and CPUs; optical computing is not a relevant constraint in this source material."
+        },
+        {
+          "label": "D",
+          "text": "To ensure that the results are mathematically correct",
+          "isCorrect": false,
+          "rationale": "Correctness is fundamental to all programming, but uniform handling specifically addresses the 'security' goal of stopping side-channel leakage."
+        }
+      ],
+      "hint": "Think about what happens if a program does extra work only when a mathematical carry occurs.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 15,
+      "question": "Which metric is used to evaluate the effectiveness of a side-channel defense by measuring the effort required by an attacker?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The existence of an illegal flow within the system",
+          "isCorrect": false,
+          "rationale": "This is a binary condition (yes/no) used to identify a covert channel, but it does not quantify the resistance of a side channel."
+        },
+        {
+          "label": "B",
+          "text": "The number of samples needed to extract the secret",
+          "isCorrect": true,
+          "rationale": "A better defense forces an attacker to collect significantly more power traces or timing measurements to overcome the noise or lack of signal."
+        },
+        {
+          "label": "C",
+          "text": "The bandwidth of the intended communication channel",
+          "isCorrect": false,
+          "rationale": "This refers to the speed of legitimate data flow and is unrelated to the security metrics for side-channel leakage."
+        },
+        {
+          "label": "D",
+          "text": "The total average execution time in nanoseconds",
+          "isCorrect": false,
+          "rationale": "This measures performance/overhead, not the security strength or the difficulty of a successful attack."
+        }
+      ],
+      "hint": "Consider how you would quantify the 'difficulty' of an attack that relies on statistical data.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 16,
+      "question": "Hardware obfuscation techniques, like the Janus uncertain cache architecture, primarily aim to make which of the following significantly more difficult?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The use of bitsliced implementations",
+          "isCorrect": false,
+          "rationale": "Obfuscation is a hardware-level technique and does not typically prevent the use of software-level resistance techniques like bitslicing."
+        },
+        {
+          "label": "B",
+          "text": "Functional correctness",
+          "isCorrect": false,
+          "rationale": "A successful obfuscation must 'maintain' intended operation and correctness; making it more difficult is a negative side effect, not the primary goal."
+        },
+        {
+          "label": "C",
+          "text": "Differential Power Analysis",
+          "isCorrect": false,
+          "rationale": "While it may help, obfuscation is broader; specific defenses like noise injection are more directly aimed at DPA, whereas obfuscation targets the logic design."
+        },
+        {
+          "label": "D",
+          "text": "Reverse-engineering",
+          "isCorrect": true,
+          "rationale": "Obfuscation hides the intended functionality and internal state transitions of the hardware, hindering an attacker's ability to understand the chip's logic."
+        }
+      ],
+      "hint": "The goal is to prevent an adversary from understanding the internal structure of the design.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 17,
+      "question": "According to the provided data on the Janus cache behavior, what is the trade-off for increasing the Execution Time Variance to defend against side channels?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The elimination of all cache hits and misses",
+          "isCorrect": false,
+          "rationale": "Caches must still function to provide performance; Janus makes them 'uncertain' or noisy but does not disable them entirely."
+        },
+        {
+          "label": "B",
+          "text": "An increase in the Average Execution Time",
+          "isCorrect": true,
+          "rationale": "For example, in the Bubble sort test, the average time increased from 290.2 ns to 325.8 ns to provide the protection variance."
+        },
+        {
+          "label": "C",
+          "text": "A decrease in the electromagnetic radiation signature",
+          "isCorrect": false,
+          "rationale": "Obfuscation primarily affects timing and logic patterns; it does not necessarily reduce the overall EM emission levels of the device."
+        },
+        {
+          "label": "D",
+          "text": "A reduction in the number of samples needed for an attack",
+          "isCorrect": false,
+          "rationale": "The goal of increasing variance is to 'increase' the number of samples required, thereby making the attack harder."
+        }
+      ],
+      "hint": "Check the relationship between 'Normal Exec. Time' and 'Average Exec. Time' in the obfuscation table.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 18,
+      "question": "Malware authors utilize timing-based covert channels for which specific purpose during the infection phase?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To detect analysis sandboxes",
+          "isCorrect": true,
+          "rationale": "Analysis environments often introduce artificial delays or specific timing artifacts that malware can sense to avoid being analyzed by security researchers."
+        },
+        {
+          "label": "B",
+          "text": "To implement constant-time bignum operations",
+          "isCorrect": false,
+          "rationale": "This is a defensive technique used by legitimate developers to 'prevent' attacks, not a typical goal for malware authors."
+        },
+        {
+          "label": "C",
+          "text": "To perform physical de-processing of the host's CPU",
+          "isCorrect": false,
+          "rationale": "Malware is software-based; it cannot perform mechanical/chemical hardware destruction like de-processing."
+        },
+        {
+          "label": "D",
+          "text": "To bypass the system's power supply limits",
+          "isCorrect": false,
+          "rationale": "Timing channels deal with information flow; they do not have the capability to physically alter the power consumption limits of hardware."
+        }
+      ],
+      "hint": "Think about how malware might 'know' it is being watched by an antivirus researcher.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 19,
+      "question": "In the constant-time C pattern `diff |= a[i] ^ b[i]`, what is the mathematical purpose of the bitwise OR (|) and XOR (\\\\oplus) operations?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To accumulate any single-bit mismatch across the entire array",
+          "isCorrect": true,
+          "rationale": "The XOR identifies if two bits are different, and the OR ensures that if even one difference is found, the final result will be non-zero."
+        },
+        {
+          "label": "B",
+          "text": "To encrypt the indices of the array",
+          "isCorrect": false,
+          "rationale": "The goal is verification of equality for a secret, not the encryption of the memory locations where the secret is stored."
+        },
+        {
+          "label": "C",
+          "text": "To reduce the bandwidth of the covert channel",
+          "isCorrect": false,
+          "rationale": "This pattern is a defense against a 'side' channel (timing), not a method for limiting 'covert' channel capacity."
+        },
+        {
+          "label": "D",
+          "text": "To perform speculative execution of the comparison",
+          "isCorrect": false,
+          "rationale": "Speculative execution is a hardware feature; these logical operators are used specifically to 'avoid' hardware optimizations like branch prediction."
+        }
+      ],
+      "hint": "Consider how you could combine multiple true/false results into one final result without stopping early.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 20,
+      "question": "Which of the following is an example of an 'Information Sharing' channel as defined in the source material?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Data in Motion and transmission",
+          "isCorrect": false,
+          "rationale": "This is the definition of 'Information Communication', which focuses on the act of moving data rather than the cooperative use of it."
+        },
+        {
+          "label": "B",
+          "text": "Data Sharing and collaboration",
+          "isCorrect": true,
+          "rationale": "Information sharing specifically pertains to how data is moved or accessed for the purpose of collaboration between users or processes."
+        },
+        {
+          "label": "C",
+          "text": "Data in manipulation and transformation",
+          "isCorrect": false,
+          "rationale": "This describes 'Information Processing', which covers the active computing phase of the information flow."
+        },
+        {
+          "label": "D",
+          "text": "Data at rest and preservation",
+          "isCorrect": false,
+          "rationale": "This defines 'Information Storage', focusing on how data is kept on disk or in memory over time."
+        }
+      ],
+      "hint": "Look for the term that involves multiple entities working together.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 21,
+      "question": "Power-based cache side channels exploit variations in power consumption specifically when which event occurs?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Cache hits versus misses",
+          "isCorrect": true,
+          "rationale": "The complex circuit activity involved in a cache miss (accessing secondary memory) creates a different power signature than a simple cache hit."
+        },
+        {
+          "label": "B",
+          "text": "The processor enters a secure scan chain mode",
+          "isCorrect": false,
+          "rationale": "Scan chains are for hardware testing; while they are a security concern, cache power analysis is focused on normal memory operations."
+        },
+        {
+          "label": "C",
+          "text": "A probability covert channel reaches maximum bandwidth",
+          "isCorrect": false,
+          "rationale": "These are two different concepts; power-based side channels are physical by-products, while covert channels are logical policy violations."
+        },
+        {
+          "label": "D",
+          "text": "The machine’s private attestation key is updated",
+          "isCorrect": false,
+          "rationale": "Key updates are infrequent events; cache side channels monitor the rapid, repeated memory accesses typical of encryption rounds."
+        }
+      ],
+      "hint": "Consider the different energy requirements for fast internal memory versus slow external memory.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 22,
+      "question": "What is the relationship between the 'Existence' characteristic and the effectiveness of a covert channel?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It ensures that the channel is completely noiseless",
+          "isCorrect": false,
+          "rationale": "Existence is independent of noise; a channel can exist even if it is so noisy that it is virtually unusable."
+        },
+        {
+          "label": "B",
+          "text": "It determines if a communication path is even present to be exploited",
+          "isCorrect": true,
+          "rationale": "Before measuring bandwidth or noise, an attacker must first identify if the system architecture allows information to flow illegally."
+        },
+        {
+          "label": "C",
+          "text": "It defines the illegal flow as following the system security policy",
+          "isCorrect": false,
+          "rationale": "By definition, a covert channel 'violates' the security policy; 'Existence' merely indicates the physical or logical possibility of the flow."
+        },
+        {
+          "label": "D",
+          "text": "It quantifies the number of samples needed for data extraction",
+          "isCorrect": false,
+          "rationale": "This is a security metric for side channels, whereas 'Existence' is a fundamental prerequisite for any covert channel."
+        }
+      ],
+      "hint": "This is the most basic question an attacker asks: 'Is it there?'",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 23,
+      "question": "When moving from a functional description to a physical implementation, why is 'Functional Correctness' alone insufficient for secure embedded systems?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Because side-channels and reliability issues arise at the physical level",
+          "isCorrect": true,
+          "rationale": "A program can be mathematically correct but still leak secrets through its physical properties like timing, power, or EM emissions."
+        },
+        {
+          "label": "B",
+          "text": "Because NIST definitions only apply to software-only environments",
+          "isCorrect": false,
+          "rationale": "Security standards apply to the entire system stack, including the physical hardware and the environment it operates in."
+        },
+        {
+          "label": "C",
+          "text": "Because functional specifications cannot be modeled",
+          "isCorrect": false,
+          "rationale": "Modeling is a key step in the design flow specifically used to bridge functional specifications with physical implementation."
+        },
+        {
+          "label": "D",
+          "text": "Because embedded systems do not require security guarantees",
+          "isCorrect": false,
+          "rationale": "Embedded systems increasingly handle sensitive data (PINs, keys) and require robust security guarantees like any other computer system."
+        }
+      ],
+      "hint": "Think about what is visible in the real world that isn't part of the math in the source code.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 24,
+      "question": "In the Janus cache example, which algorithm showed the largest absolute increase in execution time variance (ns) when obfuscation was enabled?",
+      "options": [
+        {
+          "label": "A",
+          "text": "AES Encryption",
+          "isCorrect": false,
+          "rationale": "AES encryption was not included in the specific Janus cache behavior comparison table provided in the source material."
+        },
+        {
+          "label": "B",
+          "text": "Bubble sort",
+          "isCorrect": true,
+          "rationale": "Bubble sort's variance increased to 547.9 ns, which was the highest among the listed algorithms (Quick sort was 313.5 ns, Fibonacci was 55.6 ns)."
+        },
+        {
+          "label": "C",
+          "text": "Fibonacci",
+          "isCorrect": false,
+          "rationale": "Fibonacci had the lowest variance of 55.6 ns, likely due to its simpler memory access patterns compared to sorting algorithms."
+        },
+        {
+          "label": "D",
+          "text": "Quick sort",
+          "isCorrect": false,
+          "rationale": "While significant, its variance of 313.5 ns was lower than the 547.9 ns observed for Bubble sort."
+        }
+      ],
+      "hint": "Compare the 'Exec. Time Variance' column values for the three listed sorting/math tasks.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 25,
+      "question": "What is the primary difference between a side-channel attack being 'passive' versus 'active'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Passive attacks bypass firewalls, while active attacks use covert channels",
+          "isCorrect": false,
+          "rationale": "These are different classification schemes; passive/active refers to the attacker's interaction with the hardware during the side-channel process."
+        },
+        {
+          "label": "B",
+          "text": "Passive attacks are only used for RSA, while active are for AES",
+          "isCorrect": false,
+          "rationale": "Both types of attacks can be used against any cryptographic algorithm depending on the available equipment and access."
+        },
+        {
+          "label": "C",
+          "text": "Passive relies on observation, while active involves inducing faults",
+          "isCorrect": true,
+          "rationale": "Passive attacks only measure existing by-products (like power), whereas active attacks (like Fault Injection) try to disturb the system's operation."
+        },
+        {
+          "label": "D",
+          "text": "Active attacks require physical de-processing, while passive do not",
+          "isCorrect": false,
+          "rationale": "Active attacks like Fault Injection can often be done non-invasively (e.g., via power glitches), without destroying the chip."
+        }
+      ],
+      "hint": "Consider whether the attacker just listens or if they try to interfere.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 26,
+      "question": "Why is power analysis considered a 'low-cost' way to extract device contents compared to other physical attacks?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is based on speculative execution features",
+          "isCorrect": false,
+          "rationale": "Speculative execution is a high-end processor feature, but power analysis can be used even on very simple microcontrollers without those features."
+        },
+        {
+          "label": "B",
+          "text": "It does not require physically de-processing the part",
+          "isCorrect": true,
+          "rationale": "Measuring power at a chip's pins requires basic oscilloscopes rather than the extremely expensive chemical and microscopic tools needed to peel silicon."
+        },
+        {
+          "label": "C",
+          "text": "It is guaranteed to be noiseless in all environments",
+          "isCorrect": false,
+          "rationale": "Power analysis is notoriously noisy and often requires complex statistical processing (DPA) to yield useful results."
+        },
+        {
+          "label": "D",
+          "text": "It uses optical characteristics instead of electricity",
+          "isCorrect": false,
+          "rationale": "Power analysis specifically measures electrical current consumption, whereas optical analysis requires expensive light-sensing equipment."
+        }
+      ],
+      "hint": "Think about whether you have to break the chip open to perform the attack.",
+      "correctAnswer": "B"
+    }
+  ]
+}

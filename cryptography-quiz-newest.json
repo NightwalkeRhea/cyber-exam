@@ -1,0 +1,807 @@
+{
+  "title": "Cryptography Quiz newest",
+  "totalQuestions": 25,
+  "extractedAt": "2026-06-01T14:56:04.904Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "If a system has N = 12 actors who each require a unique, private symmetric channel with every other actor, how many distinct keys must be managed in total?",
+      "options": [
+        {
+          "label": "A",
+          "text": "132",
+          "isCorrect": false,
+          "rationale": "This calculation fails to account for the fact that a symmetric key is shared between two parties, effectively doubling the necessary count."
+        },
+        {
+          "label": "B",
+          "text": "144",
+          "isCorrect": false,
+          "rationale": "This represents N^2, which incorrectly assumes actors need a key to communicate with themselves and that keys are not shared."
+        },
+        {
+          "label": "C",
+          "text": "66",
+          "isCorrect": true,
+          "rationale": "Using the formula \\frac{N(N-1)}{2} for N=12, the calculation is \\frac{12 \\times 11}{2} = 66."
+        },
+        {
+          "label": "D",
+          "text": "11",
+          "isCorrect": false,
+          "rationale": "This represents N-1, which is the number of keys a single actor must hold, rather than the total keys in the system."
+        }
+      ],
+      "hint": "Consider the mathematical relationship for combinations of two actors out of N available actors.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 2,
+      "question": "In the formalism of symmetric-key encryption, which of the following expressions correctly represents the fundamental correctness property?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Dec_P(Enc_k(P)) = k",
+          "isCorrect": false,
+          "rationale": "Decryption requires the key k as an input, not the plaintext P, to successfully reverse the transformation."
+        },
+        {
+          "label": "B",
+          "text": "Dec_k(Enc_k(P)) = P",
+          "isCorrect": true,
+          "rationale": "This identity ensures that applying the decryption algorithm with key k to a ciphertext produced with the same key k recovers the original plaintext P."
+        },
+        {
+          "label": "C",
+          "text": "Dec_k(Enc_P(k)) = P",
+          "isCorrect": false,
+          "rationale": "This notation incorrectly suggests the plaintext P acts as the key for the encryption algorithm."
+        },
+        {
+          "label": "D",
+          "text": "Enc_k(Dec_k(C)) = k",
+          "isCorrect": false,
+          "rationale": "Encrypting a decrypted ciphertext would return the ciphertext C, not the key k."
+        }
+      ],
+      "hint": "The goal of decryption is to return the data to its original, unencrypted state using the appropriate key.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 3,
+      "question": "Which of the following describes the 'Encrypt then Authenticate' (EtA) approach used in IPsec?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The output is enc(K_1, P) \\parallel MAC(K_2, P) and it is the standard for SSH.",
+          "isCorrect": false,
+          "rationale": "This describes 'Authenticate and Encrypt' (A&E), where encryption and the MAC are performed independently on the plaintext."
+        },
+        {
+          "label": "B",
+          "text": "The output is enc(K_1, P \\parallel MAC(K_2, P)) and it is the standard for SSL/TLS.",
+          "isCorrect": false,
+          "rationale": "This describes 'Authenticate then Encrypt' (AtE), which requires decryption before the integrity of the message can be verified."
+        },
+        {
+          "label": "C",
+          "text": "The output is enc(K_1, P) \\parallel MAC(K_2, enc(K_1, P)) and it allows integrity checks without decryption.",
+          "isCorrect": true,
+          "rationale": "EtA is considered the most secure because the MAC is computed over the ciphertext, allowing receivers to discard tampered packets before attempting decryption."
+        },
+        {
+          "label": "D",
+          "text": "The output is MAC(K_1, enc(K_2, P)) and it prevents DoS attacks by hiding the MAC.",
+          "isCorrect": false,
+          "rationale": "The MAC is typically appended rather than used as a nested encryption layer, and it must be visible to be checked before decryption."
+        }
+      ],
+      "hint": "Consider which method allows a system to verify if data was modified without performing the computationally expensive task of decryption first.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 4,
+      "question": "When using Advanced Encryption Standard (AES), which modes of operation transform the block cipher into a stream cipher?",
+      "options": [
+        {
+          "label": "A",
+          "text": "CCM and GCM",
+          "isCorrect": false,
+          "rationale": "While these involve AES, they are specifically categorized as authenticated encryption algorithms rather than simple stream-mode transformations."
+        },
+        {
+          "label": "B",
+          "text": "CBC and ECB",
+          "isCorrect": false,
+          "rationale": "These are standard block cipher modes where the plaintext is divided into fixed blocks (e.g., 128 bits) for processing."
+        },
+        {
+          "label": "C",
+          "text": "CTR, CFB, and OFB",
+          "isCorrect": true,
+          "rationale": "In these modes, the algorithm processes data bit-by-bit or byte-by-byte rather than in fixed-size blocks."
+        },
+        {
+          "label": "D",
+          "text": "RSA and DH",
+          "isCorrect": false,
+          "rationale": "These are asymmetric algorithms, not modes of operation for the AES block cipher."
+        }
+      ],
+      "hint": "Identify the modes where the plaintext and ciphertext are processed without considering fixed block boundaries.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 5,
+      "question": "In a digital signature scenario, what is the specific role of the 'summary' (hash) of the message?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is a variable-length key used to encrypt the entire plaintext for confidentiality.",
+          "isCorrect": false,
+          "rationale": "Hash functions produce fixed-length outputs and are not used as encryption keys for confidentiality in this context."
+        },
+        {
+          "label": "B",
+          "text": "It acts as a fixed-length fingerprint of the message that is then encrypted with the sender's private key.",
+          "isCorrect": true,
+          "rationale": "The hash provides a unique representation of the data that ensures integrity, while encryption with the private key ensures authenticity."
+        },
+        {
+          "label": "C",
+          "text": "It is a random 'salt' value added to the message to make the encryption more resistant to quantum attacks.",
+          "isCorrect": false,
+          "rationale": "Salt is used in key derivation functions (KDFs) to increase entropy, not as the primary summary in a digital signature."
+        },
+        {
+          "label": "D",
+          "text": "It allows the receiver to decrypt the message using their own public key.",
+          "isCorrect": false,
+          "rationale": "Decryption in asymmetric systems requires a private key, and the hash itself is not the mechanism for decryption."
+        }
+      ],
+      "hint": "Think about how the sender creates a unique 'string' that Bob later verifies using Alice's public key.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 6,
+      "question": "Why is asymmetric cryptography generally considered 'computationally heavier' than symmetric cryptography?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It uses quantum-resistant algorithms which are inherently slower than traditional methods.",
+          "isCorrect": false,
+          "rationale": "Current common asymmetric algorithms like RSA are actually vulnerable to quantum computers, not inherently quantum-resistant."
+        },
+        {
+          "label": "B",
+          "text": "The keys must be transmitted across multiple channels to ensure security.",
+          "isCorrect": false,
+          "rationale": "The difficulty lies in the mathematical complexity of the encryption/decryption process, not the transmission of keys."
+        },
+        {
+          "label": "C",
+          "text": "It requires the sender and recipient to be online simultaneously for key agreement.",
+          "isCorrect": false,
+          "rationale": "Computational weight refers to the processing power required for the algorithms, not the network requirements for synchronization."
+        },
+        {
+          "label": "D",
+          "text": "It relies on complex mathematical operations like modular exponentiation of very large integers.",
+          "isCorrect": true,
+          "rationale": "Asymmetric algorithms like RSA and DH require significant CPU resources for large-number arithmetic compared to the simpler logical operations of symmetric ciphers."
+        }
+      ],
+      "hint": "Consider the underlying mathematical problems, such as factoring large primes, that define asymmetric security.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 7,
+      "question": "Which asymmetric algorithm is uniquely restricted to providing digital signatures and cannot be used for encryption or key exchange?",
+      "options": [
+        {
+          "label": "A",
+          "text": "ECC",
+          "isCorrect": false,
+          "rationale": "Elliptic Curve Cryptography is an alternative to RSA that supports encryption, key sharing, and digital signatures."
+        },
+        {
+          "label": "B",
+          "text": "RSA",
+          "isCorrect": false,
+          "rationale": "RSA is versatile and can be used for encryption, decryption, and digital signatures."
+        },
+        {
+          "label": "C",
+          "text": "DSA",
+          "isCorrect": true,
+          "rationale": "The Digital Signature Algorithm (DSA) is designed solely for authentication and integrity purposes and lacks the functionality for encryption."
+        },
+        {
+          "label": "D",
+          "text": "DH",
+          "isCorrect": false,
+          "rationale": "Diffie-Hellman (DH) is specifically used for secure key exchange over untrusted channels."
+        }
+      ],
+      "hint": "Look for the algorithm whose name explicitly states its primary and only function.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 8,
+      "question": "According to the source material, what is the primary threat posed by Shor's algorithm to modern cryptography?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It allows an attacker to guess a 256-bit AES key in a matter of seconds using a standard PC.",
+          "isCorrect": false,
+          "rationale": "AES is described as relatively quantum-resistant, and standard PCs cannot run quantum algorithms like Shor's."
+        },
+        {
+          "label": "B",
+          "text": "It enables the derivation of a private key from a public key without needing any specialized hardware.",
+          "isCorrect": false,
+          "rationale": "Deriving a private key from a public key still requires quantum hardware to execute Shor's algorithm efficiently."
+        },
+        {
+          "label": "C",
+          "text": "It can break the factoring problem used in RSA in polynomial time on quantum computers.",
+          "isCorrect": true,
+          "rationale": "Shor's algorithm targets the mathematical basis of RSA, making it vulnerable once stable quantum computers reach sufficient scale."
+        },
+        {
+          "label": "D",
+          "text": "It renders hash functions useless by finding collisions in constant time.",
+          "isCorrect": false,
+          "rationale": "The threat mentioned specifically relates to asymmetric factoring and discrete logarithm problems, not general hash collisions."
+        }
+      ],
+      "hint": "This algorithm is specifically mentioned as a threat to the security granted by the cost of factoring large numbers.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 9,
+      "question": "In a Key Derivation Function (KDF), what is the purpose of 'salt' (S)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is a random fixed-length array added to a password to increase its randomness and entropy.",
+          "isCorrect": true,
+          "rationale": "Salt makes passwords less predictable and helps ensure that the derived key is as close to perfectly random as possible."
+        },
+        {
+          "label": "B",
+          "text": "It is the secret prime number used to generate the RSA modulus N.",
+          "isCorrect": false,
+          "rationale": "The prime numbers P and Q are parts of the RSA key generation, not components of a KDF's input."
+        },
+        {
+          "label": "C",
+          "text": "It is the algorithm's internal mechanism that performs the bit-swaps.",
+          "isCorrect": false,
+          "rationale": "This refers to the cryptographic algorithm or safe mechanism itself, not the input data used for key derivation."
+        },
+        {
+          "label": "D",
+          "text": "It is a legal validity proof used to ensure non-repudiation.",
+          "isCorrect": false,
+          "rationale": "Non-repudiation is achieved through digital signatures, whereas salt is a technical measure for key randomness."
+        }
+      ],
+      "hint": "Think about why a password alone might not be sufficiently random for a cryptographic key.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 10,
+      "question": "If you wish to ensure the 'confidentiality' of a symmetric key while distributing it using asymmetric cryptography, which key must the sender use for encryption?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The sender's private key.",
+          "isCorrect": false,
+          "rationale": "Encrypting with the sender's private key provides authentication/signature, but since anyone can access the sender's public key, it does not provide confidentiality."
+        },
+        {
+          "label": "B",
+          "text": "The recipient's public key.",
+          "isCorrect": true,
+          "rationale": "Encrypting with the recipient's public key ensures that only the recipient, who possesses the corresponding private key, can decrypt and access the data."
+        },
+        {
+          "label": "C",
+          "text": "The recipient's private key.",
+          "isCorrect": false,
+          "rationale": "The sender does not have access to the recipient's private key, as it must be kept secret by the owner."
+        },
+        {
+          "label": "D",
+          "text": "A self-signed digital certificate.",
+          "isCorrect": false,
+          "rationale": "A certificate is a container for keys, but the actual operation of encryption requires a specific key from a pair."
+        }
+      ],
+      "hint": "Remember the rule: if you need confidentiality, always encrypt with a key that only the intended target can reverse.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 11,
+      "question": "Which of the following defines the 'Integrity' property in the context of adversarial behavior?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The process where a verifier proves the identity of a claimant.",
+          "isCorrect": false,
+          "rationale": "This describes authentication, which is about identity verification rather than the state of the data itself."
+        },
+        {
+          "label": "B",
+          "text": "The assurance that unauthorized actors cannot access the actual value or meaning of some data.",
+          "isCorrect": false,
+          "rationale": "This describes confidentiality, which is focused on secrecy rather than the detection of modifications."
+        },
+        {
+          "label": "C",
+          "text": "The legal validity of a digital signature that prevents an actor from denying a transaction.",
+          "isCorrect": false,
+          "rationale": "This refers to non-repudiation, which is a broader property building upon integrity and authentication."
+        },
+        {
+          "label": "D",
+          "text": "The ability of authorized actors to determine if data has been modified by an unauthorized external actor.",
+          "isCorrect": true,
+          "rationale": "Integrity focuses on detecting changes to the information, ensuring the data received is exactly what was sent."
+        }
+      ],
+      "hint": "Focus on the property that allows communicators to tell if an external actor has tampered with their messages.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 12,
+      "question": "What is the specific vulnerability of the 'Authenticate and Encrypt' (A&E) and 'Authenticate then Encrypt' (AtE) methods compared to 'Encrypt then Authenticate' (EtA)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "They are completely susceptible to brute force attacks on traditional computers.",
+          "isCorrect": false,
+          "rationale": "Standard implementations are secure against brute force; the concern is the resource exhaustion during the validation phase."
+        },
+        {
+          "label": "B",
+          "text": "They are subject to Denial of Service (DoS) attacks because they require decryption before an integrity check.",
+          "isCorrect": true,
+          "rationale": "Processing a large, maliciously crafted ciphertext requires significant resources for decryption before the system can even realize the data is invalid."
+        },
+        {
+          "label": "C",
+          "text": "They use symmetric keys that are too short for modern hardware to process securely.",
+          "isCorrect": false,
+          "rationale": "The vulnerability is related to the order of operations in the protocol, not the length of the underlying keys."
+        },
+        {
+          "label": "D",
+          "text": "They cannot be used with block ciphers in CBC mode.",
+          "isCorrect": false,
+          "rationale": "AtE is explicitly noted as being secure with block ciphers in CBC mode, though it still has the resource processing drawback."
+        }
+      ],
+      "hint": "Consider the computational cost of processing a 'huge ciphertext' that might eventually be discarded as fraudulent.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 13,
+      "question": "In the context of actors, how is a 'Claimant' defined during the Authentication (AuthN) process?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The actor trying to log in or prove their identity.",
+          "isCorrect": true,
+          "rationale": "The claimant is the entity making a claim about their identity which must then be verified by a second party."
+        },
+        {
+          "label": "B",
+          "text": "An unauthorized external actor who modifies data in transit.",
+          "isCorrect": false,
+          "rationale": "This describes a malicious actor or adversary, which is the opposite of the claimant role in a standard security scenario."
+        },
+        {
+          "label": "C",
+          "text": "The website server that checks the user's credentials.",
+          "isCorrect": false,
+          "rationale": "The server in this scenario acts as the 'verifier' who performs the proof of identity."
+        },
+        {
+          "label": "D",
+          "text": "A State or organization that issues digital certificates.",
+          "isCorrect": false,
+          "rationale": "This describes a Certificate Authority (CA) or a high-level organizational actor, not the role of a claimant in a specific login instance."
+        }
+      ],
+      "hint": "Think of the two roles: one provides proof, and the other checks it.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 14,
+      "question": "What mathematical problem provides the security for the RSA algorithm?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Finding the collision of two distinct messages in a fixed-length fingerprint.",
+          "isCorrect": false,
+          "rationale": "This describes the security goal of a hash function, not the asymmetric encryption logic of RSA."
+        },
+        {
+          "label": "B",
+          "text": "The difficulty of factoring the product of two large prime numbers.",
+          "isCorrect": true,
+          "rationale": "Security is based on the fact that while it is easy to multiply two primes, it is computationally hard to factor the resulting modulus N to find P and Q."
+        },
+        {
+          "label": "C",
+          "text": "The discrete logarithm problem over finite fields.",
+          "isCorrect": false,
+          "rationale": "While this is a valid cryptographic problem, it is primarily associated with algorithms like Diffie-Hellman, not the RSA factoring problem."
+        },
+        {
+          "label": "D",
+          "text": "The transformation of plaintext into ciphertext using bit-level transpositions.",
+          "isCorrect": false,
+          "rationale": "This describes symmetric ciphers and general encryption mechanisms, rather than the specific hard problem of RSA."
+        }
+      ],
+      "hint": "RSA key generation relies on determining two primes, P and Q, whose product is N.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 15,
+      "question": "Which of the following statements regarding RSA key lengths is true according to the source material?",
+      "options": [
+        {
+          "label": "A",
+          "text": "An 829-bit key is the current industry standard for banking transactions.",
+          "isCorrect": false,
+          "rationale": "829 bits is the length of the largest number ever factored (the record), meaning keys this size are no longer secure."
+        },
+        {
+          "label": "B",
+          "text": "Microsoft's Operating Systems only accept keys that are at least 4096 bits long.",
+          "isCorrect": false,
+          "rationale": "The source mentions Microsoft has not accepted keys shorter than 1024 bits since 2012, not 4096 bits."
+        },
+        {
+          "label": "C",
+          "text": "Mozilla has not accepted RSA keys shorter than 2048 bits since 2014.",
+          "isCorrect": true,
+          "rationale": "This highlights the evolving security standards and the need for longer keys as computing power increases."
+        },
+        {
+          "label": "D",
+          "text": "A 1024-bit key is considered reasonably secure for the next several decades.",
+          "isCorrect": false,
+          "rationale": "The source states that 1024-bit keys can be broken in a few months and are only reasonable when security is not a major concern."
+        }
+      ],
+      "hint": "Check the specific historical milestones mentioned for software vendors and their minimum key requirements.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 16,
+      "question": "Which specific technique is described as 'mathematical steps to generate the same key on both sides without transmitting the value of the key'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Symmetric key distribution using public keys",
+          "isCorrect": false,
+          "rationale": "This involves encrypting and actually transmitting the key value, rather than deriving it through shared mathematical steps."
+        },
+        {
+          "label": "B",
+          "text": "Key agreement algorithms",
+          "isCorrect": true,
+          "rationale": "Key agreement protocols allow two parties to derive a shared secret without that secret ever passing through the untrusted communication channel."
+        },
+        {
+          "label": "C",
+          "text": "Key Management Systems",
+          "isCorrect": false,
+          "rationale": "These are complex hardware/software systems used to manage and store large quantities of existing keys."
+        },
+        {
+          "label": "D",
+          "text": "Out-of-band (OOB) exchange",
+          "isCorrect": false,
+          "rationale": "OOB involves using a completely different physical or logical channel (like mail or a separate network) to transmit the key."
+        }
+      ],
+      "hint": "Think about the Diffie-Hellman (DH) protocol's main function.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 17,
+      "question": "In the context of hash functions, what characterizes a 'keyed-hash'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is a hash that has been digitally signed by a Certificate Authority.",
+          "isCorrect": false,
+          "rationale": "While hashes are part of signatures, a 'keyed-hash' refers specifically to the inclusion of a key in the hash calculation itself."
+        },
+        {
+          "label": "B",
+          "text": "It produces a variable-length output based on the size of the key provided.",
+          "isCorrect": false,
+          "rationale": "Hash functions, by definition, generate a fixed-length output regardless of the input or key size."
+        },
+        {
+          "label": "C",
+          "text": "It involves the use of cryptographic keys to compute the message fingerprint.",
+          "isCorrect": true,
+          "rationale": "Keyed-hashes (like MACs) ensure that only someone with the secret key can generate or verify the specific hash for a message."
+        },
+        {
+          "label": "D",
+          "text": "It is a hash that is only used to encrypt the symmetric key itself.",
+          "isCorrect": false,
+          "rationale": "Hashes are for integrity and authentication fingerprints, not for the encryption of keys."
+        }
+      ],
+      "hint": "Consider whether the computation of the fingerprint requires any secret information other than the message block M.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 18,
+      "question": "What is the primary difference between a 'Block cipher' and a 'Stream cipher' in terms of processing data?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Block ciphers process fixed-size chunks of data, while stream ciphers process data bit-by-bit or byte-by-byte.",
+          "isCorrect": true,
+          "rationale": "This is the fundamental distinction in how the encryption algorithm handles the plaintext and ciphertext streams."
+        },
+        {
+          "label": "B",
+          "text": "Block ciphers use asymmetric keys, whereas stream ciphers use symmetric keys.",
+          "isCorrect": false,
+          "rationale": "Both block and stream ciphers are types of symmetric cryptography."
+        },
+        {
+          "label": "C",
+          "text": "Block ciphers are resistant to quantum computers, while stream ciphers are not.",
+          "isCorrect": false,
+          "rationale": "Symmetric cryptography (including both types) is generally considered quantum-resistant compared to asymmetric methods."
+        },
+        {
+          "label": "D",
+          "text": "Block ciphers only perform replacements, while stream ciphers only perform transpositions.",
+          "isCorrect": false,
+          "rationale": "Cryptographic schemes can use both replacements and transpositions regardless of whether they process data in blocks or streams."
+        }
+      ],
+      "hint": "Focus on the 'way of processing' the plaintext (P) and ciphertext (C).",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 19,
+      "question": "How does 'Authorization' (AuthZ) differ from 'Authentication' (AuthN)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "AuthZ is the process of generating a ciphertext, while AuthN is the process of decryption.",
+          "isCorrect": false,
+          "rationale": "These definitions confuse security goals with the technical processes of encryption and decryption."
+        },
+        {
+          "label": "B",
+          "text": "AuthN uses symmetric keys, while AuthZ uses asymmetric key pairs.",
+          "isCorrect": false,
+          "rationale": "These roles are conceptual security properties and can be implemented using various cryptographic tools, not just one type of key."
+        },
+        {
+          "label": "C",
+          "text": "AuthN proves who an actor is, while AuthZ determines what that actor is allowed to do or access.",
+          "isCorrect": true,
+          "rationale": "Identification (AuthN) must typically occur before the system can check the permissions or entitlements (AuthZ) of an actor."
+        },
+        {
+          "label": "D",
+          "text": "AuthN is legally valid, while AuthZ is only valid within a local computer system.",
+          "isCorrect": false,
+          "rationale": "Legal validity refers to non-repudiation; both AuthN and AuthZ are internal security mechanisms."
+        }
+      ],
+      "hint": "Think about the difference between showing an ID card and having a key to a specific room.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 20,
+      "question": "Which authenticated encryption algorithm is commonly used by 802.11i (Wi-Fi) and ZigBee?",
+      "options": [
+        {
+          "label": "A",
+          "text": "GCM",
+          "isCorrect": false,
+          "rationale": "GCM is primarily used by TLS and OpenSSL rather than the ZigBee or 802.11i standards mentioned."
+        },
+        {
+          "label": "B",
+          "text": "EAX",
+          "isCorrect": false,
+          "rationale": "EAX is used by the ANSI C12.12 standard, not the wireless communication standards listed."
+        },
+        {
+          "label": "C",
+          "text": "CCM",
+          "isCorrect": true,
+          "rationale": "CCM (Counter with CBC-MAC) is a specific algorithm designed to provide both confidentiality and authentication for these network standards."
+        },
+        {
+          "label": "D",
+          "text": "AES-ECB",
+          "isCorrect": false,
+          "rationale": "ECB is a simple block cipher mode that does not provide built-in authentication or integrity checks."
+        }
+      ],
+      "hint": "Look for the acronym associated with the IEEE 802.11i standard in the 'Authenticated Encryption' section.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 21,
+      "question": "In the analogy of a safe, what component represents the 'cryptographic algorithm'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The internal mechanism of the safe.",
+          "isCorrect": true,
+          "rationale": "The algorithm is the set of rules or mechanical steps that define how the input (key) interacts with the content (plaintext)."
+        },
+        {
+          "label": "B",
+          "text": "The person who owns the safe.",
+          "isCorrect": false,
+          "rationale": "The owner represents the 'actor' or user of the cryptographic system."
+        },
+        {
+          "label": "C",
+          "text": "The physical key used to lock and unlock the safe.",
+          "isCorrect": false,
+          "rationale": "The key in the analogy represents the 'cryptographic key,' which is the variable input to the algorithm."
+        },
+        {
+          "label": "D",
+          "text": "The document placed inside the safe.",
+          "isCorrect": false,
+          "rationale": "The document represents the 'plaintext' or the data that needs to be protected."
+        }
+      ],
+      "hint": "The source material states the safe's 'mechanism' does not need to be secret, only the key.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 22,
+      "question": "Why is 'replacement' (substitution) used in cryptographic algorithms?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To ensure that the ciphertext is exactly the same length as the plaintext.",
+          "isCorrect": false,
+          "rationale": "While length may be preserved, the primary purpose of substitution is obscuration, not length management."
+        },
+        {
+          "label": "B",
+          "text": "To change the order of the elements without changing their values.",
+          "isCorrect": false,
+          "rationale": "Changing the order of elements is the definition of 'transposition,' not replacement."
+        },
+        {
+          "label": "C",
+          "text": "To swap each element of the plaintext with another distinct element.",
+          "isCorrect": true,
+          "rationale": "Replacement is a fundamental operation where values are changed to obscure the original content."
+        },
+        {
+          "label": "D",
+          "text": "To generate a fixed-length fingerprint of the message.",
+          "isCorrect": false,
+          "rationale": "Generating a fingerprint is the role of a hash function, which involves more complex transformations than simple replacement."
+        }
+      ],
+      "hint": "Contrast this with 'transposition,' which focus on the position of elements.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 23,
+      "question": "What does the term 'Non-repudiation' provide that basic 'Authentication' does not?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The use of a 4096-bit key instead of a 2048-bit key.",
+          "isCorrect": false,
+          "rationale": "Key length impacts security strength, but non-repudiation is a functional property of the protocol (e.g., using CA-signed certificates)."
+        },
+        {
+          "label": "B",
+          "text": "Protection against quantum-based cryptoanalysis.",
+          "isCorrect": false,
+          "rationale": "Non-repudiation is a security property; quantum resistance is a characteristic of the algorithm's mathematical strength."
+        },
+        {
+          "label": "C",
+          "text": "The ability to check if data was modified during transmission.",
+          "isCorrect": false,
+          "rationale": "Modification detection is the primary goal of integrity, not specifically non-repudiation."
+        },
+        {
+          "label": "D",
+          "text": "Proof of authenticity that is legally valid.",
+          "isCorrect": true,
+          "rationale": "Non-repudiation ensures that a sender cannot later deny having sent a message, often requiring a third-party certificate authority."
+        }
+      ],
+      "hint": "Think about the 'digital signature' example provided in the text and its implications for disputes.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 24,
+      "question": "In asymmetric encryption, if dec(K_{priv}, enc(K_{pub}, P)) = P, which of the following is also true based on the 'reciprocal function' property?",
+      "options": [
+        {
+          "label": "A",
+          "text": "dec(K_{pub}, enc(K_{priv}, P)) = P",
+          "isCorrect": true,
+          "rationale": "The reciprocal property means that either key in the pair can reverse the transformation applied by the other."
+        },
+        {
+          "label": "B",
+          "text": "dec(K_{pub}, enc(K_{pub}, P)) = P",
+          "isCorrect": false,
+          "rationale": "Asymmetric logic requires the opposite key of the pair to perform the inverse operation."
+        },
+        {
+          "label": "C",
+          "text": "enc(K_{pub}, dec(K_{priv}, P)) = k",
+          "isCorrect": false,
+          "rationale": "Applying the operations in reverse order would return the plaintext P, not the key k."
+        },
+        {
+          "label": "D",
+          "text": "dec(K_{priv}, enc(K_{priv}, P)) = P",
+          "isCorrect": false,
+          "rationale": "A key cannot be used to decrypt a message that was encrypted with that same key in an asymmetric pair."
+        }
+      ],
+      "hint": "The keys in a pair have a symmetrical mathematical relationship where one 'undoes' the other.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 25,
+      "question": "What is the primary problem associated with symmetric cryptography when a large number of actors (N) are involved?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The quantity of keys becomes unfeasible for manual management.",
+          "isCorrect": true,
+          "rationale": "As the number of users grows, the number of unique shared secrets required for private communication between every pair grows quadratically."
+        },
+        {
+          "label": "B",
+          "text": "Hash collisions are guaranteed to occur when more than 5 actors communicate.",
+          "isCorrect": false,
+          "rationale": "Hash collisions are related to the output size of the hash function, not the number of actors in a symmetric system."
+        },
+        {
+          "label": "C",
+          "text": "It becomes vulnerable to quantum computers if N exceeds 1024.",
+          "isCorrect": false,
+          "rationale": "Symmetric crypto is generally quantum-resistant; its weakness in large groups is administrative, not mathematical vulnerability to quantum attacks."
+        },
+        {
+          "label": "D",
+          "text": "The time required for decryption increases exponentially with each new actor.",
+          "isCorrect": false,
+          "rationale": "Decryption time for a single message remains constant regardless of how many other people are in the system."
+        }
+      ],
+      "hint": "Consider the scenario where each actor needs a 'protected channel with everyone else.'",
+      "correctAnswer": "A"
+    }
+  ]
+}

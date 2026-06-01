@@ -1,0 +1,967 @@
+{
+  "title": "Basics of Cryptography",
+  "totalQuestions": 30,
+  "extractedAt": "2026-05-30T00:00:00.000Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "What is the primary goal of cryptography?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To secure information against adversarial behavior.",
+          "isCorrect": true,
+          "rationale": "Cryptography focuses on protecting information from actions that may compromise its security properties."
+        },
+        {
+          "label": "B",
+          "text": "To compress information before storage.",
+          "isCorrect": false,
+          "rationale": "Compression reduces data size, but it does not necessarily protect information against attackers."
+        },
+        {
+          "label": "C",
+          "text": "To increase processor clock frequency.",
+          "isCorrect": false,
+          "rationale": "Processor performance is not the primary concern of cryptography."
+        },
+        {
+          "label": "D",
+          "text": "To replace all software security mechanisms.",
+          "isCorrect": false,
+          "rationale": "Cryptography is one security tool, not a complete replacement for secure design, access control, or software security."
+        }
+      ],
+      "hint": "Think about protecting information from malicious or unauthorized actions.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 2,
+      "question": "Which property is violated when an unauthorized actor reads the actual content of protected data?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Confidentiality",
+          "isCorrect": true,
+          "rationale": "Confidentiality prevents unauthorized actors from accessing the actual value or meaning of data."
+        },
+        {
+          "label": "B",
+          "text": "Integrity",
+          "isCorrect": false,
+          "rationale": "Integrity concerns unauthorized modification, not unauthorized reading."
+        },
+        {
+          "label": "C",
+          "text": "Authentication",
+          "isCorrect": false,
+          "rationale": "Authentication concerns proving identity, not hiding data content."
+        },
+        {
+          "label": "D",
+          "text": "Non-repudiation",
+          "isCorrect": false,
+          "rationale": "Non-repudiation concerns proving that an actor cannot deny an action or message."
+        }
+      ],
+      "hint": "This property is about secrecy.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 3,
+      "question": "Which property is violated when data is changed by an unauthorized actor?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Integrity",
+          "isCorrect": true,
+          "rationale": "Integrity ensures that unauthorized modifications can be prevented or detected."
+        },
+        {
+          "label": "B",
+          "text": "Confidentiality",
+          "isCorrect": false,
+          "rationale": "Confidentiality is about keeping information secret, not detecting changes."
+        },
+        {
+          "label": "C",
+          "text": "Availability",
+          "isCorrect": false,
+          "rationale": "Availability concerns whether a resource remains accessible to authorized users."
+        },
+        {
+          "label": "D",
+          "text": "Compression",
+          "isCorrect": false,
+          "rationale": "Compression is not a security property."
+        }
+      ],
+      "hint": "This property is about detecting or preventing tampering.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 4,
+      "question": "What does authentication mainly provide?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Proof of the identity of an actor.",
+          "isCorrect": true,
+          "rationale": "Authentication allows a verifier to prove or check the identity of a claimant."
+        },
+        {
+          "label": "B",
+          "text": "Permission to access every system resource.",
+          "isCorrect": false,
+          "rationale": "Permissions are related to authorization, not authentication."
+        },
+        {
+          "label": "C",
+          "text": "Compression of encrypted data.",
+          "isCorrect": false,
+          "rationale": "Authentication is unrelated to compression."
+        },
+        {
+          "label": "D",
+          "text": "Automatic recovery after data loss.",
+          "isCorrect": false,
+          "rationale": "Recovery is an availability or backup concern, not authentication."
+        }
+      ],
+      "hint": "Think about proving who someone or something is.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 5,
+      "question": "What is the difference between authentication and authorization?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Authentication verifies identity, while authorization determines what the verified actor is allowed to do.",
+          "isCorrect": true,
+          "rationale": "Authentication answers 'who are you?', while authorization answers 'what are you allowed to access or perform?'."
+        },
+        {
+          "label": "B",
+          "text": "Authentication encrypts data, while authorization decrypts data.",
+          "isCorrect": false,
+          "rationale": "Encryption and decryption are cryptographic transformations, not the definitions of authentication and authorization."
+        },
+        {
+          "label": "C",
+          "text": "Authentication is only used in hardware, while authorization is only used in software.",
+          "isCorrect": false,
+          "rationale": "Both concepts can apply across hardware, software, and systems."
+        },
+        {
+          "label": "D",
+          "text": "Authentication protects availability, while authorization protects compression.",
+          "isCorrect": false,
+          "rationale": "This does not describe either concept correctly."
+        }
+      ],
+      "hint": "Identity first, permissions second.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 6,
+      "question": "What does non-repudiation provide?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Legally valid proof of authenticity or origin.",
+          "isCorrect": true,
+          "rationale": "Non-repudiation prevents an actor from plausibly denying a message or action, commonly through digital signatures."
+        },
+        {
+          "label": "B",
+          "text": "A faster encryption algorithm.",
+          "isCorrect": false,
+          "rationale": "Non-repudiation is a security property, not a performance optimization."
+        },
+        {
+          "label": "C",
+          "text": "A method for reducing ciphertext size.",
+          "isCorrect": false,
+          "rationale": "Non-repudiation is unrelated to data compression."
+        },
+        {
+          "label": "D",
+          "text": "A guarantee that data will never be deleted.",
+          "isCorrect": false,
+          "rationale": "Data deletion concerns availability or retention, not non-repudiation."
+        }
+      ],
+      "hint": "Think about proving that someone really performed an action.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 7,
+      "question": "What is plaintext?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Data in its original readable form before encryption.",
+          "isCorrect": true,
+          "rationale": "Plaintext is the original data before it is transformed by a cryptographic algorithm."
+        },
+        {
+          "label": "B",
+          "text": "Encrypted data after transformation.",
+          "isCorrect": false,
+          "rationale": "Encrypted data is ciphertext, not plaintext."
+        },
+        {
+          "label": "C",
+          "text": "The secret key used by a cipher.",
+          "isCorrect": false,
+          "rationale": "A key is an input to the cryptographic algorithm, not the data itself."
+        },
+        {
+          "label": "D",
+          "text": "The hardware module that performs encryption.",
+          "isCorrect": false,
+          "rationale": "Plaintext refers to data, not hardware."
+        }
+      ],
+      "hint": "It is the message before encryption.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 8,
+      "question": "What is ciphertext?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Plaintext transformed into an unreadable or unrelated form by encryption.",
+          "isCorrect": true,
+          "rationale": "Ciphertext is the encrypted form of plaintext."
+        },
+        {
+          "label": "B",
+          "text": "The key used to decrypt a message.",
+          "isCorrect": false,
+          "rationale": "The key is an input to the algorithm, not the encrypted message."
+        },
+        {
+          "label": "C",
+          "text": "The mathematical proof of non-repudiation.",
+          "isCorrect": false,
+          "rationale": "Ciphertext is encrypted data, not a proof."
+        },
+        {
+          "label": "D",
+          "text": "The original readable message.",
+          "isCorrect": false,
+          "rationale": "The original readable message is plaintext."
+        }
+      ],
+      "hint": "It is what an attacker should see instead of the original message.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 9,
+      "question": "What role does a cryptographic key play?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It determines the transformation between plaintext and ciphertext.",
+          "isCorrect": true,
+          "rationale": "The key is an input to the cryptographic algorithm and controls the encryption or decryption transformation."
+        },
+        {
+          "label": "B",
+          "text": "It replaces the need for a cryptographic algorithm.",
+          "isCorrect": false,
+          "rationale": "A key must be used together with an algorithm; it does not replace the algorithm."
+        },
+        {
+          "label": "C",
+          "text": "It is always public in every cryptographic system.",
+          "isCorrect": false,
+          "rationale": "Some keys must remain secret, especially symmetric keys and private keys."
+        },
+        {
+          "label": "D",
+          "text": "It is only used for data compression.",
+          "isCorrect": false,
+          "rationale": "Keys are used for cryptographic transformations, not compression."
+        }
+      ],
+      "hint": "The algorithm can be known, but this input must be properly protected.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 10,
+      "question": "Why does the cryptographic algorithm itself not necessarily need to be secret?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Security should depend on the secrecy of the key, not on hiding the algorithm.",
+          "isCorrect": true,
+          "rationale": "Modern cryptographic design assumes the algorithm may be public; the secrecy of the key is what protects the data."
+        },
+        {
+          "label": "B",
+          "text": "Because algorithms are never used during decryption.",
+          "isCorrect": false,
+          "rationale": "Algorithms are used for both encryption and decryption."
+        },
+        {
+          "label": "C",
+          "text": "Because ciphertext is always impossible to read even without a key.",
+          "isCorrect": false,
+          "rationale": "Ciphertext protection depends on the strength of the algorithm and the secrecy of the key."
+        },
+        {
+          "label": "D",
+          "text": "Because all cryptographic algorithms are stored in hardware only.",
+          "isCorrect": false,
+          "rationale": "Cryptographic algorithms can be implemented in software, hardware, or both."
+        }
+      ],
+      "hint": "Think of the safe analogy: the mechanism may be known, but the key must be secret.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 11,
+      "question": "What is the defining characteristic of symmetric cryptography?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The same secret key is used for encryption and decryption.",
+          "isCorrect": true,
+          "rationale": "In symmetric cryptography, both parties must share the same secret key."
+        },
+        {
+          "label": "B",
+          "text": "A public key is used for encryption and a private key is used for decryption.",
+          "isCorrect": false,
+          "rationale": "That describes asymmetric cryptography."
+        },
+        {
+          "label": "C",
+          "text": "No key is required.",
+          "isCorrect": false,
+          "rationale": "Cryptographic algorithms require keys to control the transformation."
+        },
+        {
+          "label": "D",
+          "text": "Only hash functions are used.",
+          "isCorrect": false,
+          "rationale": "Hash functions are different primitives and are not the defining feature of symmetric encryption."
+        }
+      ],
+      "hint": "Same key on both sides.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 12,
+      "question": "What is one of the biggest problems of symmetric encryption?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Securely sharing the symmetric key.",
+          "isCorrect": true,
+          "rationale": "If the symmetric key is exposed during sharing, the encryption becomes useless."
+        },
+        {
+          "label": "B",
+          "text": "The impossibility of decrypting ciphertext.",
+          "isCorrect": false,
+          "rationale": "Decryption is possible with the correct key."
+        },
+        {
+          "label": "C",
+          "text": "The absence of any encryption algorithm.",
+          "isCorrect": false,
+          "rationale": "Symmetric cryptography uses well-defined encryption algorithms."
+        },
+        {
+          "label": "D",
+          "text": "The requirement that all keys must be public.",
+          "isCorrect": false,
+          "rationale": "Symmetric keys must remain secret."
+        }
+      ],
+      "hint": "Before communicating securely, both sides need the same secret.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 13,
+      "question": "Which technique can be used to help share a symmetric key safely?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Using asymmetric cryptography to protect the key exchange.",
+          "isCorrect": true,
+          "rationale": "Asymmetric cryptography can be used to establish or protect the exchange of a symmetric key."
+        },
+        {
+          "label": "B",
+          "text": "Posting the key publicly so both parties can access it.",
+          "isCorrect": false,
+          "rationale": "A symmetric key must remain secret; publishing it would break confidentiality."
+        },
+        {
+          "label": "C",
+          "text": "Removing the key from the algorithm.",
+          "isCorrect": false,
+          "rationale": "Without a key, the cryptographic transformation would not provide keyed security."
+        },
+        {
+          "label": "D",
+          "text": "Using the same key forever without rotation.",
+          "isCorrect": false,
+          "rationale": "Keys should often be changed after time or usage limits for security reasons."
+        }
+      ],
+      "hint": "A different cryptographic family can help solve the sharing problem.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 14,
+      "question": "For N actors where every pair needs a protected channel, how many symmetric keys are required?",
+      "options": [
+        {
+          "label": "A",
+          "text": "N × (N − 1) / 2",
+          "isCorrect": true,
+          "rationale": "Each pair of actors needs a distinct shared key, leading to N times N minus 1 divided by 2 keys."
+        },
+        {
+          "label": "B",
+          "text": "N",
+          "isCorrect": false,
+          "rationale": "One key per actor is not enough if every pair needs a separate protected channel."
+        },
+        {
+          "label": "C",
+          "text": "2N",
+          "isCorrect": false,
+          "rationale": "This does not represent the number of unique pairs among N actors."
+        },
+        {
+          "label": "D",
+          "text": "N²",
+          "isCorrect": false,
+          "rationale": "N² counts ordered pairs and self-pairs, which is not the formula for unique shared channels."
+        }
+      ],
+      "hint": "Count unique pairs of actors.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 15,
+      "question": "Why does manual symmetric-key management become difficult in systems with many actors?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The number of required pairwise keys grows rapidly as the number of actors increases.",
+          "isCorrect": true,
+          "rationale": "Because each protected pair may need its own shared key, the number of keys scales poorly."
+        },
+        {
+          "label": "B",
+          "text": "Symmetric encryption cannot encrypt more than one message.",
+          "isCorrect": false,
+          "rationale": "Symmetric encryption can encrypt many messages, but key management becomes complex."
+        },
+        {
+          "label": "C",
+          "text": "Symmetric keys are always longer than asymmetric keys.",
+          "isCorrect": false,
+          "rationale": "Asymmetric keys, such as RSA keys, are usually much longer than symmetric keys."
+        },
+        {
+          "label": "D",
+          "text": "Every actor must use a different algorithm.",
+          "isCorrect": false,
+          "rationale": "Actors may use the same algorithm; the challenge is managing the keys."
+        }
+      ],
+      "hint": "The problem is not only encryption, but the number and lifecycle of keys.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 16,
+      "question": "Which three algorithms define a symmetric-key encryption scheme?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Gen, Enc, and Dec.",
+          "isCorrect": true,
+          "rationale": "Gen generates the key, Enc encrypts plaintext into ciphertext, and Dec decrypts ciphertext back into plaintext."
+        },
+        {
+          "label": "B",
+          "text": "Push, Pop, and Call.",
+          "isCorrect": false,
+          "rationale": "These are stack-related operations, not symmetric encryption algorithms."
+        },
+        {
+          "label": "C",
+          "text": "Read, Write, and Execute.",
+          "isCorrect": false,
+          "rationale": "These are access or memory operations, not the formal algorithms of symmetric encryption."
+        },
+        {
+          "label": "D",
+          "text": "Hash, Sign, and Verify.",
+          "isCorrect": false,
+          "rationale": "These relate more to hashing and digital signatures, not the basic symmetric encryption formalism."
+        }
+      ],
+      "hint": "One generates the key, one encrypts, and one decrypts.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 17,
+      "question": "What correctness property must a symmetric encryption scheme satisfy?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Decrypting the encryption of a plaintext with the same key must recover the original plaintext.",
+          "isCorrect": true,
+          "rationale": "For a valid symmetric scheme, Dec_k(Enc_k(P)) must return P."
+        },
+        {
+          "label": "B",
+          "text": "Encrypting a plaintext must always destroy it permanently.",
+          "isCorrect": false,
+          "rationale": "Encryption must be reversible by authorized parties with the correct key."
+        },
+        {
+          "label": "C",
+          "text": "Different keys must always generate the same ciphertext.",
+          "isCorrect": false,
+          "rationale": "Keys are supposed to influence the transformation, so different keys should not generally behave identically."
+        },
+        {
+          "label": "D",
+          "text": "Decryption must work without any key.",
+          "isCorrect": false,
+          "rationale": "The key is required for authorized decryption."
+        }
+      ],
+      "hint": "Encryption should be reversible for someone with the right key.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 18,
+      "question": "What is the main difference between block ciphers and stream ciphers?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Block ciphers process fixed-size blocks, while stream ciphers process data one bit or byte at a time.",
+          "isCorrect": true,
+          "rationale": "Block ciphers operate on blocks of plaintext and ciphertext, while stream ciphers operate on smaller units such as bits or bytes."
+        },
+        {
+          "label": "B",
+          "text": "Block ciphers use no keys, while stream ciphers use keys.",
+          "isCorrect": false,
+          "rationale": "Both types use cryptographic keys."
+        },
+        {
+          "label": "C",
+          "text": "Stream ciphers cannot decrypt data.",
+          "isCorrect": false,
+          "rationale": "Stream ciphers support both encryption and decryption."
+        },
+        {
+          "label": "D",
+          "text": "Block ciphers are only used for digital signatures.",
+          "isCorrect": false,
+          "rationale": "Block ciphers are mainly used for symmetric encryption, not digital signatures."
+        }
+      ],
+      "hint": "Think about the size of data processed at each step.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 19,
+      "question": "How does a stream cipher typically produce ciphertext?",
+      "options": [
+        {
+          "label": "A",
+          "text": "By combining plaintext bits or bytes with a pseudorandom keystream, often using XOR.",
+          "isCorrect": true,
+          "rationale": "Stream ciphers combine plaintext with a generated keystream to produce ciphertext."
+        },
+        {
+          "label": "B",
+          "text": "By dividing data into certificates.",
+          "isCorrect": false,
+          "rationale": "Certificates are related to public-key infrastructure, not stream-cipher encryption."
+        },
+        {
+          "label": "C",
+          "text": "By physically destroying the plaintext.",
+          "isCorrect": false,
+          "rationale": "Encryption transforms plaintext reversibly; it does not destroy it."
+        },
+        {
+          "label": "D",
+          "text": "By replacing the key with the ciphertext.",
+          "isCorrect": false,
+          "rationale": "The key is used to generate the keystream; it is not replaced by ciphertext."
+        }
+      ],
+      "hint": "Plaintext is mixed with a generated pseudorandom sequence.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 20,
+      "question": "What property must a stream cipher keystream generator have for robustness?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It must be computationally impractical to predict future keystream portions from previous ones.",
+          "isCorrect": true,
+          "rationale": "If future keystream bits can be predicted, an attacker may recover or manipulate encrypted data."
+        },
+        {
+          "label": "B",
+          "text": "It must generate the same public keystream for all users.",
+          "isCorrect": false,
+          "rationale": "A public or shared keystream across users would compromise security."
+        },
+        {
+          "label": "C",
+          "text": "It must avoid using keys.",
+          "isCorrect": false,
+          "rationale": "The generating key is required to produce the keystream securely."
+        },
+        {
+          "label": "D",
+          "text": "It must compress the plaintext before every operation.",
+          "isCorrect": false,
+          "rationale": "Compression is not the core security property of a keystream generator."
+        }
+      ],
+      "hint": "Past output should not reveal future output.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 21,
+      "question": "What does a block cipher do?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It transforms a plaintext block of n bits into a ciphertext block of n bits.",
+          "isCorrect": true,
+          "rationale": "A block cipher operates on fixed-size plaintext blocks and outputs ciphertext blocks of the same size."
+        },
+        {
+          "label": "B",
+          "text": "It only encrypts one bit and then stops.",
+          "isCorrect": false,
+          "rationale": "Block ciphers process fixed-size blocks and can be applied repeatedly to longer messages."
+        },
+        {
+          "label": "C",
+          "text": "It proves the identity of the sender without encryption.",
+          "isCorrect": false,
+          "rationale": "Identity proof is authentication; block ciphers are symmetric encryption primitives."
+        },
+        {
+          "label": "D",
+          "text": "It stores keys inside certificates.",
+          "isCorrect": false,
+          "rationale": "Certificates are a public-key infrastructure concept, not the definition of block ciphers."
+        }
+      ],
+      "hint": "The input and output blocks have the same length.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 22,
+      "question": "Why must a block cipher map each plaintext block to a unique ciphertext block for a fixed key?",
+      "options": [
+        {
+          "label": "A",
+          "text": "So that decryption is reversible and unambiguous.",
+          "isCorrect": true,
+          "rationale": "If two plaintext blocks mapped to the same ciphertext block under the same key, decryption could not uniquely recover the original plaintext."
+        },
+        {
+          "label": "B",
+          "text": "So that ciphertext becomes shorter than plaintext.",
+          "isCorrect": false,
+          "rationale": "Block ciphers usually keep block size the same; uniqueness is about reversibility."
+        },
+        {
+          "label": "C",
+          "text": "So that the key can be made public.",
+          "isCorrect": false,
+          "rationale": "The key must still remain secret in symmetric encryption."
+        },
+        {
+          "label": "D",
+          "text": "So that encryption becomes irreversible.",
+          "isCorrect": false,
+          "rationale": "Encryption must be reversible by authorized users."
+        }
+      ],
+      "hint": "Think about what the decryptor needs to recover.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 23,
+      "question": "Which statement about DES is correct?",
+      "options": [
+        {
+          "label": "A",
+          "text": "DES uses 56 significant key bits and operates on 64-bit blocks.",
+          "isCorrect": true,
+          "rationale": "DES uses a 64-bit key format, but only 56 bits are significant because 8 bits are used for parity; it operates on 64-bit blocks."
+        },
+        {
+          "label": "B",
+          "text": "DES uses 2048-bit public keys.",
+          "isCorrect": false,
+          "rationale": "2048-bit keys are associated with RSA security recommendations, not DES."
+        },
+        {
+          "label": "C",
+          "text": "DES is an asymmetric encryption algorithm.",
+          "isCorrect": false,
+          "rationale": "DES is a symmetric block cipher."
+        },
+        {
+          "label": "D",
+          "text": "DES does not use keys.",
+          "isCorrect": false,
+          "rationale": "DES is key-based encryption."
+        }
+      ],
+      "hint": "DES is an old symmetric block cipher with a short effective key.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 24,
+      "question": "Why is DES considered insecure today?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Its 56-bit key size is too short against modern brute-force attacks.",
+          "isCorrect": true,
+          "rationale": "DES became insecure mainly because modern computing power makes exhaustive key search feasible."
+        },
+        {
+          "label": "B",
+          "text": "It cannot decrypt ciphertext even with the correct key.",
+          "isCorrect": false,
+          "rationale": "DES decryption works with the correct key; the issue is insufficient key length."
+        },
+        {
+          "label": "C",
+          "text": "It uses public-key certificates incorrectly.",
+          "isCorrect": false,
+          "rationale": "DES is symmetric and does not rely on public-key certificates."
+        },
+        {
+          "label": "D",
+          "text": "It was designed only for hashing passwords.",
+          "isCorrect": false,
+          "rationale": "DES is an encryption algorithm, not primarily a password hashing scheme."
+        }
+      ],
+      "hint": "The algorithm survived analysis better than its key length did.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 25,
+      "question": "What general lesson follows if brute force is the only practical attack against an encryption algorithm?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Use longer keys.",
+          "isCorrect": true,
+          "rationale": "Longer keys increase the brute-force search space and make exhaustive search less feasible."
+        },
+        {
+          "label": "B",
+          "text": "Publish the secret key.",
+          "isCorrect": false,
+          "rationale": "Publishing the key would completely compromise the encryption."
+        },
+        {
+          "label": "C",
+          "text": "Remove decryption from the system.",
+          "isCorrect": false,
+          "rationale": "Authorized users still need decryption; the correct response is stronger keys."
+        },
+        {
+          "label": "D",
+          "text": "Use the same key for every system forever.",
+          "isCorrect": false,
+          "rationale": "Reusing keys indefinitely increases risk."
+        }
+      ],
+      "hint": "Brute force becomes harder as the key space grows.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 26,
+      "question": "What is the defining feature of asymmetric cryptography?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It uses a key pair consisting of a public key and a private key.",
+          "isCorrect": true,
+          "rationale": "Asymmetric cryptography relies on two related keys with different roles."
+        },
+        {
+          "label": "B",
+          "text": "It uses the same shared secret key for encryption and decryption.",
+          "isCorrect": false,
+          "rationale": "That describes symmetric cryptography."
+        },
+        {
+          "label": "C",
+          "text": "It does not require any cryptographic algorithm.",
+          "isCorrect": false,
+          "rationale": "Asymmetric cryptography still uses algorithms such as RSA."
+        },
+        {
+          "label": "D",
+          "text": "It only works for compressing messages.",
+          "isCorrect": false,
+          "rationale": "Asymmetric cryptography is used for key distribution, authentication, encryption, and digital signatures, not compression."
+        }
+      ],
+      "hint": "One key can be public; the other must remain private.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 27,
+      "question": "Which statement about asymmetric cryptography is correct?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is often used for key distribution and digital signatures, but it is not a full replacement for symmetric cryptography.",
+          "isCorrect": true,
+          "rationale": "Asymmetric cryptography is useful for solving key distribution and signature problems, but it is generally slower than symmetric cryptography."
+        },
+        {
+          "label": "B",
+          "text": "It is always faster than symmetric cryptography.",
+          "isCorrect": false,
+          "rationale": "Asymmetric cryptography is typically computationally heavier."
+        },
+        {
+          "label": "C",
+          "text": "It requires all users to share the same private key.",
+          "isCorrect": false,
+          "rationale": "Each actor has their own key pair; private keys should not be shared."
+        },
+        {
+          "label": "D",
+          "text": "It cannot be used for digital signatures.",
+          "isCorrect": false,
+          "rationale": "Digital signatures are one of the major uses of asymmetric cryptography."
+        }
+      ],
+      "hint": "Public-key crypto often helps establish trust or exchange keys, while symmetric crypto handles bulk data efficiently.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 28,
+      "question": "Why is symmetric cryptography usually preferred for bulk data encryption?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is relatively fast compared to asymmetric cryptography.",
+          "isCorrect": true,
+          "rationale": "Symmetric algorithms such as AES are efficient and suitable for encrypting large amounts of data."
+        },
+        {
+          "label": "B",
+          "text": "It automatically provides non-repudiation.",
+          "isCorrect": false,
+          "rationale": "Symmetric cryptography does not inherently provide non-repudiation because the same secret key is shared."
+        },
+        {
+          "label": "C",
+          "text": "It does not require keys.",
+          "isCorrect": false,
+          "rationale": "Symmetric cryptography requires a shared secret key."
+        },
+        {
+          "label": "D",
+          "text": "It is more vulnerable to brute force than DES by definition.",
+          "isCorrect": false,
+          "rationale": "Modern symmetric algorithms with sufficient key lengths can be very resistant to brute-force attacks."
+        }
+      ],
+      "hint": "Think about performance when encrypting large messages.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 29,
+      "question": "What security services can digital signatures provide?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Data integrity, authentication, and non-repudiation when supported by certificates from a CA.",
+          "isCorrect": true,
+          "rationale": "Digital signatures can prove that data was not modified, identify the signer, and support non-repudiation when certificates bind identities to keys."
+        },
+        {
+          "label": "B",
+          "text": "Only data compression.",
+          "isCorrect": false,
+          "rationale": "Digital signatures do not compress data; they provide security properties."
+        },
+        {
+          "label": "C",
+          "text": "Only confidentiality.",
+          "isCorrect": false,
+          "rationale": "Digital signatures do not hide message content; encryption is used for confidentiality."
+        },
+        {
+          "label": "D",
+          "text": "Guaranteed protection against all quantum attacks.",
+          "isCorrect": false,
+          "rationale": "Traditional signature schemes such as RSA are vulnerable to quantum cryptanalysis."
+        }
+      ],
+      "hint": "A signature proves who signed and whether the message changed, but it does not hide the message.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 30,
+      "question": "Which properties should a hash function used in a digital signature scheme have?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Collision resistance and non-invertibility.",
+          "isCorrect": true,
+          "rationale": "A signature scheme relies on a hash function that is hard to invert and hard to manipulate by finding different messages with the same digest."
+        },
+        {
+          "label": "B",
+          "text": "Public decryptability and key reuse.",
+          "isCorrect": false,
+          "rationale": "These are not the required properties of a hash function used for signatures."
+        },
+        {
+          "label": "C",
+          "text": "Reversibility and compression loss.",
+          "isCorrect": false,
+          "rationale": "Cryptographic hash functions should not be reversible."
+        },
+        {
+          "label": "D",
+          "text": "Low entropy and predictable outputs.",
+          "isCorrect": false,
+          "rationale": "Predictable hash outputs would undermine security."
+        }
+      ],
+      "hint": "A good signature hash must be hard to reverse and hard to collide.",
+      "correctAnswer": "A"
+    }
+  ]
+}

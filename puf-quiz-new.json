@@ -1,0 +1,839 @@
+{
+  "title": "PUF Quiz new",
+  "totalQuestions": 26,
+  "extractedAt": "2026-06-01T15:01:38.266Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "Which of the following best describes the fundamental role of Physical Unclonable Functions (PUFs) in hardware security?",
+      "options": [
+        {
+          "label": "A",
+          "text": "They are digital error-correction codes used to stabilize volatile memory outputs.",
+          "isCorrect": false,
+          "rationale": "While error correction might be used with PUFs, the PUF itself is the source of entropy, not the correction mechanism."
+        },
+        {
+          "label": "B",
+          "text": "They act as a hardware equivalent of a one-way function based on physical characteristics.",
+          "isCorrect": true,
+          "rationale": "PUFs are defined as hardware primitives that produce unique outputs for specific inputs, effectively behaving like one-way functions due to physical process variations."
+        },
+        {
+          "label": "C",
+          "text": "They serve as programmable logic gates that can be reconfigured after fabrication.",
+          "isCorrect": false,
+          "rationale": "PUFs rely on fixed physical variations from manufacturing rather than post-fabrication logical reconfiguration."
+        },
+        {
+          "label": "D",
+          "text": "They are software-based algorithms designed to simulate random number generation in silicon.",
+          "isCorrect": false,
+          "rationale": "PUFs are hardware-based and exploit physical variations rather than being purely software-based simulations."
+        }
+      ],
+      "hint": "Consider the relationship between physical manufacturing and mathematical functions mentioned in the introduction.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 2,
+      "question": "What is the primary source of the unique 'fingerprint' found in Silicon PUFs?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Random dopant fluctuations during the fabrication process.",
+          "isCorrect": true,
+          "rationale": "Inherent variations such as random dopant fluctuations lead to differences in electrical properties, making each circuit unique."
+        },
+        {
+          "label": "B",
+          "text": "The use of specific radioactive isotopes in the silicon substrate.",
+          "isCorrect": false,
+          "rationale": "Silicon PUFs rely on standard manufacturing variations like gate length or doping, not radioactive materials."
+        },
+        {
+          "label": "C",
+          "text": "The specific software loaded onto the Integrated Circuit (IC).",
+          "isCorrect": false,
+          "rationale": "PUF characteristics are tied to the physical structure of the IC, not the software it executes."
+        },
+        {
+          "label": "D",
+          "text": "Intentional variations introduced by the layout designer.",
+          "isCorrect": false,
+          "rationale": "PUFs exploit unintended, random process variations rather than intentional design choices."
+        }
+      ],
+      "hint": "Focus on what happens during the manufacturing stage of an integrated circuit.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 3,
+      "question": "Which property ensures that an observer cannot determine a PUF's response to a specific challenge even if they possess a set of other Challenge-Response Pairs (CRPs)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Reproducibility",
+          "isCorrect": false,
+          "rationale": "Reproducibility implies that the same challenge yields approximately the same response every time on the same device."
+        },
+        {
+          "label": "B",
+          "text": "Uniformity",
+          "isCorrect": false,
+          "rationale": "Uniformity refers to the distribution of zeros and ones in the response, not the difficulty of predicting them."
+        },
+        {
+          "label": "C",
+          "text": "Computability",
+          "isCorrect": false,
+          "rationale": "Computability refers to the ease of evaluating the response when the PUF and challenge are both present."
+        },
+        {
+          "label": "D",
+          "text": "Unpredictability",
+          "isCorrect": true,
+          "rationale": "Unpredictability means that learning is hard; it is difficult to predict the output for a new challenge based on previously known CRPs."
+        }
+      ],
+      "hint": "This property relates to the difficulty of machine learning or modeling the PUF's behavior.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 4,
+      "question": "In the context of PUFs, how is the Shannon entropy H(X) calculated based on possible response values?",
+      "options": [
+        {
+          "label": "A",
+          "text": "H(X) = -\\sum_{i=1}^{n} p(x_i) \\log_2 p(x_i)",
+          "isCorrect": true,
+          "rationale": "This standard formula from information theory measures the average information content or uncertainty based on the probability of each response."
+        },
+        {
+          "label": "B",
+          "text": "H(X) = \\sum_{i=1}^{n} p(x_i) \\log_2 p(x_i)",
+          "isCorrect": false,
+          "rationale": "Entropy is defined with a negative sign because the log of a probability is negative, and entropy must be a positive value."
+        },
+        {
+          "label": "C",
+          "text": "H(X) = 1 - \\sum p(x_i)^2",
+          "isCorrect": false,
+          "rationale": "This is related to Gini impurity or Simpson's index, not the standard Shannon entropy used for PUFs."
+        },
+        {
+          "label": "D",
+          "text": "H(X) = -\\log_2 \\max_{x \\in X} p(x)",
+          "isCorrect": false,
+          "rationale": "This formula represents min-entropy, which is used for worst-case predictability rather than Shannon entropy."
+        }
+      ],
+      "hint": "Recall the fundamental formula from information theory mentioned in the material.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 5,
+      "question": "Which entropy measure is considered the 'worst-case scenario' for PUF predictability by focusing on the most likely outcome?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Shannon entropy H(X)",
+          "isCorrect": false,
+          "rationale": "Shannon entropy measures the average uncertainty, which may not accurately reflect the security risk if one outcome is significantly more likely."
+        },
+        {
+          "label": "B",
+          "text": "Min-entropy H_{\\infty}(X)",
+          "isCorrect": true,
+          "rationale": "Min-entropy H_{\\infty}(X) = -\\log_2 \\max_{x \\in X} p(x) specifically targets the probability of the most likely response, representing the greatest threat to security."
+        },
+        {
+          "label": "C",
+          "text": "Relative entropy D_{KL}(P || Q)",
+          "isCorrect": false,
+          "rationale": "Relative entropy or KL divergence measures the difference between two distributions, not the predictability of a single one."
+        },
+        {
+          "label": "D",
+          "text": "Conditional entropy H(X|Y)",
+          "isCorrect": false,
+          "rationale": "Conditional entropy measures uncertainty given another variable, whereas the question asks for the internal predictability of the PUF response itself."
+        }
+      ],
+      "hint": "Look for the formula that utilizes the maximum probability among possible outcomes.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 6,
+      "question": "According to the PUF taxonomy provided, which of the following is classified as a 'Non-Silicon' PUF?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Ring Oscillator PUF",
+          "isCorrect": false,
+          "rationale": "Ring Oscillator PUFs are delay-based Silicon PUFs."
+        },
+        {
+          "label": "B",
+          "text": "Optical PUF",
+          "isCorrect": true,
+          "rationale": "The taxonomy explicitly lists Optical, Acoustic, and Coating as types of Non-Silicon PUFs."
+        },
+        {
+          "label": "C",
+          "text": "Arbiter PUF",
+          "isCorrect": false,
+          "rationale": "Arbiter PUFs are a sub-type of Delay PUFs, which fall under the Silicon category."
+        },
+        {
+          "label": "D",
+          "text": "Glitch PUF",
+          "isCorrect": false,
+          "rationale": "Glitch PUFs are categorized under Silicon PUFs in the provided hierarchy."
+        }
+      ],
+      "hint": "Refer to the diagram classifying PUFs into Silicon and Non-Silicon branches.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 7,
+      "question": "For a Ring Oscillator PUF with N oscillators, how many distinct bit-generating pairs can be formed?",
+      "options": [
+        {
+          "label": "A",
+          "text": "2^N",
+          "isCorrect": false,
+          "rationale": "This represents the total number of possible binary states for N bits, not the number of oscillator pairs."
+        },
+        {
+          "label": "B",
+          "text": "N^2",
+          "isCorrect": false,
+          "rationale": "This would include pairs with the same oscillator and duplicate pairs in different orders, which are not useful for comparison."
+        },
+        {
+          "label": "C",
+          "text": "N(N - 1)",
+          "isCorrect": false,
+          "rationale": "This accounts for permutations, but since the order in a comparison pair typically produces just one bit, the number of distinct pairs is halved."
+        },
+        {
+          "label": "D",
+          "text": "\\frac{N(N - 1)}{2}",
+          "isCorrect": true,
+          "rationale": "The number of distinct pairs from a set of N elements is calculated using the combination formula for 2 items, which is \\frac{N(N-1)}{2}."
+        }
+      ],
+      "hint": "This is a combinatorial problem involving pairs of oscillators.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 8,
+      "question": "If a Ring Oscillator PUF utilizes N = 16 oscillators, what is the maximum number of bits that can be generated through distinct pairings?",
+      "options": [
+        {
+          "label": "A",
+          "text": "120 bits",
+          "isCorrect": true,
+          "rationale": "Using the formula \\frac{N(N-1)}{2}, with N=16, we get \\frac{16 \\times 15}{2} = 120."
+        },
+        {
+          "label": "B",
+          "text": "16 bits",
+          "isCorrect": false,
+          "rationale": "This assumes one bit per oscillator, whereas the PUF design utilizes comparisons between pairs."
+        },
+        {
+          "label": "C",
+          "text": "65,536 bits",
+          "isCorrect": false,
+          "rationale": "This represents 2^{16}, the total addressable space of a 16-bit challenge, rather than the available response bits."
+        },
+        {
+          "label": "D",
+          "text": "256 bits",
+          "isCorrect": false,
+          "rationale": "This would be the result of N^2 (16 squared), which is not the correct formula for distinct pairings."
+        }
+      ],
+      "hint": "Apply the pairing formula provided in the source material for the specific case where N=16.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 9,
+      "question": "In an Arbiter PUF, what determines whether the final output bit is a 'one' or a 'zero'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The total number of logic gates in each path.",
+          "isCorrect": false,
+          "rationale": "While gate count affects delay, it is the actual physical speed (delay) of the signal, which varies even for identical gate counts, that matters."
+        },
+        {
+          "label": "B",
+          "text": "The frequency difference between two independent ring oscillators.",
+          "isCorrect": false,
+          "rationale": "Frequency comparisons are the mechanism for Ring Oscillator PUFs, not Arbiter PUFs."
+        },
+        {
+          "label": "C",
+          "text": "The power-up state of a cross-coupled inverter pair.",
+          "isCorrect": false,
+          "rationale": "This describes the mechanism of an SRAM-based PUF."
+        },
+        {
+          "label": "D",
+          "text": "Whether the signal reaches the latch data input (D) faster than the other path.",
+          "isCorrect": true,
+          "rationale": "The arbiter (latch) decides based on a race condition where the faster signal determines the sampled state."
+        }
+      ],
+      "hint": "Think about the 'race' analogy used to describe signals in this specific PUF type.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 10,
+      "question": "How do SRAM-based PUFs extract unique binary responses from a memory chip?",
+      "options": [
+        {
+          "label": "A",
+          "text": "They apply a high-voltage glitch to force the memory into a random state.",
+          "isCorrect": false,
+          "rationale": "SRAM PUFs rely on natural power-up behavior, not external glitches."
+        },
+        {
+          "label": "B",
+          "text": "They observe the unpredictable states of inverters upon power-up.",
+          "isCorrect": true,
+          "rationale": "SRAM cells consist of cross-coupled inverters; process variations cause them to favor either a '0' or '1' state when power is first applied."
+        },
+        {
+          "label": "C",
+          "text": "They use a hardware arbiter to compare the discharge rates of two bitlines.",
+          "isCorrect": false,
+          "rationale": "Comparing bitline discharge is a different technique, whereas SRAM PUFs rely on the bistable nature of the cell during power-on."
+        },
+        {
+          "label": "D",
+          "text": "They measure the time it takes to write a value to a memory cell.",
+          "isCorrect": false,
+          "rationale": "While write times vary, SRAM PUFs specifically utilize the volatile power-up state."
+        }
+      ],
+      "hint": "Consider what happens to memory cells when an electronic device is first switched on.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 11,
+      "question": "Which PUF property is defined by the mathematical expression y \\approx PUF(x) being consistent over time on the same device?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Uniqueness",
+          "isCorrect": false,
+          "rationale": "Uniqueness describes how well the PUF distinguishes one physical entity from another."
+        },
+        {
+          "label": "B",
+          "text": "Uniformity",
+          "isCorrect": false,
+          "rationale": "Uniformity describes the statistical distribution of the bits within a single response."
+        },
+        {
+          "label": "C",
+          "text": "One-way",
+          "isCorrect": false,
+          "rationale": "One-wayness refers to the difficulty of finding the input (x) given the output (y)."
+        },
+        {
+          "label": "D",
+          "text": "Reproducibility",
+          "isCorrect": true,
+          "rationale": "Reproducibility (also called reliability) ensures the device produces the same output for the same input, subject to a small error margin."
+        }
+      ],
+      "hint": "This property is often challenged by environmental factors like temperature and noise.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 12,
+      "question": "In the context of PUF metrics, what is the ideal value for Response Uniformity (RU)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It depends on the number of Challenge-Response Pairs (CRPs).",
+          "isCorrect": false,
+          "rationale": "The ideal RU is a fixed target of 50% regardless of the size of the CRP set, as it represents maximum bit-level entropy."
+        },
+        {
+          "label": "B",
+          "text": "0%",
+          "isCorrect": false,
+          "rationale": "0% uniformity would imply all bits are zeros, which also results in zero entropy."
+        },
+        {
+          "label": "C",
+          "text": "100%",
+          "isCorrect": false,
+          "rationale": "100% uniformity would mean all bits are the same value (all 1s), which provides no entropy."
+        },
+        {
+          "label": "D",
+          "text": "50%",
+          "isCorrect": true,
+          "rationale": "Ideal uniformity means zeros and ones are equally distributed, resulting in a probability of 0.5 for each bit."
+        }
+      ],
+      "hint": "Think about the most balanced distribution of binary values.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 13,
+      "question": "Which of the following environmental factors is EXPLICITLY cited as a cause for PUF repeatability (reliability) issues?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Voltage fluctuations",
+          "isCorrect": true,
+          "rationale": "The material notes that PUFs are affected by temperature, voltage, and noise, which can change the response over time."
+        },
+        {
+          "label": "B",
+          "text": "Mechanical vibration",
+          "isCorrect": false,
+          "rationale": "While relevant for some systems, the source material focuses on electrical and thermal environmental conditions."
+        },
+        {
+          "label": "C",
+          "text": "Software updates",
+          "isCorrect": false,
+          "rationale": "Repeatability issues are linked to physical and environmental changes, not logical software updates."
+        },
+        {
+          "label": "D",
+          "text": "Atmospheric pressure",
+          "isCorrect": false,
+          "rationale": "Atmospheric pressure is not listed as a primary factor affecting silicon-based electronic variations in the source."
+        }
+      ],
+      "hint": "Identify the factors that influence the electrical behavior of silicon circuits listed on slide 38.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 14,
+      "question": "What does the 'One-way' property of a PUF imply about the relationship between challenge x and response y?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Only one manufacturer can produce the physical entity embedding the PUF.",
+          "isCorrect": false,
+          "rationale": "This is related to 'Unclonability,' not the mathematical one-way nature of the function."
+        },
+        {
+          "label": "B",
+          "text": "The signal can only travel in one direction through the delay paths.",
+          "isCorrect": false,
+          "rationale": "One-wayness refers to mathematical irreversibility, not the physical direction of signal propagation."
+        },
+        {
+          "label": "C",
+          "text": "Given y and the PUF, it is computationally hard to find the original x.",
+          "isCorrect": true,
+          "rationale": "Like a cryptographic hash, the one-way property ensures that the input cannot be easily reversed from the output."
+        },
+        {
+          "label": "D",
+          "text": "A challenge can only be used once before the PUF becomes invalid.",
+          "isCorrect": false,
+          "rationale": "This describes a 'one-time' usage scenario, whereas 'one-way' refers to function inversion difficulty."
+        }
+      ],
+      "hint": "Think about the definition of a one-way function in cryptography.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 15,
+      "question": "According to the property of 'Unclonability,' even if the manufacturer has the original design and technology, why can they not produce two identical PUFs?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The PUF destroys itself after the first challenge is applied.",
+          "isCorrect": false,
+          "rationale": "PUFs are generally reusable; their unclonability stems from manufacturing randomness, not self-destruction."
+        },
+        {
+          "label": "B",
+          "text": "Each PUF is initialized with a unique software key by the end-user.",
+          "isCorrect": false,
+          "rationale": "PUF uniqueness comes from physical silicon variations, not user-provided software keys."
+        },
+        {
+          "label": "C",
+          "text": "The manufacturer is legally restricted from creating duplicates.",
+          "isCorrect": false,
+          "rationale": "Unclonability is a physical property based on manufacturing limits, not a legal or policy-based restriction."
+        },
+        {
+          "label": "D",
+          "text": "Variation is inherent and unpredictable within the fabrication process.",
+          "isCorrect": true,
+          "rationale": "Manufacturing variations are random and occur at such a fine scale (e.g., dopant atoms) that they cannot be precisely controlled or replicated."
+        }
+      ],
+      "hint": "Focus on the 'unpredictable' and 'hard to remove' nature of the source of variation.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 16,
+      "question": "In the Response Uniformity formula RU(c) = \\frac{1}{N} \\sum_{t=1}^{N} bit(\\pi(c), t) \\times 100\\%, what does N represent?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The number of oscillators in a Ring Oscillator PUF.",
+          "isCorrect": false,
+          "rationale": "While N is used for oscillator count in some slides, in the uniformity formula context, it refers to the bit-length of the response."
+        },
+        {
+          "label": "B",
+          "text": "The number of Challenge-Response Pairs in the database.",
+          "isCorrect": false,
+          "rationale": "Uniformity is measured per response; therefore N is the length of that specific response."
+        },
+        {
+          "label": "C",
+          "text": "The total number of bits in the PUF response.",
+          "isCorrect": true,
+          "rationale": "To find the percentage of 1s, the sum of bit values is divided by the total count of bits (N) in that response."
+        },
+        {
+          "label": "D",
+          "text": "The number of identical Integrated Circuits being tested.",
+          "isCorrect": false,
+          "rationale": "Uniformity evaluates a single device's response bits, not a population of devices."
+        }
+      ],
+      "hint": "Consider how you would calculate the average value of a sequence of bits.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 17,
+      "question": "Which Silicon PUF type specifically exploits 'glitches' in combinational logic as a source of variation?",
+      "options": [
+        {
+          "label": "A",
+          "text": "SRAM PUF",
+          "isCorrect": false,
+          "rationale": "SRAM PUFs are classified under Memory PUFs."
+        },
+        {
+          "label": "B",
+          "text": "Arbiter PUF",
+          "isCorrect": false,
+          "rationale": "Arbiter PUFs are classified under Delay PUFs, not Glitch PUFs."
+        },
+        {
+          "label": "C",
+          "text": "Ring Oscillator PUF",
+          "isCorrect": false,
+          "rationale": "Ring Oscillator PUFs are delay-based, utilizing oscillator frequency differences."
+        },
+        {
+          "label": "D",
+          "text": "Glitch PUF",
+          "isCorrect": true,
+          "rationale": "As shown in the taxonomy diagram, Glitch PUFs are a distinct category under Silicon PUFs alongside Memory and Delay PUFs."
+        }
+      ],
+      "hint": "Look for the specific term listed as a sub-category of Silicon PUFs on slide 10.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 18,
+      "question": "The property of 'Computability' states that evaluating y = PUF(x) should be:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Only possible using a quantum computer.",
+          "isCorrect": false,
+          "rationale": "PUFs are designed for current embedded systems and must be computable using standard electronic hardware."
+        },
+        {
+          "label": "B",
+          "text": "Hard, unless the manufacturer's secret key is known.",
+          "isCorrect": false,
+          "rationale": "Computability refers to evaluation speed/ease; the 'hardness' applies to cloning or predicting, not legitimate usage."
+        },
+        {
+          "label": "C",
+          "text": "Variable, depending on the environmental temperature.",
+          "isCorrect": false,
+          "rationale": "While performance might vary, the property 'Computability' defines the functional requirement that it is 'easy' to evaluate."
+        },
+        {
+          "label": "D",
+          "text": "Easy, given the PUF and the challenge x.",
+          "isCorrect": true,
+          "rationale": "A PUF must be efficient to use in real-time hardware applications, meaning the response should be generated quickly once challenged."
+        }
+      ],
+      "hint": "This property is essential for the practical utility of the hardware primitive.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 19,
+      "question": "What is the primary difference between Shannon entropy and Min-entropy as applied to PUFs?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Shannon entropy uses \\log_{10} while Min-entropy uses \\log_2.",
+          "isCorrect": false,
+          "rationale": "Both typically use \\log_2 to measure entropy in bits."
+        },
+        {
+          "label": "B",
+          "text": "Shannon entropy measures average uncertainty, while Min-entropy measures worst-case predictability.",
+          "isCorrect": true,
+          "rationale": "Min-entropy is a more conservative security metric because it considers the most probable attack vector (the most likely response)."
+        },
+        {
+          "label": "C",
+          "text": "Shannon entropy is used for Silicon PUFs, while Min-entropy is for Non-Silicon PUFs.",
+          "isCorrect": false,
+          "rationale": "Both entropy measures can be applied to any PUF system to evaluate its quality and security."
+        },
+        {
+          "label": "D",
+          "text": "Min-entropy is always higher than Shannon entropy for the same distribution.",
+          "isCorrect": false,
+          "rationale": "Min-entropy is always less than or equal to Shannon entropy (H_{\\infty}(X) \\le H(X))."
+        }
+      ],
+      "hint": "Compare the 'average' versus 'most likely outcome' perspectives mentioned on slides 8 and 9.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 20,
+      "question": "A PUF that identifies a physical entity by embedding some information about its unique identity is said to possess which property?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Reproducible",
+          "isCorrect": false,
+          "rationale": "Reproducibility ensures consistency over time for one device, but does not necessarily ensure different devices have different outputs."
+        },
+        {
+          "label": "B",
+          "text": "Computable",
+          "isCorrect": false,
+          "rationale": "Computability is a measure of operational efficiency, not identity identification."
+        },
+        {
+          "label": "C",
+          "text": "Unique",
+          "isCorrect": true,
+          "rationale": "The property 'Unique' ensures that the PUF response PUF(x) contains identity-specific information about the hardware entity."
+        },
+        {
+          "label": "D",
+          "text": "Unclonable",
+          "isCorrect": false,
+          "rationale": "Unclonability refers to the inability to duplicate the function, whereas uniqueness refers to the distinctness of the resulting identity."
+        }
+      ],
+      "hint": "Look for the definition on slide 5 that mentions identifying the physical entity.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 21,
+      "question": "Which of the following is an example of a Delay-based Silicon PUF according to the provided taxonomy?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Coating",
+          "isCorrect": false,
+          "rationale": "Coating is a Non-Silicon PUF type."
+        },
+        {
+          "label": "B",
+          "text": "SRAM",
+          "isCorrect": false,
+          "rationale": "SRAM is categorized as a Memory-based Silicon PUF."
+        },
+        {
+          "label": "C",
+          "text": "Acoustic",
+          "isCorrect": false,
+          "rationale": "Acoustic is categorized as a Non-Silicon PUF."
+        },
+        {
+          "label": "D",
+          "text": "Arbiter",
+          "isCorrect": true,
+          "rationale": "The taxonomy on slide 10 groups both Arbiter and Ring Oscillator PUFs under the 'Delay' category."
+        }
+      ],
+      "hint": "The answer is a sub-type of the Delay category.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 22,
+      "question": "In the property of 'Unclonability,' what is defined as hard to construct given a PUF?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A procedure PUF' such that PUF(x) \\approx PUF'(x).",
+          "isCorrect": true,
+          "rationale": "Unclonability means it is difficult to create a physical or mathematical replica that mimics the original Challenge-Response behavior."
+        },
+        {
+          "label": "B",
+          "text": "A way to power the circuit without using silicon.",
+          "isCorrect": false,
+          "rationale": "This is unrelated to the functional cloning of the Challenge-Response behavior."
+        },
+        {
+          "label": "C",
+          "text": "A challenge x that produces a zero response.",
+          "isCorrect": false,
+          "rationale": "Finding a challenge for a specific response relates to one-wayness or randomness, not cloning."
+        },
+        {
+          "label": "D",
+          "text": "A database large enough to store all CRPs.",
+          "isCorrect": false,
+          "rationale": "Storage capacity is a resource issue, not the core definition of the unclonability property."
+        }
+      ],
+      "hint": "Check the mathematical definition provided on slide 6.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 23,
+      "question": "The effect of 'Aging' on a PUF is most directly associated with which property?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Uniqueness",
+          "isCorrect": false,
+          "rationale": "Uniqueness refers to inter-device variation, whereas aging affects intra-device consistency over time."
+        },
+        {
+          "label": "B",
+          "text": "Unclonability",
+          "isCorrect": false,
+          "rationale": "Unclonability is a static property determined at manufacture; aging affects the consistency of the existing device."
+        },
+        {
+          "label": "C",
+          "text": "Computability",
+          "isCorrect": false,
+          "rationale": "While performance might change, 'Computability' refers to the fundamental ability to calculate the function easily."
+        },
+        {
+          "label": "D",
+          "text": "Repeatability (Reliability)",
+          "isCorrect": true,
+          "rationale": "Aging causes the physical properties of the silicon to drift, potentially changing the response over time and reducing reliability."
+        }
+      ],
+      "hint": "This property describes how sets of CRPs should not change over time.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 24,
+      "question": "What is the 'Reality' regarding the frequencies of Ring Oscillators in a PUF design?",
+      "options": [
+        {
+          "label": "A",
+          "text": "All oscillators must be tuned to identical frequencies for the PUF to work.",
+          "isCorrect": false,
+          "rationale": "PUFs rely on the *differences* in frequency; tuning them to be identical would remove the source of entropy."
+        },
+        {
+          "label": "B",
+          "text": "The frequencies are randomized by a software seed during power-up.",
+          "isCorrect": false,
+          "rationale": "Frequencies are a physical property of the hardware loop, not software-controlled parameters."
+        },
+        {
+          "label": "C",
+          "text": "Because of process variations, all frequencies are different.",
+          "isCorrect": true,
+          "rationale": "Despite having identical layouts, manufacturing variations ensure that no two oscillators oscillate at the exact same frequency."
+        },
+        {
+          "label": "D",
+          "text": "Frequencies are determined solely by the number of inverters in the loop.",
+          "isCorrect": false,
+          "rationale": "While inverter count sets the nominal frequency, process variations create the subtle, unique differences used by the PUF."
+        }
+      ],
+      "hint": "Recall the contrast between the 'Ideal' and 'Reality' mentioned on slide 13.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 25,
+      "question": "In an Arbiter PUF, what logic component is used to decide which signal won the 'race'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A cross-coupled inverter pair",
+          "isCorrect": false,
+          "rationale": "This is the core component of an SRAM cell, not an Arbiter PUF's decision logic."
+        },
+        {
+          "label": "B",
+          "text": "An optical sensor",
+          "isCorrect": false,
+          "rationale": "Arbiter PUFs are Silicon-based electronic circuits, not optical ones."
+        },
+        {
+          "label": "C",
+          "text": "A digital counter",
+          "isCorrect": false,
+          "rationale": "Counters are used in Ring Oscillator PUFs to measure frequencies, not to arbitrate delay races."
+        },
+        {
+          "label": "D",
+          "text": "A latch",
+          "isCorrect": true,
+          "rationale": "The arbiter is typically implemented as a latch that samples one input based on the arrival time of another (e.g., D-latch or SR-latch)."
+        }
+      ],
+      "hint": "The term used for the decision-making hardware on slide 17.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 26,
+      "question": "Which of the following is NOT a silicon-based PUF?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Memory PUF",
+          "isCorrect": false,
+          "rationale": "Memory PUFs (like SRAM) are a major branch of Silicon PUFs."
+        },
+        {
+          "label": "B",
+          "text": "Glitch PUF",
+          "isCorrect": false,
+          "rationale": "Glitch PUFs are explicitly listed as Silicon PUFs."
+        },
+        {
+          "label": "C",
+          "text": "Delay PUF",
+          "isCorrect": false,
+          "rationale": "Delay PUFs (Arbiter, RO) are standard Silicon PUFs."
+        },
+        {
+          "label": "D",
+          "text": "Coating PUF",
+          "isCorrect": true,
+          "rationale": "Coating PUFs are categorized under Non-Silicon PUFs in the provided taxonomy."
+        }
+      ],
+      "hint": "Check the sub-categories under 'Non-Silicon' on slide 10.",
+      "correctAnswer": "D"
+    }
+  ]
+}

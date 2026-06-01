@@ -1,0 +1,827 @@
+{
+  "title": "Hardware Quiz",
+  "totalQuestions": 26,
+  "extractedAt": "2026-06-01T14:59:43.022Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "According to the source material, what is the defining characteristic of a 'Root of Trust' that distinguishes it from other trusted components?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is exclusively implemented as a discrete hardware chip.",
+          "isCorrect": false,
+          "rationale": "Roots of Trust can be implemented in various forms, including integrated components or even software-based anchors if securely provisioned."
+        },
+        {
+          "label": "B",
+          "text": "It provides the highest possible performance for cryptographic operations.",
+          "isCorrect": false,
+          "rationale": "The definition of trust focuses on predictability and resistance to subversion, not raw performance or throughput."
+        },
+        {
+          "label": "C",
+          "text": "It is a component whose misbehavior cannot be detected.",
+          "isCorrect": true,
+          "rationale": "A Root of Trust is fundamentally defined as a component that must always behave as expected because there is no higher-level mechanism to detect its failure or subversion."
+        },
+        {
+          "label": "D",
+          "text": "It is inherently resistant to all levels of physical interference.",
+          "isCorrect": false,
+          "rationale": "While highly resistant, trust is defined relative to a 'given level' of physical interference, not an absolute resistance to all levels."
+        }
+      ],
+      "hint": "Consider the hierarchical nature of trust and what happens if the very base of that hierarchy fails.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 3,
+      "question": "In the context of TPM architecture, which component is responsible for maintaining an accurate summary of integrity digests?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Root of Trust for Reporting (RTR)",
+          "isCorrect": false,
+          "rationale": "The RTR is responsible for signing and reporting information held by the storage component, not maintaining the digests themselves."
+        },
+        {
+          "label": "B",
+          "text": "Root of Trust for Storage (RTS)",
+          "isCorrect": true,
+          "rationale": "The RTS is the computing engine tasked with maintaining summaries of integrity digests and providing a protected repository for keying material."
+        },
+        {
+          "label": "C",
+          "text": "Core Root of Trust for Measurement (CRTM)",
+          "isCorrect": false,
+          "rationale": "The CRTM is the initial set of instructions executed by the CPU to establish the chain of trust, not a storage engine."
+        },
+        {
+          "label": "D",
+          "text": "Root of Trust for Measurement (RTM)",
+          "isCorrect": false,
+          "rationale": "The RTM is the engine that performs the measurements, but it sends that information elsewhere for storage and summary."
+        }
+      ],
+      "hint": "Distinguish between the engine that 'measures', the engine that 'holds', and the engine that 'signs'.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 4,
+      "question": "The CRTM (Core Root of Trust for Measurement) is typically implemented as which of the following?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A physically unclonable function used to generate a unique device ID.",
+          "isCorrect": false,
+          "rationale": "While PUFs can provide identifiers, the CRTM is specifically the instruction set that initiates the trust chain."
+        },
+        {
+          "label": "B",
+          "text": "A dedicated microcontroller used for X.509v3 certificate storage.",
+          "isCorrect": false,
+          "rationale": "Storage of certificates like SUDI is a function of a Trust Anchor module, while the CRTM is execution-focused."
+        },
+        {
+          "label": "C",
+          "text": "An external audit log used to trace conduct activities at the software level.",
+          "isCorrect": false,
+          "rationale": "Audit logs are part of tamper-evident software mechanisms, not the core hardware boot instructions."
+        },
+        {
+          "label": "D",
+          "text": "The first set of instructions executed by the CPU when a chain of trust is established.",
+          "isCorrect": true,
+          "rationale": "The CRTM represents the initial code that controls the CPU upon reset to begin the measurement process for the chain of trust."
+        }
+      ],
+      "hint": "Think about the very first step the processor takes after a system reset.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 5,
+      "question": "Which TPM feature allows an external party to verify the trustworthiness of a platform's current state?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Secure Boot via CRTM",
+          "isCorrect": false,
+          "rationale": "Secure boot establishes a local secure state but does not inherently involve reporting that state to an external party."
+        },
+        {
+          "label": "B",
+          "text": "Remote Attestation via RTR",
+          "isCorrect": true,
+          "rationale": "The Root of Trust for Reporting (RTR) provides a protected environment to sign assertions, allowing external parties to validate platform integrity measurements."
+        },
+        {
+          "label": "C",
+          "text": "Data-at-rest encryption via AES",
+          "isCorrect": false,
+          "rationale": "Encryption protects data confidentiality but does not attest to the integrity of the running system to a remote challenger."
+        },
+        {
+          "label": "D",
+          "text": "Cryptographic Acceleration",
+          "isCorrect": false,
+          "rationale": "Acceleration improves performance but does not provide the mechanism for external trust validation."
+        }
+      ],
+      "hint": "Identify the function that 'reports' on the values held by the RTS.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 6,
+      "question": "In a standard Secure Boot process, what is the role of the 'Verification Key' stored in Bootloader (A)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To generate a new physically unclonable function for the device.",
+          "isCorrect": false,
+          "rationale": "PUFs are derived from hardware properties and are not 'generated' by software verification keys."
+        },
+        {
+          "label": "B",
+          "text": "To verify the integrity and authenticity of Bootloader (B).",
+          "isCorrect": true,
+          "rationale": "In a chain of trust, each component uses a stored verification key to validate the signature of the next component in the sequence."
+        },
+        {
+          "label": "C",
+          "text": "To encrypt the Operating System kernel to prevent cold boot attacks.",
+          "isCorrect": false,
+          "rationale": "The key is used for signature comparison (authentication/integrity), not for full-disk or kernel encryption."
+        },
+        {
+          "label": "D",
+          "text": "To provide a secure environment for the main processor's authenticated code.",
+          "isCorrect": false,
+          "rationale": "Providing a secure environment is the role of a TEE, whereas the key's role is specifically verification."
+        }
+      ],
+      "hint": "Recall the diagram showing the transition from Bootloader (A) to Bootloader (B).",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 7,
+      "question": "What is a primary benefit of using Physically Unclonable Functions (PUFs) for device identification?",
+      "options": [
+        {
+          "label": "A",
+          "text": "They provide a standardized X.509v3 certificate for automotive ASIL B compliance.",
+          "isCorrect": false,
+          "rationale": "PUFs provide raw identifiers or keys; X.509 certificates are a higher-level software construct often associated with manufactured trust anchors."
+        },
+        {
+          "label": "B",
+          "text": "They eliminate the need for a Trusted Execution Environment (TEE).",
+          "isCorrect": false,
+          "rationale": "PUFs and TEEs are complementary; a PUF provides identity while a TEE provides a secure processing area."
+        },
+        {
+          "label": "C",
+          "text": "They allow for obtaining a unique identifier without storing it in non-volatile memory.",
+          "isCorrect": true,
+          "rationale": "PUFs derive identifiers from inherent physical variations in the hardware, making them unique and difficult to clone or extract from storage."
+        },
+        {
+          "label": "D",
+          "text": "They increase the stability of system components for at least 15 months.",
+          "isCorrect": false,
+          "rationale": "Stability timelines are a business-oriented feature of platforms like Intel vPro, unrelated to the physics of PUFs."
+        }
+      ],
+      "hint": "Consider how an identifier can be 'cloned' if it is just a string of bits in a standard flash chip.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 8,
+      "question": "Which hardware technology is used to implement the CISCO Trust Anchor module?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Dedicated ARM TrustZone cores",
+          "isCorrect": false,
+          "rationale": "While TrustZone is a TEE technology, the CISCO Trust Anchor mentioned in the source is FPGA-based."
+        },
+        {
+          "label": "B",
+          "text": "Discrete BitLocker chips",
+          "isCorrect": false,
+          "rationale": "BitLocker is a software feature that can use a TPM, but it is not a type of hardware chip itself."
+        },
+        {
+          "label": "C",
+          "text": "Asynchronous DRAM modules",
+          "isCorrect": false,
+          "rationale": "DRAM is volatile memory and is not used as the primary implementation logic for a persistent trust anchor."
+        },
+        {
+          "label": "D",
+          "text": "FPGA technology",
+          "isCorrect": true,
+          "rationale": "The CISCO Trust Anchor is specifically implemented using Xilinx Spartan-6 FPGAs to provide hardware-based security logic."
+        }
+      ],
+      "hint": "The source identifies a specific programmable logic device brand and model.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 9,
+      "question": "What does the SUDI (Secure Unique Device Identifier) in a Cisco device consist of?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A proprietary AES-256 encryption algorithm.",
+          "isCorrect": false,
+          "rationale": "AES is a standard symmetric algorithm; the SUDI is an identity construct, not an encryption algorithm."
+        },
+        {
+          "label": "B",
+          "text": "An X.509v3 certificate and an associated key pair.",
+          "isCorrect": true,
+          "rationale": "The SUDI is a hardware-burned identity comprising a standard digital certificate and its corresponding cryptographic keys."
+        },
+        {
+          "label": "C",
+          "text": "A random bit generator used for centralized network management.",
+          "isCorrect": false,
+          "rationale": "A random bit generator is a feature of the Trust Anchor, but it is not the definition of the SUDI."
+        },
+        {
+          "label": "D",
+          "text": "A list of integrity digests from the last 15 boot cycles.",
+          "isCorrect": false,
+          "rationale": "Integrity digests are part of the RTS/PCR mechanism, not the permanent device identifier itself."
+        }
+      ],
+      "hint": "The identifier is 'burned into' the module during manufacturing.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 10,
+      "question": "How does the interaction between a TPM and a TEE enhance a system's security posture?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The TPM acts as the main processor for the TEE's authenticated code.",
+          "isCorrect": false,
+          "rationale": "The TEE provides a secure area *for* the main processor; the TPM is a separate, dedicated microcontroller."
+        },
+        {
+          "label": "B",
+          "text": "The TEE replaces the need for a Root of Trust for Measurement.",
+          "isCorrect": false,
+          "rationale": "A TEE still requires a root of trust (often a TPM or similar hardware anchor) to validate the code it executes."
+        },
+        {
+          "label": "C",
+          "text": "It reduces power consumption in resource-constrained IoT devices.",
+          "isCorrect": false,
+          "rationale": "The source notes that adding these security layers may actually increase power consumption and complexity."
+        },
+        {
+          "label": "D",
+          "text": "The TPM anchors trust in hardware while the TEE extends it to the runtime environment.",
+          "isCorrect": true,
+          "rationale": "TPMs provide the static root of trust (measurements/keys), and TEEs ensure the code runs securely in an isolated environment during system operation."
+        }
+      ],
+      "hint": "Think about the difference between 'boot-time' security and 'run-time' security.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 11,
+      "question": "The Intel vPro platform includes 'Intel AMT'. What is the specific purpose of this technology according to the presentation?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To generate physically unclonable functions for the CPU die.",
+          "isCorrect": false,
+          "rationale": "AMT is a management feature, not a hardware-level entropy or identity generation mechanism like a PUF."
+        },
+        {
+          "label": "B",
+          "text": "To implement ASIL B compliant automotive safety features.",
+          "isCorrect": false,
+          "rationale": "While some components mentioned are ASIL B compliant, AMT is focused on enterprise manageability and remote control."
+        },
+        {
+          "label": "C",
+          "text": "To provide full OS-independent remote control of endpoints.",
+          "isCorrect": true,
+          "rationale": "Active Management Technology (AMT) allows for the management and remote control of devices regardless of the state of the operating system."
+        },
+        {
+          "label": "D",
+          "text": "To act as a Root of Trust for Reporting (RTR).",
+          "isCorrect": false,
+          "rationale": "RTR is a specific functional role within a TPM, whereas AMT is a broader management technology."
+        }
+      ],
+      "hint": "Focus on the 'Manageability' aspect of the vPro platform.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 12,
+      "question": "What is a significant 'Con' or disadvantage of implementing a TEE in a System-on-Chip (SoC) design?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Total lack of support for cryptographic acceleration.",
+          "isCorrect": false,
+          "rationale": "The source explicitly lists high performance through cryptographic acceleration as a 'Pro' of such solutions."
+        },
+        {
+          "label": "B",
+          "text": "Incompatibility with all automotive safety standards.",
+          "isCorrect": false,
+          "rationale": "Some solutions are noted to be compliant with standards like ASIL B."
+        },
+        {
+          "label": "C",
+          "text": "The inability to perform remote attestation.",
+          "isCorrect": false,
+          "rationale": "TEEs often facilitate or work with TPMs to perform remote attestation, which is a key function of trust validation."
+        },
+        {
+          "label": "D",
+          "text": "Requirement for careful management of secure and non-secure partitions.",
+          "isCorrect": true,
+          "rationale": "Implementing a TEE adds architectural complexity because the designer must strictly isolate and manage the boundaries between trusted and untrusted resources."
+        }
+      ],
+      "hint": "Consider the architectural overhead of splitting a processor into 'worlds'.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 13,
+      "question": "In the context of tamper-evident devices, what is the primary role of the software level?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Reducing the physical surface area for side-channel attacks.",
+          "isCorrect": false,
+          "rationale": "Reducing surface area is a characteristic of 'tamper-resistant' hardware engineering, not software-level evidence."
+        },
+        {
+          "label": "B",
+          "text": "Permanently burning X.509 certificates into the CPU.",
+          "isCorrect": false,
+          "rationale": "Burning certificates is a hardware manufacturing process, not a software-level auditing task."
+        },
+        {
+          "label": "C",
+          "text": "Implementing 'Network Unlock' features for BitLocker.",
+          "isCorrect": false,
+          "rationale": "While a software feature, 'Network Unlock' is a functional security feature, whereas the question asks specifically about 'tamper-evidence' (detection)."
+        },
+        {
+          "label": "D",
+          "text": "Utilizing appropriate auditing mechanisms and logging procedures.",
+          "isCorrect": true,
+          "rationale": "Tamper-evidence at the software level focuses on creating a trail (logs) to trace activities and detect if subversion has occurred."
+        }
+      ],
+      "hint": "Evidence is about detection rather than prevention.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 14,
+      "question": "According to the source, a component is 'trusted' if its behavior is predictable under almost any operating condition and it is highly resistant to:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Any form of technical evaluation by external experts.",
+          "isCorrect": false,
+          "rationale": "Technical evaluation is actually a means to *achieve* trust, not something a component should resist."
+        },
+        {
+          "label": "B",
+          "text": "Network latency and power fluctuations.",
+          "isCorrect": false,
+          "rationale": "While important for reliability, 'trust' in a security context is defined by resistance to malicious subversion."
+        },
+        {
+          "label": "C",
+          "text": "Upgrades to the operating system or firmware.",
+          "isCorrect": false,
+          "rationale": "Trusted components must often facilitate secure upgrades rather than resisting them entirely."
+        },
+        {
+          "label": "D",
+          "text": "Subversion by application software, viruses, and physical interference.",
+          "isCorrect": true,
+          "rationale": "The formal definition of a trusted component emphasizes resistance to software-based attacks and a specified level of physical tampering."
+        }
+      ],
+      "hint": "The definition lists three specific types of threats the component must resist.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 15,
+      "question": "What is the primary objective of 'Secure Boot'?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Establishing a secure initial state for the platform.",
+          "isCorrect": true,
+          "rationale": "Secure Boot is the process of ensuring the platform starts in a known-good, authenticated configuration from power-on reset."
+        },
+        {
+          "label": "B",
+          "text": "Providing the highest speed wireless networking for modern companies.",
+          "isCorrect": false,
+          "rationale": "This is a performance characteristic mentioned for platforms like vPro, not the security objective of Secure Boot."
+        },
+        {
+          "label": "C",
+          "text": "Centralizing management via Group Policy objects.",
+          "isCorrect": false,
+          "rationale": "Centralized management is a benefit of enterprise software like BitLocker, not the core function of the hardware boot process."
+        },
+        {
+          "label": "D",
+          "text": "Automatically unlocking domain-joined systems without user input.",
+          "isCorrect": false,
+          "rationale": "This describes 'Network Unlock', which is a convenience feature that relies on security but is not the goal of Secure Boot itself."
+        }
+      ],
+      "hint": "Think about the state of the system immediately after a reset.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 16,
+      "question": "TPMs are typically implemented in which two ways?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A BIOS-level password or a physical jumper on the motherboard.",
+          "isCorrect": false,
+          "rationale": "These are legacy security measures and do not represent the cryptographic complexity of a TPM."
+        },
+        {
+          "label": "B",
+          "text": "A software-only emulator or a cloud-based attestation service.",
+          "isCorrect": false,
+          "rationale": "TPMs are hardware-based security modules; software-only versions do not meet the definition of a hardware root of trust."
+        },
+        {
+          "label": "C",
+          "text": "An FPGA-based Spartan-6 or an X.509v3 key pair.",
+          "isCorrect": false,
+          "rationale": "An X.509 key pair is a credential stored *within* a module, not the implementation method of the module itself."
+        },
+        {
+          "label": "D",
+          "text": "A discrete chip or an integrated component within a CPU trust zone.",
+          "isCorrect": true,
+          "rationale": "TPMs exist either as separate soldered chips (discrete) or as firmware-based/integrated features within a processor's secure area (e.g., fTPM)."
+        }
+      ],
+      "hint": "Recall the bullet points under the TPM definition slide.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 17,
+      "question": "The Root of Trust for Reporting (RTR) is critical because it must be resistant to:",
+      "options": [
+        {
+          "label": "A",
+          "text": "The establishment of a new chain of trust.",
+          "isCorrect": false,
+          "rationale": "The RTR is an active participant in the chain of trust, not a component that resists its creation."
+        },
+        {
+          "label": "B",
+          "text": "All forms of software attack and specific implied physical attacks.",
+          "isCorrect": true,
+          "rationale": "The RTR must be extremely robust because it signs the evidence of the system's state; if it is compromised, the integrity of the whole chain is lost."
+        },
+        {
+          "label": "C",
+          "text": "Performance overhead exceeding 10\\%.",
+          "isCorrect": false,
+          "rationale": "While 10\\% overhead is mentioned as a 'Con' for some software, it is not the primary resistance requirement for the RTR."
+        },
+        {
+          "label": "D",
+          "text": "Any changes to the system's audit logs.",
+          "isCorrect": false,
+          "rationale": "The RTR reports on audit logs; it does not necessarily prevent changes to them, although the RTS/TPM helps detect those changes."
+        }
+      ],
+      "hint": "Consider the types of attacks that would most invalidate a 'Report'.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 18,
+      "question": "Which specific Spartan-6 FPGA model is mentioned as being used for hardware security in the industrial examples?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Xilinx Spartan-6",
+          "isCorrect": true,
+          "rationale": "The presentation specifically identifies Xilinx Spartan-6 FPGAs as the underlying hardware for the Cisco Trust Anchor."
+        },
+        {
+          "label": "B",
+          "text": "ASIL B Spartan-X",
+          "isCorrect": false,
+          "rationale": "ASIL B is a safety standard level, not a hardware model name."
+        },
+        {
+          "label": "C",
+          "text": "NIST Spartan-800-164",
+          "isCorrect": false,
+          "rationale": "NIST SP 800-164 is a draft publication regarding mobile device security, not a hardware model."
+        },
+        {
+          "label": "D",
+          "text": "Intel vPro Spartan-6",
+          "isCorrect": false,
+          "rationale": "Intel vPro is a platform, and Spartan-6 is a Xilinx product; they are separate technologies."
+        }
+      ],
+      "hint": "The manufacturer name starts with an 'X'.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 19,
+      "question": "What is the relationship between the RTM and the RTS during the measurement process?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The RTS provides the instruction set that controls the RTM.",
+          "isCorrect": false,
+          "rationale": "The instruction set for the RTM (typically the CPU) is the CRTM, not the storage engine."
+        },
+        {
+          "label": "B",
+          "text": "The RTS independently verifies the measurements before receiving them from the RTM.",
+          "isCorrect": false,
+          "rationale": "The RTS is primarily a repository and manager; it relies on the 'inherently reliable' nature of the RTM."
+        },
+        {
+          "label": "C",
+          "text": "The RTM sends integrity-relevant information to the RTS.",
+          "isCorrect": true,
+          "rationale": "The RTM acts as the measurement engine, and once measurements are taken, it transmits them to the RTS for storage and summary."
+        },
+        {
+          "label": "D",
+          "text": "The RTM signs the data stored within the RTS.",
+          "isCorrect": false,
+          "rationale": "Signing is the role of the Root of Trust for Reporting (RTR)."
+        }
+      ],
+      "hint": "One component measures, the other 'holds' the result.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 20,
+      "question": "In the context of full disk encryption (e.g., BitLocker), what is a noted vulnerability when system keys are stored in RAM?",
+      "options": [
+        {
+          "label": "A",
+          "text": "ASIL B non-compliance",
+          "isCorrect": false,
+          "rationale": "Safety compliance is unrelated to the specific memory-based key recovery vulnerability."
+        },
+        {
+          "label": "B",
+          "text": "Cold boot attacks",
+          "isCorrect": true,
+          "rationale": "If keys remain in RAM after a restart or power-off, an attacker can potentially recover them using cold boot techniques."
+        },
+        {
+          "label": "C",
+          "text": "SUDI certificate expiration",
+          "isCorrect": false,
+          "rationale": "SUDI is a persistent hardware identifier and is not stored as a transient key in RAM."
+        },
+        {
+          "label": "D",
+          "text": "Network Unlock failure",
+          "isCorrect": false,
+          "rationale": "Network Unlock is a feature to *avoid* manual entry; it does not describe the specific attack on RAM-stored keys."
+        }
+      ],
+      "hint": "This attack involves the physical state of memory modules after power is lost.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 21,
+      "question": "Which of the following is a 'Pro' of using a TEE (Trusted Execution Environment) for a System-on-Chip (SoC)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Lower manufacturing costs for IoT devices.",
+          "isCorrect": false,
+          "rationale": "The source identifies potential increases in development and manufacturing costs as a 'Con'."
+        },
+        {
+          "label": "B",
+          "text": "Reduced SoC design complexity.",
+          "isCorrect": false,
+          "rationale": "Implementing a TEE actually *increases* design complexity due to isolation requirements."
+        },
+        {
+          "label": "C",
+          "text": "Elimination of the need for secure boot processes.",
+          "isCorrect": false,
+          "rationale": "TEEs do not eliminate the need for secure boot; they often rely on it to ensure the TEE itself is trusted."
+        },
+        {
+          "label": "D",
+          "text": "High performance through cryptographic acceleration.",
+          "isCorrect": true,
+          "rationale": "One of the advantages of TEE implementations is their ability to provide optimized, high-speed cryptographic operations."
+        }
+      ],
+      "hint": "Focus on the efficiency of cryptographic tasks.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 22,
+      "question": "The NIST definition of a 'Trust Anchor' specifies that it can be a public or symmetric key that is trusted because:",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is directly built into hardware or software.",
+          "isCorrect": true,
+          "rationale": "NIST emphasizes that trust anchors are trusted by design or secure provisioning, rather than through external certification."
+        },
+        {
+          "label": "B",
+          "text": "It has been attested to by a TPM's RTR module.",
+          "isCorrect": false,
+          "rationale": "While an RTR can attest to keys, the 'Trust Anchor' itself is the base key that does not require higher attestation."
+        },
+        {
+          "label": "C",
+          "text": "It is stored in a non-secure partition of the SoC.",
+          "isCorrect": false,
+          "rationale": "Trust anchors must be stored in secure locations to maintain their integrity."
+        },
+        {
+          "label": "D",
+          "text": "It is renewed every 15 months by the manufacturer.",
+          "isCorrect": false,
+          "rationale": "Stability releases for hardware platforms are not the same as the inherent trust logic of a cryptographic anchor."
+        }
+      ],
+      "hint": "Consider the origin of the trust for that specific key.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 23,
+      "question": "What is the primary difference between 'Tamper-evident' and 'Tamper-resistant' devices as presented?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Evident devices use AES-128, while resistant devices use AES-256.",
+          "isCorrect": false,
+          "rationale": "The encryption algorithm strength is not the defining factor between these two engineering philosophies."
+        },
+        {
+          "label": "B",
+          "text": "Resistant devices are intended for consumer use, while evident devices are industrial-only.",
+          "isCorrect": false,
+          "rationale": "Both types can be found in various industries depending on the threat model."
+        },
+        {
+          "label": "C",
+          "text": "Evident devices focus on detection (logs), while resistant devices focus on prevention (reduced surface).",
+          "isCorrect": true,
+          "rationale": "Tamper-evident solutions create a record of interference, whereas tamper-resistant engineering physically hardens the device against attacks."
+        },
+        {
+          "label": "D",
+          "text": "Evident devices are software-only, whereas resistant devices are hardware-only.",
+          "isCorrect": false,
+          "rationale": "Both can involve hardware/software combinations, though they focus on different security goals."
+        }
+      ],
+      "hint": "Think about the goal: is it to *see* the attack or to *stop* the attack?",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 24,
+      "question": "In the context of TPM history, which group initially released the specification in 2003?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Global Platform Device Committee",
+          "isCorrect": false,
+          "rationale": "This committee is associated with TEE protection profiles, not the original 2003 TPM specification."
+        },
+        {
+          "label": "B",
+          "text": "NIST (National Institute of Standards and Technology)",
+          "isCorrect": false,
+          "rationale": "NIST provides guidelines (like SP 800-164) but did not author the original TCG specification."
+        },
+        {
+          "label": "C",
+          "text": "The Automotive ASIL Consortium",
+          "isCorrect": false,
+          "rationale": "ASIL is part of the ISO 26262 standard and is not the entity that released the TPM spec."
+        },
+        {
+          "label": "D",
+          "text": "Trusted Computing Group (TCG)",
+          "isCorrect": true,
+          "rationale": "The TCG is the industry body responsible for the development and maintenance of the TPM specification."
+        }
+      ],
+      "hint": "The acronym is TCG.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 25,
+      "question": "A 'Hardware Trust Anchor' is specifically defined in the slides as a component that:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Accelerates AES encryption by at least 10\\%.",
+          "isCorrect": false,
+          "rationale": "Performance acceleration is a feature, not the primary definition of the Trust Anchor."
+        },
+        {
+          "label": "B",
+          "text": "Securely stores and provides a unique secure identifier for the device.",
+          "isCorrect": true,
+          "rationale": "The core function of a hardware trust anchor is the secure storage and provision of a device's unique, verifiable identity."
+        },
+        {
+          "label": "C",
+          "text": "Provides an OS-independent web interface for remote users.",
+          "isCorrect": false,
+          "rationale": "This describes a manageability feature (like Intel AMT), not the fundamental security anchor."
+        },
+        {
+          "label": "D",
+          "text": "Automatically wipes all data when physical interference is detected.",
+          "isCorrect": false,
+          "rationale": "This is an active anti-tamper response, which is a feature some anchors might have, but it is not the definition provided."
+        }
+      ],
+      "hint": "Focus on the 'unique identifier' aspect.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 26,
+      "question": "True or False: According to the presentation, TPMs and TEEs are mutually exclusive and cannot be used together in a single system architecture.",
+      "options": [
+        {
+          "label": "A",
+          "text": "False",
+          "isCorrect": true,
+          "rationale": "The presentation explicitly states that TPMs and TEEs can work together to create a comprehensive security architecture."
+        },
+        {
+          "label": "B",
+          "text": "True",
+          "isCorrect": false,
+          "rationale": "The source material argues that combining them enhances the overall security posture."
+        }
+      ],
+      "hint": "Check the section on 'TPM vs TEE'.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 27,
+      "question": "What function does the 'Random Bit Generator' serve within the Cisco Trust Anchor module?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Enhancing cryptographic operations.",
+          "isCorrect": true,
+          "rationale": "Secure randomness is essential for generating keys, nonces, and other cryptographic parameters."
+        },
+        {
+          "label": "B",
+          "text": "Stabilizing system components for 15 months.",
+          "isCorrect": false,
+          "rationale": "Stability refers to hardware availability cycles, not entropy generation."
+        },
+        {
+          "label": "C",
+          "text": "Decreasing power consumption in IoT sensors.",
+          "isCorrect": false,
+          "rationale": "Hardware security components generally add a small power overhead rather than decreasing it."
+        },
+        {
+          "label": "D",
+          "text": "Validating the X.509v3 certificate chain.",
+          "isCorrect": false,
+          "rationale": "Validation is a logic process; the bit generator provides the raw entropy for cryptographic tasks."
+        }
+      ],
+      "hint": "Randomness is a key ingredient for cryptography.",
+      "correctAnswer": "A"
+    }
+  ]
+}
