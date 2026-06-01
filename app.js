@@ -22,6 +22,54 @@ const QUIZ_FILES = [
   "trojan-quiz-new.json",
 ];
 
+const TOPIC_GROUPS = [
+  {
+    id: "fundamentals",
+    title: "Fundamentals",
+    files: ["chapter1-Fundamentals.json", "fundamentals-quiz.json", "cybersecurity-quiz.json"],
+  },
+  {
+    id: "cryptography",
+    title: "Cryptography",
+    files: ["chapter2-cryptography.json", "cryptography-quiz.json", "cryptography-quiz-newest.json", "cryptography-quiz2.json"],
+  },
+  {
+    id: "hardware-security",
+    title: "Hardware Security",
+    files: ["hardware-quiz.json", "hardware-quiz2.json", "hardware-quiz-newest.json"],
+  },
+  {
+    id: "memory-protection",
+    title: "Memory Protection",
+    files: ["memory-quiz.json", "memory-quiz-new.json"],
+  },
+  {
+    id: "puf",
+    title: "Physical Unclonable Functions",
+    files: ["puf-quiz.json", "puf-quiz-new.json"],
+  },
+  {
+    id: "secure-coding",
+    title: "Secure Coding",
+    files: ["secure-coding-quiz.json"],
+  },
+  {
+    id: "side-channel",
+    title: "Side-Channel Attacks",
+    files: ["side-channel-quiz.json", "side-channel-quiz-new.json"],
+  },
+  {
+    id: "testing",
+    title: "Testing and Validation",
+    files: ["testing-quiz.json", "testing-quiz-new.json"],
+  },
+  {
+    id: "trojans",
+    title: "Hardware Trojans",
+    files: ["trojan-quiz.json", "trojan-quiz-new.json"],
+  },
+];
+
 const EXAM_SIZE = 32;
 const WRONG_PENALTY = 0.3;
 const MAX_POINTS = 13;
@@ -47,16 +95,17 @@ init();
 
 async function init() {
   try {
-    const generatedSources = Array.isArray(window.QUIZ_DATA)
+    const rawGeneratedSources = Array.isArray(window.QUIZ_DATA)
       ? window.QUIZ_DATA.map((entry) => createSource(entry.fileName, entry.data))
       : await Promise.all(QUIZ_FILES.map(loadQuizFile));
+    const generatedSources = createTopicSources(rawGeneratedSources);
 
     const realExamSources = Array.isArray(window.REAL_EXAM_DATA)
       ? window.REAL_EXAM_DATA.map((entry) => createSource(entry.fileName, entry.data))
       : [];
 
     state.banks = [
-      createBank("generated", "Generated quiz pool", "Topic JSON exports", generatedSources),
+      createBank("generated", "Generated quiz pool", "Merged topic categories", generatedSources),
       createBank("real", "Real exam question simulations", "Extracted closed-ended past/sample questions", realExamSources),
     ].filter((bank) => bank.sources.length > 0);
 
@@ -89,6 +138,47 @@ function createSource(fileName, data) {
     id,
     title,
     fileName,
+    questions,
+  };
+}
+
+function createTopicSources(rawSources) {
+  const sourceByFile = new Map(rawSources.map((source) => [source.fileName, source]));
+  const groupedFileNames = new Set(TOPIC_GROUPS.flatMap((group) => group.files));
+  const topicSources = TOPIC_GROUPS.map((group) => createTopicSource(group, sourceByFile)).filter(Boolean);
+  const ungroupedSources = rawSources.filter((source) => !groupedFileNames.has(source.fileName));
+
+  return [...topicSources, ...ungroupedSources];
+}
+
+function createTopicSource(group, sourceByFile) {
+  const sources = group.files.map((fileName) => sourceByFile.get(fileName)).filter(Boolean);
+  if (sources.length === 0) {
+    return null;
+  }
+
+  const questions = [];
+  const seenQuestions = new Set();
+  for (const source of sources) {
+    for (const question of source.questions) {
+      const key = getQuestionKey(question.text);
+      if (seenQuestions.has(key)) {
+        continue;
+      }
+      seenQuestions.add(key);
+      questions.push({
+        ...question,
+        sourceId: group.id,
+        sourceTitle: group.title,
+        sourceFile: source.fileName,
+      });
+    }
+  }
+
+  return {
+    id: group.id,
+    title: group.title,
+    fileName: group.files.join(", "),
     questions,
   };
 }

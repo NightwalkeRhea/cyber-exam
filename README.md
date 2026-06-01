@@ -12,14 +12,14 @@ For offline use, open `index.html` directly in a browser. No backend is required
 
 The site contains two practice modes:
 
-- Generated quiz pool: questions exported from the topic JSON files.
+- Generated quiz pool: questions exported from the JSON files, merged into deduplicated topic categories.
 - Real exam question simulations: closed-ended questions extracted from provided study materials and past/sample exports.
 
 Both modes use:
 
 - Up to 32 random questions per attempt
-- If exactly one topic/source is selected, all questions from that topic are used
-- If multiple topics/sources are selected, up to 32 random questions are used
+- If exactly one topic is selected, all questions from that merged topic are used
+- If multiple topics are selected, up to 32 random questions are used
 - 60 minute time limit
 - `correct - 0.3 * wrong` raw score
 - `raw * 13 / question_count` scaled points
