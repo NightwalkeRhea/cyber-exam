@@ -18,7 +18,8 @@ The site contains two practice modes:
 Both modes use:
 
 - Up to 32 random questions per attempt
-- If a selected topic/source has fewer than 32 questions, all selected questions are used
+- If exactly one topic/source is selected, all questions from that topic are used
+- If multiple topics/sources are selected, up to 32 random questions are used
 - 60 minute time limit
 - `correct - 0.3 * wrong` raw score
 - `raw * 13 / question_count` scaled points

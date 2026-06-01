@@ -182,7 +182,7 @@ function renderSetup() {
           <div class="stat"><span>Selected questions</span><strong>${selectedCount}</strong></div>
           <div class="stat"><span>Sources</span><strong>${bank.sources.length}</strong></div>
           <div class="stat"><span>Questions</span><strong>${bank.pool.length}</strong></div>
-          <div class="stat"><span>Attempt size</span><strong>${formatAttemptSize(selectedCount)}</strong></div>
+          <div class="stat"><span>Attempt size</span><strong>${formatAttemptSizeForBank(bank)}</strong></div>
         </div>
       </aside>
     </div>
@@ -206,7 +206,7 @@ function renderBankSections() {
   container.replaceChildren(
     ...state.banks.map((bank) => {
       const selectedCount = getSelectedPoolForBank(bank).length;
-      const attemptSize = getAttemptSize(selectedCount);
+      const attemptSize = getAttemptSizeForBank(bank);
       const section = document.createElement("section");
       section.className = "bank-card";
       if (bank.id === state.activeBankId) {
@@ -282,7 +282,7 @@ function renderSourceList() {
 function startExam(bankId = state.activeBankId) {
   state.activeBankId = bankId;
   const selectedPool = getSelectedPool();
-  const attemptSize = getAttemptSize(selectedPool.length);
+  const attemptSize = getAttemptSizeForBank(getActiveBank());
   if (attemptSize === 0) {
     return;
   }
@@ -586,6 +586,18 @@ function getAttemptSize(selectedCount) {
   return Math.min(EXAM_SIZE, selectedCount);
 }
 
+function getAttemptSizeForBank(bank) {
+  const selectedCount = getSelectedPoolForBank(bank).length;
+  if (getSelectedSourceCount(bank) === 1) {
+    return selectedCount;
+  }
+  return getAttemptSize(selectedCount);
+}
+
+function getSelectedSourceCount(bank) {
+  return bank.sources.filter((source) => bank.selectedSources.has(source.id)).length;
+}
+
 function getCurrentQuestionCount() {
   return state.exam.length;
 }
@@ -594,10 +606,13 @@ function getSufficientRawScore(questionCount) {
   return questionCount * (SUFFICIENT_RAW_SCORE / EXAM_SIZE);
 }
 
-function formatAttemptSize(selectedCount) {
-  const attemptSize = getAttemptSize(selectedCount);
+function formatAttemptSizeForBank(bank) {
+  const attemptSize = getAttemptSizeForBank(bank);
   if (attemptSize === 0) {
     return "0";
+  }
+  if (getSelectedSourceCount(bank) === 1) {
+    return `${attemptSize} full topic`;
   }
   return attemptSize === EXAM_SIZE ? `${EXAM_SIZE}` : `${attemptSize} practice`;
 }
