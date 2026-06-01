@@ -26,7 +26,7 @@ const TOPIC_GROUPS = [
   {
     id: "fundamentals",
     title: "Fundamentals",
-    files: ["chapter1-Fundamentals.json", "fundamentals-quiz.json", "cybersecurity-quiz.json"],
+    files: ["chapter1-Fundamentals.json", "fundamentals-quiz.json"],
   },
   {
     id: "cryptography",
@@ -51,7 +51,7 @@ const TOPIC_GROUPS = [
   {
     id: "secure-coding",
     title: "Secure Coding",
-    files: ["secure-coding-quiz.json"],
+    files: ["cybersecurity-quiz.json", "secure-coding-quiz.json"],
   },
   {
     id: "side-channel",
