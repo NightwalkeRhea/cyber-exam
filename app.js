@@ -71,7 +71,7 @@ const TOPIC_GROUPS = [
 ];
 
 const EXAM_SIZE = 32;
-const WRONG_PENALTY = 0.3;
+const WRONG_PENALTY = 0.15;
 const MAX_POINTS = 13;
 const SUFFICIENT_RAW_SCORE = 17;
 const EXAM_DURATION_SECONDS = 60 * 60;
