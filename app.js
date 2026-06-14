@@ -1,6 +1,7 @@
 const QUIZ_FILES = [
   "chapter1-Fundamentals.json",
   "chapter2-cryptography.json",
+  "ces-emoji-quiz.json",
   "cryptography-quiz.json",
   "cryptography-quiz-newest.json",
   "cryptography-quiz2.json",
@@ -23,6 +24,11 @@ const QUIZ_FILES = [
 ];
 
 const TOPIC_GROUPS = [
+  {
+    id: "ces-markdown",
+    title: "CES Markdown Quiz",
+    files: ["ces-emoji-quiz.json"],
+  },
   {
     id: "fundamentals",
     title: "Fundamentals",
@@ -219,10 +225,13 @@ function normalizeQuestion(question, index, source) {
       rationale: option.rationale ? cleanQuestionText(option.rationale) : "",
     }));
 
-  const correctOption = options.find((option) => option.isCorrect);
-  const correctAnswer = String(question.correctAnswer || correctOption?.label || "");
+  const correctOptions = options.filter((option) => option.isCorrect);
+  const correctAnswers = Array.isArray(question.correctAnswers) && question.correctAnswers.length > 0
+    ? question.correctAnswers.map((label) => String(label))
+    : correctOptions.map((option) => option.label);
+  const correctAnswer = String(question.correctAnswer || correctAnswers[0] || "");
 
-  if (options.length < 2 || !correctAnswer) {
+  if (options.length < 2 || correctAnswers.length === 0) {
     return null;
   }
 
@@ -236,6 +245,7 @@ function normalizeQuestion(question, index, source) {
     options,
     hint: question.hint ? cleanQuestionText(question.hint) : "",
     correctAnswer,
+    correctAnswers,
   };
 }
 
@@ -393,10 +403,11 @@ function startExam(bankId = state.activeBankId) {
 function renderExam() {
   const question = state.exam[state.current];
   const questionCount = getCurrentQuestionCount();
-  const selected = state.answers.get(question.id);
   const elapsedSeconds = getElapsedSeconds();
   const remainingSeconds = getRemainingSeconds();
   const score = scoreExam();
+  const answered = isQuestionAnswered(question);
+  const selectionMode = question.correctAnswers.length > 1 ? `Select ${question.correctAnswers.length}` : "Select one";
 
   poolStatus.textContent = state.submitted
     ? `Raw ${formatNumber(score.rawScore)} / ${questionCount}`
@@ -407,6 +418,7 @@ function renderExam() {
       <section class="question-panel">
         <div class="question-meta">
           <span class="pill">${state.current + 1} / ${questionCount}</span>
+          <span class="pill">${selectionMode}</span>
           <span class="pill">${escapeHtml(question.sourceTitle)}</span>
           <span class="pill">Original #${question.number}</span>
         </div>
@@ -414,7 +426,7 @@ function renderExam() {
         <div class="options" id="options"></div>
         <div class="question-actions">
           <button class="button secondary" id="previousQuestion" ${state.current === 0 ? "disabled" : ""}>Previous</button>
-          <button class="button secondary" id="clearAnswer" ${!selected || state.submitted ? "disabled" : ""}>Clear Answer</button>
+          <button class="button secondary" id="clearAnswer" ${!answered || state.submitted ? "disabled" : ""}>Clear Answer</button>
           <button class="button" id="nextQuestion">${state.current === questionCount - 1 ? "Finish" : "Next"}</button>
         </div>
       </section>
@@ -443,30 +455,45 @@ function renderExam() {
 
 function renderOptions(question) {
   const container = document.querySelector("#options");
-  const selected = state.answers.get(question.id);
+  const selectedLabels = getSelectedLabels(question);
+  const inputType = question.correctAnswers.length > 1 ? "checkbox" : "radio";
 
   container.replaceChildren(
     ...question.options.map((option) => {
       const label = document.createElement("label");
       label.className = "option";
-      if (selected === option.label) {
+      if (selectedLabels.has(option.label)) {
         label.classList.add("selected");
       }
-      if (state.submitted && option.label === question.correctAnswer) {
+      if (state.submitted && question.correctAnswers.includes(option.label)) {
         label.classList.add("correct");
       }
-      if (state.submitted && selected === option.label && selected !== question.correctAnswer) {
+      if (state.submitted && selectedLabels.has(option.label) && !question.correctAnswers.includes(option.label)) {
         label.classList.add("incorrect");
       }
 
-      const radio = document.createElement("input");
-      radio.type = "radio";
-      radio.name = "answer";
-      radio.value = option.label;
-      radio.checked = selected === option.label;
-      radio.disabled = state.submitted;
-      radio.addEventListener("change", () => {
-        state.answers.set(question.id, option.label);
+      const input = document.createElement("input");
+      input.type = inputType;
+      input.name = "answer";
+      input.value = option.label;
+      input.checked = selectedLabels.has(option.label);
+      input.disabled = state.submitted;
+      input.addEventListener("change", () => {
+        if (inputType === "checkbox") {
+          const nextSelection = getSelectedLabels(question);
+          if (input.checked) {
+            nextSelection.add(option.label);
+          } else {
+            nextSelection.delete(option.label);
+          }
+          if (nextSelection.size === 0) {
+            state.answers.delete(question.id);
+          } else {
+            state.answers.set(question.id, [...nextSelection]);
+          }
+        } else {
+          state.answers.set(question.id, option.label);
+        }
         renderExam();
       });
 
@@ -487,7 +514,7 @@ function renderOptions(question) {
         body.append(rationale);
       }
 
-      label.append(radio, marker, body);
+      label.append(input, marker, body);
       return label;
     }),
   );
@@ -515,10 +542,9 @@ function renderNavigator() {
         button.classList.add("answered");
       }
       if (state.submitted) {
-        const selected = state.answers.get(question.id);
-        if (selected === question.correctAnswer) {
+        if (isQuestionCorrect(question)) {
           button.classList.add("right");
-        } else if (selected) {
+        } else if (isQuestionAnswered(question)) {
           button.classList.add("wrong");
         }
       }
@@ -637,11 +663,10 @@ function scoreExam() {
   let wrong = 0;
 
   for (const question of state.exam) {
-    const selected = state.answers.get(question.id);
-    if (!selected) {
+    if (!isQuestionAnswered(question)) {
       continue;
     }
-    if (selected === question.correctAnswer) {
+    if (isQuestionCorrect(question)) {
       correct += 1;
     } else {
       wrong += 1;
@@ -662,6 +687,26 @@ function scoreExam() {
     rawScore,
     examPoints,
   };
+}
+
+function getSelectedLabels(question) {
+  const selected = state.answers.get(question.id);
+  if (!selected) {
+    return new Set();
+  }
+  return new Set(Array.isArray(selected) ? selected : [selected]);
+}
+
+function isQuestionAnswered(question) {
+  return getSelectedLabels(question).size > 0;
+}
+
+function isQuestionCorrect(question) {
+  const selected = getSelectedLabels(question);
+  if (selected.size !== question.correctAnswers.length) {
+    return false;
+  }
+  return question.correctAnswers.every((label) => selected.has(label));
 }
 
 function getSelectedPool() {

@@ -10,9 +10,10 @@ https://cyber-exam.rastgooasma835.workers.dev
 
 For offline use, open `index.html` directly in a browser. No backend is required.
 
-The site contains two practice modes:
+The site contains these practice areas:
 
 - Generated quiz pool: questions exported from the JSON files, merged into deduplicated topic categories.
+- CES Markdown Quiz: a generated-pool category imported from the Markdown quiz file using emoji-marked correct answers.
 - Real exam question simulations: closed-ended questions extracted from provided study materials and past/sample exports.
 
 Both modes use:

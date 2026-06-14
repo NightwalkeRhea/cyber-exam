@@ -1,0 +1,1656 @@
+{
+  "title": "CES Markdown Quiz",
+  "totalQuestions": 44,
+  "extractedAt": "2026-06-14T07:32:09.673Z",
+  "sourceFile": "ces_quiz (2).md",
+  "questions": [
+    {
+      "number": 1,
+      "question": "Which of the following best describes tampering in the context of cybersecurity?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Unauthorized alteration of a system or data",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "Authorized maintenance of a system",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Backing up data to steal it",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Monitoring network traffic for packet sniffing",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 2,
+      "question": "How does a TPM usually contribute to the security of a device?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is responsible for real-time threat monitoring regarding processes, network connections, etc.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "B",
+          "text": "It is responsible for verifying the authenticity of the hardware and software configuration of the device, enforcing the overall system's trustworthiness.",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "C",
+          "text": "It is responsible for managing access control to resources such as encrypted files and peripherals so that applications or users that are not allowed cannot access resources.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "None of the above. TPM stands for \"Trusted Password Management\"; it refers to the policies used to manage passwords in an organization.",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "B",
+      "correctAnswers": [
+        "B"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 3,
+      "question": "What is a Trusted Execution Environment (TEE)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A secure area of a processor that ensures code and data loaded inside are protected",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "A secure area of a processor that ensures data loaded inside is protected",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "A secure channel between secure and non-secure computing regions in the microprocessor",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "A secure storage memory space",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 5,
+      "question": "Suppose that Alice (who shares with Bob the keys K1 and K2) wants to communicate with Bob guaranteeing confidentiality, integrity, and authenticity of the plaintext. She uses symmetric encryption and a keyed digest; therefore, she sends to Bob C = enc(P, K1) || MAC(P, K2) . C is the ciphertext, P is the plaintext, K1 is the key used to encrypt, and K2 is the key used to compute the keyed digest (MAC - message authentication code). Select the correct statement:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Bob can efficiently verify the integrity and authenticity of the message since, before recomputing the MAC of P, he first needs to decrypt C.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "B",
+          "text": "Confidentiality, integrity, and authenticity are NOT granted because Alice used two keys, K1 and K2.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Using two different keys is a good idea since an external attacker needs to intercept/discover both to break all three properties simultaneously (confidentiality, integrity, authenticity). The downside is that sharing two keys is more complex than sharing a single key.",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "D",
+          "text": "None of the above.",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "C",
+      "correctAnswers": [
+        "C"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 6,
+      "question": "Which practice is effective in mitigating buffer overflow vulnerabilities?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Using bounds checking on array accesses",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "Using hash functions",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Using stack canaries",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Using bounds checking on function inputs",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 7,
+      "question": "What are the most important differences between password hashing functions and hash functions?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Password hashing functions are fast and intentionally computationally intensive.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "B",
+          "text": "Hash functions are designed to store passwords securely because they cannot be reversed.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Hash functions are irreversible, while password hashing functions are reversible.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Hash functions can encrypt data since they cannot be reversed. Password hashing functions need to be faster for encryption.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "E",
+          "text": "Password hashing functions use a salt to add randomness to the hashed output.",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "E",
+      "correctAnswers": [
+        "E"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 8,
+      "question": "Which of the following is a common vulnerability exploited in Test-Infrastructure-Based Attacks?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Securely configured firewalls",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "B",
+          "text": "Encrypted communication channels",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Configurations of Testing environments",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "D",
+          "text": "Properly patched testing tools",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "C",
+      "correctAnswers": [
+        "C"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 10,
+      "question": "A possible low overhead solution to watermark a circuit is:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Remapping the logic of regions outside the critical-path.",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "Removing combinational parts.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Removing sequential parts",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Duplicate the circuit.",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 11,
+      "question": "Which component verifies the signature of the firmware in Secure Boot?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Bootloader",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "BIOS",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Operating System",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Kernel",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 12,
+      "question": "In what scenario is a Weak PUF typically used?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Key generation and storage",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "Device authentication",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Generating pseudo-random numbers",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Data encryption",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 13,
+      "question": "What can I achieve with Simple Power Analysis?",
+      "options": [
+        {
+          "label": "A",
+          "text": "I can correlate the power consumption of a device with the data it handles, allowing me to retrieve confidential information (such as the secret keys used during an AES encryption).",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "I can correlate a device's power consumption with its operations, allowing me to perform some basic form of dynamic reverse engineering.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "I can correlate a device's power consumption with its data storage locations, allowing me to retrieve confidential information in specific cases (as with some implementations of the RSA algorithm).",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "None of the above is correct.",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 14,
+      "question": "Select the appropriate statements about the differences between symmetric and asymmetric cryptography.",
+      "options": [
+        {
+          "label": "A",
+          "text": "When many actors are involved, asymmetric cryptography requires fewer keys than symmetric cryptography.",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "Both do not need any intermediate actor to be used. For example, asymmetric cryptography does not necessarily need the asymmetric key pair to be verified by a certification authority (CA).",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Asymmetric cryptography is less easy to use because it requires a phase known as crucial agreement.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "By definition, one of these two techniques is superior in terms of security as it usually does not depend on the actual algorithm chosen, its implementation, and the \"quality\" (e.g., randomness) of the key.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "E",
+          "text": "Suppose confidentiality, integrity, authenticity, and non-repudiation are required and the plaintext size is significant (e.g., 2 GB). In that case, the best option (most efficient) is to guarantee confidentiality with an asymmetric algorithm and the other three properties with a symmetric algorithm.",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 15,
+      "question": "Which of the following best describes tampering in the context of cybersecurity?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Unauthorized alteration of a system or data",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "Authorized maintenance of a system",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Backing up data to steal it",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Monitoring network traffic for packet sniffing",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 16,
+      "question": "Which type of Root of Trust is embedded in hardware and difficult to tamper with?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Hardware Root of Trust",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "Software Root of Trust",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Network Root of Trust",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Virtual Root of Trust",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 17,
+      "question": "Which of the following methods can detect hardware Trojans?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Side-channel analysis",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "Signature-based detection",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Sandboxing",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Patch management",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 18,
+      "question": "In the layout of standard cells:",
+      "options": [
+        {
+          "label": "A",
+          "text": "The height is fixed and the width changes depending on the function of the cell",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "The width is fixed and the height changes depending on the function of the cell",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Both the height and the width are fixed and equal.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "There is no restriction on height and width",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 19,
+      "question": "Which threat is TEE particularly designed to protect against?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Malware and unauthorized access",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "Physical theft of the device",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Data confidentiality",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Signal interference",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 20,
+      "question": "What is a block cipher?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A method of encrypting data in fixed-size blocks",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "A method of encrypting data one bit at a time",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "A public-key encryption algorithm",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "A hashing algorithm",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 22,
+      "question": "Side channel-based watermarking:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Is often based on a power consumption signature.",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "Relies on a ring oscillator with an even number of inverters",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Relies on an LFSR always initialized with all zeros.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Is a static watermarking technique",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 23,
+      "question": "FSM watermarking:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Exploits free inputs to generate extra transitions.",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "Cannot be applied to states.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Is a static watermarking technique.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Does not require any input pattern to be observed",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 24,
+      "question": "Which of the following methods can detect hardware Trojans?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Side-channel analysis",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "Signature-based detection",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Sandboxing",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Patch management",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 25,
+      "question": "When designing a Random Number Generator, which of the following randomness sources is the WORST choice:",
+      "options": [
+        {
+          "label": "A",
+          "text": "The variations in hardware resource usage (e.g., CPU, RAM) due to the scheduling of processes.",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "The movement of the mouse while using a PC, combined with time.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Keyboard strokes combined with time.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Physical phenomena such as the noise a resistor produces, properly amplified and sampled.",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 26,
+      "question": "Which type of Root of Trust is embedded in hardware and difficult to tamper with?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Hardware Root of Trust",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "Software Root of Trust",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Network Root of Trust",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Virtual Root of Trust",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 27,
+      "question": "What is a PUF?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A PUF is a physical characteristic of a device that is unique and difficult to replicate, used for secure identification and authentication.",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "A PUF is a programmable microcontroller used in embedded systems for real-time processing",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "A PUF is a type of software algorithm designed to enhance data encryption",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "A PUF is a firmware update protocol used to enhance the functionality of hardware devices",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 28,
+      "question": "What can I achieve with Simple Power Analysis?",
+      "options": [
+        {
+          "label": "A",
+          "text": "I can correlate the power consumption of a device with the data it handles, allowing me to retrieve confidential information (such as the secret keys used during an AES encryption).",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "I can correlate a device's power consumption with its operations, allowing me to perform some basic form of dynamic reverse engineering.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "I can correlate a device's power consumption with its data storage locations, allowing me to retrieve confidential information in specific cases (as with some implementations of the RSA algorithm).",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "None of the above is correct.",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 31,
+      "question": "In which of the following scenarios is the use of Oblivious RAM (ORAM) particularly beneficial",
+      "options": [
+        {
+          "label": "A",
+          "text": "Enhancing privacy in cloud storage by concealing data access patterns",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "Improving the speed of data retrival in high-performance computing environments",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Increasing the efficency and organization of distributed storage systems",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Managing memory allocation to optimize virtual machine performance",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 32,
+      "question": "What is a primary benefit of using a Trusted Execution Environment (TEE)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Enhanced security for sensitive operations and data",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "Isolate processes for system performance",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Isolate and encrypt process data",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Lower the chanses of privilage escalation",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 33,
+      "question": "Which of the following is typically considered a component of Root of Trust?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Trusted Platform Module (TPM)",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "Central Processing Unit (CPU)",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Random Access Memory (RAM)",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Graphic Processing Unit (GPU)",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 34,
+      "question": "What is a hadrware Trojan?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A hardware Trojan is a malicious modification of the circuitry of an integrated circuit intended to cause harm or allow unauthorized access",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "A hardware Trojan is a type of computer virus that infects the software of a computer system",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "A hardware Trojan is a secure hardware module designed to protect computer systems from malware",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "A hardware Trojan is a software program used to test the reliability of computer hardware components",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 35,
+      "question": "What is a block cipher?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A method of encrypting data in fixed-size blocks",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "A method of encrypting data one bit at a time",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "A public-key encryption algorithm",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "A hashing algorithm",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 37,
+      "question": "Select the correct option describing how the process of a digital signature works:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Alice encrypts the message M with her private key so that ciphertext C = enc(M, Kpriv). Then Alice sends C to Bob. Bob decrypts C using Alice's public key. Suppose the message M is the one that Bob was expecting. In that case, it means the authenticity and integrity of the message are guaranteed.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "B",
+          "text": "None.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Alice computes the hash value h of the message M, h = H(M). Then Alice encrypts the hash value h with her private key (S = enc(h, Kpriv)) and sends M || S to Bob. Bob computes the hash value h’ of the message M using the algorithm Alice used (h’ = H(M)). Then Bob decrypts the signature S using Alice’s public key, obtaining h. If h == h’, then the signature is valid.",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "D",
+          "text": "Alice computes the hash value h of the message M, h = H(M). Then Alice encrypts the hash value h with Bob's public key (S = enc(h, Kpub)) and sends M || S to Bob. Bob decrypts S using his private key and compares it with the hash of M.",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "C",
+      "correctAnswers": [
+        "C"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 38,
+      "question": "Which of the following methods can detect hardware Trojans?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Signature-based detection",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "B",
+          "text": "Side-channel analysis",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "C",
+          "text": "Sandboxing",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Patch management",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "B",
+      "correctAnswers": [
+        "B"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 39,
+      "question": "Select the appropriate statement(s) about Random Number Generators:",
+      "options": [
+        {
+          "label": "A",
+          "text": "PRNGs exhibit periodic patterns that, despite being long, reduce the randomness of the RNG itself.",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "When available and not unusable (e.g., not too slow, not too computationally heavy, etc.), a TRNG is equivalent to a PRNG.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "PRNGs are faster and more efficient than TRNGs.",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "D",
+          "text": "TRNGs require the user to provide an initial seed to start the algorithm.",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "totalCorrect": 2
+    },
+    {
+      "number": 40,
+      "question": "What is the primary security impact of a successful Row Hammer attack?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It causes bit flips in memory, potentially leading to data corruption or unauthorized access.",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "It allows for encryption of memory contents.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "It increases the speed of data retrieval from memory.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "It prevents unauthorized memory access.",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 41,
+      "question": "Why are Silicon PUFs considered secure?",
+      "options": [
+        {
+          "label": "A",
+          "text": "They are based on the inherent physical characteristics of silicon, making them unique and difficult to replicate",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "They are based on the physical characteristics of silicon, tunable to be unique and difficult to replicate",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "They are one-way functions based on cryptographic algorithms",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "They are hidden in the physical chip",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 42,
+      "question": "Which of the following explains the correct usage of Simple Power Analysis (SPA)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "SPA is the analysis of electromagnetic radiation to enable MITM attacks.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "B",
+          "text": "SPA captures multiple power traces to deduce cryptographic secrets.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "SPA involves injecting faults and analyzing power to uncover operations.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "SPA captures a single power trace to analyze instruction flow and infer secrets.",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "D",
+      "correctAnswers": [
+        "D"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 43,
+      "question": "Which of the following is a key feature of TPM architecture?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Advanced",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "B",
+          "text": "Large secure storage",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "High-speed data processing",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Secure generation and storage of cryptographic keys",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "D",
+      "correctAnswers": [
+        "D"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 44,
+      "question": "Which threat is TEE particularly designed to protect against?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Malware and unauthorized access",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "Signal interference",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Physical theft of the device",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Data confidentiality",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 45,
+      "question": "How does a TPM usually contribute to the security of a device?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It verifies the authenticity of hardware/software configuration to enforce system trust.",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "B",
+          "text": "It monitors threats in real-time (processes, network, etc.).",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "It manages access control for encrypted resources and peripherals.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "None of the above. TPM stands for “Trusted Password Management”.",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "A",
+      "correctAnswers": [
+        "A"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 46,
+      "question": "What is a primary characteristic of a Strong PUF?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Simple design and implementation",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "B",
+          "text": "Resistance to physical tampering",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Low power consumption",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Large number of challenge-response pairs",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "D",
+      "correctAnswers": [
+        "D"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 47,
+      "question": "Which component is primarily targeted in a Row Hammer attack?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Hard disk sectors",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "B",
+          "text": "DRAM memory cells",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "C",
+          "text": "CPU cache",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Network interface cards",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "B",
+      "correctAnswers": [
+        "B"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 48,
+      "question": "Which mode of operation for block ciphers ensures that identical plaintext blocks produce different ciphertext blocks?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Electronic Codebook (ECB)",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "B",
+          "text": "Cipher Block Chaining (CBC)",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "C",
+          "text": "Output Feedback (OFB)",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "Counter (CTR)",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "B",
+      "correctAnswers": [
+        "B"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 49,
+      "question": "What is a CSW?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A feature that secures system performance",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "B",
+          "text": "An intentional backdoor in the system",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "A flaw or vulnerability that can be exploited to compromise security",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "D",
+          "text": "An encrypted communication channel",
+          "isCorrect": false,
+          "rationale": ""
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "C",
+      "correctAnswers": [
+        "C"
+      ],
+      "totalCorrect": 1
+    },
+    {
+      "number": 50,
+      "question": "Select the appropriate statements about the differences between symmetric and asymmetric cryptography:",
+      "options": [
+        {
+          "label": "A",
+          "text": "One technique is inherently more secure, independent of algorithm, implementation, or key quality.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "B",
+          "text": "Asymmetric cryptography is harder to use due to key agreement.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "C",
+          "text": "Both types do not require intermediate actors like CAs.",
+          "isCorrect": false,
+          "rationale": ""
+        },
+        {
+          "label": "D",
+          "text": "For large plaintexts (e.g., 2 GB), use asymmetric for confidentiality and symmetric for other properties.",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        },
+        {
+          "label": "E",
+          "text": "Asymmetric cryptography needs fewer keys when many actors are involved.",
+          "isCorrect": true,
+          "rationale": "Marked as correct with an emoji in the Markdown source."
+        }
+      ],
+      "hint": "Imported from ces_quiz (2).md; correct answer(s) were marked with an emoji.",
+      "source": "CES Markdown Quiz",
+      "correctAnswer": "D",
+      "correctAnswers": [
+        "D",
+        "E"
+      ],
+      "totalCorrect": 2
+    }
+  ]
+}
